@@ -819,45 +819,142 @@ export default function PgrsPage() {
 
             {/* Right Information Column */}
             <Grid size={{ xs: 12, md: 4.5 }}>
+              {/* Modern Glassmorphism Collectorate Advisory Card */}
               <Paper
                 elevation={0}
                 sx={{
-                  bgcolor: "#082B50",
-                  color: "#FFFFFF",
+                  bgcolor: "#FFFFFF",
+                  border: "1.5px solid #E2E8F0",
                   borderRadius: 2.75,
-                  p: { xs: 2.5, sm: 3 },
+                  p: { xs: 2.25, sm: 2.75 },
                   mb: 2.5,
+                  position: "relative",
+                  overflow: "hidden",
+                  boxShadow: "0 10px 25px -5px rgba(8, 43, 80, 0.06)",
+                  transition: "all 0.25s ease",
+                  "&:hover": {
+                    borderColor: "#CBD5E1",
+                    boxShadow: "0 14px 30px -6px rgba(8, 43, 80, 0.1)",
+                  },
                 }}
               >
-                <Typography sx={{ color: "#F5B800", fontSize: "0.72rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em", mb: 0.5 }}>
-                  COLLECTORATE ADVISORY
-                </Typography>
-                <Typography sx={{ color: "#FFFFFF", fontSize: "1.1rem", fontWeight: 900, mb: 1 }}>
-                  Zero-Fee Redressal Guarantee
-                </Typography>
-                <Typography sx={{ color: "rgba(255, 255, 255, 0.8)", fontSize: "0.78rem", lineHeight: 1.55, mb: 2 }}>
-                  Filing a grievance under Spandana / PGRS is 100% free of cost across all channels (Toll-Free 1902, Sachivalayam, MeeSeva, or Collectorate). Never pay fees or intermediaries to register a petition.
+                {/* Top Subtle Amber-Gold Accent Strip */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    background: "linear-gradient(90deg, #D97706 0%, #F5B800 60%, #082B50 100%)",
+                  }}
+                />
+
+                <Stack direction="row" alignItems="center" spacing={1.25} sx={{ mb: 1.5, mt: 0.5 }}>
+                  <Box
+                    sx={{
+                      width: 38,
+                      height: 38,
+                      borderRadius: 2,
+                      bgcolor: "#FEF3C7",
+                      color: "#B45309",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      border: "1px solid rgba(245, 184, 0, 0.4)",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <FactCheckRoundedIcon sx={{ fontSize: 20 }} />
+                  </Box>
+                  <Box>
+                    <Typography
+                      sx={{
+                        color: "#B45309",
+                        fontSize: "0.68rem",
+                        fontWeight: 800,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        lineHeight: 1.1,
+                      }}
+                    >
+                      COLLECTORATE ADVISORY
+                    </Typography>
+                    <Typography sx={{ color: "#082B50", fontSize: "1.05rem", fontWeight: 900, lineHeight: 1.2 }}>
+                      Zero-Fee Redressal Guarantee
+                    </Typography>
+                  </Box>
+                </Stack>
+
+                <Typography
+                  sx={{
+                    color: "#475569",
+                    fontSize: "0.78rem",
+                    lineHeight: 1.55,
+                    mb: 2,
+                    p: 1.25,
+                    bgcolor: "#F8FAFC",
+                    borderRadius: 1.75,
+                    border: "1px solid #E2E8F0",
+                  }}
+                >
+                  Filing a grievance under Spandana / PGRS is <strong>100% free of cost</strong> across all channels (Toll-Free 1902, Sachivalayam, MeeSeva, or Collectorate). Never pay fees or intermediaries to register a petition.
                 </Typography>
 
-                <Stack spacing={1} sx={{ pt: 1.5, borderTop: "1px solid rgba(255, 255, 255, 0.12)" }}>
-                  <Stack direction="row" spacing={1} alignItems="flex-start">
-                    <CheckCircleRoundedIcon sx={{ fontSize: 15, color: "#F5B800", mt: 0.2 }} />
-                    <Typography sx={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "0.74rem", fontWeight: 600 }}>
+                <Stack spacing={1} sx={{ pt: 1, borderTop: "1px solid #F1F5F9" }}>
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      bgcolor: "#FFFFFF",
+                      border: "1px solid #E2E8F0",
+                      borderRadius: 1.75,
+                      p: 1.1,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1.1,
+                    }}
+                  >
+                    <CheckCircleRoundedIcon sx={{ fontSize: 16, color: "#16A34A", flexShrink: 0 }} />
+                    <Typography sx={{ color: "#1E293B", fontSize: "0.74rem", fontWeight: 650 }}>
                       Every petition receives a statutory 7–15 day SLA.
                     </Typography>
-                  </Stack>
-                  <Stack direction="row" spacing={1} alignItems="flex-start">
-                    <CheckCircleRoundedIcon sx={{ fontSize: 15, color: "#F5B800", mt: 0.2 }} />
-                    <Typography sx={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "0.74rem", fontWeight: 600 }}>
+                  </Paper>
+
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      bgcolor: "#FFFFFF",
+                      border: "1px solid #E2E8F0",
+                      borderRadius: 1.75,
+                      p: 1.1,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1.1,
+                    }}
+                  >
+                    <CheckCircleRoundedIcon sx={{ fontSize: 16, color: "#16A34A", flexShrink: 0 }} />
+                    <Typography sx={{ color: "#1E293B", fontSize: "0.74rem", fontWeight: 650 }}>
                       Weekly monitoring directly reviewed by District Collector.
                     </Typography>
-                  </Stack>
-                  <Stack direction="row" spacing={1} alignItems="flex-start">
-                    <CheckCircleRoundedIcon sx={{ fontSize: 15, color: "#F5B800", mt: 0.2 }} />
-                    <Typography sx={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "0.74rem", fontWeight: 600 }}>
+                  </Paper>
+
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      bgcolor: "#FFFFFF",
+                      border: "1px solid #E2E8F0",
+                      borderRadius: 1.75,
+                      p: 1.1,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1.1,
+                    }}
+                  >
+                    <CheckCircleRoundedIcon sx={{ fontSize: 16, color: "#16A34A", flexShrink: 0 }} />
+                    <Typography sx={{ color: "#1E293B", fontSize: "0.74rem", fontWeight: 650 }}>
                       Citizen satisfaction verification call prior to closure.
                     </Typography>
-                  </Stack>
+                  </Paper>
                 </Stack>
               </Paper>
 
