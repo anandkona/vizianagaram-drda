@@ -10,125 +10,44 @@ import {
   Paper,
   Button,
   Stack,
-  TextField,
-  InputAdornment,
   Chip,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   Breadcrumbs,
 } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import AccountTreeRoundedIcon from "@mui/icons-material/AccountTreeRounded";
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
-import LocationCityRoundedIcon from "@mui/icons-material/LocationCityRounded";
-import HomeWorkRoundedIcon from "@mui/icons-material/HomeWorkRounded";
-import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
-import MapRoundedIcon from "@mui/icons-material/MapRounded";
-import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
-import VerifiedUserRoundedIcon from "@mui/icons-material/VerifiedUserRounded";
 import HubRoundedIcon from "@mui/icons-material/HubRounded";
-import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
-
-// Authentic Revenue Divisions & Mandals from https://vizianagaram.ap.gov.in/
-const REVENUE_DIVISIONS = [
-  {
-    id: "all",
-    name: "All Divisions",
-    mandalsCount: 27,
-    villagesCount: 982,
-    headquarters: "Vizianagaram",
-  },
-  {
-    id: "vizianagaram",
-    name: "Vizianagaram Revenue Division",
-    mandalsCount: 11,
-    villagesCount: 326,
-    headquarters: "Vizianagaram City",
-    officer: "Revenue Divisional Officer (RDO), Vizianagaram",
-    contact: "08922-276380",
-    mandals: [
-      { name: "Vizianagaram (Urban & Rural)", telugu: "విజయనగరం", villages: 15, hq: "Vizianagaram", type: "City & Mandal" },
-      { name: "Gantyada", telugu: "గంట్యాడ", villages: 45, hq: "Gantyada", type: "Rural Mandal" },
-      { name: "Pusapatirega", telugu: "పూసపాటిరేగ", villages: 37, hq: "Pusapatirega", type: "Coastal Mandal" },
-      { name: "Denkada", telugu: "డెంకాడ", villages: 27, hq: "Denkada", type: "Rural Mandal" },
-      { name: "Bhogapuram", telugu: "భోగాపురం", villages: 21, hq: "Bhogapuram", type: "Airport & Coastal Corridor" },
-      { name: "Srungavarapukota (S.Kota)", telugu: "శృంగవరపుకోట", villages: 40, hq: "S.Kota", type: "Valley & Hills" },
-      { name: "Jami", telugu: "జామి", villages: 28, hq: "Jami", type: "Rural Mandal" },
-      { name: "Vepada", telugu: "వేపాడ", villages: 39, hq: "Vepada", type: "Rural Mandal" },
-      { name: "Lakkavarapukota (L.Kota)", telugu: "లక్కవరపుకోట", villages: 32, hq: "L.Kota", type: "Rural Mandal" },
-      { name: "Kothavalasa", telugu: "కొత్తవలస", villages: 26, hq: "Kothavalasa", type: "Industrial Hub" },
-      { name: "Nellimarla", telugu: "నెల్లిమర్ల", villages: 31, hq: "Nellimarla", type: "Semi-Urban Mandal" },
-    ],
-  },
-  {
-    id: "cheepurupalli",
-    name: "Cheepurupalli Revenue Division",
-    mandalsCount: 8,
-    villagesCount: 310,
-    headquarters: "Cheepurupalli",
-    officer: "Revenue Divisional Officer (RDO), Cheepurupalli",
-    contact: "08952-243222",
-    mandals: [
-      { name: "Cheepurupalli", telugu: "చీపురుపల్లి", villages: 31, hq: "Cheepurupalli", type: "Mandal & Division HQ" },
-      { name: "Garividi", telugu: "గరివిడి", villages: 34, hq: "Garividi", type: "Manganese & Ferro Alloys" },
-      { name: "Gurla", telugu: "గుర్ల", villages: 39, hq: "Gurla", type: "Agriculture Cluster" },
-      { name: "Merakamudidam", telugu: "మెరకముడిదం", villages: 41, hq: "Merakamudidam", type: "Rural Mandal" },
-      { name: "Rajam", telugu: "రాజాం", villages: 26, hq: "Rajam", type: "Industrial & Textile Hub" },
-      { name: "Vangara", telugu: "వంగర", villages: 37, hq: "Vangara", type: "Rural River Basin" },
-      { name: "Regidi Amadalavalasa", telugu: "రేగిడి ఆమదాలవలస", villages: 51, hq: "Regidi", type: "Paddy & Sugarcane" },
-      { name: "Santhakaviti", telugu: "సంతకవిటి", villages: 51, hq: "Santhakaviti", type: "Agriculture Cluster" },
-    ],
-  },
-  {
-    id: "bobbili",
-    name: "Bobbili Revenue Division",
-    mandalsCount: 8,
-    villagesCount: 346,
-    headquarters: "Bobbili",
-    officer: "Revenue Divisional Officer (RDO), Bobbili",
-    contact: "08944-255340",
-    mandals: [
-      { name: "Bobbili", telugu: "బొబ్బిలి", villages: 42, hq: "Bobbili", type: "Historic Fort & Division HQ" },
-      { name: "Ramabhadrapuram", telugu: "రామభద్రపురం", villages: 32, hq: "Ramabhadrapuram", type: "Agriculture Junction" },
-      { name: "Badangi", telugu: "బాడాంగి", villages: 29, hq: "Badangi", type: "Rural Mandal" },
-      { name: "Therlam", telugu: "తెర్లాం", villages: 50, hq: "Therlam", type: "Rural Mandal" },
-      { name: "Mentada", telugu: "మెంటాడ", villages: 37, hq: "Mentada", type: "Forest Border Mandal" },
-      { name: "Gajapathinagaram", telugu: "గజపతినగరం", villages: 35, hq: "Gajapathinagaram", type: "Trading & Commercial" },
-      { name: "Dattirajeru", telugu: "దత్తిరాజేరు", villages: 46, hq: "Dattirajeru", type: "Rural Mandal" },
-      { name: "Bondapalli", telugu: "బొండపల్లి", villages: 33, hq: "Bondapalli", type: "Agriculture Mandal" },
-    ],
-  },
-];
-
-// All Mandals flattened for universal search
-const ALL_MANDALS = [
-  ...(REVENUE_DIVISIONS[1]?.mandals || []).map((m) => ({ ...m, division: "Vizianagaram" })),
-  ...(REVENUE_DIVISIONS[2]?.mandals || []).map((m) => ({ ...m, division: "Cheepurupalli" })),
-  ...(REVENUE_DIVISIONS[3]?.mandals || []).map((m) => ({ ...m, division: "Bobbili" })),
-];
+import BusinessRoundedIcon from "@mui/icons-material/BusinessRounded";
+import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
+import LocationCityRoundedIcon from "@mui/icons-material/LocationCityRounded";
+import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
+import GavelRoundedIcon from "@mui/icons-material/GavelRounded";
+import ShieldRoundedIcon from "@mui/icons-material/ShieldRounded";
+import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
+import TerrainRoundedIcon from "@mui/icons-material/TerrainRounded";
+import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
+import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
+import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
 
 export default function OrgStructurePage() {
-  const [selectedDivision, setSelectedDivision] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [activeTab, setActiveTab] = useState<"collectorate" | "drda">("collectorate");
 
-  const filteredMandals = ALL_MANDALS.filter((mandal) => {
-    const matchesDiv = selectedDivision === "all" || mandal.division.toLowerCase() === selectedDivision.toLowerCase();
-    const matchesQuery =
-      mandal.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      mandal.telugu.includes(searchQuery) ||
-      mandal.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      mandal.division.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesDiv && matchesQuery;
-  });
+  // 8 Official Collectorate Sections from https://vizianagaram.ap.gov.in/administrative-setup/
+  const collectorateSections = [
+    { section: "Section A", title: "Establishment & Office Procedures", desc: "Service matters, staff establishment, ministerial cadre transfers, and office logistics.", icon: <AssignmentRoundedIcon sx={{ color: "#D97706", fontSize: 22 }} /> },
+    { section: "Section B", title: "Accounts & Audit", desc: "Budget allocations, treasury reconciliation, departmental disbursements, and CAG audit compliance.", icon: <MonetizationOnRoundedIcon sx={{ color: "#059669", fontSize: 22 }} /> },
+    { section: "Section C", title: "Magisterial & Legal Affairs", desc: "Court matters, law & order oversight, statutory magisterial inquiries, and arms license administration.", icon: <GavelRoundedIcon sx={{ color: "#2563EB", fontSize: 22 }} /> },
+    { section: "Section D", title: "Land Revenue & Relief", desc: "Collection of land cess, irrigation revenue, disaster relief allocations, and drought/cyclone management.", icon: <TerrainRoundedIcon sx={{ color: "#DC2626", fontSize: 22 }} /> },
+    { section: "Section E", title: "Land Administration", desc: "Government land inventories, assignment to landless poor, alienation, and patta distribution.", icon: <AccountBalanceRoundedIcon sx={{ color: "#7C3AED", fontSize: 22 }} /> },
+    { section: "Section F", title: "Land Reforms & Tenancy", desc: "Implementation of agricultural land ceilings, tenancy protections, and inam settlement records.", icon: <ShieldRoundedIcon sx={{ color: "#0891B2", fontSize: 22 }} /> },
+    { section: "Section G", title: "Land Acquisition", desc: "Acquisition of private land for public infrastructure (Bhogapuram Airport, National Highways, irrigation).", icon: <LocationCityRoundedIcon sx={{ color: "#EA580C", fontSize: 22 }} /> },
+    { section: "Section H", title: "Protocol, Elections & Grievances", desc: "VVIP protocol, general/Panchayat elections management, PGRS public grievance monitoring.", icon: <GroupsRoundedIcon sx={{ color: "#4F46E5", fontSize: 22 }} /> },
+  ];
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "#FAFAFA", fontFamily: "'Inter', sans-serif" }}>
-      {/* 1. EDITORIAL TOP HERO SECTION (MATCHING SCHEMES/WOMEN & ABOUT/DISTRICT EXACTLY) */}
+      {/* 1. EDITORIAL TOP HERO SECTION (MATCHING /schemes/women & /about/district EXACTLY) */}
       <Box
         sx={{
           position: "relative",
@@ -213,7 +132,7 @@ export default function OrgStructurePage() {
                   mb: 0.8,
                 }}
               >
-                DISTRICT GOVERNANCE & ADMINISTRATIVE DIVISIONS
+                GOVERNANCE FRAMEWORK &amp; ORGANISATIONAL STRUCTURE
               </Typography>
 
               <Typography
@@ -240,7 +159,7 @@ export default function OrgStructurePage() {
                   fontFamily: "'Segoe UI', 'Noto Sans Telugu', sans-serif",
                 }}
               >
-                విజయనగరం జిల్లా రెవెన్యూ డివిజన్లు, మండలాలు &amp; గ్రామాల వివరాలు
+                కలెక్టరేట్ పాలనా విభాగాలు, శాఖల బాధ్యతలు &amp; వ్యవస్థాగత నిర్మాణం
               </Typography>
 
               <Typography
@@ -253,15 +172,17 @@ export default function OrgStructurePage() {
                   mb: 3,
                 }}
               >
-                The administrative structure of Vizianagaram district consists of 3 Revenue Divisions (Vizianagaram, Cheepurupalli, Bobbili), 27 Mandals, and 982 Revenue Villages governed by transparent, decentralized public administration.
+                Official administrative structure of Vizianagaram district under the Government of Andhra Pradesh. Headed by the District Collector &amp; Magistrate, assisted by the Joint Collector, Superintendent of Police, District Revenue Officer, and 8 specialized Collectorate functional sections.
               </Typography>
 
               {/* Action Buttons */}
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5 }}>
                 <Button
-                  component={Link}
-                  href="/map"
-                  startIcon={<MapRoundedIcon sx={{ fontSize: 18 }} />}
+                  component="a"
+                  href="https://vizianagaram.ap.gov.in/administrative-setup/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  endIcon={<OpenInNewRoundedIcon sx={{ fontSize: 16 }} />}
                   sx={{
                     bgcolor: "#F5B800",
                     color: "#082B50",
@@ -279,15 +200,13 @@ export default function OrgStructurePage() {
                     },
                   }}
                 >
-                  Interactive GIS Map
+                  Official AP Portal Source
                 </Button>
 
                 <Button
-                  component="a"
-                  href="https://vizianagaram.ap.gov.in/administrative-setup/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  endIcon={<OpenInNewRoundedIcon sx={{ fontSize: 16 }} />}
+                  component={Link}
+                  href="/about/whos-who"
+                  endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />}
                   sx={{
                     bgcolor: "#FFFFFF",
                     border: "1.5px solid #CBD5E1",
@@ -304,7 +223,7 @@ export default function OrgStructurePage() {
                     },
                   }}
                 >
-                  Official District Portal
+                  Key Officials Directory
                 </Button>
               </Box>
             </Grid>
@@ -352,7 +271,7 @@ export default function OrgStructurePage() {
                 >
                   <AccountBalanceRoundedIcon sx={{ fontSize: 16, color: "#F5B800" }} />
                   <Typography sx={{ color: "#FFFFFF", fontSize: "0.72rem", fontWeight: 700 }}>
-                    District Collectorate &amp; Administrative Complex
+                    Collectorate &amp; District Administration Headquarters
                   </Typography>
                 </Box>
               </Box>
@@ -375,10 +294,10 @@ export default function OrgStructurePage() {
           >
             <Grid container spacing={{ xs: 2, sm: 2.5 }} alignItems="center">
               {[
-                { value: "3", label: "Revenue Divisions", icon: <AccountBalanceRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
-                { value: "27", label: "Mandals", icon: <LocationCityRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
-                { value: "982", label: "Revenue Villages", icon: <HomeWorkRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
-                { value: "777", label: "Gram Panchayats", icon: <GroupsRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
+                { value: "8 Sections", label: "Collectorate Wings (A to H)", icon: <AssignmentRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
+                { value: "3 Divisions", label: "Revenue Divisions", icon: <AccountBalanceRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
+                { value: "27 Mandals", label: "Tahsildar Jurisdictions", icon: <LocationCityRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
+                { value: "982 Villages", label: "Decentralized Secretariats", icon: <GroupsRoundedIcon sx={{ color: "#F59E0B", fontSize: 24 }} /> },
               ].map((fact, idx) => (
                 <Grid size={{ xs: 6, sm: 6, md: 3 }} key={idx}>
                   <Box
@@ -428,331 +347,406 @@ export default function OrgStructurePage() {
         </Container>
       </Box>
 
-      {/* 3. REVENUE DIVISION CARDS OVERVIEW */}
-      <Box sx={{ py: 3, bgcolor: "#FFFFFF", borderBottom: "1px solid #E2E8F0" }}>
+      {/* 3. VIEW TOGGLE BAR */}
+      <Box sx={{ py: 2.5, bgcolor: "#FFFFFF", borderBottom: "1px solid #E2E8F0" }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            alignItems={{ xs: "stretch", md: "center" }}
-            justifyContent="space-between"
-            spacing={2}
-            sx={{ mb: 2.5 }}
-          >
+          <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems="center" spacing={2}>
             <Box>
               <Typography sx={{ color: "#D97706", fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                DECENTRALIZED ADMINISTRATION
+                ORGANISATIONAL ARCHITECTURE
               </Typography>
               <Typography sx={{ color: "#082B50", fontSize: { xs: "1.35rem", sm: "1.65rem" }, fontWeight: 900 }}>
-                Revenue Divisions of Vizianagaram
+                {activeTab === "collectorate" ? "District Collectorate Functional Wings" : "DRDA Agency Hierarchical Tree"}
               </Typography>
             </Box>
 
-            {/* Search Input */}
-            <TextField
-              size="small"
-              placeholder="Search mandal, division, or Telugu name..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchRoundedIcon sx={{ color: "#94A3B8", fontSize: 18 }} />
-                    </InputAdornment>
-                  ),
-                },
-              }}
-              sx={{
-                width: { xs: "100%", md: 380 },
-                "& .MuiOutlinedInput-root": {
+            <Stack direction="row" spacing={1}>
+              <Button
+                onClick={() => setActiveTab("collectorate")}
+                sx={{
                   borderRadius: "100px",
-                  bgcolor: "#F8FAFC",
+                  px: 2.5,
+                  py: 0.8,
                   fontSize: "0.82rem",
-                  "&:hover fieldset": { borderColor: "#082B50" },
-                  "&.Mui-focused fieldset": { borderColor: "#082B50" },
-                },
-              }}
-            />
+                  fontWeight: 800,
+                  textTransform: "none",
+                  border: activeTab === "collectorate" ? "1.5px solid #082B50" : "1px solid #CBD5E1",
+                  bgcolor: activeTab === "collectorate" ? "#082B50" : "#FFFFFF",
+                  color: activeTab === "collectorate" ? "#FFFFFF !important" : "#334155",
+                  boxShadow: activeTab === "collectorate" ? "0 4px 12px rgba(8, 43, 80, 0.2)" : "none",
+                }}
+              >
+                Collectorate 8 Sections
+              </Button>
+              <Button
+                onClick={() => setActiveTab("drda")}
+                sx={{
+                  borderRadius: "100px",
+                  px: 2.5,
+                  py: 0.8,
+                  fontSize: "0.82rem",
+                  fontWeight: 800,
+                  textTransform: "none",
+                  border: activeTab === "drda" ? "1.5px solid #082B50" : "1px solid #CBD5E1",
+                  bgcolor: activeTab === "drda" ? "#082B50" : "#FFFFFF",
+                  color: activeTab === "drda" ? "#FFFFFF !important" : "#334155",
+                  boxShadow: activeTab === "drda" ? "0 4px 12px rgba(8, 43, 80, 0.2)" : "none",
+                }}
+              >
+                DRDA Hierarchy Tree
+              </Button>
+            </Stack>
           </Stack>
-
-          {/* Division Selector Filter Pills */}
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-            {REVENUE_DIVISIONS.map((div) => {
-              const isSelected = selectedDivision === div.id;
-              return (
-                <Button
-                  key={div.id}
-                  onClick={() => setSelectedDivision(div.id)}
-                  sx={{
-                    borderRadius: "100px",
-                    px: 2.2,
-                    py: 0.7,
-                    fontSize: "0.78rem",
-                    fontWeight: 750,
-                    textTransform: "none",
-                    border: isSelected ? "1.5px solid #082B50" : "1px solid #CBD5E1",
-                    bgcolor: isSelected ? "#082B50" : "#FFFFFF",
-                    color: isSelected ? "#FFFFFF !important" : "#334155",
-                    boxShadow: isSelected ? "0 4px 12px rgba(8, 43, 80, 0.2)" : "none",
-                    "&:hover": {
-                      bgcolor: isSelected ? "#0F3A66" : "#F8FAFC",
-                      borderColor: "#082B50",
-                    },
-                  }}
-                >
-                  {div.name}
-                  <Chip
-                    label={`${div.mandalsCount} Mandals`}
-                    size="small"
-                    sx={{
-                      ml: 0.8,
-                      height: 18,
-                      fontSize: "0.62rem",
-                      fontWeight: 800,
-                      bgcolor: isSelected ? "rgba(255,255,255,0.2)" : "#E2E8F0",
-                      color: isSelected ? "#FFFFFF" : "#475569",
-                    }}
-                  />
-                </Button>
-              );
-            })}
-          </Box>
         </Container>
       </Box>
 
-      {/* 4. MANDALS TABLE WITH DETAILED DIRECTORY DATA */}
-      <Box sx={{ py: { xs: 3.5, sm: 4.5 } }}>
+      {/* 4. MAIN CONTENT AREA */}
+      <Box sx={{ py: { xs: 4, sm: 5 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
-          {filteredMandals.length === 0 ? (
-            <Paper sx={{ p: 4, textAlign: "center", borderRadius: "16px", bgcolor: "#FFFFFF", border: "1px dashed #CBD5E1" }}>
-              <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "1.05rem", mb: 0.5 }}>
-                No mandal matching &quot;{searchQuery}&quot;
+          {activeTab === "collectorate" ? (
+            /* TAB 1: 8 OFFICIAL COLLECTORATE SECTIONS (Exact vizianagaram.ap.gov.in content) */
+            <Box>
+              {/* Executive Tier Cards */}
+              <Typography sx={{ color: "#D97706", fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", mb: 0.5 }}>
+                EXECUTIVE GOVERNANCE HEADS
               </Typography>
-              <Button
-                size="small"
-                onClick={() => setSearchQuery("")}
-                sx={{
-                  bgcolor: "#082B50 !important",
-                  color: "#FFFFFF !important",
-                  borderRadius: "100px",
-                  px: 2.5,
-                  fontSize: "0.78rem",
-                  fontWeight: 700,
-                  textTransform: "none",
-                  mt: 1,
-                }}
-              >
-                Clear Search
-              </Button>
-            </Paper>
-          ) : (
-            <TableContainer
-              component={Paper}
-              elevation={0}
-              sx={{
-                maxHeight: 600,
-                border: "1px solid #E2E8F0",
-                borderRadius: "20px",
-                overflow: "auto",
-                bgcolor: "#FFFFFF",
-                boxShadow: "0 4px 16px rgba(8, 43, 80, 0.04)",
-                "&::-webkit-scrollbar": { width: 8, height: 8 },
-                "&::-webkit-scrollbar-thumb": { bgcolor: "#CBD5E1", borderRadius: 4 },
-              }}
-            >
-              <Table stickyHeader>
-                <TableHead>
-                  <TableRow>
-                    <TableCell sx={{ bgcolor: "#082B50", color: "#FFFFFF", fontWeight: 800, fontSize: "0.82rem", py: 1.8 }}>
-                      Mandal Name &amp; Telugu Title
-                    </TableCell>
-                    <TableCell sx={{ bgcolor: "#082B50", color: "#FFFFFF", fontWeight: 800, fontSize: "0.82rem", py: 1.8 }}>
-                      Revenue Division
-                    </TableCell>
-                    <TableCell sx={{ bgcolor: "#082B50", color: "#FFFFFF", fontWeight: 800, fontSize: "0.82rem", py: 1.8 }}>
-                      Revenue Villages
-                    </TableCell>
-                    <TableCell sx={{ bgcolor: "#082B50", color: "#FFFFFF", fontWeight: 800, fontSize: "0.82rem", py: 1.8 }}>
-                      Administrative Classification
-                    </TableCell>
-                    <TableCell align="right" sx={{ bgcolor: "#082B50", color: "#FFFFFF", fontWeight: 800, fontSize: "0.82rem", py: 1.8 }}>
-                      Action
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {filteredMandals.map((mandal) => (
-                    <TableRow
-                      key={mandal.name}
-                      hover
+              <Typography sx={{ color: "#082B50", fontSize: { xs: "1.3rem", sm: "1.55rem" }, fontWeight: 900, mb: 3 }}>
+                District Administrative Officers
+              </Typography>
+
+              <Grid container spacing={2.5} sx={{ mb: 6 }}>
+                {[
+                  {
+                    role: "HEAD OF DISTRICT ADMINISTRATION",
+                    title: "District Collector & District Magistrate (IAS)",
+                    name: "Sri S. Ram Sundar Reddy, I.A.S.",
+                    desc: "Statutory head of district governance, planning, law and order, general elections, and disaster relief.",
+                    accent: "#082B50",
+                    bg: "#E2E8F0",
+                  },
+                  {
+                    role: "REVENUE & DEVELOPMENT",
+                    title: "Joint Collector & Addl. District Magistrate (IAS)",
+                    name: "Sri Sedhu Madhavan S, I.A.S.",
+                    desc: "Revenue court enactments, civil supplies oversight, land administration, mines & minerals, and welfare delivery.",
+                    accent: "#2563EB",
+                    bg: "#EFF6FF",
+                  },
+                  {
+                    role: "LAW & ORDER",
+                    title: "Superintendent of Police (IPS)",
+                    name: "Sri A. R. Damodhar, IPS",
+                    desc: "Commanding the district police force, civic peace, law enforcement, traffic management, and citizen safety.",
+                    accent: "#059669",
+                    bg: "#ECFDF5",
+                  },
+                  {
+                    role: "COLLECTORATE GENERAL ADMIN",
+                    title: "District Revenue Officer (DRO)",
+                    name: "Sri Ch. Sattibabu",
+                    desc: "Special Grade Deputy Collector supervising day-to-day functions and public service across all 8 Collectorate sections.",
+                    accent: "#D97706",
+                    bg: "#FEF3C7",
+                  },
+                ].map((item, idx) => (
+                  <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx}>
+                    <Box
                       sx={{
-                        "&:last-child td, &:last-child th": { border: 0 },
-                        transition: "background-color 0.15s ease",
+                        bgcolor: "#FFFFFF",
+                        border: "1px solid #E2E8F0",
+                        borderRadius: "18px",
+                        p: 2.5,
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        transition: "all 0.2s ease",
+                        "&:hover": {
+                          transform: "translateY(-3px)",
+                          boxShadow: "0 10px 24px -4px rgba(8, 43, 80, 0.08)",
+                          borderColor: "#CBD5E1",
+                        },
                       }}
                     >
-                      {/* Name & Telugu */}
-                      <TableCell sx={{ py: 1.8, maxWidth: 280 }}>
-                        <Typography sx={{ fontWeight: 850, color: "#082B50", fontSize: "0.95rem", lineHeight: 1.25 }}>
-                          {mandal.name}
-                        </Typography>
-                        <Typography sx={{ color: "#D97706", fontSize: "0.78rem", fontWeight: 650, mt: 0.3 }}>
-                          {mandal.telugu}
-                        </Typography>
-                      </TableCell>
+                      <Chip
+                        label={item.role}
+                        size="small"
+                        sx={{
+                          alignSelf: "flex-start",
+                          bgcolor: item.bg,
+                          color: item.accent,
+                          fontWeight: 900,
+                          fontSize: "0.66rem",
+                          mb: 1.5,
+                        }}
+                      />
+                      <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "1.05rem", mb: 0.5 }}>
+                        {item.title}
+                      </Typography>
+                      <Typography sx={{ color: "#D97706", fontWeight: 750, fontSize: "0.82rem", mb: 1 }}>
+                        {item.name}
+                      </Typography>
+                      <Typography sx={{ color: "#64748B", fontSize: "0.78rem", lineHeight: 1.5, flexGrow: 1 }}>
+                        {item.desc}
+                      </Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
 
-                      {/* Division */}
-                      <TableCell sx={{ py: 1.8 }}>
+              {/* 8 Collectorate Sections Grid */}
+              <Typography sx={{ color: "#D97706", fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", mb: 0.5 }}>
+                INTERNAL COLLECTORATE DIVISIONS
+              </Typography>
+              <Typography sx={{ color: "#082B50", fontSize: { xs: "1.3rem", sm: "1.55rem" }, fontWeight: 900, mb: 3 }}>
+                8 Collectorate Sections Designated by Government of Andhra Pradesh
+              </Typography>
+
+              <Grid container spacing={2.5}>
+                {collectorateSections.map((sec) => (
+                  <Grid size={{ xs: 12, sm: 6, md: 3 }} key={sec.section}>
+                    <Box
+                      sx={{
+                        bgcolor: "#FFFFFF",
+                        border: "1px solid #E2E8F0",
+                        borderRadius: "18px",
+                        p: 2.5,
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        transition: "all 0.2s ease",
+                        "&:hover": {
+                          borderColor: "#F5B800",
+                          boxShadow: "0 10px 25px -4px rgba(8, 43, 80, 0.08)",
+                          transform: "translateY(-3px)",
+                        },
+                      }}
+                    >
+                      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 1.5 }}>
                         <Chip
-                          label={mandal.division}
+                          label={sec.section}
                           size="small"
                           sx={{
-                            bgcolor:
-                              mandal.division === "Vizianagaram"
-                                ? "#FEF3C7"
-                                : mandal.division === "Cheepurupalli"
-                                ? "#E0F2FE"
-                                : "#DCFCE7",
-                            color:
-                              mandal.division === "Vizianagaram"
-                                ? "#92400E"
-                                : mandal.division === "Cheepurupalli"
-                                ? "#0369A1"
-                                : "#15803D",
-                            fontWeight: 800,
+                            bgcolor: "#FEF3C7",
+                            color: "#92400E",
+                            fontWeight: 900,
                             fontSize: "0.72rem",
-                            height: 24,
                           }}
                         />
-                      </TableCell>
+                        {sec.icon}
+                      </Stack>
+                      <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "0.98rem", mb: 0.8 }}>
+                        {sec.title}
+                      </Typography>
+                      <Typography sx={{ color: "#64748B", fontSize: "0.80rem", lineHeight: 1.5, flexGrow: 1 }}>
+                        {sec.desc}
+                      </Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          ) : (
+            /* TAB 2: DRDA ORGANISATIONAL TREE (Matching drdamanyam.vercel.app/about/structure) */
+            <Box sx={{ maxWidth: 880, mx: "auto" }}>
+              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+                {/* Level 1: Project Director */}
+                <Box
+                  sx={{
+                    width: 280,
+                    bgcolor: "#082B50",
+                    color: "#FFFFFF",
+                    borderRadius: "16px",
+                    p: 2.5,
+                    textAlign: "center",
+                    boxShadow: "0 10px 25px -5px rgba(8, 43, 80, 0.3)",
+                    border: "2px solid #F5B800",
+                  }}
+                >
+                  <Typography sx={{ fontWeight: 850, fontSize: "1.05rem" }}>Project Director (PD)</Typography>
+                  <Typography sx={{ fontSize: "0.75rem", color: "#FDE68A", mt: 0.5 }}>
+                    DRDA Vizianagaram
+                  </Typography>
+                </Box>
 
-                      {/* Villages Count */}
-                      <TableCell sx={{ py: 1.8 }}>
-                        <Typography sx={{ fontWeight: 850, color: "#082B50", fontSize: "0.92rem" }}>
-                          {mandal.villages} Villages
-                        </Typography>
-                        <Typography sx={{ color: "#64748B", fontSize: "0.72rem" }}>
-                          HQ: {mandal.hq}
-                        </Typography>
-                      </TableCell>
+                {/* Connector */}
+                <Box sx={{ width: 2, height: 28, bgcolor: "#082B50" }} />
 
-                      {/* Type */}
-                      <TableCell sx={{ py: 1.8 }}>
-                        <Typography sx={{ color: "#334155", fontSize: "0.82rem", fontWeight: 600 }}>
-                          {mandal.type}
-                        </Typography>
-                      </TableCell>
+                {/* Level 2: Additional Project Director */}
+                <Box
+                  sx={{
+                    width: 280,
+                    bgcolor: "#1E3A8A",
+                    color: "#FFFFFF",
+                    borderRadius: "16px",
+                    p: 2.2,
+                    textAlign: "center",
+                    boxShadow: "0 8px 20px -4px rgba(30, 58, 138, 0.2)",
+                  }}
+                >
+                  <Typography sx={{ fontWeight: 850, fontSize: "1rem" }}>Additional Project Director</Typography>
+                  <Typography sx={{ fontSize: "0.74rem", color: "#BFDBFE", mt: 0.5 }}>
+                    DRDA Administration
+                  </Typography>
+                </Box>
 
-                      {/* Action */}
-                      <TableCell align="right" sx={{ py: 1.8 }}>
-                        <Button
-                          component={Link}
-                          href="/map"
-                          size="small"
-                          endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: 13 }} />}
+                {/* Connector */}
+                <Box sx={{ width: 2, height: 28, bgcolor: "#64748B" }} />
+
+                {/* Level 3: 4 DPM Wings */}
+                <Box sx={{ width: "100%", pt: 1 }}>
+                  <Grid container spacing={2}>
+                    {[
+                      { title: "DPM — NRLM", sub: "Livelihoods & SHG", icon: <TrendingUpRoundedIcon sx={{ fontSize: 18 }} /> },
+                      { title: "DPM — Infrastructure", sub: "Rural Assets & Halls", icon: <LocationCityRoundedIcon sx={{ fontSize: 18 }} /> },
+                      { title: "DPM — Skill Dev.", sub: "Training & Placements", icon: <SchoolRoundedIcon sx={{ fontSize: 18 }} /> },
+                      { title: "Finance Officer", sub: "Accounts & Audit", icon: <MonetizationOnRoundedIcon sx={{ fontSize: 18 }} /> },
+                    ].map((dpm, idx) => (
+                      <Grid size={{ xs: 6, sm: 3 }} key={idx}>
+                        <Box
                           sx={{
-                            bgcolor: "#082B50 !important",
-                            color: "#FFFFFF !important",
-                            borderRadius: "100px",
-                            px: 2,
-                            py: 0.5,
-                            fontSize: "0.72rem",
-                            fontWeight: 750,
-                            textTransform: "none",
-                            "&:hover": { bgcolor: "#0F3A66 !important" },
+                            bgcolor: "#FFFFFF",
+                            border: "1.5px solid #CBD5E1",
+                            borderRadius: "14px",
+                            p: 2,
+                            textAlign: "center",
+                            boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                            transition: "all 0.2s ease",
+                            "&:hover": {
+                              borderColor: "#F5B800",
+                              bgcolor: "#FFFDF5",
+                            },
                           }}
                         >
-                          View Map
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
+                          <Typography sx={{ fontWeight: 800, fontSize: "0.86rem", color: "#082B50" }}>
+                            {dpm.title}
+                          </Typography>
+                          <Typography sx={{ fontSize: "0.72rem", color: "#64748B", mt: 0.5 }}>
+                            {dpm.sub}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Box>
+
+                {/* Connector */}
+                <Box sx={{ width: 2, height: 28, bgcolor: "#64748B" }} />
+
+                {/* Level 4: Grassroots Operations */}
+                <Grid container spacing={2.5} sx={{ width: "100%" }}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
+                    <Box
+                      sx={{
+                        bgcolor: "#F8FAFC",
+                        border: "1px solid #CBD5E1",
+                        borderRadius: "16px",
+                        p: 3,
+                        textAlign: "center",
+                      }}
+                    >
+                      <Typography sx={{ fontSize: "2.2rem", fontWeight: 900, color: "#082B50", lineHeight: 1 }}>
+                        27
+                      </Typography>
+                      <Typography sx={{ fontWeight: 850, fontSize: "0.92rem", color: "#1E293B", mt: 0.8 }}>
+                        Block Programme Managers (BPMs)
+                      </Typography>
+                      <Typography sx={{ fontSize: "0.75rem", color: "#64748B", mt: 0.5 }}>
+                        Covering all 27 Mandals of Vizianagaram
+                      </Typography>
+                    </Box>
+                  </Grid>
+
+                  <Grid size={{ xs: 12, sm: 6 }}>
+                    <Box
+                      sx={{
+                        bgcolor: "#F8FAFC",
+                        border: "1px solid #CBD5E1",
+                        borderRadius: "16px",
+                        p: 3,
+                        textAlign: "center",
+                      }}
+                    >
+                      <Typography sx={{ fontSize: "2.2rem", fontWeight: 900, color: "#082B50", lineHeight: 1 }}>
+                        250+
+                      </Typography>
+                      <Typography sx={{ fontWeight: 850, fontSize: "0.92rem", color: "#1E293B", mt: 0.8 }}>
+                        Cluster Coordinators (CCs)
+                      </Typography>
+                      <Typography sx={{ fontSize: "0.75rem", color: "#64748B", mt: 0.5 }}>
+                        Cluster Federations &amp; Micro-Units
+                      </Typography>
+                    </Box>
+                  </Grid>
+                </Grid>
+
+                {/* Connector */}
+                <Box sx={{ width: 2, height: 28, bgcolor: "#64748B" }} />
+
+                {/* Level 5: SHG & Community Foundation */}
+                <Box
+                  sx={{
+                    width: "100%",
+                    bgcolor: "#FFFBEB",
+                    border: "1.5px solid #FDE68A",
+                    borderRadius: "16px",
+                    p: 3,
+                    textAlign: "center",
+                  }}
+                >
+                  <Typography sx={{ fontWeight: 850, color: "#082B50", fontSize: "1rem" }}>
+                    SHG / Village Organisations / Community Resource Persons
+                  </Typography>
+                  <Typography sx={{ fontSize: "0.78rem", color: "#92400E", mt: 0.8, fontWeight: 650 }}>
+                    982 Villages · 777 Gram Panchayats · 22,000+ SHGs · Field-Level Saturation
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
           )}
 
-          {/* Governance Hierarchy Cards */}
-          <Box sx={{ mt: 6 }}>
+          {/* Governance Pillars Section */}
+          <Box sx={{ mt: 8 }}>
             <Typography sx={{ color: "#D97706", fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", mb: 0.5 }}>
-              ADMINISTRATIVE CHAIN OF COMMAND
+              INSTITUTIONAL FOUNDATION
             </Typography>
             <Typography sx={{ color: "#082B50", fontSize: { xs: "1.3rem", sm: "1.55rem" }, fontWeight: 900, mb: 3 }}>
-              Hierarchy of District Governance
+              Key Operational Pillars
             </Typography>
 
             <Grid container spacing={2.5}>
               {[
                 {
-                  tier: "LEVEL 01",
-                  title: "District Administration",
-                  officer: "District Collector & Magistrate (IAS)",
-                  role: "Overall executive governance, developmental convergence, law & order, and citizen grievances.",
-                  accent: "#082B50",
-                  bg: "#E2E8F0",
+                  title: "Statutory Governance",
+                  desc: "Governed by a statutory General Body chaired by the District Collector & District Magistrate, with periodic statutory review.",
+                  icon: <AccountBalanceRoundedIcon sx={{ fontSize: 24, color: "#082B50" }} />,
                 },
                 {
-                  tier: "LEVEL 02",
-                  title: "Revenue Divisions",
-                  officer: "Revenue Divisional Officers (RDOs)",
-                  role: "Heading 3 divisions (Vizianagaram, Cheepurupalli, Bobbili), supervising revenue court matters and land admin.",
-                  accent: "#15803D",
-                  bg: "#DCFCE7",
+                  title: "Decentralized Operations",
+                  desc: "Block Programme Managers oversee grassroots execution across 27 mandals, coordinated through Cluster Coordinators and Village Animators.",
+                  icon: <HubRoundedIcon sx={{ fontSize: 24, color: "#D97706" }} />,
                 },
                 {
-                  tier: "LEVEL 03",
-                  title: "Mandal Administration",
-                  officer: "Tahsildar & MPDO",
-                  role: "Managing 27 mandals with direct oversight of citizen certificates, agriculture, and welfare execution.",
-                  accent: "#BE185D",
-                  bg: "#FCE7F3",
+                  title: "Inter-Agency Convergence",
+                  desc: "Seamless synchronization across Agriculture, Horticulture, Health, Tribal Welfare, and Panchayati Raj for unified public delivery.",
+                  icon: <BusinessRoundedIcon sx={{ fontSize: 24, color: "#059669" }} />,
                 },
-                {
-                  tier: "LEVEL 04",
-                  title: "Village Secretariats",
-                  officer: "VRO & Panchayat Secretary",
-                  role: "Decentralized last-mile public service delivery across 982 villages and 777 gram panchayats.",
-                  accent: "#D97706",
-                  bg: "#FEF3C7",
-                },
-              ].map((item, idx) => (
-                <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx}>
+              ].map((pillar, idx) => (
+                <Grid size={{ xs: 12, md: 4 }} key={idx}>
                   <Box
                     sx={{
                       bgcolor: "#FFFFFF",
                       border: "1px solid #E2E8F0",
                       borderRadius: "18px",
-                      p: 2.5,
+                      p: 3,
                       height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      transition: "all 0.2s ease",
-                      "&:hover": {
-                        transform: "translateY(-3px)",
-                        boxShadow: "0 10px 24px -4px rgba(8, 43, 80, 0.08)",
-                        borderColor: "#CBD5E1",
-                      },
                     }}
                   >
-                    <Chip
-                      label={item.tier}
-                      size="small"
-                      sx={{
-                        alignSelf: "flex-start",
-                        bgcolor: item.bg,
-                        color: item.accent,
-                        fontWeight: 900,
-                        fontSize: "0.68rem",
-                        mb: 1.5,
-                      }}
-                    />
-                    <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "1.05rem", mb: 0.5 }}>
-                      {item.title}
+                    <Box sx={{ mb: 1.5 }}>{pillar.icon}</Box>
+                    <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "1.05rem", mb: 0.8 }}>
+                      {pillar.title}
                     </Typography>
-                    <Typography sx={{ color: "#D97706", fontWeight: 750, fontSize: "0.78rem", mb: 1 }}>
-                      {item.officer}
-                    </Typography>
-                    <Typography sx={{ color: "#64748B", fontSize: "0.78rem", lineHeight: 1.5, flexGrow: 1 }}>
-                      {item.role}
+                    <Typography sx={{ color: "#64748B", fontSize: "0.84rem", lineHeight: 1.6 }}>
+                      {pillar.desc}
                     </Typography>
                   </Box>
                 </Grid>
