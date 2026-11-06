@@ -30,14 +30,13 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
 
-// Authentic 6 Sub-Categories
+// Authentic 5 Livelihood Sub-Categories
 const LIVELIHOOD_CATEGORIES = [
   { icon: "🌾", title: "FPOs Network", href: "/fpos", desc: "15 Producer Collectives across Mandals", count: "30,430 Farmers", color: "#15803D", bg: "#DCFCE7", border: "#BBF7D0" },
   { icon: "👩‍💼", title: "Women Entrepreneurship", href: "/women-entrepreneurship", desc: "4,030 Micro-Enterprises & PMFME Hubs", count: "₹40.97 Cr Disbursed", color: "#D97706", bg: "#FEF3C7", border: "#FDE68A" },
   { icon: "👨‍👩‍👧‍👦", title: "One Family One Entrepreneur", href: "/one-family-one-entrepreneur", desc: "Cluster-based household enterprises", count: "32,840 SHGs", color: "#7C3AED", bg: "#F3E8FF", border: "#E9D5FF" },
   { icon: "🤝", title: "SERP & NRLM Welfare", href: "/serp-corner", desc: "Vaddi Leni Runalu & Community Recovery", count: "98.59% Repayment", color: "#1D4ED8", bg: "#EFF6FF", border: "#BFDBFE" },
   { icon: "🏺", title: "Artisans & Handloom Mart", href: "/mart", desc: "Bobbili Veenas, Jute Craft & Tribal Honey", count: "District Mart", color: "#C026D3", bg: "#FAE8FF", border: "#F5D0FE" },
-  { icon: "🏕️", title: "Eco & Forest Tourism", href: "/tourism", desc: "Thatipudi, Bodhikonda & Community Treks", count: "6 Destinations", color: "#047857", bg: "#D1FAE5", border: "#A7F3D0" },
 ];
 
 // Authentic Livelihood Projects in Vizianagaram District
@@ -399,12 +398,12 @@ export default function LivelihoodsPage() {
         </Container>
       </Box>
 
-      {/* 2. SUB-SECTOR NAVIGATION CARDS (6 COMPACT CARDS) */}
+      {/* 2. SUB-SECTOR NAVIGATION CARDS (5 COMPACT CARDS) */}
       <Box sx={{ py: { xs: 2.5, sm: 3 }, bgcolor: "#FFFFFF", borderBottom: "1px solid #E2E8F0" }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={1.5}>
             {LIVELIHOOD_CATEGORIES.map((cat, index) => (
-              <Grid key={index} size={{ xs: 6, sm: 4, md: 2 }}>
+              <Grid key={index} size={{ xs: 6, sm: 4, md: 2.4 }}>
                 <Paper
                   component={Link}
                   href={cat.href}
