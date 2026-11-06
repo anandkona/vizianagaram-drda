@@ -615,22 +615,57 @@ export default function PgrsPage() {
           <Grid container spacing={3.5} alignItems="flex-start">
             {/* Form Column */}
             <Grid size={{ xs: 12, md: 7.5 }}>
+              {/* Modern Card Design for Intake Desk */}
               <Paper
                 elevation={0}
                 sx={{
-                  bgcolor: "#FAFAFA",
+                  bgcolor: "#FFFFFF",
                   border: "1.5px solid #E2E8F0",
-                  borderRadius: 2.75,
+                  borderRadius: 3,
                   p: { xs: 2.5, sm: 3.5 },
+                  boxShadow: "0 10px 30px -8px rgba(8, 43, 80, 0.07)",
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
-                <Typography sx={{ color: "#D97706", fontSize: "0.72rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", mb: 0.4 }}>
-                  CITIZEN GRIEVANCE INTAKE DESK
-                </Typography>
-                <Typography sx={{ color: "#082B50", fontSize: { xs: "1.25rem", sm: "1.55rem" }, fontWeight: 900, mb: 0.6 }}>
-                  Register Your Concern with Vizianagaram Desk
-                </Typography>
-                <Typography sx={{ color: "#475569", fontSize: "0.82rem", lineHeight: 1.5, mb: 2.5 }}>
+                {/* Header Banner Strip */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    background: "linear-gradient(90deg, #082B50 0%, #1D4ED8 50%, #F5B800 100%)",
+                  }}
+                />
+
+                <Stack direction="row" alignItems="center" spacing={1.25} sx={{ mb: 1, mt: 0.5 }}>
+                  <Box
+                    sx={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: 2,
+                      bgcolor: "rgba(8, 43, 80, 0.08)",
+                      color: "#082B50",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <AssignmentTurnedInRoundedIcon sx={{ fontSize: 20 }} />
+                  </Box>
+                  <Box>
+                    <Typography sx={{ color: "#D97706", fontSize: "0.7rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", lineHeight: 1.1 }}>
+                      CITIZEN GRIEVANCE INTAKE DESK
+                    </Typography>
+                    <Typography sx={{ color: "#082B50", fontSize: { xs: "1.2rem", sm: "1.45rem" }, fontWeight: 900, lineHeight: 1.2 }}>
+                      Register Your Concern with Vizianagaram Desk
+                    </Typography>
+                  </Box>
+                </Stack>
+
+                <Typography sx={{ color: "#64748B", fontSize: "0.8rem", lineHeight: 1.55, mb: 2.75 }}>
                   Fill out your grievance particulars below. Our district citizen facilitation cell will verify details, issue your official Petition Tracking ID, and coordinate with the concerned Mandal/departmental officer.
                 </Typography>
 
@@ -700,8 +735,8 @@ export default function PgrsPage() {
                   <Box component="form" onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                       <Grid size={{ xs: 12, sm: 6 }}>
-                        <Typography sx={{ color: "#082B50", fontSize: "0.76rem", fontWeight: 700, mb: 0.5 }}>
-                          Full Name of Petitioner *
+                        <Typography sx={{ color: "#082B50", fontSize: "0.75rem", fontWeight: 750, mb: 0.6 }}>
+                          Full Name of Petitioner <Box component="span" sx={{ color: "#DC2626" }}>*</Box>
                         </Typography>
                         <TextField
                           fullWidth
@@ -710,13 +745,21 @@ export default function PgrsPage() {
                           placeholder="e.g. S. Rama Krishna"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          sx={{ bgcolor: "#FFFFFF", "& .MuiInputBase-input": { fontSize: "0.82rem" } }}
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              bgcolor: "#F8FAFC",
+                              borderRadius: 2,
+                              fontSize: "0.82rem",
+                              "&:hover fieldset": { borderColor: "#082B50" },
+                              "&.Mui-focused fieldset": { borderColor: "#082B50" },
+                            },
+                          }}
                         />
                       </Grid>
 
                       <Grid size={{ xs: 12, sm: 6 }}>
-                        <Typography sx={{ color: "#082B50", fontSize: "0.76rem", fontWeight: 700, mb: 0.5 }}>
-                          Mobile Number (for SMS Tracking) *
+                        <Typography sx={{ color: "#082B50", fontSize: "0.75rem", fontWeight: 750, mb: 0.6 }}>
+                          Mobile Number (for SMS Tracking) <Box component="span" sx={{ color: "#DC2626" }}>*</Box>
                         </Typography>
                         <TextField
                           fullWidth
@@ -725,13 +768,21 @@ export default function PgrsPage() {
                           placeholder="10-digit mobile number"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          sx={{ bgcolor: "#FFFFFF", "& .MuiInputBase-input": { fontSize: "0.82rem" } }}
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              bgcolor: "#F8FAFC",
+                              borderRadius: 2,
+                              fontSize: "0.82rem",
+                              "&:hover fieldset": { borderColor: "#082B50" },
+                              "&.Mui-focused fieldset": { borderColor: "#082B50" },
+                            },
+                          }}
                         />
                       </Grid>
 
                       <Grid size={{ xs: 12, sm: 6 }}>
-                        <Typography sx={{ color: "#082B50", fontSize: "0.76rem", fontWeight: 700, mb: 0.5 }}>
-                          Select Mandal *
+                        <Typography sx={{ color: "#082B50", fontSize: "0.75rem", fontWeight: 750, mb: 0.6 }}>
+                          Select Mandal <Box component="span" sx={{ color: "#DC2626" }}>*</Box>
                         </Typography>
                         <TextField
                           select
@@ -740,7 +791,15 @@ export default function PgrsPage() {
                           required
                           value={formData.mandal}
                           onChange={(e) => setFormData({ ...formData, mandal: e.target.value })}
-                          sx={{ bgcolor: "#FFFFFF", "& .MuiInputBase-input": { fontSize: "0.82rem" } }}
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              bgcolor: "#F8FAFC",
+                              borderRadius: 2,
+                              fontSize: "0.82rem",
+                              "&:hover fieldset": { borderColor: "#082B50" },
+                              "&.Mui-focused fieldset": { borderColor: "#082B50" },
+                            },
+                          }}
                         >
                           <MenuItem value="" disabled>Choose your Mandal</MenuItem>
                           {MANDALS_LIST.map((m) => (
@@ -750,8 +809,8 @@ export default function PgrsPage() {
                       </Grid>
 
                       <Grid size={{ xs: 12, sm: 6 }}>
-                        <Typography sx={{ color: "#082B50", fontSize: "0.76rem", fontWeight: 700, mb: 0.5 }}>
-                          Grievance Department / Subject *
+                        <Typography sx={{ color: "#082B50", fontSize: "0.75rem", fontWeight: 750, mb: 0.6 }}>
+                          Grievance Department / Subject <Box component="span" sx={{ color: "#DC2626" }}>*</Box>
                         </Typography>
                         <TextField
                           select
@@ -760,7 +819,15 @@ export default function PgrsPage() {
                           required
                           value={formData.category}
                           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                          sx={{ bgcolor: "#FFFFFF", "& .MuiInputBase-input": { fontSize: "0.82rem" } }}
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              bgcolor: "#F8FAFC",
+                              borderRadius: 2,
+                              fontSize: "0.82rem",
+                              "&:hover fieldset": { borderColor: "#082B50" },
+                              "&.Mui-focused fieldset": { borderColor: "#082B50" },
+                            },
+                          }}
                         >
                           <MenuItem value="" disabled>Choose department / category</MenuItem>
                           {COMPLAINT_CATEGORIES.map((c) => (
@@ -770,8 +837,8 @@ export default function PgrsPage() {
                       </Grid>
 
                       <Grid size={{ xs: 12 }}>
-                        <Typography sx={{ color: "#082B50", fontSize: "0.76rem", fontWeight: 700, mb: 0.5 }}>
-                          Detailed Description of Grievance *
+                        <Typography sx={{ color: "#082B50", fontSize: "0.75rem", fontWeight: 750, mb: 0.6 }}>
+                          Detailed Description of Grievance <Box component="span" sx={{ color: "#DC2626" }}>*</Box>
                         </Typography>
                         <TextField
                           fullWidth
@@ -781,35 +848,46 @@ export default function PgrsPage() {
                           placeholder="Provide specific details: Village name, application number, ration card/pension ID, and date of previous submission if applicable..."
                           value={formData.description}
                           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                          sx={{ bgcolor: "#FFFFFF", "& .MuiInputBase-input": { fontSize: "0.82rem" } }}
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              bgcolor: "#F8FAFC",
+                              borderRadius: 2,
+                              fontSize: "0.82rem",
+                              "&:hover fieldset": { borderColor: "#082B50" },
+                              "&.Mui-focused fieldset": { borderColor: "#082B50" },
+                            },
+                          }}
                         />
                       </Grid>
 
                       <Grid size={{ xs: 12 }}>
-                        <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} alignItems="center">
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            startIcon={<SendRoundedIcon sx={{ fontSize: 16 }} />}
-                            sx={{
-                              bgcolor: "#082B50",
-                              color: "#FFFFFF !important",
-                              fontWeight: 750,
-                              fontSize: "0.82rem",
-                              py: 0.85,
-                              px: 3,
-                              borderRadius: 2,
-                              textTransform: "none",
-                              "&:hover": { bgcolor: "#06203D" },
-                            }}
-                          >
-                            Submit Grievance Petition
-                          </Button>
+                        <Box sx={{ pt: 1, borderTop: "1px solid #F1F5F9" }}>
+                          <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} alignItems="center">
+                            <Button
+                              type="submit"
+                              variant="contained"
+                              startIcon={<SendRoundedIcon sx={{ fontSize: 16 }} />}
+                              sx={{
+                                bgcolor: "#082B50",
+                                color: "#FFFFFF !important",
+                                fontWeight: 750,
+                                fontSize: "0.82rem",
+                                py: 0.9,
+                                px: 3,
+                                borderRadius: 2,
+                                textTransform: "none",
+                                boxShadow: "0 4px 12px rgba(8, 43, 80, 0.2)",
+                                "&:hover": { bgcolor: "#06203D" },
+                              }}
+                            >
+                              Submit Grievance Petition
+                            </Button>
 
-                          <Typography sx={{ color: "#64748B", fontSize: "0.72rem" }}>
-                            Directly synchronized with District Collectorate Grievance Cell
-                          </Typography>
-                        </Stack>
+                            <Typography sx={{ color: "#64748B", fontSize: "0.72rem", fontWeight: 550 }}>
+                              ✓ Directly synchronized with District Collectorate Grievance Cell
+                            </Typography>
+                          </Stack>
+                        </Box>
                       </Grid>
                     </Grid>
                   </Box>
