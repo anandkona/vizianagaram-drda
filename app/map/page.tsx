@@ -260,7 +260,7 @@ export default function DistrictMapPage() {
               <Stack direction="row" spacing={1.5} flexWrap="wrap" gap={1}>
                 <Button
                   component="a"
-                  href="/images/vzm-district-map-official.jpeg"
+                  href="/images/vizianagaram-mandals-labelled-map.png"
                   target="_blank"
                   rel="noopener noreferrer"
                   startIcon={<DownloadRoundedIcon sx={{ fontSize: 16 }} />}
@@ -324,8 +324,9 @@ export default function DistrictMapPage() {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    backgroundImage: "url('/images/vzm-district-map-official.jpeg')",
-                    backgroundSize: "cover",
+                    backgroundImage: "url('/images/vizianagaram-mandals-labelled-map.png')",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
                     transition: "transform 0.6s ease",
                     "&:hover": { transform: "scale(1.03)" },
@@ -565,7 +566,7 @@ export default function DistrictMapPage() {
             <Stack direction="row" spacing={1}>
               <Button
                 component="a"
-                href="/images/vzm-district-map-official.jpeg"
+                href="/images/vizianagaram-mandals-labelled-map.png"
                 target="_blank"
                 rel="noopener noreferrer"
                 startIcon={<ZoomInRoundedIcon sx={{ color: "#FFFFFF !important" }} />}
@@ -588,8 +589,8 @@ export default function DistrictMapPage() {
               </Button>
               <Button
                 component="a"
-                href="/images/vzm-district-map-official.jpeg"
-                download="Vizianagaram_District_Official_Map.jpeg"
+                href="/images/vizianagaram-mandals-labelled-map.png"
+                download="Vizianagaram_District_Mandals_Map.png"
                 startIcon={<DownloadRoundedIcon sx={{ color: "#082B50 !important" }} />}
                 sx={{
                   bgcolor: "#F5B800",
@@ -616,7 +617,7 @@ export default function DistrictMapPage() {
               position: "relative",
               width: "100%",
               height: { xs: 340, sm: 480, md: 620 },
-              bgcolor: "#F8FAFC",
+              bgcolor: "#FFFFFF",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -625,8 +626,8 @@ export default function DistrictMapPage() {
           >
             <Box
               component="img"
-              src="/images/vzm-district-map-official.jpeg"
-              alt="Official Vizianagaram District Administrative Map"
+              src="/images/vizianagaram-mandals-labelled-map.png"
+              alt="Official Vizianagaram District Administrative Mandals Map"
               sx={{
                 width: "100%",
                 height: "100%",

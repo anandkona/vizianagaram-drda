@@ -128,7 +128,6 @@ const headerNavItems: NavItemType[] = [
     hasDropdown: true,
     children: [
       { label: "Press Releases & News", href: "/media" },
-      { label: "Photo & Video Gallery", href: "/media" },
       { label: "Announcements", href: "/announcements" },
     ],
   },

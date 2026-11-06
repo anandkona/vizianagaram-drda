@@ -208,10 +208,10 @@ export const navigation: NavItem[] = [
   },
   {
     label: "Media",
-    href: "/press-releases",
+    href: "/media",
     children: [
-      { label: "Press Releases & Clippings", href: "/press-releases" },
-      { label: "Photo & Video Gallery", href: "/media" },
+      { label: "Press Releases & News", href: "/media" },
+      { label: "Announcements", href: "/announcements" },
     ],
   },
   { label: "Success Stories", href: "/success-stories" },
