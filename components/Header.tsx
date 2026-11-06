@@ -121,12 +121,6 @@ const headerNavItems: NavItemType[] = [
   {
     label: "Tourism",
     href: "/tourism",
-    hasDropdown: true,
-    children: [
-      { label: "Heritage & Forts", href: "/tourism" },
-      { label: "Temples & Pilgrimages", href: "/tourism#temples" },
-      { label: "Lakes & Nature", href: "/tourism#nature" },
-    ],
   },
   {
     label: "Media",
@@ -143,8 +137,8 @@ const headerNavItems: NavItemType[] = [
     href: "/success-stories",
   },
   {
-    label: "Dashboard",
-    href: "/dashboard",
+    label: "District Mart",
+    href: "/mart",
   },
 ];
 

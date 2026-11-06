@@ -1,186 +1,446 @@
 "use client";
 
-import CommerceGrid from "@/components/CommerceGrid";
-import { Box, Container, Typography, Stack, Grid, Chip, Button, keyframes } from "@mui/material";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
-import HandshakeIcon from "@mui/icons-material/Handshake";
-import VerifiedIcon from "@mui/icons-material/Verified";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import CommerceGrid from "@/components/CommerceGrid";
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  Button,
+  Stack,
+  Breadcrumbs,
+  Chip,
+} from "@mui/material";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
+import LocalShippingRoundedIcon from "@mui/icons-material/LocalShippingRounded";
+import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
+import SpaRoundedIcon from "@mui/icons-material/SpaRounded";
+import HandshakeRoundedIcon from "@mui/icons-material/HandshakeRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
+import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 
-const scrollAnimation = keyframes`
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-`;
-
-const allProducts = [
-  { name: "Organic Turmeric Powder", tag: "Organic", url: "https://plus.unsplash.com/premium_photo-1726862790171-0d6208559224?w=500&q=80" },
-  { name: "Hill Ginger (Fresh)", tag: "Farm Fresh", url: "https://images.unsplash.com/photo-1630623093145-f606591c2546?w=500&q=80" },
-  { name: "Wild Black Pepper", tag: "Forest Sourced", url: "https://images.unsplash.com/photo-1506085621370-98b475435879?w=500&q=80" },
-  { name: "Premium Roasted Cashews", tag: "Best Seller", url: "https://images.unsplash.com/photo-1509912760195-4f6cfd8cce2c?w=500&q=80" },
-  { name: "Raw Forest Honey", tag: "Pure", url: "https://plus.unsplash.com/premium_photo-1663957861996-8093b48a22e6?w=500&q=80" },
-  { name: "Seedless Forest Tamarind", tag: "Wild", url: "https://images.unsplash.com/photo-1771229389277-a0a7546913f9?w=500&q=80" },
-  { name: "Bamboo Craft Basket", tag: "Handmade", url: "https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?w=500&q=80" },
-  { name: "Clay Pottery", tag: "Artisan", url: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&q=80" },
-  { name: "Traditional Handloom", tag: "Weaves", url: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=500&q=80" },
-  { name: "Mixed Millet Pack", tag: "Healthy", url: "https://images.unsplash.com/photo-1672415505894-1dacfcf108d8?w=500&q=80" },
-  { name: "Native Ragi Flour", tag: "Desi Seed", url: "https://images.unsplash.com/photo-1621509890697-fc197b91d91b?w=500&q=80" },
-  { name: "Handmade Papads", tag: "SHG Made", url: "https://plus.unsplash.com/premium_photo-1773222866574-d47a13892747?w=500&q=80" },
-  { name: "Forest Coffee Beans", tag: "Tribal Made", url: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=500&q=80" },
-  { name: "Amla Candy", tag: "Healthy", url: "https://images.unsplash.com/photo-1596647242131-0ebdf84c4f92?w=500&q=80" },
-  { name: "Pickle Combo", tag: "Traditional", url: "https://images.unsplash.com/photo-1625944227313-261ce8882798?w=500&q=80" },
-  { name: "Organic Jaggery", tag: "Pure", url: "https://images.unsplash.com/photo-1628169976377-a85c885061ab?w=500&q=80" },
-  { name: "Cold Pressed Oil", tag: "Farm Fresh", url: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&q=80" },
-  { name: "Dried Fruits Pack", tag: "Best Seller", url: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500&q=80" },
+const MART_BENEFITS = [
+  { icon: <SpaRoundedIcon sx={{ fontSize: 20, color: "#15803D" }} />, title: "100% Authentic & Natural", desc: "Sourced directly from tribal foragers, FPOs, and women SHG clusters" },
+  { icon: <HandshakeRoundedIcon sx={{ fontSize: 20, color: "#D97706" }} />, title: "Fair Value to Producers", desc: "Eliminating middlemen with 100% sale proceeds directly credited to artisans" },
+  { icon: <VerifiedRoundedIcon sx={{ fontSize: 20, color: "#1D4ED8" }} />, title: "FSSAI & GI Authenticated", desc: "Quality tested honey, unpolished millets, and GI-certified Bobbili Veenas" },
+  { icon: <LocalShippingRoundedIcon sx={{ fontSize: 20, color: "#7C3AED" }} />, title: "Statewide Dispatch", desc: "Reliable postal and courier delivery supported by AP Agros logistics" },
 ];
 
 export default function MartPage() {
   return (
-    <>
-      <Box sx={{
-        position: "relative",
-        overflow: "hidden",
-        background: "#FFFF61",
-        color: "#2B2100",
-        pt: { xs: 2, md: 3 },
-        pb: 4
-      }}>
-        {/* Background decorations */}
-        <Box sx={{
-          position: "absolute", top: -100, left: -100, width: 400, height: 400, borderRadius: "50%",
-          background: "rgba(255, 255, 255, 0.3)", display: "none", pointerEvents: "none"
-        }} />
+    <Box sx={{ minHeight: "100vh", fontFamily: "'Inter', sans-serif", bgcolor: "#F8FAFC", pb: 0 }}>
+      {/* 1. MASTER EDITORIAL HERO SECTION */}
+      <Box
+        sx={{
+          position: "relative",
+          bgcolor: "#FFFFFF",
+          pt: { xs: 2, sm: 2.5, md: 3 },
+          pb: { xs: 3, sm: 3.5, md: 4 },
+          overflow: "hidden",
+          borderBottom: "1px solid #E2E8F0",
+        }}
+      >
+        {/* Soft Gold Backdrop Blur Circle */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: -60,
+            right: { xs: "-10%", sm: "0%", md: "6%" },
+            width: { xs: 320, sm: 420, md: 500 },
+            height: { xs: 320, sm: 420, md: 500 },
+            borderRadius: "50%",
+            bgcolor: "#FEF08A",
+            opacity: 0.65,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
 
-        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1, mb: { xs: 3, md: 4 } }}>
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "rgba(43,33,0,0.7)", mb: 3, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Typography component="span" sx={{ fontSize: "0.75rem" }}>/</Typography>
-            <Typography sx={{ color: "#2B2100", fontSize: "0.8rem", fontWeight: 700 }}>Vizianagaram Mart</Typography>
-          </Stack>
+        {/* Traditional Temple Scripture Watermark Accent */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "14%",
+            right: { xs: "28%", md: "38%", lg: "42%" },
+            width: { xs: 180, sm: 240, md: 300 },
+            height: { xs: 150, sm: 200, md: 240 },
+            backgroundImage: "url('/images/temple-scripture-clean.png')",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            opacity: 0.22,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
 
-          <Grid container spacing={{ xs: 6, lg: 8 }} alignItems="center">
-            <Grid size={{ xs: 12, lg: 6 }}>
-              <Stack direction="row" spacing={1} mb={2}>
-                <Chip icon={<ShoppingBagIcon sx={{ color: "#1E293B !important", fontSize: "16px !important" }} />} label="Vizianagaram Mart" sx={{ bgcolor: "#FFF8E1", color: "#1E293B", fontWeight: 800 }} size="small" />
-                <Chip label="Launching Soon" sx={{ bgcolor: "rgba(255,255,255,0.2)", color: "#1E293B", fontWeight: 700, border: "1px solid rgba(0,0,0,0.1)" }} size="small" />
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
+          {/* Breadcrumbs */}
+          <Breadcrumbs
+            aria-label="Breadcrumb navigation"
+            separator="›"
+            sx={{
+              color: "#64748B",
+              fontSize: "0.75rem",
+              fontWeight: 650,
+              mb: { xs: 1.2, sm: 1.5 },
+              "& .MuiBreadcrumbs-separator": { color: "#CBD5E1", mx: 0.6 },
+            }}
+          >
+            <Stack direction="row" alignItems="center" spacing={0.5}>
+              <HomeRoundedIcon sx={{ fontSize: 15, color: "#082B50" }} />
+              <Link href="/" style={{ color: "#082B50", textDecoration: "none", fontWeight: 700 }}>
+                Home
+              </Link>
+            </Stack>
+            <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.75rem" }}>
+              District Mart (E-Commerce)
+            </Typography>
+          </Breadcrumbs>
+
+          <Grid container spacing={{ xs: 2.5, md: 4 }} alignItems="center">
+            {/* Left Column: Heading & Summary */}
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Typography
+                sx={{
+                  color: "#D97706",
+                  fontSize: { xs: "0.7rem", sm: "0.75rem" },
+                  fontWeight: 800,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  mb: 0.6,
+                }}
+              >
+                PRODUCE OF VIZIANAGARAM • DIRECT FROM SOURCE
+              </Typography>
+
+              <Typography
+                component="h1"
+                sx={{
+                  color: "#082B50",
+                  fontSize: { xs: "1.85rem", sm: "2.35rem", md: "2.75rem" },
+                  fontWeight: 900,
+                  letterSpacing: "-0.035em",
+                  lineHeight: 1.15,
+                  mb: 1,
+                }}
+              >
+                Vizianagaram District Mart
+              </Typography>
+
+              <Typography
+                sx={{
+                  color: "#B45309",
+                  fontSize: { xs: "0.85rem", sm: "0.95rem" },
+                  fontWeight: 700,
+                  fontFamily: "var(--font-telugu), 'Gautami', 'Inter', sans-serif",
+                  mb: 1.2,
+                }}
+              >
+                విజయనగరం మార్ట్ - సహజ సిద్ధ ఉత్పత్తులు, జీడిపప్పు, చిరుధాన్యాలు & చేతివృత్తులు
+              </Typography>
+
+              <Typography
+                sx={{
+                  color: "#475569",
+                  fontSize: { xs: "0.82rem", sm: "0.88rem" },
+                  lineHeight: 1.55,
+                  maxWidth: 620,
+                  fontWeight: 500,
+                  mb: 2.5,
+                }}
+              >
+                Direct e-commerce gateway connecting rural self-help collectives, tribal foragers, and GI-craft artisans directly with consumers. Premium roasted cashews, forest wild honey, stone-ground ragi flour, and iconic Bobbili Veenas.
+              </Typography>
+
+              {/* Action Buttons */}
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
+                <Button
+                  component={Link}
+                  href="#catalog"
+                  variant="contained"
+                  startIcon={<ShoppingBagRoundedIcon sx={{ fontSize: 15 }} />}
+                  sx={{
+                    bgcolor: "#082B50",
+                    color: "#FFFFFF !important",
+                    fontSize: "0.78rem",
+                    fontWeight: 750,
+                    px: 2.5,
+                    py: 1,
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    "&:hover": { bgcolor: "#06203D" },
+                  }}
+                >
+                  Browse Store Catalog
+                </Button>
+
+                <Button
+                  component={Link}
+                  href="/mart/checkout"
+                  variant="outlined"
+                  startIcon={<LocalShippingRoundedIcon sx={{ fontSize: 15 }} />}
+                  sx={{
+                    borderColor: "#CBD5E1",
+                    color: "#082B50",
+                    fontSize: "0.78rem",
+                    fontWeight: 750,
+                    px: 2.5,
+                    py: 1,
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    "&:hover": { borderColor: "#082B50", bgcolor: "#FFFFFF" },
+                  }}
+                >
+                  View Cart & Checkout
+                </Button>
               </Stack>
-
-              <Typography component="h1" variant="h3" sx={{ fontWeight: 900, mb: 2.5, fontSize: { xs: "2.5rem", md: "3.5rem" }, letterSpacing: "-0.02em", color: "#1F1700", lineHeight: 1.1 }}>
-                Taste the <Box component="span" sx={{ bgcolor: "white", color: "#B45309", px: 2, py: 0.5, borderRadius: 2, display: "inline-block" }}>Local</Box> Harvest
-              </Typography>
-
-              <Typography sx={{ color: "rgba(31,23,0,0.85)", fontSize: { xs: "1rem", md: "1.1rem" }, lineHeight: 1.6, fontWeight: 500, mb: 4, maxWidth: "540px" }}>
-                Organic mangoes, premium cashews, handwoven crafts & natural millets — authentic rural produce of Vizianagaram. Every purchase supports a local household.
-              </Typography>
-
-              <Grid container spacing={1.5} sx={{ maxWidth: "540px" }}>
-                {[
-                  { icon: <LocalFloristIcon sx={{ color: "#B45309", fontSize: 22 }} />, title: "100% Authentic", subtitle: "From local farmers & SHGs" },
-                  { icon: <HandshakeIcon sx={{ color: "#B45309", fontSize: 22 }} />, title: "Fair Trade", subtitle: "Direct income to producers" },
-                  { icon: <VerifiedIcon sx={{ color: "#B45309", fontSize: 22 }} />, title: "Quality Assured", subtitle: "Packed with care" },
-                  { icon: <LocalShippingIcon sx={{ color: "#B45309", fontSize: 22 }} />, title: "Door Delivery", subtitle: "Launching soon" },
-                ].map((feature, i) => (
-                  <Grid size={{ xs: 6, sm: 3 }} key={i}>
-                    <Box sx={{ 
-                      bgcolor: "rgba(255,255,255,0.6)", border: "1px solid rgba(0,0,0,0.05)", borderRadius: 3, p: 1.5, height: "100%", display: "flex", flexDirection: "column",
-                      transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0,0,0,0.02)", "&:hover": { transform: "translateY(-2px)", bgcolor: "white", boxShadow: "0 6px 16px rgba(0,0,0,0.05)" }
-                    }}>
-                      {feature.icon}
-                      <Typography sx={{ fontWeight: 800, fontSize: "0.75rem", mt: 1.5, color: "#1F1700", lineHeight: 1.2 }}>{feature.title}</Typography>
-                      <Typography sx={{ fontSize: "0.65rem", color: "rgba(31,23,0,0.7)", mt: 0.5, lineHeight: 1.3 }}>{feature.subtitle}</Typography>
-                    </Box>
-                  </Grid>
-                ))}
-              </Grid>
             </Grid>
 
-            <Grid size={{ xs: 12, lg: 6 }} sx={{ display: { xs: "none", lg: "block" } }}>
-              <Grid container spacing={2}>
-                {[
-                  { url: "https://plus.unsplash.com/premium_photo-1726862790171-0d6208559224?w=500&q=80", label: "Organic Turmeric" },
-                  { url: "https://images.unsplash.com/photo-1630623093145-f606591c2546?w=500&q=80", label: "Ginger" },
-                  { url: "https://images.unsplash.com/photo-1506085621370-98b475435879?w=500&q=80", label: "Black Pepper" },
-                  { url: "https://images.unsplash.com/photo-1771229389277-a0a7546913f9?w=500&q=80", label: "Tamarind" },
-                  { url: "https://plus.unsplash.com/premium_photo-1663957861996-8093b48a22e6?w=500&q=80", label: "Raw Honey" },
-                  { url: "https://images.unsplash.com/photo-1509912760195-4f6cfd8cce2c?w=500&q=80", label: "Premium Cashews" }
-                ].map((img, i) => (
-                  <Grid size={{ xs: 4 }} key={i}>
-                    <Box sx={{ position: "relative", width: "100%", aspectRatio: "1/1", borderRadius: 4, overflow: "hidden", boxShadow: 4, border: "2px solid rgba(255,255,255,0.5)", transition: "transform 0.3s", "&:hover": { transform: "scale(1.05)", zIndex: 10 } }}>
-                      <Image src={img.url} alt={img.label} fill style={{ objectFit: "cover" }} unoptimized />
+            {/* Right Column: Hero Real Photography with Floating Official Badge */}
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "100%",
+                  height: { xs: 200, sm: 240, md: 260 },
+                  borderRadius: { xs: "18px", sm: "22px", md: "24px" },
+                  overflow: "hidden",
+                  boxShadow: "0 14px 32px -8px rgba(8, 43, 80, 0.16)",
+                  border: "3px solid #FFFFFF",
+                  bgcolor: "#FEF9C3",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-3px)",
+                    boxShadow: "0 20px 40px -6px rgba(8, 43, 80, 0.22)",
+                    "& .hero-photo": { transform: "scale(1.03)" },
+                  },
+                }}
+              >
+                <Image
+                  src="/images/enterprise-cashew.jpg"
+                  alt="Vizianagaram Premium Cashew and Local Produce"
+                  fill
+                  className="hero-photo"
+                  priority
+                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
+
+                <Box
+                  sx={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(180deg, rgba(8, 43, 80, 0.05) 0%, rgba(8, 43, 80, 0.75) 100%)",
+                  }}
+                />
+
+                {/* Floating Official Badge */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: 12,
+                    left: 12,
+                    right: 12,
+                    bgcolor: "rgba(8, 43, 80, 0.92)",
+                    backdropFilter: "blur(8px)",
+                    borderRadius: "12px",
+                    px: 1.5,
+                    py: 0.8,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                  }}
+                >
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    <StorefrontRoundedIcon sx={{ fontSize: 16, color: "#F5B800" }} />
+                    <Box>
+                      <Typography sx={{ color: "#FFFFFF", fontSize: "0.74rem", fontWeight: 800, lineHeight: 1.15 }}>
+                        100% Farm-Direct Products
+                      </Typography>
+                      <Typography sx={{ color: "rgba(255,255,255,0.75)", fontSize: "0.65rem", fontWeight: 550 }}>
+                        Supporting 4,030 Rural Micro-Enterprises
+                      </Typography>
                     </Box>
-                  </Grid>
-                ))}
-              </Grid>
+                  </Stack>
+
+                  <Chip
+                    label="AP Mart"
+                    size="small"
+                    sx={{
+                      bgcolor: "#F5B800",
+                      color: "#082B50",
+                      fontWeight: 800,
+                      fontSize: "0.65rem",
+                      height: 20,
+                    }}
+                  />
+                </Box>
+              </Box>
             </Grid>
           </Grid>
         </Container>
-
-        {/* Two continuously scrolling product bands */}
-        <Box sx={{ overflow: "hidden", pb: { xs: 3, md: 4 }, mt: { xs: 2, md: 3 } }}>
-          <Stack spacing={2} sx={{ width: "max-content" }}>
-            {/* Row 1: Leftward scroll */}
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{
-                width: "max-content",
-                animation: `${scrollAnimation} 60s linear infinite`,
-                "&:hover": { animationPlayState: "paused" }
-              }}
-            >
-              {[...allProducts.slice(0, 9), ...allProducts.slice(0, 9)].map((prod, i) => (
-                <Box key={i} sx={{ position: "relative", width: { xs: 110, sm: 140 }, height: { xs: 110, sm: 140 }, borderRadius: 3, overflow: "hidden", flexShrink: 0, boxShadow: 1, border: "1px solid rgba(0,0,0,0.1)", transition: "transform 0.2s", "&:hover": { transform: "scale(1.05)", zIndex: 10 } }}>
-                  <Image src={prod.url} alt={prod.name} fill style={{ objectFit: "cover" }} unoptimized />
-                  <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent 70%)" }} />
-                  <Typography sx={{ position: "absolute", bottom: 8, left: 8, right: 8, color: "white", fontSize: "0.65rem", fontWeight: 600, lineHeight: 1.2 }}>{prod.name}</Typography>
-                  <Typography sx={{ position: "absolute", top: 6, left: 6, bgcolor: "#FFC107", color: "#1E293B", fontSize: "0.55rem", fontWeight: 800, px: 1, py: 0.25, borderRadius: 2 }}>{prod.tag}</Typography>
-                </Box>
-              ))}
-            </Stack>
-
-            {/* Row 2: Rightward scroll (reverse) */}
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{
-                width: "max-content",
-                ml: "-200px !important", // Offset so it doesn't align exactly
-                animation: `${scrollAnimation} 60s linear infinite reverse`,
-                "&:hover": { animationPlayState: "paused" }
-              }}
-            >
-              {[...allProducts.slice(9), ...allProducts.slice(9)].map((prod, i) => (
-                <Box key={i} sx={{ position: "relative", width: { xs: 110, sm: 140 }, height: { xs: 110, sm: 140 }, borderRadius: 3, overflow: "hidden", flexShrink: 0, boxShadow: 1, border: "1px solid rgba(0,0,0,0.1)", transition: "transform 0.2s", "&:hover": { transform: "scale(1.05)", zIndex: 10 } }}>
-                  <Image src={prod.url} alt={prod.name} fill style={{ objectFit: "cover" }} unoptimized />
-                  <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent 70%)" }} />
-                  <Typography sx={{ position: "absolute", bottom: 8, left: 8, right: 8, color: "white", fontSize: "0.65rem", fontWeight: 600, lineHeight: 1.2 }}>{prod.name}</Typography>
-                  <Typography sx={{ position: "absolute", top: 6, left: 6, bgcolor: "#FFC107", color: "#1E293B", fontSize: "0.55rem", fontWeight: 800, px: 1, py: 0.25, borderRadius: 2 }}>{prod.tag}</Typography>
-                </Box>
-              ))}
-            </Stack>
-          </Stack>
-        </Box>
       </Box>
 
-      {/* Main Commerce Grid */}
-      <CommerceGrid />
-
-      {/* Footer CTA Banner */}
-      <Box sx={{ bgcolor: "#FFB300", py: 5, borderTop: "1px solid #FFCA28", textAlign: "center" }}>
-        <Container maxWidth="md">
-          <Typography variant="h5" sx={{ fontWeight: 800, color: "#1E293B", mb: 1 }}>
-            Are you an SHG, FPO or artisan?
-          </Typography>
-          <Typography sx={{ color: "#000000", fontSize: "0.875rem", mb: 3, maxWidth: "600px", mx: "auto", fontWeight: 500 }}>
-            List your products on Vizianagaram Mart. Reach new customers nationwide. Let District Rural Development Agency help you scale your business.
-          </Typography>
-          <Button variant="contained" sx={{ bgcolor: "#0F172A", color: "white", px: 4, py: 1.5, borderRadius: 8, fontWeight: 700, textTransform: "none", "&:hover": { bgcolor: "#000000" } }}>
-            Register as Seller
-          </Button>
+      {/* 2. VALUE PROPOSITION STRIP */}
+      <Box sx={{ bgcolor: "#F8FAFC", py: 2, borderBottom: "1px solid #E2E8F0" }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+          <Grid container spacing={1.5}>
+            {MART_BENEFITS.map((item, idx) => (
+              <Grid key={idx} size={{ xs: 6, md: 3 }}>
+                <Paper
+                  elevation={0}
+                  sx={{
+                    p: 1.5,
+                    borderRadius: "12px",
+                    bgcolor: "#FFFFFF",
+                    border: "1px solid #E2E8F0",
+                    height: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1.25,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 38,
+                      height: 38,
+                      borderRadius: "8px",
+                      bgcolor: "#F1F5F9",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {item.icon}
+                  </Box>
+                  <Box sx={{ minWidth: 0 }}>
+                    <Typography sx={{ color: "#082B50", fontSize: "0.82rem", fontWeight: 800, lineHeight: 1.2 }}>
+                      {item.title}
+                    </Typography>
+                    <Typography sx={{ color: "#64748B", fontSize: "0.66rem", lineHeight: 1.35, mt: 0.2 }}>
+                      {item.desc}
+                    </Typography>
+                  </Box>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
         </Container>
       </Box>
-    </>
+
+      {/* 3. INTERACTIVE COMMERCE CATALOG GRID */}
+      <Box id="catalog" sx={{ py: { xs: 3, sm: 3.5, md: 4 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+          <Stack sx={{ mb: 2.2 }}>
+            <Typography
+              sx={{
+                color: "#D97706",
+                fontSize: "0.68rem",
+                fontWeight: 800,
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                mb: 0.3,
+              }}
+            >
+              BROWSE STORE CATALOGUE
+            </Typography>
+            <Typography sx={{ color: "#082B50", fontSize: { xs: "1.15rem", sm: "1.35rem" }, fontWeight: 900 }}>
+              Authentic Products from 27 Mandals
+            </Typography>
+          </Stack>
+
+          <CommerceGrid />
+        </Container>
+      </Box>
+
+      {/* 4. FOOTER EXTENSION */}
+      <Box sx={{ bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0", py: { xs: 3.5, sm: 4 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+          <Paper
+            elevation={0}
+            sx={{
+              bgcolor: "#F8FAFC",
+              border: "1.5px solid #E2E8F0",
+              borderRadius: "16px",
+              p: { xs: 2.2, sm: 3, md: 3.5 },
+            }}
+          >
+            <Grid container spacing={{ xs: 2, md: 3 }} alignItems="center">
+              <Grid size={{ xs: 12, md: 8 }}>
+                <Typography
+                  sx={{
+                    color: "#D97706",
+                    fontSize: "0.7rem",
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    mb: 0.4,
+                  }}
+                >
+                  PRODUCER ONBOARDING & BULK WHOLESALE INQUIRIES
+                </Typography>
+                <Typography sx={{ color: "#082B50", fontSize: { xs: "1.15rem", sm: "1.35rem" }, fontWeight: 900, mb: 0.6 }}>
+                  Are You a Local Farmer Producer Group or Artisan?
+                </Typography>
+                <Typography sx={{ color: "#475569", fontSize: "0.8rem", lineHeight: 1.5, maxWidth: 680 }}>
+                  SHG collectives and farmer groups can list their packaged products on Vizianagaram District Mart with zero platform listing fees. Quality grading and testing support is provided by the DRDA PMFME Cell.
+                </Typography>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 4 }}>
+                <Stack spacing={1}>
+                  <Button
+                    component="a"
+                    href="tel:08922236966"
+                    variant="contained"
+                    startIcon={<PhoneRoundedIcon sx={{ fontSize: 14 }} />}
+                    sx={{
+                      bgcolor: "#082B50",
+                      color: "#FFFFFF !important",
+                      fontWeight: 750,
+                      fontSize: "0.76rem",
+                      py: 0.75,
+                      borderRadius: 2,
+                      textTransform: "none",
+                      "&:hover": { bgcolor: "#06203D" },
+                    }}
+                  >
+                    Contact Mart Helpdesk: 08922-236966
+                  </Button>
+
+                  <Button
+                    component={Link}
+                    href="/fpos"
+                    variant="outlined"
+                    startIcon={<SpaRoundedIcon sx={{ fontSize: 15 }} />}
+                    sx={{
+                      borderColor: "#CBD5E1",
+                      color: "#082B50",
+                      fontWeight: 750,
+                      fontSize: "0.76rem",
+                      py: 0.75,
+                      borderRadius: 2,
+                      textTransform: "none",
+                      "&:hover": { borderColor: "#082B50", bgcolor: "#FFFFFF" },
+                    }}
+                  >
+                    Explore 15 Registered FPOs
+                  </Button>
+                </Stack>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Container>
+      </Box>
+    </Box>
   );
 }
