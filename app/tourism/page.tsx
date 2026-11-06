@@ -68,7 +68,7 @@ export default function TourismPage() {
 
       {/* 2. District Highlights Overview Bar - Reduced Height & Width */}
       <Box sx={{ bgcolor: "#0F172A", color: "white", py: { xs: 1, md: 1.25 }, borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={{ xs: 1.5, sm: 2.5, md: 3 }} justifyContent="center">
             {highlights.map((item, idx) => {
               const Icon = item.icon;
@@ -191,7 +191,7 @@ export default function TourismPage() {
 
       {/* 3. Hero Story & District Narrative Section */}
       <Box component="section" sx={{ py: { xs: 2.25, md: 2.75 }, bgcolor: "#1F1700", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={{ xs: 2.5, lg: 3 }} alignItems="center">
             <Grid size={{ xs: 12, lg: 7 }}>
               <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#B45309", fontSize: "0.72rem", fontWeight: 800, px: 1.5, py: 0.35, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 1.25 }}>
@@ -340,7 +340,7 @@ export default function TourismPage() {
 
       {/* 4. Destinations / Living Heritage Map Grid */}
       <Box component="section" sx={{ py: { xs: 2.25, md: 2.75 }, bgcolor: "#F8FAFC" }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 2 }}>
             <Box sx={{ display: "inline-block", background: "#E2E8F0", color: "#475569", fontSize: "0.68rem", fontWeight: 800, px: 1.25, py: 0.25, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 0.5 }}>
               Places To Know
@@ -397,7 +397,7 @@ export default function TourismPage() {
 
       {/* 5. Responsible Travel Section */}
       <Box component="section" sx={{ py: { xs: 2.25, md: 2.75 }, bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 2.5 }}>
             <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#B45309", fontSize: "0.68rem", fontWeight: 800, px: 1.25, py: 0.25, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 0.75 }}>
               Responsible Travel
@@ -515,7 +515,7 @@ export default function TourismPage() {
 
       {/* 6. Directory Connect CTA Section - Perfectly Center-Aligned Card (Reduced Height) */}
       <Box sx={{ background: "#FFC107", color: "#1F1700", py: { xs: 1.75, md: 2.25 } }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box
             sx={{
               display: "flex",
@@ -625,7 +625,7 @@ export default function TourismPage() {
       </Box>
       {/* Quick Navigation Pills (Matching Who's Who) */}
       <Box sx={{ py: { xs: 2.5, sm: 3, md: 3.5 }, bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth={false} sx={{ px: { xs: 2.5, sm: 3.5, md: 5 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, justifyContent: "center" }}>
             {[
               { label: "District Profile", href: "/about/district" },

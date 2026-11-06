@@ -292,7 +292,7 @@ export default function LivelihoodsPage() {
                 desc: "A women-run tribal products cafe selling millet products, cashew, and dry fruits. Generates monthly profit and employment for tribal women.",
                 location: "ITDA Petrol Bunk",
                 stats: "₹1.5L Sales / mo",
-                img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80&auto=format&fit=crop"
+                img: "/images/women-entrepreneurship-real.jpg"
               },
               {
                 category: "Value Chain Enterprise",
@@ -300,7 +300,7 @@ export default function LivelihoodsPage() {
                 desc: "Processing raw cashew nuts into marketable finished products. Generates high sales and employs 20 tribal youth in value addition.",
                 location: "Market Yard",
                 stats: "₹77.6L Total Sales",
-                img: "https://images.unsplash.com/photo-1596484552993-86d1a1081515?w=600&q=80&auto=format&fit=crop"
+                img: "/images/enterprise-cashew.jpg"
               },
               {
                 category: "Flagship Project",
@@ -308,7 +308,7 @@ export default function LivelihoodsPage() {
                 desc: "Large-scale tribal enterprise manufacturing hill brooms. Creates direct employment for 450 rural women and benefits 2,500 farmers.",
                 location: "Multiple Mandals",
                 stats: "64.8L Brooms/yr",
-                img: "https://images.unsplash.com/photo-1616422285623-14d2417eeb88?w=600&q=80&auto=format&fit=crop"
+                img: "/images/shg-outdoor-real.jpg"
               },
               {
                 category: "100% Achievement",
@@ -316,7 +316,7 @@ export default function LivelihoodsPage() {
                 desc: "Bamboo cultivation across Bhamini and Seethampeta mandals. Versatile crop used in construction, furniture, and handicrafts.",
                 location: "Bhamini & Seethampeta",
                 stats: "28,860 Plants",
-                img: "https://images.unsplash.com/photo-1582260662234-8c83e2003d76?w=600&q=80&auto=format&fit=crop"
+                img: "/images/hero-rural-community.jpg"
               },
               {
                 category: "Circular Economy",
@@ -324,7 +324,7 @@ export default function LivelihoodsPage() {
                 desc: "Transforming agricultural waste into livelihood opportunity. Processing pseudo-stems into fiber for textiles and eco-products.",
                 location: "District-wide",
                 stats: "5,500 Hectares",
-                img: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&q=80&auto=format&fit=crop"
+                img: "/images/farmer-support-real.jpg"
               },
               {
                 category: "Innovation Project",
@@ -332,7 +332,7 @@ export default function LivelihoodsPage() {
                 desc: "Tribal farmers growing high-value exotic vegetables (colored capsicum, broccoli) targeting premium urban markets.",
                 location: "Komarada FPO",
                 stats: "Premium Market",
-                img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&auto=format&fit=crop"
+                img: "/images/enterprise-millets.jpg"
               },
               {
                 category: "Integrated Farming",
@@ -340,7 +340,7 @@ export default function LivelihoodsPage() {
                 desc: "Combining paddy, horticulture, fishery, and kitchen gardens on the same farm to multiply income sources.",
                 location: "15 Mandals",
                 stats: "45 IFCs",
-                img: "https://images.unsplash.com/photo-1593483316242-efb5420596ca?w=600&q=80&auto=format&fit=crop"
+                img: "/images/agri-tractor.jpg"
               },
               {
                 category: "Biodiversity",

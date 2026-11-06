@@ -84,7 +84,7 @@ position: "absolute", inset: 0, opacity: 0.05,
 backgroundImage: "radial-gradient(white 1px, transparent 0)", 
 backgroundSize: "32px 32px" 
 }} />
-<Container maxWidth="md" sx={{ position: "relative", zIndex: 10 }}>
+<Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 10 }}>
 {/* Breadcrumb */}
 <Box sx={{ fontSize: "0.75rem", color: "rgba(0,0,0,0.7)", mb: 3, display: "flex", alignItems: "center", gap: 1, fontWeight: 500 }}>
 <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>Home</Link>
@@ -111,8 +111,8 @@ Announcements, notices, results and citizen alerts — straight from the DRDA Vi
 {/* Bottom Curve/Wave SVG could go here if needed, but spacing handles it */}
 </Box>
 {/* Featured Top Card */}
-<Box sx={{ mt: -4, position: "relative", zIndex: 20 }}>
-<Container maxWidth="md">
+<Box sx={{ mt: 3, position: "relative", zIndex: 20 }}>
+<Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
 <Box sx={{ 
 bgcolor: "white", borderRadius: 4, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)", 
 border: "1px solid #E2E8F0", overflow: "hidden", position: "relative" 
@@ -168,7 +168,7 @@ View Events
 </Container>
 </Box>
 {/* Feed Section */}
-<Container maxWidth="md" sx={{ py: 7 }}>
+<Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, py: 7 }}>
 <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 4 }}>
 <Typography sx={{ fontSize: "1.5rem", fontWeight: 800, color: "#1E293B" }}>The Feed</Typography>
 <Box sx={{ flex: 1, height: "1px", background: "linear-gradient(to right, #E2E8F0, transparent)" }} />

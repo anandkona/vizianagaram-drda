@@ -210,12 +210,12 @@ export default function CommunityTourismPage() {
             gap: 2
           }}>
             {[
-              { title: "Thandava Waterfalls", tag: "Nature", location: "Kurupam Mandal", desc: "Scenic waterfall accessible via tribal village trail — a popular eco-tourism spot.", img: "https://images.unsplash.com/photo-1543881476-805177263be9?w=600&q=80&auto=format&fit=crop" },
-              { title: "Borra Caves Region", tag: "Heritage", location: "Anantagiri Mandal", desc: "Ancient cave system with cultural significance and trekking opportunities.", img: "https://images.unsplash.com/photo-1518218141444-46ac203af70c?w=600&q=80&auto=format&fit=crop" },
-              { title: "Kondh Tribal Village", tag: "Cultural", location: "Seethampeta Mandal", desc: "Authentic Kondh tribal community offering homestay and cultural immersion experiences.", img: "https://images.unsplash.com/photo-1621255855217-1a48c47101de?w=600&q=80&auto=format&fit=crop" },
-              { title: "Bamboo Forest Trail", tag: "Eco", location: "Bhamini Mandal", desc: "Walk through the Bamboo Mission plantation area — a green corridor in the Eastern Ghats.", img: "https://images.unsplash.com/photo-1544465544-1b71aee9dfa3?w=600&q=80&auto=format&fit=crop" },
-              { title: "Vizianagaram Cafe Experience", tag: "Food", location: "Vizianagaram Mandal", desc: "Taste authentic tribal millet products, cashew, and home-made chocolates at Vizianagaram Cafe.", img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80&auto=format&fit=crop" },
-              { title: "Cashew Harvest Trail", tag: "Agri", location: "Vizianagaram Mandal", desc: "Visit the cashew processing unit and experience the cashew harvest and processing journey.", img: "https://images.unsplash.com/photo-1596484552993-86d1a1081515?w=600&q=80&auto=format&fit=crop" }
+              { title: "Thandava Waterfalls", tag: "Nature", location: "Kurupam Mandal", desc: "Scenic waterfall accessible via tribal village trail — a popular eco-tourism spot.", img: "/images/river-valley.jpg" },
+              { title: "Borra Caves Region", tag: "Heritage", location: "Anantagiri Mandal", desc: "Ancient cave system with cultural significance and trekking opportunities.", img: "/images/ramatheertham-temple.jpg" },
+              { title: "Kondh Tribal Village", tag: "Cultural", location: "Seethampeta Mandal", desc: "Authentic Kondh tribal community offering homestay and cultural immersion experiences.", img: "/images/cultural-heritage.jpg" },
+              { title: "Bamboo Forest Trail", tag: "Eco", location: "Bhamini Mandal", desc: "Walk through the Bamboo Mission plantation area — a green corridor in the Eastern Ghats.", img: "/images/hero-rural-community.jpg" },
+              { title: "Vizianagaram Cafe Experience", tag: "Food", location: "Vizianagaram Mandal", desc: "Taste authentic tribal millet products, cashew, and home-made chocolates at Vizianagaram Cafe.", img: "/images/enterprise-millets.jpg" },
+              { title: "Cashew Harvest Trail", tag: "Agri", location: "Vizianagaram Mandal", desc: "Visit the cashew processing unit and experience the cashew harvest and processing journey.", img: "/images/enterprise-cashew.jpg" }
             ].map((spot, idx) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
                 <Box 
