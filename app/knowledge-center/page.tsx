@@ -68,12 +68,11 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "Complete standard operating procedure for high-curcumin Lakadong and local turmeric cultivation across Salur and agency mandals. Details natural pest defense, harvesting, boiling, and sun-drying to meet APEDA export standards.",
     keyPoints: [
       "Soil preparation and seed rhizome selection for maximum curcumin yield.",
-      "Organic mulching techniques preserving soil moisture across hill slopes.",
       "Direct buy-back protocols through GCC and local Farmer Producer Organizations (FPOs)."
     ],
     pdfAvailable: true,
     image: "/images/farmer-support-real.jpg",
-    tag: "High Curcumin Standard",
+    tag: "Export Standard",
   },
   {
     id: "millet-processing-shg",
@@ -86,8 +85,7 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "Comprehensive guide for SHG federations and rural entrepreneurs to launch de-hulling, pulverising, and vacuum-packing units for Ragi, Foxtail, and Little Millets under the PMFME subsidy scheme.",
     keyPoints: [
       "Machinery sizing, 3-phase power requirements, and FSSAI hygiene guidelines.",
-      "Leveraging 35% capital subsidy up to ₹10 Lakhs through District Industries Centre.",
-      "Branding, barcode issuance, and retail distribution via D-Mart and Rythu Bazaars."
+      "35% capital subsidy up to ₹10 Lakhs through District Industries Centre."
     ],
     pdfAvailable: true,
     image: "/images/enterprise-millets.jpg",
@@ -104,7 +102,6 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "Step-by-step documentation manual for Village Organizations (VOs) to prepare SHG credit linkage files, maintain Pancha Sutras, and secure 100% interest subvention under Andhra Pradesh state mandates.",
     keyPoints: [
       "Grading matrix: A-Grade criteria, audit books, and regular weekly thrift compliance.",
-      "Calculating credit ceiling: 1:4 and 1:8 loan-to-savings ratios with lead commercial banks.",
       "Quarterly interest reimbursement timeline directly into group savings accounts."
     ],
     pdfAvailable: true,
@@ -122,7 +119,6 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "Technical guide on managing cashew nut drying, boiler steaming, cutting, peeling, and colour grading (W180, W240, W320) to maximize value realization for local grower clusters in Vizianagaram.",
     keyPoints: [
       "Optimal moisture content (< 8%) for preventing fungal spoilage during warehouse storage.",
-      "Automated peeling vs. manual knife peeling cost-benefit analysis for SHG clusters.",
       "Forward linkage contracts with export aggregators and major confectionery hubs."
     ],
     pdfAvailable: true,
@@ -140,12 +136,11 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "Clear instructions for aspiring youth and rural entrepreneurs on preparing Detailed Project Reports (DPR), choosing between Shishu, Kishore, and Tarun MUDRA loans, and claiming 15%–35% margin money grants.",
     keyPoints: [
       "Project cost caps: ₹50 Lakhs for manufacturing and ₹20 Lakhs for service units.",
-      "Online portal upload steps: Aadhaar, EDP training certificate, and caste credentials.",
       "District Task Force Committee (DTFC) interview preparation and bank sanction follow-up."
     ],
     pdfAvailable: true,
     image: "/images/vizianagaram-administrative-headquarters.jpg",
-    tag: "Loan & Grant Blueprint",
+    tag: "Loan Blueprint",
   },
   {
     id: "ntr-bharosa-pension-rules",
@@ -157,13 +152,12 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     authorDept: "Social Welfare & Panchayat Raj",
     summary: "Authoritative handbook outlining statutory eligibility criteria for Old Age Pensions (₹4,000/mo), Disabled Pensions (₹6,000/mo), and Chronic Illness allowances, along with Sachivalayam verification norms.",
     keyPoints: [
-      "Land ownership limits, power consumption thresholds (< 300 units/mo), and 4-wheeler criteria.",
-      "Aadhaar biometric seeding, NPCI bank linkage, and doorstep delivery protocols.",
-      "Social audit timelines, Grievance Redressal (1902), and appeals before the MPDO desk."
+      "Land ownership limits, power consumption thresholds (< 300 units/mo), and verification rules.",
+      "Aadhaar biometric seeding, NPCI bank linkage, and doorstep delivery protocols."
     ],
     pdfAvailable: true,
     image: "/images/service-concern.jpg",
-    tag: "Statutory Guidelines",
+    tag: "Statutory Rules",
   },
   {
     id: "women-ofoe-enterprise",
@@ -176,8 +170,7 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "Incubation blueprint detailing how SHG women can graduate from wage-earning to micro-enterprise ownership in apparel manufacturing, hill-broom production, bio-fertilizers, and rural catering collectives.",
     keyPoints: [
       "Viability assessment of 12 localized business models suited for Vizianagaram mandals.",
-      "Accessing collateral-free Stree Nidhi credit up to ₹1.5 Lakhs within 48 hours.",
-      "Digital accounting, UPI QR installation, and customer ledger maintenance."
+      "Accessing collateral-free Stree Nidhi credit up to ₹1.5 Lakhs within 48 hours."
     ],
     pdfAvailable: true,
     image: "/images/women-entrepreneurship-real.jpg",
@@ -194,7 +187,6 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "Clear instructions on registering public grievances via 1902 toll-free, MeeSeva counters, or Monday Spandana camps at the Collectorate, tracking petition numbers and understanding statutory SLAs.",
     keyPoints: [
       "7-day to 30-day resolution benchmarks across Revenue, Civil Supplies, and Police depts.",
-      "How to access weekly Mandal Tahsildar and MPDO hearing sessions.",
       "Escalation hierarchy: From Village Secretariat up to District Collector level."
     ],
     pdfAvailable: true,
@@ -212,7 +204,6 @@ const ARTICLES_DATABASE: GuideArticle[] = [
     summary: "User manual explaining Aadhaar-enabled Payment Systems (AePS), doorstep cash withdrawal, direct pension disbursement, and DBT account validation powered by 812 Bank Sakhis across 777 Gram Panchayats.",
     keyPoints: [
       "Zero-fee biometric cash withdrawal for PM-KISAN, Pensions, and NREGS wages.",
-      "Avoiding fraud: PIN security, SMS alert verification, and printed transaction slips.",
       "Opening Jan Dhan zero-balance savings accounts with embedded RuPay insurance."
     ],
     pdfAvailable: true,
@@ -242,13 +233,13 @@ export default function KnowledgeCenterPage() {
 
   return (
     <Box sx={{ minHeight: "100vh", fontFamily: "'Inter', sans-serif", bgcolor: "#FAFAFA", pb: 0 }}>
-      {/* 1. MASTER EDITORIAL HERO SECTION (MATCHING /about/district & /schemes/social EXACTLY) */}
+      {/* 1. MASTER EDITORIAL HERO SECTION */}
       <Box
         sx={{
           position: "relative",
           bgcolor: "#FFFFFF",
-          pt: { xs: 2.5, sm: 3, md: 3.5 },
-          pb: { xs: 4, sm: 5, md: 6 },
+          pt: { xs: 2, sm: 2.5, md: 3 },
+          pb: { xs: 3.5, sm: 4, md: 4.5 },
           overflow: "hidden",
           borderBottom: "1px solid #E2E8F0",
         }}
@@ -259,8 +250,8 @@ export default function KnowledgeCenterPage() {
             position: "absolute",
             top: -50,
             right: { xs: "-10%", sm: "0%", md: "6%" },
-            width: { xs: 340, sm: 460, md: 540 },
-            height: { xs: 340, sm: 460, md: 540 },
+            width: { xs: 320, sm: 420, md: 500 },
+            height: { xs: 320, sm: 420, md: 500 },
             borderRadius: "50%",
             bgcolor: "#FEF08A",
             opacity: 0.65,
@@ -294,14 +285,14 @@ export default function KnowledgeCenterPage() {
             separator="›"
             sx={{
               color: "#64748B",
-              fontSize: "0.78rem",
+              fontSize: "0.75rem",
               fontWeight: 650,
-              mb: { xs: 1.5, sm: 2 },
+              mb: { xs: 1.2, sm: 1.5 },
               "& .MuiBreadcrumbs-separator": { color: "#CBD5E1", mx: 0.6 },
             }}
           >
             <Stack direction="row" alignItems="center" spacing={0.5}>
-              <HomeRoundedIcon sx={{ fontSize: 16, color: "#082B50" }} />
+              <HomeRoundedIcon sx={{ fontSize: 15, color: "#082B50" }} />
               <Link href="/" style={{ color: "#082B50", textDecoration: "none", fontWeight: 700 }}>
                 Home
               </Link>
@@ -309,22 +300,22 @@ export default function KnowledgeCenterPage() {
             <Link href="/citizen-services" style={{ color: "#64748B", textDecoration: "none" }}>
               Citizen Services
             </Link>
-            <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.78rem" }}>
+            <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.75rem" }}>
               Knowledge Center
             </Typography>
           </Breadcrumbs>
 
-          <Grid container spacing={{ xs: 3, md: 4.5 }} alignItems="center">
+          <Grid container spacing={{ xs: 2.5, md: 4 }} alignItems="center">
             {/* Left Column: Title, Subtitle, Search */}
-            <Grid size={{ xs: 12, md: 6.8 }}>
+            <Grid size={{ xs: 12, md: 7 }}>
               <Typography
                 sx={{
                   color: "#D97706",
-                  fontSize: { xs: "0.72rem", sm: "0.78rem" },
+                  fontSize: { xs: "0.7rem", sm: "0.75rem" },
                   fontWeight: 800,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
-                  mb: 0.8,
+                  mb: 0.6,
                 }}
               >
                 DISTRICT KNOWLEDGE REPOSITORY & EXTENSION GUIDES
@@ -334,11 +325,11 @@ export default function KnowledgeCenterPage() {
                 component="h1"
                 sx={{
                   color: "#082B50",
-                  fontSize: { xs: "2rem", sm: "2.6rem", md: "3.1rem" },
+                  fontSize: { xs: "1.85rem", sm: "2.35rem", md: "2.8rem" },
                   fontWeight: 900,
                   letterSpacing: "-0.035em",
                   lineHeight: 1.15,
-                  mb: 1.2,
+                  mb: 1,
                 }}
               >
                 District Knowledge Center
@@ -348,10 +339,10 @@ export default function KnowledgeCenterPage() {
               <Typography
                 sx={{
                   color: "#B45309",
-                  fontSize: { xs: "0.9rem", sm: "1.02rem" },
+                  fontSize: { xs: "0.85rem", sm: "0.95rem" },
                   fontWeight: 700,
                   fontFamily: "var(--font-telugu), 'Gautami', 'Inter', sans-serif",
-                  mb: 1.5,
+                  mb: 1.2,
                 }}
               >
                 వ్యవసాయం, స్వయం సహాయక సంఘాలు, జీవనోపాధి మరియు సంక్షేమ పథకాల సమగ్ర సమాచార వేదిక
@@ -360,11 +351,11 @@ export default function KnowledgeCenterPage() {
               <Typography
                 sx={{
                   color: "#475569",
-                  fontSize: { xs: "0.88rem", sm: "0.94rem" },
-                  lineHeight: 1.6,
-                  maxWidth: 640,
+                  fontSize: { xs: "0.82rem", sm: "0.88rem" },
+                  lineHeight: 1.55,
+                  maxWidth: 620,
                   fontWeight: 500,
-                  mb: 2.5,
+                  mb: 2,
                 }}
               >
                 Official field manuals, standard operating procedures, and agribusiness handbooks published by Vizianagaram District Administration, DRDA, SERP, and Agriculture Departments for citizen empowerment across all 27 Mandals.
@@ -377,15 +368,15 @@ export default function KnowledgeCenterPage() {
                   p: "3px 8px",
                   display: "flex",
                   alignItems: "center",
-                  maxWidth: 520,
+                  maxWidth: 480,
                   bgcolor: "#FFFFFF",
                   border: "1.5px solid #CBD5E1",
                   borderRadius: 2.5,
-                  boxShadow: "0 3px 10px rgba(8, 43, 80, 0.04)",
+                  boxShadow: "0 2px 8px rgba(8, 43, 80, 0.04)",
                   "&:focus-within": { borderColor: "#082B50" },
                 }}
               >
-                <SearchRoundedIcon sx={{ color: "#64748B", ml: 0.75, mr: 0.75, fontSize: 20 }} />
+                <SearchRoundedIcon sx={{ color: "#64748B", ml: 0.5, mr: 0.75, fontSize: 18 }} />
                 <TextField
                   fullWidth
                   variant="standard"
@@ -394,14 +385,14 @@ export default function KnowledgeCenterPage() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   InputProps={{
                     disableUnderline: true,
-                    sx: { fontSize: "0.84rem", color: "#082B50", fontWeight: 550 },
+                    sx: { fontSize: "0.82rem", color: "#082B50", fontWeight: 550 },
                   }}
                 />
                 {searchQuery && (
                   <Button
                     size="small"
                     onClick={() => setSearchQuery("")}
-                    sx={{ color: "#64748B", fontSize: "0.72rem", textTransform: "none", minWidth: 36 }}
+                    sx={{ color: "#64748B", fontSize: "0.7rem", textTransform: "none", minWidth: 32 }}
                   >
                     Clear
                   </Button>
@@ -409,22 +400,22 @@ export default function KnowledgeCenterPage() {
               </Paper>
             </Grid>
 
-            {/* Right Column: Hero High-Resolution Real Photography with Official Badge (Replacing Quick Facts Card) */}
-            <Grid size={{ xs: 12, md: 5.2 }}>
+            {/* Right Column: Hero High-Resolution Real Photography with Official Badge */}
+            <Grid size={{ xs: 12, md: 5 }}>
               <Box
                 sx={{
                   position: "relative",
                   width: "100%",
-                  height: { xs: 240, sm: 280, md: 320 },
-                  borderRadius: { xs: "20px", sm: "26px", md: "30px" },
+                  height: { xs: 200, sm: 240, md: 270 },
+                  borderRadius: { xs: "18px", sm: "22px", md: "26px" },
                   overflow: "hidden",
-                  boxShadow: "0 18px 40px -10px rgba(8, 43, 80, 0.16)",
-                  border: "4px solid #FFFFFF",
+                  boxShadow: "0 14px 34px -8px rgba(8, 43, 80, 0.16)",
+                  border: "3px solid #FFFFFF",
                   bgcolor: "#FEF9C3",
                   transition: "all 0.3s ease",
                   "&:hover": {
                     transform: "translateY(-3px)",
-                    boxShadow: "0 24px 48px -8px rgba(8, 43, 80, 0.22)",
+                    boxShadow: "0 20px 40px -6px rgba(8, 43, 80, 0.22)",
                     "& .hero-photo": { transform: "scale(1.03)" },
                   },
                 }}
@@ -436,7 +427,7 @@ export default function KnowledgeCenterPage() {
                   className="hero-photo"
                   priority
                   style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
-                  sizes="(max-width: 768px) 100vw, 45vw"
+                  sizes="(max-width: 768px) 100vw, 40vw"
                 />
 
                 {/* Subtle gradient vignette at bottom */}
@@ -452,14 +443,14 @@ export default function KnowledgeCenterPage() {
                 <Box
                   sx={{
                     position: "absolute",
-                    bottom: 14,
-                    left: 14,
-                    right: 14,
+                    bottom: 12,
+                    left: 12,
+                    right: 12,
                     bgcolor: "rgba(8, 43, 80, 0.92)",
                     backdropFilter: "blur(8px)",
-                    borderRadius: "14px",
-                    px: 1.75,
-                    py: 1,
+                    borderRadius: "12px",
+                    px: 1.5,
+                    py: 0.8,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
@@ -467,12 +458,12 @@ export default function KnowledgeCenterPage() {
                   }}
                 >
                   <Stack direction="row" alignItems="center" spacing={1}>
-                    <LibraryBooksRoundedIcon sx={{ fontSize: 18, color: "#F5B800" }} />
+                    <LibraryBooksRoundedIcon sx={{ fontSize: 16, color: "#F5B800" }} />
                     <Box>
-                      <Typography sx={{ color: "#FFFFFF", fontSize: "0.78rem", fontWeight: 800, lineHeight: 1.15 }}>
+                      <Typography sx={{ color: "#FFFFFF", fontSize: "0.74rem", fontWeight: 800, lineHeight: 1.15 }}>
                         Official Extension & Training Library
                       </Typography>
-                      <Typography sx={{ color: "rgba(255,255,255,0.75)", fontSize: "0.68rem", fontWeight: 550 }}>
+                      <Typography sx={{ color: "rgba(255,255,255,0.75)", fontSize: "0.65rem", fontWeight: 550 }}>
                         24+ Manuals • 27 Mandals Saturation
                       </Typography>
                     </Box>
@@ -485,8 +476,8 @@ export default function KnowledgeCenterPage() {
                       bgcolor: "#F5B800",
                       color: "#082B50",
                       fontWeight: 800,
-                      fontSize: "0.68rem",
-                      height: 22,
+                      fontSize: "0.65rem",
+                      height: 20,
                     }}
                   />
                 </Box>
@@ -496,26 +487,26 @@ export default function KnowledgeCenterPage() {
         </Container>
       </Box>
 
-      {/* 2. CATEGORY PILL FILTER BAR (MATCHING /schemes/social & /livelihoods) */}
+      {/* 2. CATEGORY PILL FILTER BAR */}
       <Box
         sx={{
           bgcolor: "#FFFFFF",
           borderBottom: "1px solid #E2E8F0",
-          py: 1.25,
+          py: 1,
           position: "sticky",
           top: 52,
           zIndex: 10,
-          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.02)",
+          boxShadow: "0 2px 6px rgba(0, 0, 0, 0.02)",
         }}
       >
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Stack
             direction="row"
-            spacing={1}
+            spacing={0.8}
             sx={{
               overflowX: "auto",
               pb: { xs: 0.5, md: 0 },
-              "&::-webkit-scrollbar": { height: 4 },
+              "&::-webkit-scrollbar": { height: 3 },
               "&::-webkit-scrollbar-thumb": { bgcolor: "#CBD5E1", borderRadius: 2 },
             }}
           >
@@ -526,19 +517,19 @@ export default function KnowledgeCenterPage() {
                 <Button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  startIcon={<Icon sx={{ fontSize: 16 }} />}
+                  startIcon={<Icon sx={{ fontSize: 15 }} />}
                   sx={{
-                    px: 1.75,
-                    py: 0.65,
+                    px: 1.5,
+                    py: 0.5,
                     borderRadius: 20,
                     textTransform: "none",
                     fontWeight: 700,
-                    fontSize: "0.78rem",
+                    fontSize: "0.75rem",
                     whiteSpace: "nowrap",
                     bgcolor: isSelected ? "#082B50" : "#F8FAFC",
                     color: isSelected ? "#FFFFFF !important" : "#475569",
                     border: isSelected ? "1.5px solid #082B50" : "1.5px solid #E2E8F0",
-                    boxShadow: isSelected ? "0 4px 10px rgba(8, 43, 80, 0.12)" : "none",
+                    boxShadow: isSelected ? "0 3px 8px rgba(8, 43, 80, 0.12)" : "none",
                     "&:hover": {
                       bgcolor: isSelected ? "#06203D" : "#F1F5F9",
                       borderColor: isSelected ? "#06203D" : "#CBD5E1",
@@ -549,8 +540,8 @@ export default function KnowledgeCenterPage() {
                   <Typography
                     component="span"
                     sx={{
-                      ml: 0.75,
-                      fontSize: "0.7rem",
+                      ml: 0.6,
+                      fontSize: "0.68rem",
                       fontWeight: 700,
                       color: isSelected ? "#F5B800" : "#64748B",
                     }}
@@ -564,87 +555,87 @@ export default function KnowledgeCenterPage() {
         </Container>
       </Box>
 
-      {/* 3. MAIN ARTICLES DIRECTORY WITH COMPACT BALANCED CARD SIZES */}
-      <Box sx={{ py: { xs: 3, sm: 4, md: 5 }, bgcolor: "#FAFAFA" }}>
+      {/* 3. MAIN ARTICLES DIRECTORY WITH 4-COLUMN COMPACT SIZED CARDS */}
+      <Box sx={{ py: { xs: 3, sm: 3.5, md: 4 }, bgcolor: "#FAFAFA" }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           {/* Section Header */}
           <Stack
             direction={{ xs: "column", sm: "row" }}
             justifyContent="space-between"
             alignItems={{ xs: "flex-start", sm: "flex-end" }}
-            spacing={1.25}
-            sx={{ mb: 2.75 }}
+            spacing={1}
+            sx={{ mb: 2.2 }}
           >
             <Box>
               <Typography
                 sx={{
                   color: "#D97706",
-                  fontSize: "0.72rem",
+                  fontSize: "0.7rem",
                   fontWeight: 800,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
-                  mb: 0.4,
+                  mb: 0.3,
                 }}
               >
                 AVAILABLE EXTENSION GUIDES & MANUALS
               </Typography>
-              <Typography sx={{ color: "#082B50", fontSize: { xs: "1.25rem", sm: "1.55rem" }, fontWeight: 900 }}>
+              <Typography sx={{ color: "#082B50", fontSize: { xs: "1.15rem", sm: "1.35rem" }, fontWeight: 900 }}>
                 {selectedCategory === "all" ? "All Curated Guides" : KNOWLEDGE_CATEGORIES.find((c) => c.id === selectedCategory)?.label}
-                <Typography component="span" sx={{ color: "#64748B", fontWeight: 600, fontSize: "1rem", ml: 1 }}>
+                <Typography component="span" sx={{ color: "#64748B", fontWeight: 600, fontSize: "0.95rem", ml: 1 }}>
                   ({filteredArticles.length} {filteredArticles.length === 1 ? "Guide" : "Guides"})
                 </Typography>
               </Typography>
             </Box>
 
-            <Typography sx={{ color: "#64748B", fontSize: "0.78rem", fontWeight: 600 }}>
+            <Typography sx={{ color: "#64748B", fontSize: "0.75rem", fontWeight: 600 }}>
               Updated for FY 2026-27 • Government of Andhra Pradesh
             </Typography>
           </Stack>
 
-          {/* Cards Grid - Reduced Card Heights and Compact Typography */}
-          <Grid container spacing={2.5}>
+          {/* Cards Grid - 4 Columns on lg/xl, 3 on md, 2 on sm for compact card size */}
+          <Grid container spacing={2}>
             {filteredArticles.map((article) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={article.id}>
+              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={article.id}>
                 <Paper
                   elevation={0}
                   sx={{
                     bgcolor: "#FFFFFF",
                     border: "1px solid #E2E8F0",
-                    borderRadius: 2.75,
+                    borderRadius: 2.25,
                     overflow: "hidden",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    transition: "all 0.22s ease-in-out",
+                    transition: "all 0.2s ease-in-out",
                     "&:hover": {
-                      transform: "translateY(-3px)",
-                      boxShadow: "0 10px 22px -5px rgba(8, 43, 80, 0.09)",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 8px 18px -4px rgba(8, 43, 80, 0.08)",
                       borderColor: "#CBD5E1",
                       "& .guide-img": { transform: "scale(1.04)" },
-                      "& .arrow-cta": { transform: "translateX(3px)" },
+                      "& .arrow-cta": { transform: "translateX(2px)" },
                     },
                   }}
                 >
-                  {/* Compact Real Image Header (150px height instead of 190px) */}
-                  <Box sx={{ position: "relative", height: 150, width: "100%", overflow: "hidden", bgcolor: "#E2E8F0" }}>
+                  {/* Compact Real Image Header (120px) */}
+                  <Box sx={{ position: "relative", height: 120, width: "100%", overflow: "hidden", bgcolor: "#E2E8F0" }}>
                     <Image
                       src={article.image}
                       alt={article.title}
                       fill
                       className="guide-img"
                       style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                     />
                     <Box
                       sx={{
                         position: "absolute",
                         inset: 0,
-                        background: "linear-gradient(180deg, rgba(8, 43, 80, 0.15) 0%, rgba(8, 43, 80, 0.65) 100%)",
+                        background: "linear-gradient(180deg, rgba(8, 43, 80, 0.1) 0%, rgba(8, 43, 80, 0.65) 100%)",
                       }}
                     />
 
                     {/* Badge top-left */}
-                    <Box sx={{ position: "absolute", top: 10, left: 10, zIndex: 2 }}>
+                    <Box sx={{ position: "absolute", top: 8, left: 8, zIndex: 2 }}>
                       <Chip
                         label={article.categoryLabel}
                         size="small"
@@ -652,15 +643,16 @@ export default function KnowledgeCenterPage() {
                           bgcolor: "#082B50",
                           color: "#FFFFFF",
                           fontWeight: 800,
-                          fontSize: "0.66rem",
-                          height: 22,
-                          border: "1px solid rgba(255, 255, 255, 0.25)",
+                          fontSize: "0.62rem",
+                          height: 20,
+                          px: 0.5,
+                          border: "1px solid rgba(255, 255, 255, 0.2)",
                         }}
                       />
                     </Box>
 
                     {/* Tag top-right */}
-                    <Box sx={{ position: "absolute", top: 10, right: 10, zIndex: 2 }}>
+                    <Box sx={{ position: "absolute", top: 8, right: 8, zIndex: 2 }}>
                       <Chip
                         label={article.tag}
                         size="small"
@@ -668,34 +660,40 @@ export default function KnowledgeCenterPage() {
                           bgcolor: "#FEF3C7",
                           color: "#92400E",
                           fontWeight: 800,
-                          fontSize: "0.64rem",
-                          height: 22,
-                          border: "1px solid rgba(245, 184, 0, 0.4)",
+                          fontSize: "0.6rem",
+                          height: 20,
+                          px: 0.5,
+                          border: "1px solid rgba(245, 184, 0, 0.35)",
                         }}
                       />
                     </Box>
 
                     {/* Read time bottom-left */}
-                    <Box sx={{ position: "absolute", bottom: 8, left: 10, zIndex: 2, display: "flex", alignItems: "center", gap: 0.6 }}>
-                      <Typography sx={{ color: "white", fontSize: "0.7rem", fontWeight: 700 }}>
+                    <Box sx={{ position: "absolute", bottom: 6, left: 8, zIndex: 2, display: "flex", alignItems: "center", gap: 0.5 }}>
+                      <Typography sx={{ color: "white", fontSize: "0.65rem", fontWeight: 700 }}>
                         {article.readTime}
                       </Typography>
-                      <Typography sx={{ color: "rgba(255, 255, 255, 0.7)", fontSize: "0.7rem" }}>•</Typography>
-                      <Typography sx={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "0.68rem", fontWeight: 600 }}>
+                      <Typography sx={{ color: "rgba(255, 255, 255, 0.7)", fontSize: "0.65rem" }}>•</Typography>
+                      <Typography sx={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "0.64rem", fontWeight: 600 }}>
                         {article.authorDept}
                       </Typography>
                     </Box>
                   </Box>
 
-                  {/* Body Content - Compact Spacing */}
-                  <Box sx={{ p: 2, display: "flex", flexDirection: "column", flexGrow: 1 }}>
+                  {/* Body Content - Ultra Compact */}
+                  <Box sx={{ p: 1.5, display: "flex", flexDirection: "column", flexGrow: 1 }}>
                     <Typography
                       sx={{
                         color: "#082B50",
-                        fontSize: "0.95rem",
+                        fontSize: "0.86rem",
                         fontWeight: 800,
-                        lineHeight: 1.3,
-                        mb: 0.5,
+                        lineHeight: 1.25,
+                        mb: 0.4,
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        minHeight: "2.15rem",
                       }}
                     >
                       {article.title}
@@ -704,10 +702,13 @@ export default function KnowledgeCenterPage() {
                     <Typography
                       sx={{
                         color: "#B45309",
-                        fontSize: "0.76rem",
+                        fontSize: "0.72rem",
                         fontWeight: 700,
                         fontFamily: "var(--font-telugu), 'Gautami', 'Inter', sans-serif",
-                        mb: 1,
+                        mb: 0.8,
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
                       }}
                     >
                       {article.teluguTitle}
@@ -716,12 +717,12 @@ export default function KnowledgeCenterPage() {
                     <Typography
                       sx={{
                         color: "#475569",
-                        fontSize: "0.78rem",
-                        lineHeight: 1.5,
-                        mb: 1.5,
+                        fontSize: "0.74rem",
+                        lineHeight: 1.45,
+                        mb: 1.2,
                         flexGrow: 1,
                         display: "-webkit-box",
-                        WebkitLineClamp: 3,
+                        WebkitLineClamp: 2,
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
                       }}
@@ -729,16 +730,13 @@ export default function KnowledgeCenterPage() {
                       {article.summary}
                     </Typography>
 
-                    {/* Key takeaways bullet points - Compact */}
-                    <Box sx={{ bgcolor: "#F8FAFC", p: 1.25, borderRadius: 1.5, border: "1px solid #E2E8F0", mb: 1.75 }}>
-                      <Typography sx={{ color: "#082B50", fontSize: "0.68rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.05em", mb: 0.5 }}>
-                        Key Takeaways:
-                      </Typography>
-                      <Stack spacing={0.4}>
-                        {article.keyPoints.slice(0, 2).map((point, pIdx) => (
-                          <Stack key={pIdx} direction="row" spacing={0.6} alignItems="flex-start">
-                            <CheckCircleRoundedIcon sx={{ fontSize: 13, color: "#16A34A", mt: 0.2, flexShrink: 0 }} />
-                            <Typography sx={{ color: "#334155", fontSize: "0.72rem", lineHeight: 1.4, fontWeight: 550 }}>
+                    {/* Key takeaways bullet points - 1 line bullet */}
+                    <Box sx={{ bgcolor: "#F8FAFC", p: 1, borderRadius: 1.25, border: "1px solid #E2E8F0", mb: 1.25 }}>
+                      <Stack spacing={0.3}>
+                        {article.keyPoints.slice(0, 1).map((point, pIdx) => (
+                          <Stack key={pIdx} direction="row" spacing={0.5} alignItems="flex-start">
+                            <CheckCircleRoundedIcon sx={{ fontSize: 12, color: "#16A34A", mt: 0.2, flexShrink: 0 }} />
+                            <Typography sx={{ color: "#334155", fontSize: "0.68rem", lineHeight: 1.35, fontWeight: 550, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                               {point}
                             </Typography>
                           </Stack>
@@ -747,25 +745,25 @@ export default function KnowledgeCenterPage() {
                     </Box>
 
                     {/* Footer Actions */}
-                    <Stack direction="row" spacing={1} alignItems="center" justifyContent="space-between" sx={{ pt: 1.25, borderTop: "1px solid #F1F5F9" }}>
+                    <Stack direction="row" spacing={0.75} alignItems="center" justifyContent="space-between" sx={{ pt: 1, borderTop: "1px solid #F1F5F9" }}>
                       <Button
                         component={Link}
                         href="/contact"
                         size="small"
-                        endIcon={<ArrowForwardRoundedIcon className="arrow-cta" sx={{ fontSize: 14, transition: "transform 0.2s" }} />}
+                        endIcon={<ArrowForwardRoundedIcon className="arrow-cta" sx={{ fontSize: 13, transition: "transform 0.2s" }} />}
                         sx={{
                           bgcolor: "#082B50",
                           color: "#FFFFFF !important",
-                          px: 1.5,
-                          py: 0.5,
+                          px: 1.25,
+                          py: 0.4,
                           borderRadius: 20,
-                          fontSize: "0.72rem",
+                          fontSize: "0.68rem",
                           fontWeight: 750,
                           textTransform: "none",
                           "&:hover": { bgcolor: "#06203D" },
                         }}
                       >
-                        Request Guide
+                        Request
                       </Button>
 
                       <Button
@@ -774,10 +772,10 @@ export default function KnowledgeCenterPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         size="small"
-                        startIcon={<OpenInNewRoundedIcon sx={{ fontSize: 13 }} />}
+                        startIcon={<OpenInNewRoundedIcon sx={{ fontSize: 12 }} />}
                         sx={{
                           color: "#64748B",
-                          fontSize: "0.7rem",
+                          fontSize: "0.66rem",
                           fontWeight: 700,
                           textTransform: "none",
                           "&:hover": { color: "#082B50" },
@@ -795,44 +793,44 @@ export default function KnowledgeCenterPage() {
       </Box>
 
       {/* 4. EXTENSION SERVICES SUPPORT SECTION */}
-      <Box sx={{ bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0", py: { xs: 4, sm: 5 } }}>
+      <Box sx={{ bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0", py: { xs: 3.5, sm: 4 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Paper
             elevation={0}
             sx={{
               bgcolor: "#F8FAFC",
               border: "1.5px solid #E2E8F0",
-              borderRadius: 3,
-              p: { xs: 2.5, sm: 3.5, md: 4 },
+              borderRadius: 2.5,
+              p: { xs: 2, sm: 3, md: 3.5 },
             }}
           >
-            <Grid container spacing={{ xs: 2.5, md: 3 }} alignItems="center">
+            <Grid container spacing={{ xs: 2, md: 2.5 }} alignItems="center">
               <Grid size={{ xs: 12, md: 8 }}>
-                <Typography sx={{ color: "#D97706", fontSize: "0.72rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em", mb: 0.5 }}>
+                <Typography sx={{ color: "#D97706", fontSize: "0.7rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em", mb: 0.4 }}>
                   DISTRICT FIELD EXTENSION DESK
                 </Typography>
-                <Typography sx={{ color: "#082B50", fontSize: { xs: "1.25rem", sm: "1.55rem" }, fontWeight: 900, mb: 0.8 }}>
+                <Typography sx={{ color: "#082B50", fontSize: { xs: "1.15rem", sm: "1.4rem" }, fontWeight: 900, mb: 0.6 }}>
                   Need Custom Field Training or Technical Extension?
                 </Typography>
-                <Typography sx={{ color: "#475569", fontSize: "0.85rem", lineHeight: 1.55, maxWidth: 700 }}>
+                <Typography sx={{ color: "#475569", fontSize: "0.82rem", lineHeight: 1.5, maxWidth: 700 }}>
                   The DRDA Livelihoods Cell, APSSDC Skill Hubs, and Agriculture Extension Officers conduct free cluster workshops for SHGs, Rythu Bharosa Kendras (RBKs), and youth collectives across all 27 Mandals.
                 </Typography>
               </Grid>
 
               <Grid size={{ xs: 12, md: 4 }}>
-                <Stack spacing={1.2}>
+                <Stack spacing={1}>
                   <Button
                     component={Link}
                     href="/events"
                     variant="contained"
-                    startIcon={<SchoolRoundedIcon sx={{ fontSize: 16 }} />}
+                    startIcon={<SchoolRoundedIcon sx={{ fontSize: 15 }} />}
                     sx={{
                       bgcolor: "#082B50",
                       color: "#FFFFFF !important",
                       fontWeight: 750,
-                      fontSize: "0.8rem",
-                      py: 0.9,
-                      borderRadius: 2,
+                      fontSize: "0.76rem",
+                      py: 0.75,
+                      borderRadius: 1.75,
                       textTransform: "none",
                       "&:hover": { bgcolor: "#06203D" },
                     }}
@@ -844,14 +842,14 @@ export default function KnowledgeCenterPage() {
                     component={Link}
                     href="/ivrs"
                     variant="outlined"
-                    startIcon={<PhoneInTalkRoundedIcon sx={{ fontSize: 16 }} />}
+                    startIcon={<PhoneInTalkRoundedIcon sx={{ fontSize: 15 }} />}
                     sx={{
                       borderColor: "#CBD5E1",
                       color: "#082B50",
                       fontWeight: 750,
-                      fontSize: "0.8rem",
-                      py: 0.9,
-                      borderRadius: 2,
+                      fontSize: "0.76rem",
+                      py: 0.75,
+                      borderRadius: 1.75,
                       textTransform: "none",
                       "&:hover": { borderColor: "#082B50", bgcolor: "#FFFFFF" },
                     }}
