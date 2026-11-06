@@ -225,7 +225,7 @@ export default function TourismPage() {
               <Stack direction={{ xs: "column", sm: "row" }} spacing={1.25}>
                 <Button
                   component={Link}
-                  href="/community-tourism"
+                  href="#destinations"
                   variant="contained"
                   endIcon={<ArrowForwardIcon sx={{ fontSize: 16 }} />}
                   sx={{

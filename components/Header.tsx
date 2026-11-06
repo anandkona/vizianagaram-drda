@@ -115,7 +115,7 @@ const headerNavItems: NavItemType[] = [
       { label: "Women Entrepreneurship", href: "/women-entrepreneurship" },
       { label: "One Family One Entrepreneur", href: "/one-family-one-entrepreneur" },
       { label: "Livelihood Projects", href: "/livelihoods" },
-      { label: "Community Tourism", href: "/community-tourism" },
+      { label: "Eco & Community Tourism", href: "/tourism" },
       { label: "SERP Corner", href: "/serp-corner" },
     ],
   },
@@ -125,7 +125,7 @@ const headerNavItems: NavItemType[] = [
     hasDropdown: true,
     children: [
       { label: "Heritage & Forts", href: "/tourism" },
-      { label: "Community & Eco Tourism", href: "/community-tourism" },
+      { label: "Eco & Community Tourism", href: "/tourism" },
       { label: "Temples & Pilgrimages", href: "/tourism#temples" },
     ],
   },

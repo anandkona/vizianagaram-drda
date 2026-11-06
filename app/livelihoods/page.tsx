@@ -186,7 +186,7 @@ export default function LivelihoodsPage() {
           <Grid container spacing={{ xs: 1.5, sm: 2 }}>
             {[
               { icon: "🤝", title: "SERP Corner", href: "/serp-corner", bgcolor: "#FEF3C7", borderColor: "#FDE68A", count: "Overview" },
-              { icon: "🏕️", title: "Community Tourism", href: "/community-tourism", bgcolor: "#DCFCE7", borderColor: "#BBF7D0", count: "6 Destinations" },
+              { icon: "🏕️", title: "Eco & Community Tourism", href: "/tourism", bgcolor: "#DCFCE7", borderColor: "#BBF7D0", count: "6 Destinations" },
               { icon: "👩", title: "Women Entrepreneurship", href: "/women-entrepreneurship", bgcolor: "#FCE7F3", borderColor: "#FBCFE8", count: "12 Projects" },
               { icon: "🌾", title: "FPOs Network", href: "/fpos", bgcolor: "#E0F2FE", borderColor: "#BAE6FD", count: "24 FPOs" },
               { icon: "👨‍👩‍👧‍👦", title: "Family Entrepreneur", href: "/one-family-one-entrepreneur", bgcolor: "#F3E8FF", borderColor: "#E9D5FF", count: "Initiative" },
@@ -352,15 +352,15 @@ export default function LivelihoodsPage() {
               }
             ].map((project, idx) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
-                <Box 
-                  component={Link} 
+                <Box
+                  component={Link}
                   href="#"
-                  sx={{ 
+                  sx={{
                     display: "flex",
                     flexDirection: "column",
                     height: "100%",
-                    bgcolor: "white", 
-                    borderRadius: "16px", 
+                    bgcolor: "white",
+                    borderRadius: "16px",
                     border: "1px solid #E2E8F0",
                     overflow: "hidden",
                     textDecoration: "none",
@@ -384,7 +384,7 @@ export default function LivelihoodsPage() {
                       className="project-img"
                       style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
                     />
-                    <Box sx={{ 
+                    <Box sx={{
                       position: "absolute", top: 8, right: 8, background: "rgba(255,255,255,0.95)", backdropFilter: "blur(4px)",
                       color: "#1E293B", fontSize: "0.6rem", fontWeight: 800, px: 1, py: 0.2, borderRadius: 10,
                       boxShadow: "0 2px 8px rgba(0,0,0,0.1)", textTransform: "uppercase", letterSpacing: "0.05em"
