@@ -37,7 +37,7 @@ export default function AboutPage() {
     <>
       <PageIntro eyebrow="About the district" title="Vizianagaram at a glance" description="A connected coastal district shaped by heritage, agriculture, enterprise, learning and a resilient rural communities." icon="map" crumb="About District" />
       <Box component="section" id="glance" sx={{ background: "#FFFFFF", py: { xs: 3, md: 4.5 } }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <SectionTitle eyebrow="District profile" title="The foundations of a growing district" description="A concise profile for residents, visitors and anyone looking to understand the district’s administrative scale." />
           <Grid container spacing={1.5}>
             {profileItems.map((item) => (
@@ -63,7 +63,7 @@ export default function AboutPage() {
       </Box>
 
       <Box component="section" id="administration" sx={{ background: "#FFFCF5", py: { xs: 3, md: 4.5 } }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <SectionTitle eyebrow="Administration" title="Leadership that connects people and priorities" description="The district administration brings together public services, local government and community partners to make development practical." />
           <Grid container spacing={2.25}>
             {administration.map((item) => (
@@ -90,7 +90,7 @@ export default function AboutPage() {
       </Box>
 
       <Box component="section" id="mandals" sx={{ background: "#FFFFFF", py: { xs: 3, md: 4.5 } }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <SectionTitle eyebrow="27 revenue mandals" title="Local administration across the district" description="Mandal-level offices help connect local needs with wider district priorities. The list below is a static reference for this portal." />
           <Grid container spacing={1.25}>
             {mandals.map((mandal, index) => (
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </Box>
 
       <Box component="section" sx={{ background: "#FFFCF5", py: { xs: 3, md: 4.5 } }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <SectionTitle eyebrow="District priorities" title="Focus that reaches everyday life" description="The priorities below provide a simple, citizen-centred lens for understanding district development work." />
           <Grid container spacing={1.5}>
             {districtPriorities.map((priority, index) => (
@@ -131,7 +131,7 @@ export default function AboutPage() {
       </Box>
     
       <Box component="section" sx={{ background: "#FFFCF5", py: { xs: 4, md: 5 }, borderTop: "1px solid rgba(0,0,0,0.05)" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: "center" }}>
             {[
               { label: "District Profile", href: "/about/district" },

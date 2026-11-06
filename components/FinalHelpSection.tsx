@@ -1,125 +1,84 @@
 "use client";
 
-import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import CampaignRoundedIcon from "@mui/icons-material/CampaignRounded";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import Link from "next/link";
-import { usePortalUI } from "@/components/PortalUIContext";
+
+const quickJumpLinks = [
+  { label: "Citizen Services", href: "/citizen-services" },
+  { label: "Schemes", href: "/schemes/social" },
+  { label: "Downloads", href: "/downloads" },
+  { label: "Grievances", href: "/services/grievance" },
+  { label: "Contact Us", href: "/contact" },
+];
 
 export default function FinalHelpSection() {
-  const { openConcern } = usePortalUI();
-
   return (
     <Box
       component="section"
       sx={{
-        background: "#FFC107",
-        borderBottom: "1px solid rgba(180, 83, 9, 0.25)",
-        boxShadow: "0 4px 20px -2px rgba(217, 119, 6, 0.25)",
-        borderTop: "1px solid rgba(180, 83, 9, 0.15)",
-        color: "#1F1700",
-        py: { xs: 2, md: 2.5 },
+        backgroundColor: "#FFFFFF",
+        py: { xs: 4, sm: 5, md: 6 },
+        borderTop: "1px solid #ECE4D0",
         textAlign: "center",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.1, pointerEvents: "none", position: "absolute" }} />
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+      <Container maxWidth="lg">
         <Typography
           component="h2"
-          variant="h2"
           sx={{
-            color: "#1F1700",
-            fontSize: { xs: "1.35rem", sm: "1.65rem", md: "1.85rem" },
-            fontWeight: 850,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
+            color: "#082B50",
+            fontSize: { xs: "1.75rem", sm: "2.1rem", md: "2.5rem" },
+            fontWeight: 900,
+            letterSpacing: "-0.035em",
+            mb: 0.8,
           }}
         >
-          Need help? We&apos;re here for you.
+          Jump straight to what matters
         </Typography>
         <Typography
           sx={{
-            color: "rgba(31, 23, 0, 0.88)",
-            fontSize: { xs: "0.8rem", sm: "0.875rem" },
-            fontWeight: 550,
-            lineHeight: 1.5,
-            maxWidth: 540,
-            mt: 0.75,
-            mx: "auto",
+            color: "#64748B",
+            fontSize: { xs: "0.85rem", md: "0.95rem" },
+            mb: 3.5,
           }}
         >
-          Share a concern, find a service or connect with a district office. Start with one clear next step.
+          Quick links to key services, schemes and resources to help you move forward.
         </Typography>
+
         <Stack
-          direction={{ xs: "column", sm: "row" }}
+          direction="row"
+          flexWrap="wrap"
           justifyContent="center"
-          alignItems="center"
-          spacing={1.25}
-          sx={{
-            mt: 1.75,
-            mx: "auto",
-          }}
+          gap={1.5}
         >
-          <Button
-            onClick={openConcern}
-            startIcon={<CampaignRoundedIcon sx={{ fontSize: "16px !important" }} />}
-            sx={{
-              background: "#161102",
-              color: "#FFFFFF !important",
-              borderRadius: "8px",
-              boxShadow: "0 4px 12px rgba(22, 17, 2, 0.25)",
-              fontSize: "0.8rem",
-              fontWeight: 750,
-              minHeight: 38,
-              px: 2.5,
-              py: 0.75,
-              textTransform: "none",
-              transition: "all 0.2s ease",
-              width: { xs: "100%", sm: "auto" },
-              maxWidth: { xs: 300, sm: "none" },
-              "&:hover": {
-                background: "#000000",
-                boxShadow: "0 6px 16px rgba(0, 0, 0, 0.35)",
-                transform: "translateY(-1px)",
-              },
-            }}
-            variant="contained"
-          >
-            Share your concern
-          </Button>
-          <Button
-            component={Link}
-            href="/services"
-            endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "16px !important" }} />}
-            sx={{
-              background: "rgba(255, 255, 255, 0.85)",
-              color: "#161102 !important",
-              border: "1px solid rgba(180, 83, 9, 0.3)",
-              backdropFilter: "blur(6px)",
-              borderRadius: "8px",
-              boxShadow: "0 2px 8px rgba(180, 83, 9, 0.15)",
-              fontSize: "0.8rem",
-              fontWeight: 750,
-              minHeight: 38,
-              px: 2.5,
-              py: 0.75,
-              textTransform: "none",
-              transition: "all 0.2s ease",
-              width: { xs: "100%", sm: "auto" },
-              maxWidth: { xs: 300, sm: "none" },
-              "&:hover": {
-                background: "#FFFFFF",
-                boxShadow: "0 4px 12px rgba(180, 83, 9, 0.25)",
-                color: "#000000 !important",
-                transform: "translateY(-1px)",
-              },
-            }}
-            variant="contained"
-          >
-            Explore citizen services
-          </Button>
+          {quickJumpLinks.map((item) => (
+            <Button
+              key={item.label}
+              component={Link}
+              href={item.href}
+              endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "14px !important", color: "#D97706 !important" }} />}
+              sx={{
+                backgroundColor: "#FFFDF5",
+                border: "1.5px solid #FDE68A",
+                color: "#92400E !important",
+                fontSize: "0.82rem",
+                fontWeight: 750,
+                px: 2.4,
+                py: 1,
+                borderRadius: "50px",
+                textTransform: "none",
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  backgroundColor: "#FEF3C7",
+                  borderColor: "#F59E0B",
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              {item.label}
+            </Button>
+          ))}
         </Stack>
       </Container>
     </Box>

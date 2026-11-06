@@ -68,7 +68,7 @@ function DirectoryContent() {
         py: { xs: 2, md: 2.5 },
         }}>
         <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.08, pointerEvents: "none", position: "absolute" }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator="/" sx={{ color: "rgba(43,33,0,0.6)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <MuiLink underline="hover" style={{ color: "inherit", textDecoration: "none" }} href="/">Home</MuiLink>
             <Typography sx={{ color: "#1F1700", fontWeight: 700, fontSize: "0.8rem" }}>District Directory</Typography>
@@ -85,7 +85,7 @@ function DirectoryContent() {
 
       {/* Helplines Section - Reduced Height */}
       <Box sx={{ py: { xs: 1.5, md: 2 }, bgcolor: 'white', borderBottom: '1px solid #E5E7EB' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={2} alignItems="stretch" justifyContent="center">
             {[
               { phone: "08922-236966", name: "DRDA Main Office", time: "Mon–Sat, 9AM–5PM" },
@@ -148,7 +148,7 @@ function DirectoryContent() {
 
       {/* Tabs Navigation & Search Section */}
       <Box sx={{ py: { xs: 1.5, md: 2 }, bgcolor: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
             {/* Tabs */}
             <Tabs 
@@ -218,7 +218,7 @@ function DirectoryContent() {
 
       {/* Directory Content Section with Rich Card Transitions */}
       <Box sx={{ py: { xs: 2, md: 2.5 }, bgcolor: 'white', flex: 1 }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: 'center', mb: 3 }}>
             <Box component="span" sx={{ 
               display: 'inline-block', 
@@ -603,7 +603,7 @@ function DirectoryContent() {
 
       {/* Reach Us Section */}
       <Box sx={{ py: { xs: 2, md: 3 }, bgcolor: '#F8FAFC', borderTop: '1px solid #E2E8F0' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={3} alignItems="flex-start">
             <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
               <Box sx={{ bgcolor: 'white', borderRadius: 4, p: { xs: 3, md: 3 }, border: '1px solid #E2E8F0', boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)', flex: 1, display: 'flex', flexDirection: 'column' }}>

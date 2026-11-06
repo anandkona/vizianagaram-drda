@@ -181,8 +181,11 @@ export default function LeadershipSection() {
                         height: { xs: 112, sm: 104, lg: 96 },
                         transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                         width: { xs: 112, sm: 104, lg: 96 },
+                        bgcolor: "#F8FAFC",
                         "& img": {
-                          objectPosition: profile.imagePosition || "center 25%",
+                          objectFit: isTopLeader ? "contain" : "cover",
+                          objectPosition: isTopLeader ? "center center" : (profile.imagePosition || "center 25%"),
+                          p: isTopLeader ? 0.5 : 0,
                         },
                       }}
                     />

@@ -43,7 +43,7 @@ export default function FPOsPage() {
           position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%",
           background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none"
         }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }}>Livelihoods</Link>
@@ -61,7 +61,7 @@ export default function FPOsPage() {
 
       {/* Stats Section */}
       <Box sx={{ bgcolor: "#0F172A", py: { xs: 4, md: 5 }, borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={2} justifyContent="center">
             {[
               { value: "15", label: "FPOs" },
@@ -131,7 +131,7 @@ export default function FPOsPage() {
 
       {/* Main Content - What FPOs Do */}
       <Box sx={{ pt: { xs: 3, md: 4.5 }, pb: { xs: 4, md: 5 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 3.5, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FEF9C3", color: "#CA8A04",
@@ -200,7 +200,7 @@ export default function FPOsPage() {
 
       {/* Directory Section */}
       <Box sx={{ py: { xs: 4, md: 6 }, bgcolor: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 3.5, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FEF9C3", color: "#CA8A04",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography, Breadcrumbs } from "@mui/material";
+import { Box, Container, Typography, } from "@mui/material";
 import Link from "next/link";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import GroupIcon from "@mui/icons-material/Group";
@@ -44,12 +44,7 @@ export default function WomenEntrepreneurshipPage() {
           position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%",
           background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none"
         }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }}>Livelihoods</Link>
-            <Typography sx={{ color: "#2B2100", fontWeight: 700, fontSize: "0.8rem" }}>Women Entrepreneurship</Typography>
-          </Breadcrumbs>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Typography variant="h1" sx={{ fontWeight: 900, mb: 1, fontSize: { xs: "1.6rem", sm: "1.9rem", md: "2.25rem" }, letterSpacing: "-0.02em", color: "#1F1700" }}>
             Women Entrepreneurship
           </Typography>
@@ -61,7 +56,7 @@ export default function WomenEntrepreneurshipPage() {
 
       {/* Stats Bar */}
       <Box sx={{ py: { xs: 1.5, md: 1.75 }, bgcolor: "#0F172A", color: "white", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "repeat(4, 1fr)" }, gap: 1.5, textAlign: "center" }}>
             {[
               { value: "4,030", label: "Units Achieved", sub: "Target: 3645" },
@@ -107,8 +102,8 @@ export default function WomenEntrepreneurshipPage() {
       </Box>
 
       {/* Achievement by Program */}
-      <Box sx={{ pt: { xs: 2, md: 3 }, pb: { xs: 4, md: 5 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+      <Box sx={{ pt: { xs: 2.5, sm: 3, md: 3.5, lg: 4 }, pb: { xs: 4, md: 5 }, bgcolor: "white" }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 4, textAlign: "center" }}>
             <Box sx={{ display: "inline-block", background: "#E8F5E9", color: "#2E7D32", fontSize: "0.72rem", fontWeight: 700, px: 2, py: 0.5, borderRadius: 10, textTransform: "uppercase", letterSpacing: "0.08em", mb: 2 }}>
               Program Breakdown
@@ -160,7 +155,7 @@ export default function WomenEntrepreneurshipPage() {
 
       {/* AGEY Special Section */}
       <Box sx={{ py: { xs: 2, md: 3 }, bgcolor: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 3, textAlign: "center" }}>
             <Box sx={{ display: "inline-block", background: "#E8F5E9", color: "#2E7D32", fontSize: "0.72rem", fontWeight: 700, px: 2, py: 0.5, borderRadius: 10, textTransform: "uppercase", letterSpacing: "0.08em", mb: 2 }}>
               AGEY Program
@@ -210,7 +205,7 @@ export default function WomenEntrepreneurshipPage() {
 
       {/* Seed Capital CTA & Action Buttons */}
       <Box sx={{ py: { xs: 3, md: 4 }, background: "#FFC107", color: "#1E293B", borderTop: "1px solid rgba(0,0,0,0.05)" }}>
-        <Container maxWidth="lg" sx={{ textAlign: "center" }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, textAlign: "center" }}>
           <Typography variant="h2" sx={{ fontWeight: 900, mb: 0.5, color: "#1F1700", letterSpacing: "-0.02em", fontSize: { xs: "1.5rem", md: "1.75rem" } }}>
             Seed Capital — Outstanding Recovery
           </Typography>

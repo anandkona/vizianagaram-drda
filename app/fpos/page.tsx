@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography, Grid, Breadcrumbs, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Chip } from "@mui/material";
+import { Box, Container, Typography, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Chip } from "@mui/material";
 import Link from "next/link";
 import LeafIcon from "@mui/icons-material/Spa";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
@@ -29,105 +29,60 @@ const FPO_DATA = [
 export default function FPOsPage() {
   return (
     <Box sx={{ minHeight: "100vh", fontFamily: "'Inter', sans-serif", bgcolor: "#F8FAFC", pb: 0 }}>
-      {/* Hero Section (Tight padding to reduce gap to body) */}
-      <Box sx={{
-        position: "relative",
-        overflow: "hidden",
-        background: "#FFC107",
-        borderBottom: "1px solid rgba(180, 83, 9, 0.25)",
-        boxShadow: "0 4px 20px -2px rgba(217, 119, 6, 0.25)",
-        color: "#1F1700",
-        py: { xs: 2, md: 2.5 }
-      }}>
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 0.75, fontSize: "0.78rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Livelihoods</Link>
-            <Typography sx={{ color: "#2B2100", fontSize: "0.78rem", fontWeight: 700 }}>FPOs</Typography>
-          </Breadcrumbs>
-
-          <Typography variant="h1" sx={{ fontWeight: 900, mb: 0.5, fontSize: { xs: "1.65rem", sm: "1.9rem", md: "2.25rem" }, letterSpacing: "-0.02em", color: "#1F1700" }}>
+      {/* Hero Section */}
+      <Box
+        sx={{
+          position: "relative",
+          bgcolor: "#FFFFFF",
+          pt: { xs: 2.5, sm: 3, md: 3.5, lg: 4 },
+          pb: { xs: 4, sm: 5, md: 6 },
+          overflow: "hidden",
+          borderBottom: "1px solid #E2E8F0",
+        }}
+      >
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 }, position: "relative", zIndex: 1 }}>
+          <Typography
+            sx={{
+              color: "#D97706",
+              fontSize: { xs: "0.72rem", sm: "0.8rem" },
+              fontWeight: 800,
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              mb: 0.8,
+            }}
+          >
+            AGRICULTURE & FARMER PRODUCER CLUSTERS
+          </Typography>
+          <Typography
+            component="h1"
+            sx={{
+              color: "#082B50",
+              fontSize: { xs: "2.1rem", sm: "2.8rem", md: "3.4rem" },
+              fontWeight: 900,
+              letterSpacing: "-0.035em",
+              lineHeight: 1.15,
+              mb: 1.5,
+            }}
+          >
             Farmer Producer Organisations
           </Typography>
-          <Typography sx={{ color: "rgba(31, 23, 0, 0.88)", fontSize: { xs: "0.85rem", sm: "0.92rem" }, maxWidth: 650, lineHeight: 1.45, fontWeight: 500 }}>
+          <Typography
+            sx={{
+              color: "#475569",
+              fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.1rem" },
+              lineHeight: 1.6,
+              maxWidth: 720,
+              fontWeight: 500,
+            }}
+          >
             15 FPOs across all 15 mandals, 30,430 farmer members, and ₹9.35 Crore available funds — powering collective agriculture.
           </Typography>
         </Container>
       </Box>
 
-      {/* Stats Section (Tight compact vertical padding) */}
-      <Box sx={{ bgcolor: "#0F172A", py: { xs: 2, md: 2.5 }, borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={1.5} justifyContent="center">
-            {[
-              { value: "15", label: "FPOs" },
-              { value: "3,659", label: "Farmer Producer Groups" },
-              { value: "921", label: "New FPGs" },
-              { value: "30,430", label: "Total Members" },
-              { value: "11,240", label: "New Members" }
-            ].map((stat, idx) => (
-              <Grid size={{ xs: 6, sm: 4, md: 2.4 }} key={idx}>
-                <Box sx={{
-                  bgcolor: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  p: { xs: 1.25, md: 1.5 },
-                  borderRadius: 2.5,
-                  textAlign: "center",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  transition: "all 0.25s ease",
-                  position: "relative",
-                  overflow: "hidden",
-                  "&:hover": {
-                    transform: "translateY(-2px)",
-                    bgcolor: "rgba(255,255,255,0.06)",
-                    borderColor: "rgba(255,193,7,0.5)",
-                    "&::after": { opacity: 1 }
-                  },
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    top: 0, left: 0, right: 0, height: "2px",
-                    background: "linear-gradient(90deg, transparent, #FFC107, transparent)",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease"
-                  }
-                }}>
-                  <Typography sx={{ fontSize: { xs: "1.4rem", md: "1.6rem" }, fontWeight: 900, color: "#FFC107", mb: 0.25, lineHeight: 1, letterSpacing: "-0.02em" }}>
-                    {stat.value}
-                  </Typography>
-                  <Typography sx={{ fontSize: "0.68rem", fontWeight: 750, color: "rgba(255,255,255,0.75)", textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.25 }}>
-                    {stat.label}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-          <Box sx={{ mt: 1.75, textAlign: "center" }}>
-            <Chip
-              label="Available Funds: ₹9.35 Crore"
-              icon={<Typography sx={{ color: "#FFC107 !important", fontSize: "1rem", mr: 0.5 }}>₹</Typography>}
-              sx={{
-                bgcolor: "rgba(255,193,7,0.1)",
-                color: "#FFC107",
-                border: "1px solid rgba(255,193,7,0.3)",
-                fontWeight: 800,
-                fontSize: "0.82rem",
-                px: 1.5,
-                py: 1.75,
-                borderRadius: "30px",
-                "& .MuiChip-icon": { color: "#FFC107" }
-              }}
-            />
-          </Box>
-        </Container>
-      </Box>
-
       {/* Main Content - What FPOs Do (Tight gap py: 2 to 2.5) */}
       <Box sx={{ py: { xs: 2.25, md: 3 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 2.25, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FEF9C3", color: "#CA8A04",
@@ -196,7 +151,7 @@ export default function FPOsPage() {
 
       {/* Directory Section (Reduced padding py: 2.5 to 3.5) */}
       <Box sx={{ py: { xs: 2.5, md: 3.5 }, bgcolor: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 2.25, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FEF9C3", color: "#CA8A04",

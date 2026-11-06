@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Box, Container, Typography, Grid, Breadcrumbs, Chip, Paper, Button, Stack } from "@mui/material";
+import { Box, Container, Typography, Grid, Chip, Paper, Button, Stack } from "@mui/material";
 import Link from "next/link";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
@@ -9,53 +9,180 @@ import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 
 export default function LivelihoodsPage() {
   return (
-    <Box sx={{ minHeight: "100vh", fontFamily: "'Inter', sans-serif", bgcolor: "#F8FAFC", pb: 0 }}>
-      {/* Hero Section */}
-      <Box sx={{
-        position: "relative",
-        overflow: "hidden",
-        background: "#FFC107",
-        borderBottom: "1px solid rgba(180, 83, 9, 0.25)",
-        boxShadow: "0 4px 20px -2px rgba(217, 119, 6, 0.25)",
-        color: "#1F1700",
-        py: { xs: 2, md: 2.5 },
-        }}>
-        <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.08, pointerEvents: "none", position: "absolute" }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Typography sx={{ color: "#1F1700", fontWeight: 700, fontSize: "0.8rem" }}>Livelihood Projects</Typography>
-          </Breadcrumbs>
+    <Box sx={{ minHeight: "100vh", fontFamily: "'Inter', sans-serif", bgcolor: "#FAFAFA", pb: 0 }}>
+      {/* 1. EDITORIAL TOP HERO SECTION (MATCHING /about/district & /schemes/social EXACTLY) */}
+      <Box
+        sx={{
+          position: "relative",
+          bgcolor: "#FFFFFF",
+          pt: { xs: 2.5, sm: 3, md: 3.5, lg: 4 },
+          pb: { xs: 7, sm: 8, md: 9 },
+          overflow: "hidden",
+          borderBottom: "1px solid #E2E8F0",
+        }}
+      >
+        {/* Soft Gold Decorative Backdrop Blur Circle */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: -50,
+            right: { xs: "-10%", sm: "0%", md: "6%" },
+            width: { xs: 340, sm: 460, md: 540 },
+            height: { xs: 340, sm: 460, md: 540 },
+            borderRadius: "50%",
+            bgcolor: "#FEF08A",
+            opacity: 0.65,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
 
-          <Box sx={{ maxWidth: 760 }}>
-            <Chip
-              icon={<StorefrontRoundedIcon sx={{ fontSize: "14px !important", color: "#8A6500 !important" }} />}
-              label="COMMUNITY ENTERPRISE"
-              size="small"
-              sx={{
-                background: "#FFFDE7",
-                border: "1px solid #FFE082",
-                color: "#8A6500",
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                letterSpacing: "0.05em",
-                mb: 1,
-                textTransform: "uppercase",
-              }}
-            />
-            <Typography variant="h1" sx={{ fontWeight: 900, mb: 1, fontSize: { xs: "1.6rem", sm: "1.9rem", md: "2.25rem" }, letterSpacing: "-0.02em", color: "#1F1700" }}>
-              Livelihood Projects
-            </Typography>
-            <Typography sx={{ color: "rgba(31, 23, 0, 0.88)", fontSize: { xs: "0.85rem", sm: "0.95rem" }, maxWidth: 650, lineHeight: 1.4, fontWeight: 500 }}>
-              Enterprise projects creating employment, income, and economic independence for tribal and rural communities of Vizianagaram.
-            </Typography>
-          </Box>
+        {/* Traditional Temple Scripture Watermark Accent */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "14%",
+            right: { xs: "28%", md: "38%", lg: "42%" },
+            width: { xs: 180, sm: 240, md: 300 },
+            height: { xs: 150, sm: 200, md: 240 },
+            backgroundImage: "url('/images/temple-scripture-clean.png')",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            opacity: 0.22,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
+
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
+          <Grid container spacing={{ xs: 3.5, md: 5 }} alignItems="center">
+            {/* Left Column */}
+            <Grid size={{ xs: 12, md: 6.8 }}>
+              <Typography
+                sx={{
+                  color: "#D97706",
+                  fontSize: { xs: "0.72rem", sm: "0.8rem" },
+                  fontWeight: 800,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  mb: 0.8,
+                }}
+              >
+                COMMUNITY ENTERPRISE &amp; SUSTAINABLE EMPLOYMENT
+              </Typography>
+
+              <Typography
+                component="h1"
+                sx={{
+                  color: "#082B50",
+                  fontSize: { xs: "2.1rem", sm: "2.8rem", md: "3.4rem" },
+                  fontWeight: 900,
+                  letterSpacing: "-0.035em",
+                  lineHeight: 1.15,
+                  mb: 1.5,
+                }}
+              >
+                Livelihood Projects
+              </Typography>
+
+              <Typography
+                sx={{
+                  color: "#B45309",
+                  fontSize: { xs: "0.95rem", sm: "1.1rem" },
+                  fontWeight: 700,
+                  mb: 2,
+                  fontFamily: "'Segoe UI', 'Noto Sans Telugu', sans-serif",
+                }}
+              >
+                విజయనగరం జిల్లా జీవనోపాధి ప్రాజెక్టులు &amp; సమగ్ర గ్రామీణాభివృద్ధి
+              </Typography>
+
+              <Typography
+                sx={{
+                  color: "#475569",
+                  fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.1rem" },
+                  lineHeight: 1.6,
+                  maxWidth: 620,
+                  fontWeight: 500,
+                  mb: 3,
+                }}
+              >
+                Enterprise projects creating sustainable employment, recurring household income, and financial independence for SHG women, tribal communities, and smallholder farmers across Vizianagaram.
+              </Typography>
+
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
+                <Button
+                  component={Link}
+                  href="/schemes"
+                  sx={{
+                    bgcolor: "#F5B800",
+                    color: "#082B50",
+                    borderRadius: "100px",
+                    px: 3.2,
+                    py: 1.1,
+                    fontSize: "0.85rem",
+                    fontWeight: 800,
+                    textTransform: "none",
+                    boxShadow: "0 4px 14px rgba(245, 184, 0, 0.3)",
+                    "&:hover": { bgcolor: "#D49D00" },
+                  }}
+                >
+                  Explore Support Schemes
+                </Button>
+                <Button
+                  component={Link}
+                  href="/fpos"
+                  sx={{
+                    bgcolor: "#FFFFFF",
+                    border: "1.5px solid #CBD5E1",
+                    color: "#082B50",
+                    borderRadius: "100px",
+                    px: 3,
+                    py: 1.1,
+                    fontSize: "0.85rem",
+                    fontWeight: 800,
+                    textTransform: "none",
+                    "&:hover": { bgcolor: "#F8FAFC", borderColor: "#082B50" },
+                  }}
+                >
+                  View 24 FPOs Network
+                </Button>
+              </Stack>
+            </Grid>
+
+            {/* Right Column: Fort & Livelihood Real Photo */}
+            <Grid size={{ xs: 12, md: 5.2 }}>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "100%",
+                  height: { xs: 260, sm: 320, md: 380 },
+                  borderRadius: { xs: "24px", sm: "32px" },
+                  overflow: "hidden",
+                  boxShadow: "0 20px 45px -12px rgba(8, 43, 80, 0.18)",
+                  border: "4px solid #FFFFFF",
+                  bgcolor: "#FEF9C3",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: "url('/images/enterprise-cashew.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+              </Box>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
 
       {/* Category Pills Section */}
       <Box sx={{ py: { xs: 2.5, sm: 3, md: 4 }, bgcolor: "#FFFFFF", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={{ xs: 1.5, sm: 2 }}>
             {[
               { icon: "🤝", title: "SERP Corner", href: "/serp-corner", bgcolor: "#FEF3C7", borderColor: "#FDE68A", count: "Overview" },
@@ -142,8 +269,8 @@ export default function LivelihoodsPage() {
       </Box>
 
       {/* Projects Grid Section */}
-      <Box sx={{ pt: { xs: 2, md: 3 }, pb: { xs: 4, md: 5 }, bgcolor: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+      <Box sx={{ pt: { xs: 2.5, sm: 3, md: 3.5, lg: 4 }, pb: { xs: 4, md: 5 }, bgcolor: "#F8FAFC" }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 4 }}>
             <Box sx={{ display: "inline-block", background: "#E2E8F0", color: "#475569", fontSize: "0.75rem", fontWeight: 800, px: 2, py: 0.5, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
               Projects
@@ -305,7 +432,7 @@ export default function LivelihoodsPage() {
         }}
       >
         <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.08, pointerEvents: "none", position: "absolute" }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Typography
             component="h2"
             variant="h2"

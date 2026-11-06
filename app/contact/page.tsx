@@ -27,7 +27,7 @@ export default function ContactPage() {
         py: { xs: 2, md: 2.5 },
         }}>
         <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.08, pointerEvents: "none", position: "absolute" }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Typography component="span" sx={{ fontSize: "0.75rem" }}>/</Typography>
@@ -45,7 +45,7 @@ export default function ContactPage() {
 
       {/* Quick Contact Cards */}
       <Box sx={{ py: { xs: 2, md: 3 }, bgcolor: '#F8FAFC' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={3} justifyContent="center">
             <Grid size={{ xs: 12, sm: 6, md: 3 }}>
               <Paper elevation={0} sx={{ p: { xs: 2.5, md: 3 }, height: '100%', borderRadius: 3, bgcolor: '#FFFFFF', border: 'none', boxShadow: '0 8px 16px rgba(0,0,0,0.03)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', transition: 'all 0.2s ease', '&:hover': { transform: 'translateY(-2px)', boxShadow: '0 12px 24px rgba(0,0,0,0.06)' } }}>
@@ -85,7 +85,7 @@ export default function ContactPage() {
 
       {/* Contact Form */}
       <Box sx={{ py: { xs: 3, md: 4 }, bgcolor: '#F8FAFC' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container justifyContent="center">
             <Grid size={{ xs: 12, md: 7, lg: 6 }}>
               <Paper elevation={0} sx={{ p: { xs: 3, md: 4 }, width: '100%', borderRadius: 4, bgcolor: '#FFFFFF', border: 'none', boxShadow: '0 12px 32px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column' }}>

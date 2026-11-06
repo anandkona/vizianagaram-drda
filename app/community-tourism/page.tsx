@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Box, Container, Typography, Grid, Breadcrumbs, Paper, Chip } from "@mui/material";
+import { Box, Container, Typography, Grid, Paper, Chip } from "@mui/material";
 import Link from "next/link";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
@@ -22,13 +22,7 @@ export default function CommunityTourismPage() {
           position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%",
           background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none"
         }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Livelihoods</Link>
-            <Typography sx={{ color: "#2B2100", fontWeight: 700, fontSize: "0.8rem" }}>Community Tourism</Typography>
-          </Breadcrumbs>
-
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Typography variant="h1" sx={{ fontWeight: 900, mb: 1, fontSize: { xs: "1.6rem", sm: "1.9rem", md: "2.25rem" }, letterSpacing: "-0.02em", color: "#1F1700" }}>
             Community Led Tourism
           </Typography>
@@ -40,7 +34,7 @@ export default function CommunityTourismPage() {
 
       {/* Stats Bar */}
       <Box sx={{ py: { xs: 2, md: 2.5 }, bgcolor: "#0F172A", color: "white", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "repeat(4, 1fr)" }, gap: 2, textAlign: "center" }}>
             {[
               { value: "22", label: "Livelihood Members", sub: "Active Participants" },
@@ -87,7 +81,7 @@ export default function CommunityTourismPage() {
 
       {/* Main Section */}
       <Box sx={{ pt: { xs: 4, md: 5 }, pb: { xs: 3, md: 4 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography sx={{ display: "inline-block", bgcolor: "#FFF8E1", color: "#B45309", px: 1.5, py: 0.5, borderRadius: 1, fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", mb: 2 }}>
@@ -143,7 +137,7 @@ export default function CommunityTourismPage() {
 
       {/* Experiences Section */}
       <Box sx={{ py: { xs: 3, md: 4 }, bgcolor: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 4, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FFF8E1", color: "#D97706",
@@ -192,7 +186,7 @@ export default function CommunityTourismPage() {
 
       {/* Destinations */}
       <Box sx={{ py: { xs: 3, md: 4 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 3, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FFF8E1", color: "#D97706",

@@ -1,80 +1,162 @@
 "use client";
 
-import { Box, Button, Card, Chip, Container, LinearProgress, Stack, Typography } from "@mui/material";
+import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import InsightsIcon from "@mui/icons-material/Insights";
 import Link from "next/link";
 import { livelihoodProjects } from "@/src/data/home";
-import { PortalIcon } from "@/components/Icon";
 
 export default function LivelihoodProjectsSection() {
   return (
-    <Box component="section" id="livelihoods" sx={{ background: "#FFFFFF", py: { xs: 2, md: 2.5 } }}>
+    <Box
+      component="section"
+      id="livelihoods"
+      sx={{
+        backgroundColor: "#FFFFFF",
+        py: { xs: 4, sm: 5, md: 6 },
+        borderBottom: "1px solid #ECE4D0",
+      }}
+    >
       <Container maxWidth="lg">
-        <Stack direction={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "flex-end" }} justifyContent="space-between" spacing={2.5} sx={{ mb: { xs: 3.2, md: 4.5 } }}>
-          <Box sx={{ maxWidth: 730 }}>
-            <Stack direction="row" alignItems="center" spacing={0.8} sx={{ color: "#9A6700" }}>
-              <InsightsIcon sx={{ fontSize: 18 }} />
-              <Typography component="p" sx={{ fontSize: "0.72rem", fontWeight: 850, letterSpacing: "0.13em", textTransform: "uppercase" }}>
-                District livelihood projects
-              </Typography>
-            </Stack>
-            <Typography component="h2" sx={{ color: "#20252D", fontSize: { xs: "1.9rem", sm: "2.25rem", md: "2.7rem" }, fontWeight: 850, letterSpacing: "-0.045em", lineHeight: 1.1, mt: 0.9 }}>
+        {/* Section Header */}
+        <Stack
+          direction="row"
+          alignItems="flex-start"
+          justifyContent="space-between"
+          sx={{ mb: { xs: 2.5, md: 3.5 } }}
+        >
+          <Box>
+            <Typography
+              component="h2"
+              sx={{
+                color: "#082B50",
+                fontSize: { xs: "1.75rem", sm: "2.1rem", md: "2.5rem" },
+                fontWeight: 900,
+                letterSpacing: "-0.035em",
+                lineHeight: 1.15,
+              }}
+            >
               Value chains with a local future
             </Typography>
-            <Typography sx={{ color: "#6B6254", fontSize: { xs: "0.92rem", md: "1rem" }, lineHeight: 1.7, mt: 1.2 }}>
-              Explore support pathways for women entrepreneurs, farmers, young people and community-led businesses across Vizianagaram.
+            <Typography
+              sx={{
+                color: "#64748B",
+                fontSize: { xs: "0.85rem", md: "0.95rem" },
+                mt: 0.5,
+              }}
+            >
+              Explore support schemes for farmers, entrepreneurs, traders and young people.
             </Typography>
           </Box>
-          <Button component={Link} endIcon={<ArrowForwardIcon />} href="/livelihoods" sx={{ color: "#6B4300", flexShrink: 0, fontSize: "0.8rem", fontWeight: 850 }} variant="outlined">
-            All livelihoods
+          <Button
+            component={Link}
+            href="/livelihoods"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: "14px !important", color: "#D97706 !important" }} />}
+            sx={{
+              color: "#D97706 !important",
+              fontSize: "0.78rem",
+              fontWeight: 800,
+              textTransform: "none",
+              display: { xs: "none", sm: "inline-flex" },
+              "&:hover": { backgroundColor: "rgba(245, 158, 11, 0.08)" },
+            }}
+          >
+            View All Schemes →
           </Button>
         </Stack>
 
-        <Box sx={{ display: "grid", gap: { xs: 1.5, sm: 2 }, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))", lg: "repeat(4, minmax(0, 1fr))" } }}>
+        {/* 4 Cards with Images & Highlights */}
+        <Box
+          sx={{
+            display: "grid",
+            gap: 2.5,
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, minmax(0, 1fr))",
+              lg: "repeat(4, minmax(0, 1fr))",
+            },
+          }}
+        >
           {livelihoodProjects.map((project) => (
             <Card
               key={project.title}
               component={Link}
               href="/livelihoods"
               sx={{
-                border: "1px solid #EDE3CE",
-                borderRadius: 1,
-                color: "inherit",
+                backgroundColor: "#FFFFFF",
+                border: "1px solid #E2E8F0",
+                borderRadius: "16px",
+                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                height: "100%",
-                overflow: "hidden",
                 textDecoration: "none",
-                transition: "transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
-                "&:hover": { borderColor: "#D9A62A", boxShadow: "0 16px 34px rgba(93,65,17,0.11)", transform: "translateY(-5px)" },
+                boxShadow: "0 4px 12px rgba(8, 43, 80, 0.03)",
+                transition: "all 0.25s ease",
+                "&:hover": {
+                  borderColor: "#F59E0B",
+                  transform: "translateY(-4px)",
+                  boxShadow: "0 12px 28px rgba(8, 43, 80, 0.1)",
+                },
               }}
             >
-              <Box sx={{ backgroundImage: `linear-gradient(180deg, transparent 22%, rgba(32,37,45,0.82) 100%), url("${project.image}")`, backgroundPosition: project.imagePosition ?? "center", backgroundSize: "cover", height: { xs: 190, sm: 175 }, position: "relative" }}>
-                <Box sx={{ alignItems: "center", background: "#FBC02D", borderRadius: 1.7, color: "#000000", display: "flex", height: 40, justifyContent: "center", left: 15, position: "absolute", top: 15, width: 40 }}>
-                  <PortalIcon name={project.icon} sx={{ fontSize: 21 }} />
-                </Box>
-                <Chip label={`${project.progress}% snapshot`} size="small" sx={{ background: "rgba(32,37,45,0.75)", bottom: 14, color: "#FFFFFF", fontSize: "0.64rem", position: "absolute", right: 14 }} />
-              </Box>
-              <Box sx={{ display: "flex", flex: 1, flexDirection: "column", p: { xs: 1.9, sm: 2.1 } }}>
-                <Typography component="h3" sx={{ color: "#20252D", fontSize: "1rem", fontWeight: 850, lineHeight: 1.3 }}>{project.title}</Typography>
-                <Typography sx={{ color: "#6B6254", fontSize: "0.77rem", lineHeight: 1.6, mt: 0.75 }}>{project.description}</Typography>
-                <Stack direction="row" alignItems="baseline" justifyContent="space-between" spacing={1} sx={{ mt: "auto", pt: 2 }}>
-                  <Typography sx={{ color: "#A66A00", fontSize: "1.15rem", fontWeight: 850 }}>{project.achieved}</Typography>
-                  <Typography sx={{ color: "#8B806D", fontSize: "0.66rem", textAlign: "right" }}>{project.target}</Typography>
-                </Stack>
-                <LinearProgress aria-label={`${project.title} progress`} sx={{ backgroundColor: "#F0E4C6", mt: 1, "& .MuiLinearProgress-bar": { background: "linear-gradient(90deg, #A66A00, #F9A825)" } }} value={project.progress} variant="determinate" />
-                <Stack direction="row" alignItems="center" spacing={0.6} sx={{ color: "#6B4300", mt: 1.5 }}>
-                  <Typography sx={{ fontSize: "0.71rem", fontWeight: 850 }}>View project pathway</Typography>
-                  <ArrowForwardIcon sx={{ fontSize: 16 }} />
-                </Stack>
+              <Box
+                sx={{
+                  height: 160,
+                  backgroundImage: `url("${project.image}")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundColor: "#E2E8F0",
+                }}
+              />
+              <Box sx={{ p: 2.2, display: "flex", flex: 1, flexDirection: "column" }}>
+                <Typography
+                  component="h3"
+                  sx={{
+                    color: "#082B50",
+                    fontSize: "0.95rem",
+                    fontWeight: 850,
+                    lineHeight: 1.3,
+                    mb: 0.8,
+                  }}
+                >
+                  {project.title}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#D97706",
+                    fontSize: "1.1rem",
+                    fontWeight: 900,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  {project.achieved}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#64748B",
+                    fontSize: "0.72rem",
+                    fontWeight: 650,
+                    mb: 1.5,
+                  }}
+                >
+                  {project.target}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#0284C7",
+                    fontSize: "0.75rem",
+                    fontWeight: 800,
+                    mt: "auto",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 0.4,
+                  }}
+                >
+                  View Details →
+                </Typography>
               </Box>
             </Card>
           ))}
         </Box>
-        <Typography sx={{ color: "#8B806D", fontSize: "0.68rem", lineHeight: 1.55, mt: 2.2 }}>
-          Programme progress and beneficiary counts are illustrative demonstration metrics, not verified live government MIS figures.
-        </Typography>
       </Container>
     </Box>
   );

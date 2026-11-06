@@ -63,7 +63,7 @@ export default function FeedbackPage() {
         color: "#2B2100",
         py: { xs: 2, md: 2.5 }
       }}>
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Box sx={{ fontSize: "0.8rem", color: "rgba(43,33,0,0.6)", mb: 1, display: "flex", gap: 1, alignItems: "center", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <span>/</span>
@@ -99,7 +99,7 @@ export default function FeedbackPage() {
 
       {/* 2. Top Metric Cards (3 Clean Individual Cards) */}
       <Box component="section" sx={{ py: 3, background: "#FFFFFF", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={2}>
             {[
               { label: "Overall Satisfaction", value: "4.8 / 5.0", subtext: "Based on 3,420 verified citizen submissions", icon: <StarRoundedIcon sx={{ fontSize: 24, color: "#CA8A04" }} />, accent: "#FFC107" },
@@ -157,7 +157,7 @@ export default function FeedbackPage() {
 
       {/* 3. Main Feedback Interactive Form & Sidebar */}
       <Box component="section" sx={{ py: { xs: 4, md: 5.5 }, background: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={3.5}>
             
             {/* Left Column: Interactive Feedback Card */}
@@ -533,7 +533,7 @@ export default function FeedbackPage() {
 
       {/* 4. Quick Links Navigation */}
       <Box component="section" sx={{ py: 3.5, background: "#FFFFFF", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: "center" }}>
             {[
               { label: "Performance Dashboard", href: "/dashboard" },

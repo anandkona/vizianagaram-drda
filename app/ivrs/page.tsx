@@ -19,7 +19,7 @@ export default function IvrsPage() {
         color: "#1F1700",
         py: { xs: 2, md: 2.5 }
       }}>
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 10 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 10 }}>
           <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Typography sx={{ color: "#2B2100", fontSize: "0.8rem", fontWeight: 700 }}>IVRS Services</Typography>
@@ -37,7 +37,7 @@ export default function IvrsPage() {
 
       {/* Highlights Section */}
       <Box sx={{ py: 4, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={2}>
             {/* Card 1 */}
             <Grid size={{ xs: 12, md: 4 }}>
@@ -81,7 +81,7 @@ export default function IvrsPage() {
 
       {/* Services Section */}
       <Box sx={{ py: { xs: 3, md: 4 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 3 }}>
             <Box sx={{ display: "inline-block", background: "#FFFDE7", color: "#8A6500", fontSize: "0.75rem", fontWeight: 800, px: 2, py: 0.5, border: "1px solid #FFE082", borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
               Services

@@ -92,7 +92,7 @@ export default function PressReleasesPage() {
 
       {/* Tabs Switcher: Media Coverage (The Manyam reference section) vs Press Release Summaries */}
       <Box sx={{ borderBottom: "1px solid #E2E8F0", bgcolor: "#FFFFFF", position: "sticky", top: { xs: 56, sm: 64, md: 70 }, zIndex: 10 }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Tabs
             value={activeTab}
             onChange={(_, val) => setActiveTab(val)}
@@ -121,7 +121,7 @@ export default function PressReleasesPage() {
       {/* Tab 0: DRDA Manyam style Media Coverage Section */}
       {activeTab === 0 && (
         <Box id="media-coverage" component="section" sx={{ py: { xs: 3, md: 4 }, bgcolor: "#F8FAFC", minHeight: "60vh" }}>
-          <Container maxWidth="lg">
+          <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
             {/* Header / Stats Block */}
             <Box sx={{ mb: 3 }}>
               <Chip
@@ -393,7 +393,7 @@ export default function PressReleasesPage() {
       {/* Tab 1: Official Press Summaries Section */}
       {activeTab === 1 && (
         <Box sx={{ py: 3, bgcolor: "#FFFFFF" }}>
-          <Container maxWidth="lg">
+          <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
             {pressReleases.sections.map((section, idx) => (
               <FeatureSectionView key={`${section.title}-${idx}`} section={section} index={idx} />
             ))}

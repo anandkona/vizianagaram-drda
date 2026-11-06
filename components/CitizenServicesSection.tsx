@@ -2,82 +2,241 @@
 
 import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import Link from "next/link";
 import { citizenServices } from "@/src/data/home";
 import { PortalIcon } from "@/components/Icon";
 
 export default function CitizenServicesSection() {
   return (
-    <Box component="section" id="services" sx={{ background: "#F7F8FA", py: { xs: 2, md: 2.5 } }}>
+    <Box
+      component="section"
+      id="services"
+      sx={{
+        backgroundColor: "#FFFFFF",
+        py: { xs: 4, sm: 5, md: 6 },
+        borderBottom: "1px solid #ECE4D0",
+      }}
+    >
       <Container maxWidth="lg">
-        <Stack direction={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "flex-end" }} justifyContent="space-between" spacing={2.5} sx={{ mb: { xs: 3.2, md: 4.5 } }}>
-          <Box sx={{ flex: 1, pr: { md: 4 } }}>
-            <Typography component="p" sx={{ color: "#9A6700", fontSize: "0.72rem", fontWeight: 850, letterSpacing: "0.13em", textTransform: "uppercase" }}>
-              Citizen services
+        {/* Section Header */}
+        <Stack
+          direction="row"
+          alignItems="flex-start"
+          justifyContent="space-between"
+          sx={{ mb: { xs: 2.5, md: 3.5 } }}
+        >
+          <Box>
+            <Typography
+              component="span"
+              sx={{
+                color: "#D97706",
+                fontSize: "0.75rem",
+                fontWeight: 800,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                display: "block",
+                mb: 0.5,
+              }}
+            >
+              Citizen Services
             </Typography>
-            <Typography component="h2" sx={{ color: "#20252D", fontSize: { xs: "1.9rem", sm: "2.25rem", md: "2.7rem" }, fontWeight: 850, letterSpacing: "-0.045em", lineHeight: 1.1, mt: 0.9 }}>
+            <Typography
+              component="h2"
+              sx={{
+                color: "#082B50",
+                fontSize: { xs: "1.75rem", sm: "2.1rem", md: "2.5rem" },
+                fontWeight: 900,
+                letterSpacing: "-0.035em",
+                lineHeight: 1.15,
+              }}
+            >
               Everything you need to take the first step
             </Typography>
-            <Typography sx={{ color: "#6B6254", fontSize: { xs: "0.92rem", md: "1rem" }, lineHeight: 1.7, mt: 1.2 }}>
-              Find a service, understand a process or connect with the right district office. Start with the doorway that fits your need.
+            <Typography
+              sx={{
+                color: "#64748B",
+                fontSize: { xs: "0.85rem", md: "0.95rem" },
+                mt: 0.5,
+              }}
+            >
+              Access key citizen services, submit applications and track your requests — all in one place.
             </Typography>
           </Box>
-          <Button component={Link} endIcon={<ArrowForwardIcon />} href="/services" sx={{ color: "#6B4300", flexShrink: 0, fontSize: "0.8rem", fontWeight: 850 }} variant="outlined">
-            View all services
+          <Button
+            component={Link}
+            href="/citizen-services"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: "14px !important", color: "#D97706 !important" }} />}
+            sx={{
+              color: "#D97706 !important",
+              fontSize: "0.78rem",
+              fontWeight: 800,
+              textTransform: "none",
+              display: { xs: "none", sm: "inline-flex" },
+              "&:hover": { backgroundColor: "rgba(245, 158, 11, 0.08)" },
+            }}
+          >
+            View All Services
           </Button>
         </Stack>
 
-        <Box sx={{ display: "grid", gap: { xs: 1.5, sm: 2 }, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))", md: "repeat(3, minmax(0, 1fr))", lg: "repeat(5, minmax(0, 1fr))" } }}>
+        {/* 5 Service Image Cards */}
+        <Box
+          sx={{
+            display: "grid",
+            gap: 2,
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, minmax(0, 1fr))",
+              md: "repeat(3, minmax(0, 1fr))",
+              lg: "repeat(5, minmax(0, 1fr))",
+            },
+          }}
+        >
           {citizenServices.map((service) => (
             <Card
               key={service.title}
               component={Link}
               href={service.href}
               sx={{
-                background: "#FFFFFF",
-                border: "1px solid #E5E7EB",
-                borderRadius: 1,
+                backgroundColor: "#FFFFFF",
+                border: "1px solid #E2E8F0",
+                borderRadius: "16px",
                 color: "inherit",
                 display: "flex",
                 flexDirection: "column",
-                height: "100%",
-                minHeight: { xs: 320, sm: 300 },
                 overflow: "hidden",
                 textDecoration: "none",
-                transition: "transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
-                "&:hover": { borderColor: "#D9A62A", boxShadow: "0 16px 34px rgba(32,37,45,0.1)", transform: "translateY(-5px)" },
+                boxShadow: "0 4px 12px rgba(8, 43, 80, 0.03)",
+                transition: "all 0.25s ease",
+                "&:hover": {
+                  borderColor: "#F59E0B",
+                  boxShadow: "0 12px 28px rgba(8, 43, 80, 0.1)",
+                  transform: "translateY(-4px)",
+                },
               }}
             >
-              <Box sx={{ backgroundImage: `linear-gradient(180deg, rgba(32,37,45,0.04), rgba(32,37,45,0.68)), url("${service.image}")`, backgroundPosition: service.imagePosition ?? "center", backgroundSize: "cover", height: { xs: 138, sm: 126 }, position: "relative" }}>
-                <Box sx={{ alignItems: "center", background: "#FBC02D", borderRadius: 1.7, color: "#000000", display: "flex", height: 40, justifyContent: "center", left: 16, position: "absolute", top: 16, width: 40 }}>
-                  <PortalIcon name={service.icon} sx={{ fontSize: 21 }} />
-                </Box>
-              </Box>
-              <Box sx={{ display: "flex", flex: 1, flexDirection: "column", p: { xs: 1.8, sm: 2 } }}>
-                <Typography sx={{ color: "#9A6700", fontSize: "0.65rem", fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase" }}>{service.tag}</Typography>
-                <Typography component="h3" sx={{ color: "#20252D", fontSize: "1rem", fontWeight: 850, lineHeight: 1.25, mt: 0.7 }}>{service.title}</Typography>
-                <Typography sx={{ color: "#6B6254", fontSize: "0.78rem", lineHeight: 1.6, mt: 0.8 }}>{service.description}</Typography>
-                <Stack direction="row" alignItems="center" spacing={0.6} sx={{ color: "#6B4300", mt: "auto", pt: 1.8 }}>
-                  <Typography sx={{ fontSize: "0.72rem", fontWeight: 850 }}>Open service</Typography>
-                  <ArrowForwardIcon sx={{ fontSize: 16 }} />
+              <Box
+                sx={{
+                  backgroundImage: `url("${service.image}")`,
+                  backgroundPosition: service.imagePosition ?? "center",
+                  backgroundSize: "cover",
+                  height: 140,
+                  position: "relative",
+                  backgroundColor: "#E2E8F0",
+                }}
+              />
+              <Box sx={{ p: 2, display: "flex", flex: 1, flexDirection: "column" }}>
+                <Stack direction="row" alignItems="center" spacing={0.8} sx={{ mb: 0.5 }}>
+                  <PortalIcon name={service.icon} sx={{ fontSize: 18, color: "#082B50" }} />
+                  <Typography
+                    component="h3"
+                    sx={{
+                      color: "#082B50",
+                      fontSize: "0.92rem",
+                      fontWeight: 800,
+                      lineHeight: 1.25,
+                    }}
+                  >
+                    {service.title}
+                  </Typography>
                 </Stack>
+                <Typography sx={{ color: "#64748B", fontSize: "0.75rem", lineHeight: 1.5, mb: 1.5 }}>
+                  {service.description}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#D97706",
+                    fontSize: "0.72rem",
+                    fontWeight: 800,
+                    mt: "auto",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 0.5,
+                  }}
+                >
+                  Open service →
+                </Typography>
               </Box>
             </Card>
           ))}
         </Box>
 
-        <Box sx={{ alignItems: { xs: "flex-start", sm: "center" }, background: "#20252D", borderRadius: 1, color: "#FFFFFF", display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 1.4, justifyContent: "space-between", mt: 2.2, p: { xs: 2, md: 2.3 } }}>
-          <Stack direction="row" alignItems="center" spacing={1.2}>
-            <Box sx={{ alignItems: "center", background: "#FBC02D", borderRadius: 1.7, color: "#000000", display: "flex", height: 42, justifyContent: "center", width: 42 }}><HeadsetMicIcon /></Box>
+        {/* Yellow Banner Below Cards: "Multiple services for your district" */}
+        <Box
+          sx={{
+            background: "linear-gradient(135deg, #FEF9E7 0%, #FFF8E1 100%)",
+            border: "1.5px solid #FDE68A",
+            borderRadius: "16px",
+            p: { xs: 2, md: 2.5 },
+            mt: 3,
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: { xs: "flex-start", sm: "center" },
+            justifyContent: "space-between",
+            gap: 2,
+          }}
+        >
+          <Stack direction="row" alignItems="center" spacing={1.5}>
+            <Box
+              sx={{
+                width: 38,
+                height: 38,
+                borderRadius: "10px",
+                backgroundColor: "#FFC107",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#082B50",
+              }}
+            >
+              <PortalIcon name="dashboard" sx={{ fontSize: 20 }} />
+            </Box>
             <Box>
-              <Typography sx={{ color: "#FFFFFF", fontSize: "0.87rem", fontWeight: 800 }}>Need help choosing a service?</Typography>
-              <Typography sx={{ color: "rgba(255,255,255,0.65)", fontSize: "0.74rem", lineHeight: 1.5, mt: 0.25 }}>Call the district IVRS or browse the complete service directory.</Typography>
+              <Typography sx={{ color: "#082B50", fontSize: "0.95rem", fontWeight: 850 }}>
+                Multiple services for your district
+              </Typography>
+              <Typography sx={{ color: "#64748B", fontSize: "0.78rem" }}>
+                Access all district services in one place
+              </Typography>
             </Box>
           </Stack>
-          <Stack direction="row" alignItems="center" spacing={1.2} sx={{ flexShrink: 0 }}>
-            <Button component="a" href="tel:1902" sx={{ background: "#F9A825", color: "#20252D", fontSize: "0.76rem", fontWeight: 850, "&:hover": { background: "#FFD54F" } }}>Call 1902</Button>
-            <Button component={Link} href="/directory" sx={{ color: "#FFFFFF", fontSize: "0.76rem" }} variant="outlined">Directory</Button>
+
+          <Stack direction="row" spacing={1.2}>
+            <Button
+              component={Link}
+              href="/citizen-services"
+              sx={{
+                backgroundColor: "#FFFFFF",
+                border: "1.5px solid #CBD5E1",
+                color: "#082B50 !important",
+                fontSize: "0.78rem",
+                fontWeight: 800,
+                px: 2.2,
+                py: 0.8,
+                borderRadius: "50px",
+                textTransform: "none",
+                "&:hover": { backgroundColor: "#F8FAFC" },
+              }}
+            >
+              Our Services →
+            </Button>
+            <Button
+              component={Link}
+              href="/map"
+              sx={{
+                backgroundColor: "#082B50",
+                color: "#FFFFFF !important",
+                fontSize: "0.78rem",
+                fontWeight: 800,
+                px: 2.2,
+                py: 0.8,
+                borderRadius: "50px",
+                textTransform: "none",
+                "&:hover": { backgroundColor: "#0C3C6E" },
+              }}
+            >
+              View Map →
+            </Button>
           </Stack>
         </Box>
       </Container>

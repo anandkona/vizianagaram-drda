@@ -133,7 +133,7 @@ export default function LivelihoodProjectPage({ params }: { params: Promise<{ pr
           position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%",
           background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none"
         }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator="/" sx={{ color: "rgba(43,33,0,0.6)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }}>Livelihoods</Link>

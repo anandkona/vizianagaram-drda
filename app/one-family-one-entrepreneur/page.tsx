@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography, Grid, Breadcrumbs, Paper } from "@mui/material";
+import { Box, Container, Typography, Grid, Paper } from "@mui/material";
 import Link from "next/link";
 import HomeIcon from "@mui/icons-material/Home";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
@@ -24,13 +24,7 @@ export default function OneFamilyOneEntrepreneurPage() {
           position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%",
           background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none"
         }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Livelihoods</Link>
-            <Typography sx={{ color: "#2B2100", fontWeight: 700, fontSize: "0.8rem" }}>One Family One Entrepreneur</Typography>
-          </Breadcrumbs>
-
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Typography variant="h1" sx={{ fontWeight: 900, mb: 1, fontSize: { xs: "1.75rem", sm: "2rem", md: "2.25rem" }, letterSpacing: "-0.02em", color: "#1F1700", lineHeight: 1.2 }}>
             One Family, One Entrepreneur
           </Typography>
@@ -42,7 +36,7 @@ export default function OneFamilyOneEntrepreneurPage() {
 
       {/* The State Vision Section */}
       <Box sx={{ bgcolor: "#0F172A", py: { xs: 2, md: 2.5 }, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Typography sx={{ textAlign: "center", color: "rgba(255,255,255,0.5)", fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 800, mb: 1.5 }}>
             The State Vision — Andhra Pradesh
           </Typography>
@@ -94,8 +88,8 @@ export default function OneFamilyOneEntrepreneurPage() {
       </Box>
 
       {/* Our District Mission */}
-      <Box sx={{ pt: { xs: 4, md: 5 }, pb: { xs: 4, md: 5 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+      <Box sx={{ pt: { xs: 2.5, sm: 3, md: 3.5, lg: 4 }, pb: { xs: 4, md: 5 }, bgcolor: "white" }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 4, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FFF8E1", color: "#D97706",
@@ -115,12 +109,12 @@ export default function OneFamilyOneEntrepreneurPage() {
           {/* Unified Stat Ribbon */}
           <Box sx={{ display: "flex", flexWrap: "wrap", bgcolor: "white", borderRadius: 4, border: "1px solid #E2E8F0", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)", mb: 5, overflow: "hidden" }}>
             <Box sx={{ flex: { xs: "1 1 100%", md: 1 }, p: { xs: 3, md: 4 }, textAlign: "center", borderRight: { md: "1px solid #E2E8F0" }, borderBottom: { xs: "1px solid #E2E8F0", md: "none" } }}>
-              <Typography sx={{ fontSize: "3rem", fontWeight: 900, color: "#D97706", lineHeight: 1 }}>0</Typography>
+              <Typography sx={{ fontSize: "3rem", fontWeight: 900, color: "#D97706", lineHeight: 1 }}>2,500</Typography>
               <Typography sx={{ fontWeight: 800, color: "#1E293B", mt: 1, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>Entrepreneurs Targeted</Typography>
               <Typography sx={{ fontSize: "0.7rem", color: "#94A3B8", mt: 0.5 }}>Current year</Typography>
             </Box>
             <Box sx={{ flex: { xs: "1 1 100%", md: 1 }, p: { xs: 3, md: 4 }, textAlign: "center", borderRight: { md: "1px solid #E2E8F0" }, borderBottom: { xs: "1px solid #E2E8F0", md: "none" } }}>
-              <Typography sx={{ fontSize: "3rem", fontWeight: 900, color: "#D97706", lineHeight: 1 }}>0</Typography>
+              <Typography sx={{ fontSize: "3rem", fontWeight: 900, color: "#D97706", lineHeight: 1 }}>2,500</Typography>
               <Typography sx={{ fontWeight: 800, color: "#1E293B", mt: 1, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>Enterprises Grounded</Typography>
               <Typography sx={{ fontSize: "0.7rem", color: "#94A3B8", mt: 0.5 }}>Achieved so far</Typography>
             </Box>
@@ -139,9 +133,9 @@ export default function OneFamilyOneEntrepreneurPage() {
             </Typography>
             <Grid container spacing={4} textAlign="center">
               {[
-                { val: "0+", label: "Women entrepreneurs already active" },
-                { val: "0", label: "Village Organisations" },
-                { val: "0", label: "SHG members — the talent pool" }
+                { val: "2,050+", label: "Women entrepreneurs already active" },
+                { val: "777", label: "Gram Panchayats and VOs" },
+                { val: "19.30 L", label: "District citizen reach" }
               ].map((item, idx) => (
                 <Grid size={{ xs: 12, sm: 4 }} key={idx}>
                   <Typography sx={{ fontSize: "2.25rem", fontWeight: 900, lineHeight: 1 }}>{item.val}</Typography>
@@ -203,7 +197,7 @@ export default function OneFamilyOneEntrepreneurPage() {
 
       {/* Priority Sectors */}
       <Box sx={{ py: { xs: 2, md: 3 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 3, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FFF8E1", color: "#D97706",

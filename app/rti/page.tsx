@@ -55,7 +55,7 @@ export default function RTIPage() {
         py: { xs: 2, md: 2.5 } 
       }}>
         <Box sx={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none" }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator="/" sx={{ color: "rgba(43,33,0,0.6)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Typography sx={{ color: "#2B2100", fontWeight: 700, fontSize: "0.8rem" }}>Right to Information</Typography>
@@ -72,7 +72,7 @@ export default function RTIPage() {
 
       {/* 4 Steps Section */}
       <Box component="section" sx={{ py: { xs: 4, md: 5 }, background: "#FFFFFF" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box textAlign="center" mb={6}>
             <Typography sx={{ color: "#2B2100", fontSize: "0.85rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: 1.5, mb: 1, opacity: 0.8 }}>
               How it works
@@ -201,7 +201,7 @@ export default function RTIPage() {
 
       {/* Rights & Fees Section */}
       <Box component="section" sx={{ py: { xs: 4, md: 5 }, background: "#FFFFFF" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1fr 1fr" }, gap: 3 }}>
             {/* Your Rights */}
             <Paper elevation={0} sx={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: 3, p: 3, height: "100%" }}>

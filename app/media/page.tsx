@@ -66,7 +66,7 @@ export default function MediaPage() {
           position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%",
           background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none"
         }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator="/" sx={{ color: "rgba(43,33,0,0.6)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Typography sx={{ color: "#2B2100", fontSize: "0.8rem", fontWeight: 700 }}>Media Coverage</Typography>
@@ -83,7 +83,7 @@ export default function MediaPage() {
       </Box>
 
       <Box component="section" sx={{ pt: { xs: 1.5, md: 2 }, pb: { xs: 1.5, md: 2 }, background: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 1.5 }}>
             <Chip icon={<NewspaperIcon sx={{ fontSize: "14px !important", color: "inherit !important" }} />} label="In the News" size="small" sx={{ background: "#FFF8E1", color: "#D97706", border: "1px solid #FFE082", fontWeight: 800, mb: 1, fontSize: "0.7rem", px: 0.5 }} />
             <Typography sx={{ fontSize: "0.85rem", color: "#64748B", maxWidth: 650 }}>
@@ -262,7 +262,7 @@ export default function MediaPage() {
           py: { xs: 1.5, md: 2 },
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           {filteredClippings.length === 0 ? (
             <Box sx={{ py: 8, textAlign: "center" }}>
               <Typography sx={{ color: "#64748B", fontSize: "0.95rem", fontWeight: 600 }}>

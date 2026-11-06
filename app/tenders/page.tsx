@@ -79,7 +79,7 @@ export default function TendersPage() {
         py: { xs: 2, md: 2.5 },
         }}>
         <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.1, pointerEvents: "none", position: "absolute" }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <Box sx={{ fontSize: "0.8rem", color: "rgba(43, 33, 0, 0.72)", fontWeight: 650, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
@@ -124,7 +124,7 @@ export default function TendersPage() {
 
 
       {/* Main Content */}
-      <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 4, md: 6 } }}>
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, py: { xs: 3, sm: 4, md: 6 } }}>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" }, gap: { xs: 2, sm: 2.5, md: 3 } }}>
           {tenders.map((item, idx) => {
             let borderColor = "#E2E8F0";

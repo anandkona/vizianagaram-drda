@@ -53,7 +53,7 @@ export default function MartPage() {
           background: "rgba(255, 255, 255, 0.3)", display: "none", pointerEvents: "none"
         }} />
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, mb: { xs: 3, md: 4 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1, mb: { xs: 3, md: 4 } }}>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "rgba(43,33,0,0.7)", mb: 3, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Typography component="span" sx={{ fontSize: "0.75rem" }}>/</Typography>

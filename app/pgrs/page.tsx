@@ -49,7 +49,7 @@ export default function PgrsPage() {
         py: { xs: 2, md: 2.5 },
       }}>
         <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.08, pointerEvents: "none", position: "absolute" }} />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Typography sx={{ color: "#1F1700", fontWeight: 700, fontSize: "0.8rem" }}>Share Your Concern</Typography>
@@ -126,7 +126,7 @@ export default function PgrsPage() {
 
       {/* Info Section */}
       <Box sx={{ py: { xs: 2, md: 3 }, bgcolor: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={8}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#92400E", fontSize: "0.75rem", fontWeight: 800, px: 2, py: 0.5, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
@@ -223,7 +223,7 @@ export default function PgrsPage() {
 
       {/* Process Section */}
       <Box sx={{ py: { xs: 2, md: 3 }, bgcolor: "white", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 3 }}>
             <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#92400E", fontSize: "0.75rem", fontWeight: 800, px: 2, py: 0.5, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
               Process
@@ -273,7 +273,7 @@ export default function PgrsPage() {
 
       {/* Ways to Register Section */}
       <Box sx={{ py: { xs: 2, md: 3 }, bgcolor: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 3 }}>
             <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#92400E", fontSize: "0.75rem", fontWeight: 800, px: 2, py: 0.5, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
               How to Register

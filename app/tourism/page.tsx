@@ -16,6 +16,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import Link from "next/link";
 import TourismCard from "@/components/TourismCard";
 import { tourismPlaces } from "@/src/data/district";
+import PageIntro from "@/components/PageIntro";
 
 const travelNotes = [
   {
@@ -56,83 +57,18 @@ export default function TourismPage() {
 
   return (
     <Box sx={{ minHeight: "100vh", fontFamily: "'Inter', sans-serif", bgcolor: "#F8FAFC", pb: 0 }}>
-      {/* 1. District Hero Section - Compact Height */}
-      <Box
-        sx={{
-          position: "relative",
-          overflow: "hidden",
-          background: "#FFC107",
-        borderBottom: "1px solid rgba(180, 83, 9, 0.25)",
-        boxShadow: "0 4px 20px -2px rgba(217, 119, 6, 0.25)",
-          color: "#2B2100",
-          py: { xs: 2, md: 2.5 }
-        }}
-      >
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          {/* Breadcrumbs */}
-          <Box sx={{ fontSize: "0.78rem", color: "rgba(43,33,0,0.6)", fontWeight: 600, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <span>/</span>
-            <Typography component="span" sx={{ color: "#2B2100", fontWeight: 700, fontSize: "0.78rem" }}>
-              Tourism & Culture
-            </Typography>
-          </Box>
-
-          <Box sx={{ maxWidth: 750 }}>
-            <Box
-              sx={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 0.75,
-                bgcolor: "#FFFDE7",
-                color: "#8A6500",
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                px: 1.25,
-                py: 0.35,
-                borderRadius: 20,
-                border: "1px solid #FFE082",
-                mb: 1.2,
-                textTransform: "uppercase",
-                letterSpacing: "0.05em"
-              }}
-            >
-              <TravelExploreIcon sx={{ fontSize: 14 }} />
-              Discover Vizianagaram
-            </Box>
-
-            <Typography
-              variant="h1"
-              sx={{
-                fontWeight: 900,
-                mb: 1,
-                fontSize: { xs: "1.5rem", sm: "1.85rem", md: "2.1rem" },
-                letterSpacing: "-0.02em",
-                color: "#1F1700",
-                lineHeight: 1.2
-              }}
-            >
-              Heritage, Sacred Traditions & Natural Wonder
-            </Typography>
-
-            <Typography
-              sx={{
-                color: "rgba(31,23,0,0.85)",
-                fontSize: { xs: "0.85rem", sm: "0.92rem" },
-                maxWidth: 680,
-                lineHeight: 1.5,
-                fontWeight: 500
-              }}
-            >
-              Explore ancient forts of Vizianagaram and Bobbili, revered temples, centuries-old Sanskrit and Carnatic music colleges, and picturesque reservoir landscapes.
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
+      {/* 1. District Hero Section */}
+      <PageIntro
+        eyebrow="Discover Vizianagaram"
+        title="Heritage, Sacred Traditions & Natural Wonder"
+        description="Explore ancient forts of Vizianagaram and Bobbili, revered temples, centuries-old Sanskrit and Carnatic music colleges, and picturesque reservoir landscapes."
+        icon="location"
+        crumb="Tourism & Culture"
+      />
 
       {/* 2. District Highlights Overview Bar - Reduced Height & Width */}
       <Box sx={{ bgcolor: "#0F172A", color: "white", py: { xs: 1, md: 1.25 }, borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth="md">
+        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
           <Grid container spacing={{ xs: 1.5, sm: 2.5, md: 3 }} justifyContent="center">
             {highlights.map((item, idx) => {
               const Icon = item.icon;
@@ -255,7 +191,7 @@ export default function TourismPage() {
 
       {/* 3. Hero Story & District Narrative Section */}
       <Box component="section" sx={{ py: { xs: 2.25, md: 2.75 }, bgcolor: "#1F1700", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
           <Grid container spacing={{ xs: 2.5, lg: 3 }} alignItems="center">
             <Grid size={{ xs: 12, lg: 7 }}>
               <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#B45309", fontSize: "0.72rem", fontWeight: 800, px: 1.5, py: 0.35, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 1.25 }}>
@@ -404,7 +340,7 @@ export default function TourismPage() {
 
       {/* 4. Destinations / Living Heritage Map Grid */}
       <Box component="section" sx={{ py: { xs: 2.25, md: 2.75 }, bgcolor: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
           <Box sx={{ textAlign: "center", mb: 2 }}>
             <Box sx={{ display: "inline-block", background: "#E2E8F0", color: "#475569", fontSize: "0.68rem", fontWeight: 800, px: 1.25, py: 0.25, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 0.5 }}>
               Places To Know
@@ -428,16 +364,19 @@ export default function TourismPage() {
                   onClick={() => setSelectedTag(cat)}
                   size="small"
                   sx={{
-                    fontWeight: 700,
-                    fontSize: "0.7rem",
+                    fontWeight: 800,
+                    fontSize: "0.74rem",
                     cursor: "pointer",
-                    bgcolor: active ? "#1E293B" : "#FFFFFF",
-                    color: active ? "#FFFFFF" : "#475569",
-                    border: `1px solid ${active ? "#1E293B" : "#CBD5E1"}`,
+                    bgcolor: active ? "#F5B800" : "#FFFCF4",
+                    color: active ? "#082B50 !important" : "#B45309",
+                    border: `1.5px solid ${active ? "#F5B800" : "#FDE68A"}`,
+                    boxShadow: active ? "0 2px 8px rgba(245, 184, 0, 0.35)" : "none",
                     transition: "all 0.15s ease",
-                    height: 22,
+                    height: 28,
+                    px: 0.5,
                     "&:hover": {
-                      bgcolor: active ? "#0F172A" : "#F1F5F9",
+                      bgcolor: active ? "#D49D00" : "#FEF3C7",
+                      borderColor: "#F5B800"
                     }
                   }}
                 />
@@ -458,7 +397,7 @@ export default function TourismPage() {
 
       {/* 5. Responsible Travel Section */}
       <Box component="section" sx={{ py: { xs: 2.25, md: 2.75 }, bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
           <Box sx={{ textAlign: "center", mb: 2.5 }}>
             <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#B45309", fontSize: "0.68rem", fontWeight: 800, px: 1.25, py: 0.25, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 0.75 }}>
               Responsible Travel
@@ -576,7 +515,7 @@ export default function TourismPage() {
 
       {/* 6. Directory Connect CTA Section - Perfectly Center-Aligned Card (Reduced Height) */}
       <Box sx={{ background: "#FFC107", color: "#1F1700", py: { xs: 1.75, md: 2.25 } }}>
-        <Container maxWidth="md">
+        <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
           <Box
             sx={{
               display: "flex",
@@ -681,6 +620,52 @@ export default function TourismPage() {
                 Open District Directory
               </Button>
             </Stack>
+          </Box>
+        </Container>
+      </Box>
+      {/* Quick Navigation Pills (Matching Who's Who) */}
+      <Box sx={{ py: { xs: 2.5, sm: 3, md: 3.5 }, bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0" }}>
+        <Container maxWidth={false} sx={{ px: { xs: 2.5, sm: 3.5, md: 5 } }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, justifyContent: "center" }}>
+            {[
+              { label: "District Profile", href: "/about/district" },
+              { label: "About DRDA", href: "/about/drda" },
+              { label: "Org Structure", href: "/about/structure" },
+              { label: "Contact Directory", href: "/directory" },
+              { label: "Who's Who", href: "/about/whos-who" },
+              { label: "Citizen Services", href: "/services" },
+            ].map((link, idx) => (
+              <Button
+                key={idx}
+                component={Link}
+                href={link.href}
+                endIcon={<ArrowForwardIcon className="nav-arrow" sx={{ fontSize: 13, transition: "transform 0.2s ease" }} />}
+                sx={{
+                  bgcolor: "#FFFFFF",
+                  border: "1.5px solid #CBD5E1",
+                  color: "#082B50",
+                  borderRadius: "100px",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  px: 2.6,
+                  py: 0.75,
+                  textTransform: "none",
+                  boxShadow: "none",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    bgcolor: "#F8FAFC",
+                    borderColor: "#082B50",
+                    color: "#082B50",
+                    boxShadow: "none",
+                    "& .nav-arrow": {
+                      transform: "translateX(3px)",
+                    },
+                  },
+                }}
+              >
+                {link.label}
+              </Button>
+            ))}
           </Box>
         </Container>
       </Box>

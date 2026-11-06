@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Box, Container, Typography, Grid, Breadcrumbs, Paper, Stack } from "@mui/material";
+import { Box, Container, Typography, Grid, Paper, Stack } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PhoneIcon from "@mui/icons-material/Phone";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
@@ -103,12 +103,7 @@ export default function DashboardPage() {
         {/* Ambient Background Glows */}
         <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.08, pointerEvents: "none", position: "absolute" }} />
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Typography sx={{ color: "#1F1700", fontWeight: 700, fontSize: "0.8rem" }}>Performance Dashboard</Typography>
-          </Breadcrumbs>
-
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Stack direction={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "center" }} justifyContent="space-between" spacing={2.5}>
             <Box sx={{ maxWidth: 780 }}>
               <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
@@ -177,7 +172,7 @@ export default function DashboardPage() {
 
       {/* 2. Top Stats Counter Strip */}
       <Box sx={{ py: 3.5, bgcolor: "white", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={2}>
             {topStats.map((item, idx) => (
               <Grid size={{ xs: 6, sm: 3 }} key={idx}>
@@ -218,8 +213,8 @@ export default function DashboardPage() {
       </Box>
 
       {/* 3. Cards Grid (Exact Services Page Structure: Photo, Title, Description, Arrow) */}
-      <Box sx={{ pt: { xs: 3, md: 4.5 }, pb: { xs: 4, md: 5 }, bgcolor: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+      <Box sx={{ pt: { xs: 2.5, sm: 3, md: 3.5, lg: 4 }, pb: { xs: 4, md: 5 }, bgcolor: "#F8FAFC" }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           
           <Box sx={{ textAlign: "center", mb: 3.5 }}>
             <Box sx={{ display: "inline-block", background: "#FEF3C7", color: "#B45309", fontSize: "0.75rem", fontWeight: 800, px: 2, py: 0.5, borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.05em", mb: 1.5 }}>
@@ -339,7 +334,7 @@ export default function DashboardPage() {
 
       {/* 4. Administrative Scale Ribbon */}
       <Box sx={{ py: 4, bgcolor: "white", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 3 }}>
             <Typography sx={{ fontSize: "0.72rem", fontWeight: 850, color: "#CA8A04", letterSpacing: "0.08em", textTransform: "uppercase" }}>
               District Saturation

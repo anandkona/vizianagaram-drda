@@ -39,7 +39,7 @@ export default function FPOsPage() {
         color: "#1F1700",
         py: { xs: 2, md: 2.5 }
       }}>
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Breadcrumbs separator="/" sx={{ ml: { md: 4 },  color: "rgba(43, 33, 0, 0.72)", mb: 0.75, fontSize: "0.78rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
             <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }}>Livelihoods</Link>
@@ -57,7 +57,7 @@ export default function FPOsPage() {
 
       {/* Stats Section */}
       <Box sx={{ bgcolor: "#0F172A", py: { xs: 2, md: 2.5 }, borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={1.5} justifyContent="center">
             {[
               { value: "15", label: "FPOs" },
@@ -127,7 +127,7 @@ export default function FPOsPage() {
 
       {/* Main Content - What FPOs Do */}
       <Box sx={{ py: { xs: 2.25, md: 3 }, bgcolor: "white" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 2.25, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FEF9C3", color: "#CA8A04",
@@ -196,7 +196,7 @@ export default function FPOsPage() {
 
       {/* Directory Section */}
       <Box sx={{ py: { xs: 2.5, md: 3.5 }, bgcolor: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ mb: 2.25, textAlign: "center" }}>
             <span style={{
               display: "inline-block", backgroundColor: "#FEF9C3", color: "#CA8A04",

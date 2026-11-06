@@ -23,7 +23,7 @@ export default function SuccessStoriesPage() {
         {/* Dotted pattern overlay */}
         <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.08, pointerEvents: "none", position: "absolute" }} />
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1.2, fontSize: "0.8rem", fontWeight: 600 }}>
             <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-amber-300">Home</Link>
             <Typography component="span" sx={{ fontSize: "0.75rem", color: "rgba(255, 193, 7, 0.6)" }}>/</Typography>
@@ -40,7 +40,7 @@ export default function SuccessStoriesPage() {
 
       {/* Stories Section */}
       <Box component="section" sx={{ py: { xs: 2, md: 2.5 }, background: "#F8FAFC" }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box sx={{ textAlign: "center", mb: 2 }}>
             <Typography component="span" sx={{ display: "inline-block", background: "#FFF8E1", color: "#F57F17", fontSize: "0.75rem", fontWeight: 700, px: 1.5, py: 0.5, borderRadius: 5, textTransform: "uppercase", letterSpacing: "0.05em", mb: 1 }}>
               {successStories.length} Stories

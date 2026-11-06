@@ -2,84 +2,156 @@
 
 import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Link from "next/link";
 import { featuredSuccessStories } from "@/src/data/home";
 
+const storyImages: Record<string, string> = {
+  "lakshmi-shg": "/images/drda-women-shg-outdoor.jpg",
+  "ramana-fpo": "/images/farmer-support-real.jpg",
+  "suresh-skill": "/images/service-learning.jpg",
+};
+
 export default function SuccessStoriesSection() {
   return (
-    <Box component="section" id="success-stories" sx={{ background: "#20252D", color: "#FFFFFF", overflow: "hidden", position: "relative", py: { xs: 2, md: 2.5 } }}>
-      <Box aria-hidden="true" className="portal-dotted-pattern" sx={{ inset: 0, opacity: 0.06, position: "absolute" }} />
-      <Container maxWidth="lg" sx={{ position: "relative" }}>
-        <Stack direction={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "flex-end" }} justifyContent="space-between" spacing={2.5} sx={{ mb: { xs: 3.2, md: 4.5 } }}>
-          <Box sx={{ maxWidth: 720 }}>
-            <Stack direction="row" alignItems="center" spacing={0.8} sx={{ color: "#FFD54F" }}>
-              <AutoAwesomeIcon sx={{ fontSize: 18 }} />
-              <Typography component="p" sx={{ fontSize: "0.72rem", fontWeight: 850, letterSpacing: "0.13em", textTransform: "uppercase" }}>
-                Manyam changemakers · Vizianagaram stories
-              </Typography>
-            </Stack>
-            <Typography component="h2" sx={{ color: "#FFFFFF", fontSize: { xs: "1.9rem", sm: "2.25rem", md: "2.7rem" }, fontWeight: 850, letterSpacing: "-0.045em", lineHeight: 1.1, mt: 0.9 }}>
+    <Box
+      component="section"
+      id="success-stories"
+      sx={{
+        backgroundColor: "#FFFFFF",
+        py: { xs: 4, sm: 5, md: 6 },
+        borderBottom: "1px solid #ECE4D0",
+      }}
+    >
+      <Container maxWidth="lg">
+        {/* Section Header */}
+        <Stack
+          direction="row"
+          alignItems="flex-start"
+          justifyContent="space-between"
+          sx={{ mb: { xs: 2.5, md: 3.5 } }}
+        >
+          <Box>
+            <Typography
+              component="h2"
+              sx={{
+                color: "#082B50",
+                fontSize: { xs: "1.75rem", sm: "2.1rem", md: "2.5rem" },
+                fontWeight: 900,
+                letterSpacing: "-0.035em",
+                lineHeight: 1.15,
+              }}
+            >
               Real people. Practical progress.
             </Typography>
-            <Typography sx={{ color: "rgba(255,255,255,0.7)", fontSize: { xs: "0.92rem", md: "1rem" }, lineHeight: 1.7, mt: 1.2 }}>
-              Local initiative, practical support and visible outcomes from across the district. These are illustrative stories presented to help residents discover possible pathways.
+            <Typography
+              sx={{
+                color: "#64748B",
+                fontSize: { xs: "0.85rem", md: "0.95rem" },
+                mt: 0.5,
+              }}
+            >
+              Stories from our communities that are building a stronger Vizianagaram.
             </Typography>
           </Box>
-          <Button component={Link} endIcon={<ArrowForwardIcon />} href="/success-stories" sx={{ borderColor: "rgba(255,255,255,0.45)", color: "#FFFFFF", flexShrink: 0, fontSize: "0.8rem", fontWeight: 850, "&:hover": { background: "rgba(255,255,255,0.1)", borderColor: "#FFFFFF" } }} variant="outlined">
-            View all stories
+          <Button
+            component={Link}
+            href="/success-stories"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: "14px !important", color: "#D97706 !important" }} />}
+            sx={{
+              color: "#D97706 !important",
+              fontSize: "0.78rem",
+              fontWeight: 800,
+              textTransform: "none",
+              display: { xs: "none", sm: "inline-flex" },
+              "&:hover": { backgroundColor: "rgba(245, 158, 11, 0.08)" },
+            }}
+          >
+            View All Stories
           </Button>
         </Stack>
 
-        <Box sx={{ display: "grid", gap: { xs: 1.5, sm: 2 }, gridTemplateColumns: { xs: "1fr", md: "repeat(3, minmax(0, 1fr))" } }}>
-          {featuredSuccessStories.map((story) => (
-            <Card
-              key={story.id}
-              component={Link}
-              href={`/success-stories#${story.id}`}
-              sx={{
-                background: "linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.045))",
-                border: "1px solid rgba(255,255,255,0.16)",
-                borderRadius: 1,
-                color: "#FFFFFF",
-                display: "flex",
-                flexDirection: "column",
-                minHeight: 390,
-                overflow: "hidden",
-                padding: { xs: 2.2, sm: 2.5 },
-                textDecoration: "none",
-                transition: "transform 220ms ease, border-color 220ms ease, background 220ms ease",
-                "&:hover": { background: "linear-gradient(145deg, rgba(249,168,37,0.2), rgba(255,255,255,0.06))", borderColor: "rgba(249,168,37,0.75)", transform: "translateY(-5px)" },
-              }}
-            >
-              <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
-                <Box sx={{ alignItems: "center", background: "#FBC02D", borderRadius: "50%", color: "#000000", display: "flex", fontSize: "1.1rem", fontWeight: 850, height: 48, justifyContent: "center", width: 48 }}>{story.initial}</Box>
-                <Typography sx={{ color: "#FFD54F", fontSize: "0.65rem", fontWeight: 800, textAlign: "right" }}>{story.category}</Typography>
-              </Stack>
-              <Typography component="h3" sx={{ color: "#FFFFFF", fontSize: "1.12rem", fontWeight: 850, lineHeight: 1.25, mt: 2.2 }}>{story.person}</Typography>
-              <Stack direction="row" alignItems="center" spacing={0.5} sx={{ color: "rgba(255,255,255,0.55)", mt: 0.6 }}>
-                <LocationOnIcon sx={{ color: "#F9A825", fontSize: 15 }} />
-                <Typography sx={{ fontSize: "0.7rem" }}>{story.location}</Typography>
-              </Stack>
-              <Typography sx={{ color: "rgba(255,255,255,0.72)", fontSize: "0.82rem", lineHeight: 1.65, mt: 1.6 }}>{story.story}</Typography>
-              <Box sx={{ background: "rgba(0,0,0,0.18)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 1, mt: "auto", p: 1.5 }}>
-                <Typography sx={{ color: "#FFD54F", fontSize: "0.62rem", fontWeight: 850, letterSpacing: "0.1em", textTransform: "uppercase" }}>{story.resultLabel}</Typography>
-                <Typography sx={{ color: "#FFFFFF", fontSize: "0.86rem", fontWeight: 750, lineHeight: 1.4, mt: 0.45 }}>{story.result}</Typography>
-              </Box>
-              <Stack direction="row" flexWrap="wrap" gap={0.6} sx={{ mt: 1.4 }}>
-                {story.tags.map((tag) => <Typography key={tag} sx={{ background: "rgba(255,255,255,0.1)", borderRadius: 99, color: "rgba(255,255,255,0.72)", fontSize: "0.62rem", fontWeight: 750, px: 1, py: 0.45 }}>{tag}</Typography>)}
-              </Stack>
-              <Stack direction="row" alignItems="center" spacing={0.6} sx={{ color: "#FFD54F", mt: 1.5 }}>
-                <Typography sx={{ fontSize: "0.72rem", fontWeight: 850 }}>Read full story</Typography>
-                <ArrowForwardIcon sx={{ fontSize: 16 }} />
-              </Stack>
-            </Card>
-          ))}
+        {/* 3 Story Cards with Photos */}
+        <Box
+          sx={{
+            display: "grid",
+            gap: 2.5,
+            gridTemplateColumns: { xs: "1fr", md: "repeat(3, minmax(0, 1fr))" },
+          }}
+        >
+          {featuredSuccessStories.map((story) => {
+            const img = storyImages[story.id] || "/images/drda-women-shg.jpg";
+            return (
+              <Card
+                key={story.id}
+                component={Link}
+                href={`/success-stories#${story.id}`}
+                sx={{
+                  backgroundColor: "#FFFFFF",
+                  border: "1px solid #E2E8F0",
+                  borderRadius: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 12px rgba(8, 43, 80, 0.03)",
+                  transition: "all 0.25s ease",
+                  "&:hover": {
+                    borderColor: "#F59E0B",
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 12px 28px rgba(8, 43, 80, 0.1)",
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    height: 180,
+                    backgroundImage: `url("${img}")`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundColor: "#E2E8F0",
+                  }}
+                />
+                <Box sx={{ p: 2.5, display: "flex", flex: 1, flexDirection: "column" }}>
+                  <Typography
+                    component="h3"
+                    sx={{
+                      color: "#082B50",
+                      fontSize: "1.05rem",
+                      fontWeight: 850,
+                      lineHeight: 1.3,
+                      mb: 0.8,
+                    }}
+                  >
+                    {story.person}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#64748B",
+                      fontSize: "0.82rem",
+                      lineHeight: 1.6,
+                      mb: 2,
+                    }}
+                  >
+                    {story.story}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#D97706",
+                      fontSize: "0.78rem",
+                      fontWeight: 800,
+                      mt: "auto",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 0.5,
+                    }}
+                  >
+                    Read more →
+                  </Typography>
+                </Box>
+              </Card>
+            );
+          })}
         </Box>
-        <Typography sx={{ color: "rgba(255,255,255,0.43)", fontSize: "0.68rem", lineHeight: 1.55, mt: 2.2 }}>
-          Story entries on this demonstration portal are static examples. For verified individual case studies, please refer to the relevant district or programme office.
-        </Typography>
       </Container>
     </Box>
   );
