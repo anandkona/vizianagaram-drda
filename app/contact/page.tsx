@@ -202,7 +202,7 @@ export default function ContactPage() {
                 }}
               >
                 <Image
-                  src="/images/collectorate.jpg"
+                  src="/images/vizianagaram-administrative-headquarters.jpg"
                   alt="District Collectorate & DRDA Office Vizianagaram"
                   fill
                   priority
