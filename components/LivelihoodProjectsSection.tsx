@@ -4,6 +4,7 @@ import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import { livelihoodProjects } from "@/src/data/home";
+import { assetPath } from "@/src/lib/assetPath";
 
 export default function LivelihoodProjectsSection() {
   return (
@@ -101,7 +102,7 @@ export default function LivelihoodProjectsSection() {
               <Box
                 sx={{
                   height: 160,
-                  backgroundImage: `url("${project.image}")`,
+                  backgroundImage: `url("${assetPath(project.image)}")`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundColor: "#E2E8F0",
