@@ -1,11 +1,17 @@
 /** @type {import('next').NextConfig} */
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const basePath = isGitHubPages ? "/vizianagaram-drda" : "";
 
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
   trailingSlash: true,
-  basePath: isGitHubPages ? "/vizianagaram-drda" : "",
+  basePath,
+
+  // Expose the same base path to client-side asset helpers.
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 
   images: {
     unoptimized: true,
