@@ -308,6 +308,10 @@ const categoryStatsMap: Record<string, any[]> = {
   ],
 };
 
+export function generateStaticParams() {
+  return SCHEMES.map((scheme) => ({ category: scheme.id }));
+}
+
 export default function SchemeCategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const resolvedParams = use(params);
   const categoryId = resolvedParams.category.toLowerCase();
