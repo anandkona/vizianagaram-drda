@@ -39,7 +39,7 @@ export default function HeroSection() {
         borderBottom: "1px solid #ECE4D0",
       }}
     >
-      {/* Authentic Vizianagaram Heritage Landmark Backdrop (Historic Vizianagaram Fort & Nagaar Khana Gate) */}
+      {/* Exact Visual Scenery from Reference: Sun, Mountains, Reservoir & Temple Gopuram */}
       <Box
         aria-hidden="true"
         sx={{
@@ -47,20 +47,20 @@ export default function HeroSection() {
           top: 0,
           right: 0,
           bottom: 0,
-          width: { xs: "100%", md: "56%", lg: "52%" },
-          backgroundImage: 'url("/images/hero-official-vzm-fort.jpg")',
+          width: { xs: "100%", md: "56%", lg: "50%" },
+          backgroundImage: 'url("/images/hero-reference-clean-background.jpg")',
           backgroundSize: "cover",
-          backgroundPosition: "center right",
+          backgroundPosition: "left top",
           backgroundRepeat: "no-repeat",
           maskImage: {
             xs: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 20%, black 100%)",
-            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 10%, black 25%)",
+            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 6%, black 20%)",
           },
           WebkitMaskImage: {
             xs: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 20%, black 100%)",
-            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 10%, black 25%)",
+            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 6%, black 20%)",
           },
-          opacity: 0.95,
+          opacity: 0.98,
           zIndex: 0,
           pointerEvents: "none",
         }}
