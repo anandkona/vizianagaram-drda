@@ -303,26 +303,26 @@ export default function DRDAPage() {
             }}
           >
             <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center">
-              {/* Left: Project Director Profile */}
+              {/* Left: District Administration & DRDA Chairperson Profile */}
               <Grid size={{ xs: 12, md: 3.2 }} sx={{ textAlign: "center" }}>
                 <Box
                   sx={{
-                    width: 150,
-                    height: 175,
-                    borderRadius: "18px",
+                    width: 155,
+                    height: 185,
+                    borderRadius: "20px",
                     overflow: "hidden",
-                    border: "3px solid #F5B800",
+                    border: "3.5px solid #F5B800",
                     mx: "auto",
                     mb: 1.5,
-                    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+                    boxShadow: "0 10px 25px rgba(8, 43, 80, 0.15)",
                     bgcolor: "#FEF3C7",
                     position: "relative",
                   }}
                 >
                   <Box
                     component="img"
-                    src="/leaders/project-director.jpg"
-                    alt="Sri A. Kalyan Chakravarthi, Project Director, DRDA Vizianagaram"
+                    src="/leaders/collector-portrait.jpg"
+                    alt="Sri S. Ram Sundar Reddy, I.A.S., Collector & Chairperson, DRDA Vizianagaram"
                     sx={{
                       width: "100%",
                       height: "100%",
@@ -331,17 +331,20 @@ export default function DRDAPage() {
                     }}
                   />
                 </Box>
-                <Typography sx={{ fontWeight: 800, fontSize: "1.05rem", color: "#082B50" }}>
-                  Sri A. Kalyan Chakravarthi
+                <Typography sx={{ fontWeight: 850, fontSize: "1.08rem", color: "#082B50" }}>
+                  Sri S. Ram Sundar Reddy, I.A.S.
                 </Typography>
-                <Typography sx={{ color: "#64748B", fontSize: "0.8rem", fontWeight: 600, mb: 2 }}>
-                  Project Director, DRDA
+                <Typography sx={{ color: "#D97706", fontSize: "0.82rem", fontWeight: 750 }}>
+                  Collector & Chairperson, DRDA
+                </Typography>
+                <Typography sx={{ color: "#64748B", fontSize: "0.75rem", fontWeight: 600, mb: 2 }}>
+                  Governing Body, Vizianagaram
                 </Typography>
                 <Stack direction="row" spacing={1} justifyContent="center">
                   <Button
                     size="small"
                     component="a"
-                    href="tel:08922276555"
+                    href="tel:08922276700"
                     startIcon={<PhoneIcon sx={{ fontSize: 14, color: "#082B50" }} />}
                     sx={{
                       bgcolor: "#F8FAFC",
@@ -361,7 +364,7 @@ export default function DRDAPage() {
                   <Button
                     size="small"
                     component="a"
-                    href="mailto:pd-drda-vzm@ap.gov.in"
+                    href="mailto:collector_vznm@ap.gov.in"
                     startIcon={<EmailIcon sx={{ fontSize: 14 }} />}
                     sx={{
                       border: "1px solid #CBD5E1",
@@ -386,11 +389,11 @@ export default function DRDAPage() {
                   <Box sx={{ width: 28, height: 28, borderRadius: "50%", bgcolor: "#FEF3C7", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <CampaignRoundedIcon sx={{ fontSize: 16, color: "#D97706" }} />
                   </Box>
-                  MESSAGE FROM PROJECT DIRECTOR
+                  LEADERSHIP DIRECTIVE & DRDA GOVERNANCE
                 </Box>
 
                 <Typography sx={{ color: "#1E293B", fontSize: { xs: "0.95rem", sm: "1.05rem" }, lineHeight: 1.6, mb: 2.5, fontWeight: 500 }}>
-                  DRDA Vizianagaram works to transform rural livelihoods by promoting community institutions, scaling women-led SHGs, and ensuring convergence of welfare schemes, and enhancing the lives of rural communities.
+                  Under the governance of the District Collector and DRDA administration, Vizianagaram works to transform rural livelihoods by federating community institutions, empowering women-led self-help clusters, and ensuring saturation of grassroots welfare programs across all 27 mandals.
                 </Typography>
 
                 {/* Yellow Vision Callout */}
