@@ -4,6 +4,7 @@ import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import { featuredSuccessStories } from "@/src/data/home";
+import { assetPath } from "@/src/lib/assetPath";
 
 const storyImages: Record<string, string> = {
   "lakshmi-shg": "/images/drda-women-shg-outdoor.jpg",
