@@ -12,10 +12,10 @@ export default function MissionSection() {
       id="mission"
       sx={{
         position: "relative",
-        backgroundImage: 'linear-gradient(90deg, rgba(8, 43, 80, 0.72) 0%, rgba(8, 43, 80, 0.45) 50%, rgba(8, 43, 80, 0.65) 100%), url("/images/mission-family-ultrawide.jpg")',
+        backgroundImage: 'linear-gradient(90deg, rgba(8, 43, 80, 0.25) 0%, rgba(8, 43, 80, 0.45) 45%, rgba(8, 43, 80, 0.75) 100%), url("/images/mission-family-ultrawide.jpg")',
         backgroundSize: "cover",
-        backgroundPosition: { xs: "center center", md: "25% center" },
-        py: { xs: 7, sm: 9, md: 11 },
+        backgroundPosition: { xs: "left center", md: "left 25%" },
+        py: { xs: 4.5, sm: 5, md: 5.5 },
         color: "#FFFFFF",
         overflow: "hidden",
       }}
@@ -24,90 +24,79 @@ export default function MissionSection() {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1.15fr 0.85fr" },
-            gap: { xs: 4, md: 6 },
+            gridTemplateColumns: { xs: "1fr", md: "0.95fr 1.05fr", lg: "1fr 1fr" },
+            gap: { xs: 3, md: 4 },
             alignItems: "center",
           }}
         >
-          {/* Left Text Banner - shifted slightly right with pl offset so it never overlaps the background family faces */}
+          {/* Invisible spacer on the left to leave the family photo completely uncovered */}
+          <Box sx={{ display: { xs: "none", md: "block" }, minHeight: 1 }} />
+
+          {/* Right Area: Text + Numbers Card Side-by-Side or Stacked */}
           <Box
             sx={{
-              pl: { xs: 0, md: 4, lg: 6 },
-              maxWidth: 620,
+              display: "flex",
+              flexDirection: { xs: "column", lg: "row" },
+              alignItems: { xs: "flex-start", lg: "center" },
+              justifyContent: "space-between",
+              gap: { xs: 3, lg: 3.5 },
+              width: "100%",
             }}
           >
-            {/* Golden Eyebrow Pill */}
-            <Typography
-              component="span"
-              sx={{
-                display: "inline-block",
-                color: "#FDE047",
-                fontSize: { xs: "0.75rem", sm: "0.82rem" },
-                fontWeight: 900,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                mb: 1.5,
-                background: "rgba(0, 0, 0, 0.25)",
-                px: 1.5,
-                py: 0.5,
-                borderRadius: "50px",
-                border: "1px solid rgba(253, 224, 71, 0.4)",
-              }}
-            >
-              DRDA STATE &amp; DISTRICT VISION
-            </Typography>
+            {/* Mission Headline & Description */}
+            <Box sx={{ maxWidth: { xs: "100%", lg: 380 } }}>
+              <Typography
+                component="h2"
+                sx={{
+                  color: "#FFFFFF",
+                  fontSize: { xs: "1.85rem", sm: "2.3rem", md: "2.6rem" },
+                  fontWeight: 900,
+                  letterSpacing: "-0.04em",
+                  lineHeight: 1.15,
+                  mb: 1.2,
+                  textShadow: "0 2px 14px rgba(0,0,0,0.65)",
+                }}
+              >
+                One family.
+                <br />
+                One stronger Vizianagaram.
+              </Typography>
 
-            <Typography
-              component="h2"
-              sx={{
-                color: "#FFFFFF",
-                fontSize: { xs: "2.1rem", sm: "2.7rem", md: "3.4rem" },
-                fontWeight: 900,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.1,
-                mb: 2,
-                textShadow: "0 2px 12px rgba(0,0,0,0.5)",
-              }}
-            >
-              One family.
-              <br />
-              One stronger Vizianagaram.
-            </Typography>
-            <Typography
-              sx={{
-                color: "rgba(255, 255, 255, 0.95)",
-                fontSize: { xs: "0.95rem", md: "1.1rem" },
-                lineHeight: 1.7,
-                maxWidth: 540,
-                textShadow: "0 1px 8px rgba(0,0,0,0.5)",
-              }}
-            >
-              A mission-driven district for better opportunities, stronger communities and a brighter future.
-            </Typography>
-          </Box>
+              <Box sx={{ width: 44, height: 4, backgroundColor: "#FFC107", borderRadius: "2px", mb: 1.4 }} />
 
-          {/* Right Floating White Glass Card - shifted right with generous spacing */}
-          <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-end" }, pr: { xs: 0, lg: 2 } }}>
+              <Typography
+                sx={{
+                  color: "rgba(255, 255, 255, 0.95)",
+                  fontSize: { xs: "0.88rem", sm: "0.95rem" },
+                  lineHeight: 1.6,
+                  textShadow: "0 1px 8px rgba(0,0,0,0.6)",
+                }}
+              >
+                A mission-driven district for better opportunities, stronger communities and a brighter future.
+              </Typography>
+            </Box>
+
+            {/* Compact White Floating Card */}
             <Box
               sx={{
                 backgroundColor: "#FFFFFF",
-                borderRadius: "24px",
-                p: { xs: 3, sm: 3.5 },
+                borderRadius: "20px",
+                p: { xs: 2.2, sm: 2.5 },
                 width: "100%",
-                maxWidth: 390,
-                boxShadow: "0 24px 50px rgba(0, 0, 0, 0.28)",
+                maxWidth: { xs: "100%", sm: 340 },
+                boxShadow: "0 20px 45px rgba(0, 0, 0, 0.35)",
                 color: "#082B50",
-                border: "1px solid rgba(255, 255, 255, 0.8)",
+                flexShrink: 0,
               }}
             >
               <Typography
                 sx={{
-                  color: "#D97706",
-                  fontSize: "0.75rem",
+                  color: "#082B50",
+                  fontSize: "0.78rem",
                   fontWeight: 900,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  mb: 2,
+                  textAlign: "center",
+                  letterSpacing: "-0.01em",
+                  mb: 1.8,
                 }}
               >
                 District Empowerment in Numbers
@@ -117,9 +106,9 @@ export default function MissionSection() {
                 sx={{
                   display: "grid",
                   gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: 1.5,
+                  gap: 1,
                   textAlign: "center",
-                  mb: 2.5,
+                  mb: 2,
                 }}
               >
                 {missionMetrics.map((metric) => (
@@ -127,7 +116,7 @@ export default function MissionSection() {
                     <Typography
                       sx={{
                         color: "#082B50",
-                        fontSize: "1.35rem",
+                        fontSize: { xs: "1.2rem", sm: "1.3rem" },
                         fontWeight: 900,
                         lineHeight: 1.1,
                       }}
@@ -137,9 +126,9 @@ export default function MissionSection() {
                     <Typography
                       sx={{
                         color: "#64748B",
-                        fontSize: "0.68rem",
+                        fontSize: "0.65rem",
                         fontWeight: 650,
-                        mt: 0.4,
+                        mt: 0.3,
                       }}
                     >
                       {metric.label}
@@ -151,18 +140,18 @@ export default function MissionSection() {
               <Button
                 component={Link}
                 href="/one-family-one-entrepreneur"
-                endIcon={<ArrowForwardIcon sx={{ fontSize: "15px !important", color: "#082B50 !important" }} />}
+                endIcon={<ArrowForwardIcon sx={{ fontSize: "14px !important", color: "#082B50 !important" }} />}
                 fullWidth
                 sx={{
                   backgroundColor: "#FFC107",
                   color: "#082B50 !important",
                   fontWeight: 850,
-                  fontSize: "0.85rem",
-                  py: 1.1,
+                  fontSize: "0.82rem",
+                  py: 0.9,
                   borderRadius: "50px",
                   textTransform: "none",
-                  boxShadow: "0 6px 18px rgba(245, 158, 11, 0.35)",
-                  "&:hover": { backgroundColor: "#FFD54F", transform: "translateY(-1px)" },
+                  boxShadow: "0 4px 14px rgba(245, 158, 11, 0.35)",
+                  "&:hover": { backgroundColor: "#FFD54F" },
                 }}
               >
                 Learn More
