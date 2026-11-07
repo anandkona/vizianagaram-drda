@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   AppBar,
+  Badge,
   Box,
   Button,
   Container,
@@ -15,6 +16,7 @@ import {
   Popper,
   Stack,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -24,6 +26,9 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import MapRoundedIcon from "@mui/icons-material/MapRounded";
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
+import { readCart, readWishlist } from "@/src/data/commerce";
 
 type NavSubItem = {
   label: string;
@@ -134,6 +139,12 @@ const headerNavItems: NavItemType[] = [
   {
     label: "District Mart",
     href: "/mart",
+    hasDropdown: true,
+    children: [
+      { label: "SHG Products Mart", href: "/mart" },
+      { label: "My Wishlist", href: "/mart/wishlist" },
+      { label: "Shopping Cart & Checkout", href: "/cart" },
+    ],
   },
 ];
 
@@ -148,11 +159,31 @@ function pathIsActive(pathname: string, href: string) {
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
 
   // Popper dropdown state
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
   const [activeItem, setActiveItem] = useState<NavItemType | null>(null);
   const closeTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    const syncCounts = () => {
+      const cart = readCart();
+      const wishlist = readWishlist();
+      setCartCount(cart.reduce((s, i) => s + i.quantity, 0));
+      setWishlistCount(wishlist.length);
+    };
+    syncCounts();
+    window.addEventListener("vizianagaram-cart-change", syncCounts);
+    window.addEventListener("vizianagaram-wishlist-change", syncCounts);
+    window.addEventListener("storage", syncCounts);
+    return () => {
+      window.removeEventListener("vizianagaram-cart-change", syncCounts);
+      window.removeEventListener("vizianagaram-wishlist-change", syncCounts);
+      window.removeEventListener("storage", syncCounts);
+    };
+  }, []);
 
   const cancelClose = () => {
     if (closeTimer.current !== null) {
@@ -325,8 +356,48 @@ export default function Header() {
               })}
             </Box>
 
-            {/* Right: Golden Pill "Vizianagaram Map →" Button */}
+            {/* Right: Wishlist, Cart & Map CTA Buttons */}
             <Stack direction="row" alignItems="center" spacing={1}>
+              {/* Wishlist Icon Button */}
+              <Tooltip title="View Saved Wishlist">
+                <IconButton
+                  component={Link}
+                  href="/mart/wishlist"
+                  size="small"
+                  sx={{
+                    color: "#082B50",
+                    bgcolor: pathIsActive(pathname, "/mart/wishlist") ? "#FFF1F2" : "#F8FAFC",
+                    border: "1px solid #E2E8F0",
+                    p: 0.8,
+                    "&:hover": { bgcolor: "#FFE4E6", color: "#DC2626" },
+                  }}
+                >
+                  <Badge badgeContent={wishlistCount} color="error" max={99}>
+                    <FavoriteRoundedIcon sx={{ fontSize: 18, color: wishlistCount > 0 ? "#DC2626" : "#64748B" }} />
+                  </Badge>
+                </IconButton>
+              </Tooltip>
+
+              {/* Cart Icon Button */}
+              <Tooltip title="View Shopping Cart">
+                <IconButton
+                  component={Link}
+                  href="/cart"
+                  size="small"
+                  sx={{
+                    color: "#082B50",
+                    bgcolor: pathIsActive(pathname, "/cart") ? "#FFF9E6" : "#F8FAFC",
+                    border: "1px solid #E2E8F0",
+                    p: 0.8,
+                    "&:hover": { bgcolor: "#FEF3C7", color: "#D97706" },
+                  }}
+                >
+                  <Badge badgeContent={cartCount} color="warning" max={99}>
+                    <ShoppingBagRoundedIcon sx={{ fontSize: 18, color: cartCount > 0 ? "#D97706" : "#64748B" }} />
+                  </Badge>
+                </IconButton>
+              </Tooltip>
+
               <Button
                 component={Link}
                 href="/map"
