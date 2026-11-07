@@ -171,14 +171,14 @@ export const leadershipProfiles: LeadershipProfile[] = [
     priorities: ["Responsive services", "Department coordination", "Citizen-first access"],
   },
   {
-    id: "project-director",
-    name: "Sri A. Kalyan Chakravarthi",
-    designation: "Project Director, DRDA",
-    organization: "DRDA, Vizianagaram",
-    image: "/leaders/project-director.jpg",
+    id: "member-of-parliament",
+    name: "Sri Kalisetti Appala Naidu",
+    designation: "Hon'ble Member of Parliament",
+    organization: "Vizianagaram Parliamentary Constituency",
+    image: "/leaders/mp-appala-naidu-official.jpg",
     imagePosition: "center top",
-    vision: "Fostering inclusive rural livelihoods, empowering self-help women clusters, and scaling farmer producer organisations throughout Vizianagaram.",
-    priorities: ["Community livelihoods", "Enterprise support", "Inclusive convergence"],
+    vision: "Championing district infrastructure, industrial connectivity, national schemes, and citizen representation for the people of Vizianagaram.",
+    priorities: ["Parliamentary representation", "Infrastructure corridors", "National welfare access"],
   },
 ];
 
