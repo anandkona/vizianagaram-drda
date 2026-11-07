@@ -558,26 +558,53 @@ export default function Header() {
                 >
                   {item.label}
                 </Button>
-                {item.children?.map((child) => (
-                  <Button
-                    key={child.href}
-                    component={Link}
-                    href={child.href}
-                    onClick={() => setMobileOpen(false)}
-                    fullWidth
-                    sx={{
-                      justifyContent: "flex-start",
-                      color: "#64748B !important",
-                      fontSize: "0.78rem",
-                      fontWeight: 600,
-                      py: 0.6,
-                      pl: 3.5,
-                      textTransform: "none",
-                    }}
-                  >
-                    ↳ {child.label}
-                  </Button>
-                ))}
+                {item.children?.flatMap((child, idx) => {
+                  if ("items" in child && child.items) {
+                    return child.items.map((sub, sIdx) => (
+                      <Button
+                        key={`${item.label}-${child.label}-${sub.href}-${sIdx}`}
+                        component={Link}
+                        href={sub.href}
+                        onClick={() => setMobileOpen(false)}
+                        fullWidth
+                        sx={{
+                          justifyContent: "flex-start",
+                          color: "#64748B !important",
+                          fontSize: "0.78rem",
+                          fontWeight: 600,
+                          py: 0.6,
+                          pl: 3.5,
+                          textTransform: "none",
+                        }}
+                      >
+                        ↳ {sub.label}
+                      </Button>
+                    ));
+                  }
+                  if ("href" in child && child.href) {
+                    return (
+                      <Button
+                        key={`${item.label}-${child.href}-${idx}`}
+                        component={Link}
+                        href={child.href}
+                        onClick={() => setMobileOpen(false)}
+                        fullWidth
+                        sx={{
+                          justifyContent: "flex-start",
+                          color: "#64748B !important",
+                          fontSize: "0.78rem",
+                          fontWeight: 600,
+                          py: 0.6,
+                          pl: 3.5,
+                          textTransform: "none",
+                        }}
+                      >
+                        ↳ {child.label}
+                      </Button>
+                    );
+                  }
+                  return null;
+                })}
               </Box>
             );
           })}
