@@ -275,7 +275,11 @@ export default function Header() {
               sx={{
                 display: { xs: "none", lg: "flex" },
                 alignItems: "center",
-                gap: { lg: 1, xl: 1.5 },
+                gap: 0.5,
+                bgcolor: "#F8FAFC",
+                p: "4px",
+                borderRadius: "12px",
+                border: "1px solid #E2E8F0",
               }}
             >
               {headerNavItems.map((item) => {
@@ -295,29 +299,44 @@ export default function Header() {
                         item.hasDropdown ? (
                           <KeyboardArrowDownRoundedIcon
                             sx={{
-                              fontSize: "15px !important",
+                              fontSize: "14px !important",
                               color: active ? "#082B50 !important" : "#64748B !important",
-                              ml: -0.4,
+                              ml: -0.3,
+                              transition: "transform 0.2s ease",
                             }}
                           />
                         ) : undefined
                       }
                       sx={{
-                        color: active ? "#082B50 !important" : "#082B50 !important",
-                        backgroundColor: active ? "#F5B800 !important" : "transparent",
-                        fontWeight: active ? 850 : 700,
+                        color: active ? "#082B50 !important" : "#475569 !important",
+                        backgroundColor: active ? "#FFFFFF !important" : "transparent",
+                        fontWeight: active ? 850 : 650,
                         fontSize: "0.82rem",
                         lineHeight: 1,
                         whiteSpace: "nowrap",
                         textAlign: "center",
                         textTransform: "none",
-                        px: active ? 2 : 1,
-                        py: active ? 0.6 : 0.4,
-                        borderRadius: active ? "100px" : "6px",
-                        boxShadow: active ? "0 4px 14px rgba(245, 184, 0, 0.35)" : "none",
-                        transition: "all 0.18s ease",
+                        px: 1.6,
+                        py: 0.75,
+                        borderRadius: "8px",
+                        boxShadow: active ? "0 2px 6px rgba(8, 43, 80, 0.08)" : "none",
+                        border: active ? "1px solid #E2E8F0" : "1px solid transparent",
+                        position: "relative",
+                        transition: "all 0.2s ease",
+                        "&::after": active
+                          ? {
+                              content: '""',
+                              position: "absolute",
+                              bottom: -2,
+                              left: "20%",
+                              right: "20%",
+                              height: "2.5px",
+                              backgroundColor: "#FFC107",
+                              borderRadius: "4px",
+                            }
+                          : undefined,
                         "&:hover": {
-                          backgroundColor: active ? "#F5B800" : "rgba(8, 43, 80, 0.04)",
+                          backgroundColor: active ? "#FFFFFF" : "rgba(255, 255, 255, 0.8)",
                           color: "#082B50 !important",
                         },
                       }}
@@ -390,13 +409,12 @@ export default function Header() {
           sx={{
             backgroundColor: "#FFFFFF",
             border: "1px solid #E2E8F0",
-            borderTop: "3px solid #F5B800",
-            borderRadius: "0 0 12px 12px",
-            boxShadow: "0 20px 45px -4px rgba(8, 43, 80, 0.18)",
+            borderRadius: "14px",
+            boxShadow: "0 20px 45px -8px rgba(8, 43, 80, 0.16)",
             minWidth: 240,
             py: 1,
-            px: 0.5,
-            mt: 0.5,
+            px: 0.8,
+            mt: 1,
           }}
         >
           {activeItem?.children?.map((child, idx) => {
