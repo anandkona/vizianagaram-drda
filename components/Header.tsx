@@ -24,6 +24,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import MapRoundedIcon from "@mui/icons-material/MapRounded";
+import { assetPath } from "@/src/lib/assetPath";
 
 type NavSubItem = {
   label: string;
@@ -238,7 +239,7 @@ export default function Header() {
               <Box
                 alt="Government of Andhra Pradesh emblem"
                 component="img"
-                src="/emblem-of-andhra-pradesh.jpg"
+                src={assetPath("/emblem-of-andhra-pradesh.jpg")}
                 sx={{ height: "100%", width: "100%", objectFit: "contain" }}
               />
             </Box>
