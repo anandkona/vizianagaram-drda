@@ -1,6 +1,12 @@
 # Vizianagaram District Citizen Services Portal
 
-A static, citizen-first district information portal for Vizianagaram District, Andhra Pradesh, built with Next.js App Router, TypeScript and Material UI. The visual system uses a warm yellow/gold identity with charcoal contrast panels, inspired by the information flow of a modern district-services portal.
+A static, citizen-first district information portal for Vizianagaram District, Andhra Pradesh, built with Next.js App Router, TypeScript and Material UI.
+
+## Live website
+
+**GitHub Pages:** https://anandkona.github.io/vizianagaram-drda/
+
+The site is deployed as a static Next.js export through GitHub Actions and GitHub Pages.
 
 ## Run locally
 
@@ -9,7 +15,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000.
 
 ## Routes
 
@@ -21,11 +27,13 @@ Open [http://localhost:3000](http://localhost:3000).
 - `/knowledge-center`, `/accessibility`, `/sitemap`, `/dashboard`
 - `/mart`, `/mart/wishlist`, `/mart/checkout`
 
-## Notes
+## Technical notes
 
-- The portal uses Next.js App Router, TypeScript, Material UI and Emotion.
+- Next.js App Router, TypeScript, Material UI and Emotion.
+- GitHub Pages uses Next.js static export with `output: "export"`, `basePath: "/vizianagaram-drda"`, trailing slashes, and unoptimized images.
 - Shared content is local TypeScript data in `src/data/`; figures and catalogue entries are clearly marked where illustrative.
-- Concern, feedback and Mart checkout forms validate input and call local API route handlers that return reference IDs; they do not persist personal data or create official government tickets/orders.
+- The portal is static and does not use Next.js server/API route handlers in the GitHub Pages build.
+- Concern, feedback and Mart checkout interactions are browser-side/demo flows; they do not persist personal data or create official government tickets/orders.
 - The District Mart cart and wishlist are persisted in browser local storage and can be cleared from the cart drawer.
 - The language control loads Google Translate for English/Telugu and stores the selected locale locally.
 - Verify time-sensitive contacts, scheme rules, prices and programme figures with official sources before using them as an official record.
