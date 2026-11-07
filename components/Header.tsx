@@ -456,9 +456,9 @@ export default function Header() {
         </Paper>
       </Popper>
 
-      {/* 4. Mobile Drawer Navigation */}
+      {/* 4. Mobile Drawer Navigation (Slides from Left) */}
       <Drawer
-        anchor="right"
+        anchor="left"
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
         PaperProps={{
