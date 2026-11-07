@@ -330,7 +330,7 @@ export default function SchemeCategoryPage({ params }: { params: Promise<{ categ
         sx={{
           position: "relative",
           bgcolor: "#FFFFFF",
-          pt: { xs: 2.5, sm: 3, md: 3.5, lg: 4 },
+          pt: { xs: 2, sm: 2.5, md: 3 },
           pb: { xs: 7, sm: 8, md: 9 },
           overflow: "hidden",
           borderBottom: "1px solid #E2E8F0",
@@ -371,32 +371,6 @@ export default function SchemeCategoryPage({ params }: { params: Promise<{ categ
         />
 
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
-          {/* Breadcrumb Navigation */}
-          <Breadcrumbs
-            aria-label="Breadcrumb navigation"
-            separator="›"
-            sx={{
-              color: "#64748B",
-              fontSize: "0.78rem",
-              fontWeight: 650,
-              mb: { xs: 1.5, sm: 2 },
-              "& .MuiBreadcrumbs-separator": { color: "#CBD5E1", mx: 0.6 },
-            }}
-          >
-            <Stack direction="row" alignItems="center" spacing={0.5}>
-              <HomeRoundedIcon sx={{ fontSize: 16, color: "#082B50" }} />
-              <Link href="/" style={{ color: "#082B50", textDecoration: "none", fontWeight: 700 }}>
-                Home
-              </Link>
-            </Stack>
-            <Link href="/schemes" style={{ color: "#64748B", textDecoration: "none" }}>
-              Government Schemes
-            </Link>
-            <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.78rem" }}>
-              {currentCategory.label}
-            </Typography>
-          </Breadcrumbs>
-
           <Grid container spacing={{ xs: 3.5, md: 5 }} alignItems="center">
             {/* Left Column: Title & Description */}
             <Grid size={{ xs: 12, md: 6.8 }}>

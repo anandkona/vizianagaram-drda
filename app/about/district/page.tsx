@@ -175,7 +175,7 @@ export default function DistrictProfilePage() {
         sx={{
           bgcolor: "#FFFFFF",
           background: "linear-gradient(135deg, #FFFFFF 0%, #FFFDF5 60%, #FEF9C3 100%)",
-          pt: { xs: 2.5, sm: 3, md: 3.5 },
+          pt: { xs: 2, sm: 2.5, md: 3 },
           pb: { xs: 8, sm: 9, md: 10 },
           position: "relative",
           overflow: "hidden",
@@ -218,32 +218,6 @@ export default function DistrictProfilePage() {
         />
 
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1, px: { xs: 2, sm: 3, md: 4 } }}>
-          {/* Breadcrumb: Home > About District > District Profile */}
-          <Breadcrumbs
-            aria-label="Breadcrumb"
-            separator="›"
-            sx={{
-              color: "#64748B",
-              fontSize: "0.78rem",
-              fontWeight: 650,
-              mb: { xs: 1.5, sm: 2 },
-              "& .MuiBreadcrumbs-separator": { color: "#CBD5E1", mx: 0.6 },
-            }}
-          >
-            <Stack direction="row" alignItems="center" spacing={0.5}>
-              <HomeRoundedIcon sx={{ fontSize: 16, color: "#082B50" }} />
-              <MuiLink component={Link} href="/" sx={{ color: "#082B50", textDecoration: "none", fontWeight: 700, "&:hover": { textDecoration: "underline" } }}>
-                Home
-              </MuiLink>
-            </Stack>
-            <MuiLink component={Link} href="/about/district" sx={{ color: "#64748B", textDecoration: "none", "&:hover": { color: "#082B50" } }}>
-              About District
-            </MuiLink>
-            <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.78rem" }}>
-              District Profile
-            </Typography>
-          </Breadcrumbs>
-
           <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center">
             {/* Left Column: Title & Descriptions */}
             <Grid size={{ xs: 12, md: 6.5 }}>

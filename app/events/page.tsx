@@ -322,32 +322,6 @@ export default function EventsPage() {
         />
 
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
-          {/* Breadcrumb Navigation */}
-          <Breadcrumbs
-            aria-label="Breadcrumb navigation"
-            separator="›"
-            sx={{
-              color: "#64748B",
-              fontSize: "0.75rem",
-              fontWeight: 650,
-              mb: { xs: 1.2, sm: 1.5 },
-              "& .MuiBreadcrumbs-separator": { color: "#CBD5E1", mx: 0.6 },
-            }}
-          >
-            <Stack direction="row" alignItems="center" spacing={0.5}>
-              <HomeRoundedIcon sx={{ fontSize: 15, color: "#082B50" }} />
-              <Link href="/" style={{ color: "#082B50", textDecoration: "none", fontWeight: 700 }}>
-                Home
-              </Link>
-            </Stack>
-            <Link href="/citizen-services" style={{ color: "#64748B", textDecoration: "none" }}>
-              Citizen Services
-            </Link>
-            <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.75rem" }}>
-              Events & Training
-            </Typography>
-          </Breadcrumbs>
-
           <Grid container spacing={{ xs: 2.5, md: 4 }} alignItems="center">
             {/* Left Column: Title, Subtitle, Search */}
             <Grid size={{ xs: 12, md: 6.5 }}>
