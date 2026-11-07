@@ -6,6 +6,7 @@ import AppsIcon from "@mui/icons-material/Apps";
 import Link from "next/link";
 import { programPortals } from "@/src/data/home";
 import { PortalIcon } from "@/components/Icon";
+import { assetPath } from "@/src/lib/assetPath";
 
 export default function ProgramPortalsSection() {
   return (
@@ -46,7 +47,7 @@ export default function ProgramPortalsSection() {
                 "&:hover": { borderColor: "#D9A62A", boxShadow: "0 14px 30px rgba(93,65,17,0.1)", transform: "translateY(-4px)" },
               }}
             >
-              <Box sx={{ backgroundImage: `linear-gradient(180deg, rgba(32,37,45,0.06), rgba(32,37,45,0.62)), url("${portal.image}")`, backgroundPosition: portal.imagePosition ?? "center", backgroundSize: "cover", height: { xs: 108, sm: 126 }, position: "relative" }}>
+              <Box sx={{ backgroundImage: `linear-gradient(180deg, rgba(32,37,45,0.06), rgba(32,37,45,0.62)), url("${assetPath(portal.image)}")`, backgroundPosition: portal.imagePosition ?? "center", backgroundSize: "cover", height: { xs: 108, sm: 126 }, position: "relative" }}>
                 <Box sx={{ alignItems: "center", background: "#FBC02D", borderRadius: 1.5, color: "#000000", display: "flex", height: 35, justifyContent: "center", left: 13, position: "absolute", top: 13, width: 35 }}>
                   <PortalIcon name={portal.icon} sx={{ fontSize: 18 }} />
                 </Box>
