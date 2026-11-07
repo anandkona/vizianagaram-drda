@@ -39,44 +39,36 @@ export default function HeroSection() {
         borderBottom: "1px solid #ECE4D0",
       }}
     >
-      {/* Decorative Sun Halo Behind Temple (Matching Reference Mockup) */}
+      {/* Decorative Sun Halo & Scenic Thatipudi Reservoir Backdrop (Matching Reference Mockup) */}
       <Box
         aria-hidden="true"
         sx={{
           position: "absolute",
-          top: { xs: "8%", md: "6%" },
-          right: { xs: "2%", md: "18%", lg: "22%" },
-          width: { xs: 240, sm: 340, md: 440 },
-          height: { xs: 240, sm: 340, md: 440 },
+          top: { xs: "6%", md: "4%" },
+          right: { xs: "0%", sm: "4%", md: "12%", lg: "16%" },
+          width: { xs: 300, sm: 420, md: 520, lg: 580 },
+          height: { xs: 300, sm: 420, md: 520, lg: 580 },
           borderRadius: "50%",
-          background: "radial-gradient(circle, #FDE047 0%, #FBBF24 55%, rgba(251, 191, 36, 0.05) 75%, transparent 100%)",
-          opacity: 0.85,
+          background: "radial-gradient(circle, #FCD34D 0%, #FBBF24 45%, #F59E0B 70%, rgba(245, 158, 11, 0.1) 88%, transparent 100%)",
+          opacity: 0.9,
           zIndex: 0,
           pointerEvents: "none",
+          overflow: "hidden",
         }}
-      />
-
-      {/* Decorative Monument Silhouette / Backdrop Illustration */}
-      <Box
-        aria-hidden="true"
-        sx={{
-          position: "absolute",
-          right: { xs: "-10%", sm: "2%", md: "8%", lg: "12%" },
-          top: { xs: "12%", md: "8%" },
-          width: { xs: 320, sm: 460, md: 540, lg: 620 },
-          height: { xs: 320, sm: 440, md: 520, lg: 580 },
-          backgroundImage: 'url("/images/hero-temple.jpg")',
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center top",
-          opacity: 0.32,
-          mixBlendMode: "multiply",
-          zIndex: 0,
-          pointerEvents: "none",
-          maskImage: "radial-gradient(ellipse at 60% 50%, black 40%, transparent 75%)",
-          WebkitMaskImage: "radial-gradient(ellipse at 60% 50%, black 40%, transparent 75%)",
-        }}
-      />
+      >
+        {/* Scenic Landscape Photography Blended into Sun Halo */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: 'url("/images/river-valley.jpg")',
+            backgroundSize: "cover",
+            backgroundPosition: "center 60%",
+            mixBlendMode: "multiply",
+            opacity: 0.65,
+          }}
+        />
+      </Box>
 
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1, px: { xs: 2, sm: 3, md: 4 } }}>
         <Box
