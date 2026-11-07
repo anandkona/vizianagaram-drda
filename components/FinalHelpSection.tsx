@@ -46,40 +46,54 @@ export default function FinalHelpSection() {
           Direct gateways to key services, schemes, downloads, and grievance portals.
         </Typography>
 
-        <Stack
-          direction="row"
-          flexWrap="wrap"
-          justifyContent="center"
-          gap={1.5}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "stretch",
+            justifyContent: "center",
+            gap: { xs: 1.5, sm: 2 },
+            width: "100%",
+            maxWidth: 1000,
+            mx: "auto",
+          }}
         >
           {quickJumpLinks.map((item) => (
             <Button
               key={item.label}
               component={Link}
               href={item.href}
-              endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "14px !important", color: "#D97706 !important" }} />}
+              endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "15px !important", color: "#D97706 !important" }} />}
               sx={{
+                flex: 1,
+                minWidth: { xs: "100%", sm: 0 },
                 backgroundColor: "#FFFDF5",
                 border: "1.5px solid #FDE68A",
-                color: "#92400E !important",
-                fontSize: "0.82rem",
-                fontWeight: 750,
-                px: 2.4,
-                py: 1,
-                borderRadius: "50px",
+                color: "#082B50 !important",
+                fontSize: { xs: "0.85rem", sm: "0.88rem" },
+                fontWeight: 800,
+                py: { xs: 1.3, sm: 1.5 },
+                px: { xs: 2, sm: 1.5 },
+                borderRadius: "16px",
                 textTransform: "none",
-                transition: "all 0.2s ease",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 2px 8px rgba(245, 158, 11, 0.08)",
+                transition: "all 0.25s ease",
                 "&:hover": {
                   backgroundColor: "#FEF3C7",
                   borderColor: "#F59E0B",
-                  transform: "translateY(-2px)",
+                  boxShadow: "0 8px 20px rgba(245, 158, 11, 0.22)",
+                  transform: "translateY(-3px)",
+                  color: "#082B50 !important",
                 },
               }}
             >
               {item.label}
             </Button>
           ))}
-        </Stack>
+        </Box>
       </Container>
     </Box>
   );
