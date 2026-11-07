@@ -39,7 +39,7 @@ export default function HeroSection() {
         borderBottom: "1px solid #ECE4D0",
       }}
     >
-      {/* Exact Visual Scenery from Reference: Sun, Mountains, Reservoir & Temple Gopuram */}
+      {/* AI-Generated Clean Scenic Banner: Sun Halo, Reservoir Hills & Temple Gopuram */}
       <Box
         aria-hidden="true"
         sx={{
@@ -48,10 +48,18 @@ export default function HeroSection() {
           right: 0,
           bottom: 0,
           width: { xs: "100%", md: "62%", lg: "58%" },
-          backgroundImage: 'url("/images/hero-scenery-direct.jpg")',
+          backgroundImage: 'url("/images/gemini-hero-scenery.jpg")',
           backgroundSize: "cover",
-          backgroundPosition: { xs: "right top", md: "center top" },
+          backgroundPosition: { xs: "right center", md: "center right" },
           backgroundRepeat: "no-repeat",
+          maskImage: {
+            xs: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 15%, black 100%)",
+            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 6%, black 22%)",
+          },
+          WebkitMaskImage: {
+            xs: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 15%, black 100%)",
+            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 6%, black 22%)",
+          },
           opacity: 1,
           zIndex: 0,
           pointerEvents: "none",
