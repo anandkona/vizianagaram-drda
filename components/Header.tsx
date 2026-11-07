@@ -304,15 +304,19 @@ export default function Header() {
               sx={{
                 display: { xs: "none", lg: "flex" },
                 alignItems: "center",
-                gap: 0.5,
-                bgcolor: "#F8FAFC",
-                p: "4px",
-                borderRadius: "12px",
-                border: "1px solid #E2E8F0",
+                gap: "2px",
+                backgroundColor: "rgba(255, 255, 255, 0.95)",
+                backdropFilter: "blur(12px)",
+                py: "4px",
+                px: "6px",
+                borderRadius: "50px",
+                border: "1px solid rgba(226, 232, 240, 0.9)",
+                boxShadow: "0 2px 10px rgba(8, 43, 80, 0.04)",
               }}
             >
               {headerNavItems.map((item) => {
                 const active = pathIsActive(pathname, item.href);
+                const isHovered = activeItem?.label === item.label;
 
                 return (
                   <Box
@@ -328,44 +332,43 @@ export default function Header() {
                         item.hasDropdown ? (
                           <KeyboardArrowDownRoundedIcon
                             sx={{
-                              fontSize: "14px !important",
-                              color: active ? "#082B50 !important" : "#64748B !important",
-                              ml: -0.3,
-                              transition: "transform 0.2s ease",
+                              fontSize: "15px !important",
+                              color: active
+                                ? "#082B50 !important"
+                                : isHovered
+                                ? "#082B50 !important"
+                                : "#94A3B8 !important",
+                              ml: -0.4,
+                              transform: isHovered ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
                             }}
                           />
                         ) : undefined
                       }
                       sx={{
-                        color: active ? "#082B50 !important" : "#475569 !important",
-                        backgroundColor: active ? "#FFFFFF !important" : "transparent",
-                        fontWeight: active ? 850 : 650,
+                        color: active
+                          ? "#082B50 !important"
+                          : isHovered
+                          ? "#082B50 !important"
+                          : "#475569 !important",
+                        backgroundColor: active
+                          ? "#F5B800 !important"
+                          : isHovered
+                          ? "#F1F5F9 !important"
+                          : "transparent",
+                        fontWeight: active ? 850 : 600,
                         fontSize: "0.82rem",
                         lineHeight: 1,
                         whiteSpace: "nowrap",
                         textAlign: "center",
                         textTransform: "none",
                         px: 1.6,
-                        py: 0.75,
-                        borderRadius: "8px",
-                        boxShadow: active ? "0 2px 6px rgba(8, 43, 80, 0.08)" : "none",
-                        border: active ? "1px solid #E2E8F0" : "1px solid transparent",
-                        position: "relative",
-                        transition: "all 0.2s ease",
-                        "&::after": active
-                          ? {
-                              content: '""',
-                              position: "absolute",
-                              bottom: -2,
-                              left: "20%",
-                              right: "20%",
-                              height: "2.5px",
-                              backgroundColor: "#FFC107",
-                              borderRadius: "4px",
-                            }
-                          : undefined,
+                        py: 0.85,
+                        borderRadius: "50px",
+                        boxShadow: active ? "0 2px 8px rgba(245, 184, 0, 0.35)" : "none",
+                        transition: "all 0.18s ease",
                         "&:hover": {
-                          backgroundColor: active ? "#FFFFFF" : "rgba(255, 255, 255, 0.8)",
+                          backgroundColor: active ? "#F5B800" : "#F1F5F9",
                           color: "#082B50 !important",
                         },
                       }}
@@ -384,26 +387,29 @@ export default function Header() {
                 href="/map"
                 startIcon={<MapRoundedIcon sx={{ fontSize: "16px !important", color: "#082B50 !important" }} />}
                 sx={{
-                  backgroundColor: "#F5B800",
-                  color: "#082B50 !important",
-                  fontWeight: 850,
+                  backgroundColor: "#082B50",
+                  color: "#FFFFFF !important",
+                  fontWeight: 800,
                   fontSize: "0.78rem",
                   lineHeight: 1,
                   whiteSpace: "nowrap",
                   px: 2,
-                  py: 0.8,
-                  borderRadius: "100px",
+                  py: 0.85,
+                  borderRadius: "50px",
                   textTransform: "none",
-                  boxShadow: "0 4px 14px rgba(245, 184, 0, 0.35)",
+                  boxShadow: "0 3px 10px rgba(8, 43, 80, 0.2)",
+                  border: "1px solid #082B50",
                   display: { xs: "none", sm: "inline-flex" },
                   textAlign: "center",
+                  transition: "all 0.2s ease",
                   "&:hover": {
-                    backgroundColor: "#D49D00",
+                    backgroundColor: "#0c3b6d",
+                    boxShadow: "0 5px 15px rgba(8, 43, 80, 0.3)",
                     transform: "translateY(-1px)",
                   },
                 }}
               >
-                Vizianagaram Map →
+                District Map →
               </Button>
 
               {/* Mobile Hamburger Menu Toggle */}
@@ -429,21 +435,22 @@ export default function Header() {
         anchorEl={menuAnchor}
         open={Boolean(menuAnchor)}
         placement="bottom-start"
-        sx={{ zIndex: (theme) => theme.zIndex.modal }}
+        sx={{ zIndex: (theme) => theme.zIndex.modal + 10 }}
       >
         <Box
           onMouseEnter={cancelClose}
           onMouseLeave={scheduleClose}
           role="menu"
           sx={{
-            backgroundColor: "#FFFFFF",
-            border: "1px solid #E2E8F0",
-            borderRadius: "14px",
-            boxShadow: "0 20px 45px -8px rgba(8, 43, 80, 0.16)",
-            minWidth: 240,
+            backgroundColor: "rgba(255, 255, 255, 0.98)",
+            backdropFilter: "blur(16px)",
+            border: "1px solid rgba(226, 232, 240, 0.9)",
+            borderRadius: "16px",
+            boxShadow: "0 20px 45px -10px rgba(8, 43, 80, 0.18), 0 2px 8px rgba(8, 43, 80, 0.05)",
+            minWidth: 250,
             py: 1,
             px: 0.8,
-            mt: 1,
+            mt: 1.2,
           }}
         >
           {activeItem?.children?.map((child, idx) => {
@@ -469,10 +476,11 @@ export default function Header() {
                       py: 1,
                       color: "#1E293B",
                       fontSize: "0.84rem",
-                      fontWeight: 600,
+                      fontWeight: 650,
                       cursor: "pointer",
-                      borderRadius: "8px",
+                      borderRadius: "10px",
                       mx: 0.5,
+                      my: 0.2,
                       transition: "all 0.15s ease",
                       "&:hover": {
                         backgroundColor: "#FFFDF5",
@@ -484,7 +492,7 @@ export default function Header() {
                     <ChevronRightRoundedIcon sx={{ fontSize: 16, color: "#94A3B8" }} />
                   </Box>
 
-                  {/* Nested Flyout Menu List (Exact drdamanyam implementation) */}
+                  {/* Nested Flyout Menu List */}
                   <Box
                     className="flyout-submenu"
                     sx={{
@@ -492,48 +500,56 @@ export default function Header() {
                       opacity: 0,
                       visibility: "hidden",
                       position: "absolute",
-                      top: 0,
+                      top: -6,
                       left: "100%",
-                      ml: "-2px",
-                      backgroundColor: "#FFFFFF",
-                      border: "1px solid #E2E8F0",
+                      ml: "4px",
+                      backgroundColor: "rgba(255, 255, 255, 0.98)",
+                      backdropFilter: "blur(16px)",
+                      border: "1px solid rgba(226, 232, 240, 0.9)",
                       borderLeft: "3px solid #F5B800",
-                      borderRadius: "12px",
-                      boxShadow: "0 20px 45px -4px rgba(8, 43, 80, 0.2)",
-                      minWidth: 230,
+                      borderRadius: "14px",
+                      boxShadow: "0 20px 45px -10px rgba(8, 43, 80, 0.2)",
+                      minWidth: 240,
                       py: 1,
-                      px: 0.5,
+                      px: 0.8,
                       zIndex: 100,
                       transition: "all 0.15s ease",
                     }}
                   >
-                    {child.items.map((sub) => (
-                      <MenuItem
-                        key={`${sub.href}-${sub.label}`}
-                        component={Link}
-                        href={sub.href}
-                        onClick={closeMenu}
-                        sx={{
-                          borderRadius: "8px",
-                          color: "#1E293B",
-                          fontSize: "0.82rem",
-                          fontWeight: 550,
-                          py: 0.85,
-                          px: 2,
-                          mx: 0.5,
-                          "&:hover": {
-                            backgroundColor: "#FFFDF5",
-                            color: "#D97706",
-                          },
-                        }}
-                      >
-                        {sub.label}
-                      </MenuItem>
-                    ))}
+                    {child.items.map((sub) => {
+                      const isSubActive = pathname === sub.href;
+                      return (
+                        <MenuItem
+                          key={`${sub.href}-${sub.label}`}
+                          component={Link}
+                          href={sub.href}
+                          onClick={closeMenu}
+                          sx={{
+                            borderRadius: "8px",
+                            color: isSubActive ? "#082B50" : "#1E293B",
+                            backgroundColor: isSubActive ? "#FFF9E6" : "transparent",
+                            fontSize: "0.82rem",
+                            fontWeight: isSubActive ? 800 : 550,
+                            py: 0.85,
+                            px: 2,
+                            mx: 0.3,
+                            my: 0.2,
+                            "&:hover": {
+                              backgroundColor: "#FFFDF5",
+                              color: "#D97706",
+                            },
+                          }}
+                        >
+                          {sub.label}
+                        </MenuItem>
+                      );
+                    })}
                   </Box>
                 </Box>
               );
             }
+
+            const isChildActive = pathname === child.href;
 
             return (
               <MenuItem
@@ -542,13 +558,16 @@ export default function Header() {
                 href={child.href || "#"}
                 onClick={closeMenu}
                 sx={{
-                  borderRadius: "8px",
-                  color: "#1E293B",
+                  borderRadius: "10px",
+                  color: isChildActive ? "#082B50" : "#1E293B",
+                  backgroundColor: isChildActive ? "#FFF9E6" : "transparent",
                   fontSize: "0.84rem",
-                  fontWeight: 600,
+                  fontWeight: isChildActive ? 800 : 600,
                   py: 1,
                   px: 2,
-                  mx: 0.5,
+                  mx: 0.3,
+                  my: 0.2,
+                  transition: "all 0.15s ease",
                   "&:hover": {
                     backgroundColor: "#FFFDF5",
                     color: "#D97706",
