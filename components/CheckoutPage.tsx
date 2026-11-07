@@ -65,28 +65,23 @@ export default function CheckoutPage() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const mobile = values.mobile.replace(/\D/g, "").slice(0, 10);
+
     if (!values.name.trim() || !/^\d{10}$/.test(mobile) || !values.address.trim() || items.length === 0) {
       setError("Please enter your name, a 10-digit mobile number, complete address, and ensure you have at least one item.");
       return;
     }
+
     setError("");
     setStatus("pending");
-    try {
-      const response = await fetch("/api/order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name: values.name.trim(), mobile, address: values.address.trim(), notes: values.notes.trim(), items }),
-      });
-      const payload: unknown = await response.json().catch(() => null);
-      if (!response.ok) throw new Error("We could not process the demonstration order. Please try again.");
-      const record = payload && typeof payload === "object" ? (payload as Record<string, unknown>) : {};
-      setOrderId(typeof record.orderId === "string" ? record.orderId : "VZM-MART-" + Math.floor(100000 + Math.random() * 900000));
-      clearCart();
-      setStatus("success");
-    } catch (submitError) {
-      setStatus("idle");
-      setError(submitError instanceof Error ? submitError.message : "We could not process the demonstration order. Please try again.");
-    }
+
+    const suffix =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID().slice(0, 8).toUpperCase()
+        : Math.random().toString(36).slice(2, 10).toUpperCase();
+
+    setOrderId("VZM-MART-" + suffix);
+    clearCart();
+    setStatus("success");
   };
 
   if (status === "success") {
