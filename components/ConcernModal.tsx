@@ -214,53 +214,54 @@ export default function ConcernModal({
           component: "form",
           onSubmit: handleSubmit,
           sx: {
-            borderRadius: 3.5,
+            borderRadius: "20px",
             overflow: "hidden",
-            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-            border: "1px solid rgba(255, 193, 7, 0.2)"
+            boxShadow: "0 25px 60px -15px rgba(8, 43, 80, 0.3)",
+            border: "1px solid rgba(226, 232, 240, 0.9)",
+            background: "#FFFFFF",
           }
         },
       }}
     >
-      {/* Premium Header Banner */}
+      {/* Modern Navy & Gold District Portal Dialog Header */}
       <Box
         sx={{
-          bgcolor: "#FFC107",
-          color: "#1F1700",
+          bgcolor: "#082B50",
+          color: "#FFFFFF",
           px: { xs: 2.5, sm: 3 },
-          py: 2,
+          py: 2.2,
           position: "relative",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          borderBottom: "1px solid rgba(0,0,0,0.06)"
+          borderBottom: "2px solid #FFC107",
         }}
       >
-        <Stack direction="row" alignItems="center" spacing={1.5}>
+        <Stack direction="row" alignItems="center" spacing={1.6}>
           <Box
             sx={{
               alignItems: "center",
-              bgcolor: "#1F1700",
+              bgcolor: "rgba(255, 193, 7, 0.18)",
               color: "#FFC107",
-              borderRadius: 2,
+              borderRadius: "12px",
               display: "flex",
-              height: 38,
+              height: 42,
               justifyContent: "center",
-              width: 38,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-              flexShrink: 0
+              width: 42,
+              border: "1px solid rgba(255, 193, 7, 0.4)",
+              flexShrink: 0,
             }}
           >
-            <PhoneInTalkRoundedIcon sx={{ fontSize: 20 }} />
+            <PhoneInTalkRoundedIcon sx={{ fontSize: 22 }} />
           </Box>
           <Box>
-            <Typography id="concern-modal-title" component="h2" sx={{ fontWeight: 900, fontSize: "1.1rem", lineHeight: 1.2, color: "#1F1700" }}>
-              Share your concern
+            <Typography id="concern-modal-title" component="h2" sx={{ fontWeight: 850, fontSize: "1.15rem", lineHeight: 1.2, color: "#FFFFFF" }}>
+              Share Your Concern
             </Typography>
             <Typography
-              sx={{ color: "rgba(31,23,0,0.8)", fontSize: "0.74rem", fontWeight: 600, mt: 0.2 }}
+              sx={{ color: "rgba(255, 255, 255, 0.75)", fontSize: "0.78rem", fontWeight: 600, mt: 0.3 }}
             >
-              Citizen request and grievance support
+              Direct citizen grievance & administrative support
             </Typography>
           </Box>
         </Stack>
@@ -269,24 +270,18 @@ export default function ConcernModal({
           aria-label="Close concern form"
           onClick={handleClose}
           sx={{
-            color: "#1F1700",
-            bgcolor: "rgba(0,0,0,0.06)",
+            color: "#FFFFFF",
+            bgcolor: "rgba(255,255,255,0.1)",
             width: 32,
             height: 32,
-            "&:hover": { bgcolor: "rgba(0,0,0,0.12)" }
+            "&:hover": { bgcolor: "rgba(255,255,255,0.2)" }
           }}
         >
           <CloseRoundedIcon sx={{ fontSize: 18 }} />
         </IconButton>
       </Box>
 
-      <DialogContent sx={{ px: { xs: 2.5, sm: 3.5 }, py: 2.5, bgcolor: "#FAFAFA" }}>
-        <Box sx={{ mb: 2.5, bgcolor: "#FFFFFF", p: 1.5, borderRadius: 2, border: "1px solid #E2E8F0" }}>
-          <Typography id="concern-modal-description" sx={{ color: "#475569", fontSize: "0.82rem", lineHeight: 1.55 }}>
-            Provide your contact number and a clear description. The district administration team will follow up directly using the contact details you provide.
-          </Typography>
-        </Box>
-
+      <DialogContent sx={{ px: { xs: 2.5, sm: 3.5 }, py: 3, bgcolor: "#FFFFFF" }}>
         {status === "success" ? (
           <Box
             ref={statusHeadingRef}
@@ -339,14 +334,14 @@ export default function ConcernModal({
             </Box>
           </Box>
         ) : (
-          <Stack component="fieldset" disabled={status === "pending"} spacing={2} sx={{ border: 0, m: 0, minWidth: 0, p: 0 }}>
+          <Stack component="fieldset" disabled={status === "pending"} spacing={2.2} sx={{ border: 0, m: 0, minWidth: 0, p: 0 }}>
             <TextField
               autoFocus
               autoComplete="name"
               error={Boolean(errors.name)}
               helperText={errors.name ?? " "}
               inputRef={nameInputRef}
-              label="Full name"
+              label="Full Name"
               name="name"
               onChange={(event) => updateValue("name", event.target.value)}
               required
@@ -354,24 +349,30 @@ export default function ConcernModal({
               size="small"
               sx={{
                 "& .MuiOutlinedInput-root": {
-                  bgcolor: "#FFFFFF",
-                  borderRadius: 2,
+                  bgcolor: "#F8FAFC",
+                  borderRadius: "10px",
+                  "& fieldset": {
+                    borderColor: "#CBD5E1",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "#94A3B8",
+                  },
                   "&.Mui-focused fieldset": {
-                    borderColor: "#FFC107",
+                    borderColor: "#082B50",
                     borderWidth: 2
                   }
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#B45309"
+                  color: "#082B50"
                 }
               }}
             />
             <TextField
               autoComplete="tel"
               error={Boolean(errors.mobile)}
-              helperText={errors.mobile ?? "Enter a 10-digit mobile number."}
+              helperText={errors.mobile ?? "Enter a valid 10-digit mobile number."}
               inputProps={{ inputMode: "numeric", maxLength: 10, pattern: "[0-9]*" }}
-              label="Mobile number"
+              label="Mobile Number"
               name="mobile"
               onChange={(event) => updateValue("mobile", event.target.value)}
               required
@@ -380,23 +381,30 @@ export default function ConcernModal({
               size="small"
               sx={{
                 "& .MuiOutlinedInput-root": {
-                  bgcolor: "#FFFFFF",
-                  borderRadius: 2,
+                  bgcolor: "#F8FAFC",
+                  borderRadius: "10px",
+                  "& fieldset": {
+                    borderColor: "#CBD5E1",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "#94A3B8",
+                  },
                   "&.Mui-focused fieldset": {
-                    borderColor: "#FFC107",
+                    borderColor: "#082B50",
                     borderWidth: 2
                   }
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#B45309"
+                  color: "#082B50"
                 }
               }}
             />
             <TextField
               error={Boolean(errors.concern)}
               helperText={errors.concern ?? " "}
-              label="Describe your concern"
-              minRows={3}
+              label="Describe Your Concern"
+              placeholder="State your grievance, department, or administrative query..."
+              minRows={3.5}
               maxRows={6}
               multiline
               name="concern"
@@ -405,15 +413,21 @@ export default function ConcernModal({
               value={values.concern}
               sx={{
                 "& .MuiOutlinedInput-root": {
-                  bgcolor: "#FFFFFF",
-                  borderRadius: 2,
+                  bgcolor: "#F8FAFC",
+                  borderRadius: "10px",
+                  "& fieldset": {
+                    borderColor: "#CBD5E1",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "#94A3B8",
+                  },
                   "&.Mui-focused fieldset": {
-                    borderColor: "#FFC107",
+                    borderColor: "#082B50",
                     borderWidth: 2
                   }
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#B45309"
+                  color: "#082B50"
                 }
               }}
             />
@@ -429,19 +443,19 @@ export default function ConcernModal({
         )}
       </DialogContent>
 
-      <DialogActions sx={{ gap: 1, justifyContent: "space-between", px: { xs: 2.5, sm: 3 }, py: 1.75, bgcolor: "#FFFFFF", borderTop: "1px solid #E2E8F0" }}>
+      <DialogActions sx={{ gap: 1.5, justifyContent: "space-between", px: { xs: 2.5, sm: 3.5 }, py: 2, bgcolor: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
         {status === "success" ? (
           <>
-            <Button onClick={handleClose} variant="outlined" sx={{ borderRadius: 8, textTransform: "none", fontWeight: 700, borderColor: "#CBD5E1", color: "#475569" }}>
+            <Button onClick={handleClose} variant="outlined" sx={{ borderRadius: "10px", textTransform: "none", fontWeight: 700, borderColor: "#CBD5E1", color: "#475569" }}>
               Close
             </Button>
-            <Button onClick={startAnotherConcern} variant="contained" sx={{ bgcolor: "#FFC107", color: "#1F1700", fontWeight: 800, borderRadius: 8, textTransform: "none", boxShadow: "none", "&:hover": { bgcolor: "#FACC15" } }}>
-              Submit another concern
+            <Button onClick={startAnotherConcern} variant="contained" sx={{ bgcolor: "#FFC107", color: "#1F1700", fontWeight: 800, borderRadius: "10px", textTransform: "none", boxShadow: "none", "&:hover": { bgcolor: "#FACC15" } }}>
+              Submit Another Concern
             </Button>
           </>
         ) : (
           <>
-            <Button disabled={status === "pending"} onClick={handleClose} sx={{ color: "#64748B", fontWeight: 700, textTransform: "none" }}>
+            <Button disabled={status === "pending"} onClick={handleClose} sx={{ color: "#64748B", fontWeight: 700, textTransform: "none", px: 2 }}>
               Cancel
             </Button>
             <Button
@@ -450,19 +464,22 @@ export default function ConcernModal({
               type="submit"
               variant="contained"
               sx={{
-                bgcolor: "#1F1700",
+                background: "linear-gradient(135deg, #082B50 0%, #0F3A66 100%)",
                 color: "#FFFFFF !important",
                 fontWeight: 800,
-                fontSize: "0.85rem",
-                px: 2.75,
-                py: 0.75,
-                borderRadius: 8,
+                fontSize: "0.88rem",
+                px: 3,
+                py: 1,
+                borderRadius: "10px",
                 textTransform: "none",
-                boxShadow: "none",
-                "&:hover": { bgcolor: "#332600" }
+                boxShadow: "0 4px 12px rgba(8, 43, 80, 0.2)",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #0A3664 0%, #164E85 100%)",
+                  boxShadow: "0 6px 16px rgba(8, 43, 80, 0.3)",
+                }
               }}
             >
-              {status === "pending" ? "Submitting…" : "Submit concern"}
+              {status === "pending" ? "Submitting…" : "Submit Concern"}
             </Button>
           </>
         )}
