@@ -7,11 +7,16 @@ import {
   AppBar,
   Box,
   Button,
+  Collapse,
   Container,
   Divider,
   Drawer,
   IconButton,
+  List,
+  ListItemButton,
+  ListItemText,
   MenuItem,
+  Paper,
   Popper,
   Stack,
   Toolbar,
@@ -22,8 +27,18 @@ import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import MapRoundedIcon from "@mui/icons-material/MapRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import HandshakeRoundedIcon from "@mui/icons-material/HandshakeRounded";
+import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
+import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
+import LandscapeRoundedIcon from "@mui/icons-material/LandscapeRounded";
+import NewspaperRoundedIcon from "@mui/icons-material/NewspaperRounded";
+import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
+import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
 
 type NavSubItem = {
   label: string;
@@ -152,6 +167,20 @@ function pathIsActive(pathname: string, href: string) {
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [expandedMobileItems, setExpandedMobileItems] = useState<Record<string, boolean>>({
+    About: true,
+    "Citizen Services": false,
+    Schemes: false,
+    Livelihoods: false,
+    Media: false,
+  });
+
+  const toggleMobileExpand = (label: string) => {
+    setExpandedMobileItems((prev) => ({
+      ...prev,
+      [label]: !prev[label],
+    }));
+  };
 
   // Popper dropdown state
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
@@ -539,96 +568,344 @@ export default function Header() {
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
         PaperProps={{
-          sx: { width: "85%", maxWidth: 360, backgroundColor: "#FFFFFF", p: 2.5 },
+          sx: {
+            width: "88%",
+            maxWidth: 380,
+            backgroundColor: "#F8FAFC",
+            p: 0,
+            display: "flex",
+            flexDirection: "column",
+          },
         }}
       >
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 2.5 }}>
-          <Typography sx={{ color: "#082B50", fontSize: "1rem", fontWeight: 900 }}>
-            Vizianagaram Portal
-          </Typography>
-          <IconButton onClick={() => setMobileOpen(false)} size="small">
-            <CloseRoundedIcon />
+        {/* Drawer Header */}
+        <Box
+          sx={{
+            p: 2.2,
+            backgroundColor: "#082B50",
+            color: "#FFFFFF",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            borderBottom: "3px solid #F5B800",
+          }}
+        >
+          <Stack direction="row" spacing={1.5} alignItems="center">
+            <Box
+              component="img"
+              src="/images/ap-govt-logo.png"
+              alt="AP Emblem"
+              sx={{ width: 34, height: 34, objectFit: "contain", filter: "brightness(0) invert(1)" }}
+            />
+            <Box>
+              <Typography sx={{ color: "#FFFFFF", fontSize: "0.95rem", fontWeight: 900, lineHeight: 1.2 }}>
+                Vizianagaram Portal
+              </Typography>
+              <Typography sx={{ color: "rgba(255,255,255,0.7)", fontSize: "0.7rem", fontWeight: 600 }}>
+                DRDA • Government of Andhra Pradesh
+              </Typography>
+            </Box>
+          </Stack>
+          <IconButton
+            onClick={() => setMobileOpen(false)}
+            size="small"
+            sx={{
+              color: "#FFFFFF",
+              backgroundColor: "rgba(255,255,255,0.12)",
+              "&:hover": { backgroundColor: "rgba(255,255,255,0.25)" },
+            }}
+          >
+            <CloseRoundedIcon fontSize="small" />
           </IconButton>
-        </Stack>
-        <Divider sx={{ mb: 2 }} />
+        </Box>
 
-        <Stack spacing={0.5}>
-          {headerNavItems.map((item) => {
-            const active = pathIsActive(pathname, item.href);
-            return (
-              <Box key={item.label}>
-                <Button
-                  component={Link}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  fullWidth
+        {/* Drawer Menu List */}
+        <Box sx={{ flex: 1, overflowY: "auto", p: 2 }}>
+          <Stack spacing={1}>
+            {headerNavItems.map((item) => {
+              const active = pathIsActive(pathname, item.href);
+              const hasChildren = Boolean(item.children && item.children.length > 0);
+              const isExpanded = Boolean(expandedMobileItems[item.label]);
+
+              const getItemIcon = (label: string) => {
+                switch (label) {
+                  case "Home":
+                    return <HomeRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "About":
+                    return <InfoRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "Citizen Services":
+                    return <HandshakeRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "Schemes":
+                    return <AccountBalanceRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "Livelihoods":
+                    return <WorkOutlineRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "Tourism":
+                    return <LandscapeRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "Media":
+                    return <NewspaperRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "Success Stories":
+                    return <EmojiEventsRoundedIcon sx={{ fontSize: 18 }} />;
+                  case "District Mart":
+                    return <StorefrontRoundedIcon sx={{ fontSize: 18 }} />;
+                  default:
+                    return null;
+                }
+              };
+
+              if (!hasChildren) {
+                return (
+                  <Button
+                    key={item.label}
+                    component={Link}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    fullWidth
+                    startIcon={getItemIcon(item.label)}
+                    sx={{
+                      justifyContent: "flex-start",
+                      color: active ? "#082B50 !important" : "#1E293B !important",
+                      backgroundColor: active ? "#F5B800" : "#FFFFFF",
+                      boxShadow: active
+                        ? "0 4px 12px rgba(245, 184, 0, 0.35)"
+                        : "0 1px 3px rgba(15, 23, 42, 0.05)",
+                      fontWeight: active ? 850 : 700,
+                      fontSize: "0.88rem",
+                      py: 1.1,
+                      px: 2,
+                      borderRadius: "12px",
+                      textTransform: "none",
+                      border: "1px solid",
+                      borderColor: active ? "#F5B800" : "#E2E8F0",
+                      transition: "all 0.15s ease",
+                      "&:hover": {
+                        backgroundColor: active ? "#F5B800" : "#FFFDF5",
+                        borderColor: "#F5B800",
+                      },
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                );
+              }
+
+              // Dropdown Group with Collapsible Accordion-style Card
+              return (
+                <Paper
+                  key={item.label}
+                  elevation={0}
                   sx={{
-                    justifyContent: "flex-start",
-                    color: active ? "#082B50 !important" : "#334155 !important",
-                    backgroundColor: active ? "#F5B800 !important" : "transparent",
-                    fontWeight: active ? 850 : 700,
-                    fontSize: "0.85rem",
-                    py: 1,
-                    px: 1.5,
-                    borderRadius: "10px",
-                    textTransform: "none",
+                    borderRadius: "14px",
+                    border: "1px solid",
+                    borderColor: isExpanded || active ? "#CBD5E1" : "#E2E8F0",
+                    backgroundColor: "#FFFFFF",
+                    overflow: "hidden",
+                    boxShadow: isExpanded
+                      ? "0 4px 14px rgba(8, 43, 80, 0.06)"
+                      : "0 1px 3px rgba(15, 23, 42, 0.04)",
                   }}
                 >
-                  {item.label}
-                </Button>
-                {item.children?.flatMap((child, idx) => {
-                  if ("items" in child && child.items) {
-                    return child.items.map((sub, sIdx) => (
-                      <Button
-                        key={`${item.label}-${child.label}-${sub.href}-${sIdx}`}
-                        component={Link}
-                        href={sub.href}
-                        onClick={() => setMobileOpen(false)}
-                        fullWidth
+                  {/* Category Header Row */}
+                  <Box
+                    onClick={() => toggleMobileExpand(item.label)}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      py: 1.15,
+                      px: 2,
+                      cursor: "pointer",
+                      backgroundColor: isExpanded ? "#F8FAFC" : "#FFFFFF",
+                      borderBottom: isExpanded ? "1px solid #E2E8F0" : "none",
+                      transition: "background-color 0.15s ease",
+                      "&:hover": {
+                        backgroundColor: "#F1F5F9",
+                      },
+                    }}
+                  >
+                    <Stack direction="row" spacing={1.3} alignItems="center">
+                      <Box
                         sx={{
-                          justifyContent: "flex-start",
-                          color: "#64748B !important",
-                          fontSize: "0.78rem",
-                          fontWeight: 600,
-                          py: 0.6,
-                          pl: 3.5,
-                          textTransform: "none",
+                          color: active ? "#082B50" : "#475569",
+                          display: "flex",
+                          alignItems: "center",
                         }}
                       >
-                        ↳ {sub.label}
-                      </Button>
-                    ));
-                  }
-                  if ("href" in child && child.href) {
-                    return (
-                      <Button
-                        key={`${item.label}-${child.href}-${idx}`}
-                        component={Link}
-                        href={child.href}
-                        onClick={() => setMobileOpen(false)}
-                        fullWidth
+                        {getItemIcon(item.label)}
+                      </Box>
+                      <Typography
                         sx={{
-                          justifyContent: "flex-start",
-                          color: "#64748B !important",
-                          fontSize: "0.78rem",
-                          fontWeight: 600,
-                          py: 0.6,
-                          pl: 3.5,
-                          textTransform: "none",
+                          color: active ? "#082B50" : "#0F172A",
+                          fontWeight: active ? 850 : 750,
+                          fontSize: "0.88rem",
                         }}
                       >
-                        ↳ {child.label}
-                      </Button>
-                    );
-                  }
-                  return null;
-                })}
-              </Box>
-            );
-          })}
-        </Stack>
+                        {item.label}
+                      </Typography>
+                    </Stack>
 
-        <Box sx={{ mt: 3, pt: 2, borderTop: "1px solid #E2E8F0" }}>
+                    <Stack direction="row" spacing={0.8} alignItems="center">
+                      <Typography
+                        component={Link}
+                        href={item.href}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileOpen(false);
+                        }}
+                        sx={{
+                          fontSize: "0.72rem",
+                          fontWeight: 700,
+                          color: "#0284C7",
+                          textDecoration: "none",
+                          px: 1,
+                          py: 0.25,
+                          borderRadius: "6px",
+                          backgroundColor: "#F0F9FF",
+                          "&:hover": {
+                            backgroundColor: "#E0F2FE",
+                          },
+                        }}
+                      >
+                        Visit
+                      </Typography>
+                      <IconButton size="small" sx={{ color: "#64748B", p: 0.5 }}>
+                        {isExpanded ? (
+                          <KeyboardArrowUpRoundedIcon fontSize="small" />
+                        ) : (
+                          <KeyboardArrowDownRoundedIcon fontSize="small" />
+                        )}
+                      </IconButton>
+                    </Stack>
+                  </Box>
+
+                  {/* Collapsible Submenu Items */}
+                  <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                    <Box sx={{ py: 1, px: 1.5, backgroundColor: "#FAFCFF" }}>
+                      {item.children?.flatMap((child, idx) => {
+                        // Nested Sub-Group
+                        if ("items" in child && child.items) {
+                          return (
+                            <Box key={`${item.label}-${child.label}-${idx}`} sx={{ my: 0.8 }}>
+                              <Typography
+                                sx={{
+                                  fontSize: "0.7rem",
+                                  fontWeight: 800,
+                                  textTransform: "uppercase",
+                                  letterSpacing: "0.06em",
+                                  color: "#94A3B8",
+                                  px: 1.5,
+                                  pt: 0.5,
+                                  pb: 0.3,
+                                }}
+                              >
+                                {child.label}
+                              </Typography>
+                              {child.items.map((sub, sIdx) => {
+                                const isSubActive = pathname === sub.href;
+                                return (
+                                  <Button
+                                    key={`${item.label}-${child.label}-${sub.href}-${sIdx}`}
+                                    component={Link}
+                                    href={sub.href}
+                                    onClick={() => setMobileOpen(false)}
+                                    fullWidth
+                                    sx={{
+                                      justifyContent: "flex-start",
+                                      alignItems: "center",
+                                      color: isSubActive ? "#082B50 !important" : "#334155 !important",
+                                      backgroundColor: isSubActive ? "#F5B800 !important" : "transparent",
+                                      fontSize: "0.8rem",
+                                      fontWeight: isSubActive ? 800 : 550,
+                                      py: 0.75,
+                                      px: 1.5,
+                                      my: 0.2,
+                                      borderRadius: "8px",
+                                      textTransform: "none",
+                                      transition: "all 0.15s ease",
+                                      "&:hover": {
+                                        backgroundColor: isSubActive ? "#F5B800" : "#F1F5F9",
+                                        color: "#082B50 !important",
+                                      },
+                                    }}
+                                  >
+                                    <Box
+                                      sx={{
+                                        width: 5,
+                                        height: 5,
+                                        borderRadius: "50%",
+                                        backgroundColor: isSubActive ? "#082B50" : "#94A3B8",
+                                        mr: 1.5,
+                                        flexShrink: 0,
+                                      }}
+                                    />
+                                    {sub.label}
+                                  </Button>
+                                );
+                              })}
+                            </Box>
+                          );
+                        }
+
+                        // Direct Child Link
+                        if ("href" in child && child.href) {
+                          const isSubActive = pathname === child.href;
+                          return (
+                            <Button
+                              key={`${item.label}-${child.href}-${idx}`}
+                              component={Link}
+                              href={child.href}
+                              onClick={() => setMobileOpen(false)}
+                              fullWidth
+                              sx={{
+                                justifyContent: "flex-start",
+                                alignItems: "center",
+                                color: isSubActive ? "#082B50 !important" : "#334155 !important",
+                                backgroundColor: isSubActive ? "#F5B800 !important" : "transparent",
+                                fontSize: "0.82rem",
+                                fontWeight: isSubActive ? 800 : 550,
+                                py: 0.8,
+                                px: 1.5,
+                                my: 0.25,
+                                borderRadius: "8px",
+                                textTransform: "none",
+                                transition: "all 0.15s ease",
+                                "&:hover": {
+                                  backgroundColor: isSubActive ? "#F5B800" : "#F1F5F9",
+                                  color: "#082B50 !important",
+                                },
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  width: 6,
+                                  height: 6,
+                                  borderRadius: "50%",
+                                  backgroundColor: isSubActive ? "#082B50" : "#CBD5E1",
+                                  mr: 1.5,
+                                  flexShrink: 0,
+                                }}
+                              />
+                              {child.label}
+                            </Button>
+                          );
+                        }
+                        return null;
+                      })}
+                    </Box>
+                  </Collapse>
+                </Paper>
+              );
+            })}
+          </Stack>
+        </Box>
+
+        {/* Drawer Footer CTA */}
+        <Box
+          sx={{
+            p: 2,
+            backgroundColor: "#FFFFFF",
+            borderTop: "1px solid #E2E8F0",
+          }}
+        >
           <Button
             component={Link}
             href="/map"
@@ -639,12 +916,17 @@ export default function Header() {
               backgroundColor: "#F5B800",
               color: "#082B50 !important",
               fontWeight: 850,
-              borderRadius: "50px",
-              py: 1,
+              fontSize: "0.88rem",
+              borderRadius: "12px",
+              py: 1.1,
               textTransform: "none",
+              boxShadow: "0 4px 14px rgba(245, 184, 0, 0.4)",
+              "&:hover": {
+                backgroundColor: "#E0A800",
+              },
             }}
           >
-            Vizianagaram Map →
+            Interactive District Map →
           </Button>
         </Box>
       </Drawer>
