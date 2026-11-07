@@ -97,7 +97,7 @@ export default function LeadershipSection() {
           </Typography>
         </Box>
 
-        {/* Executive Showcase Grid - Official Portrait Editorial Cards */}
+        {/* Executive Showcase Grid - Official Dignitary Cards */}
         <Box
           sx={{
             display: "grid",
@@ -119,11 +119,11 @@ export default function LeadershipSection() {
                   background: "#FFFFFF",
                   border: isTopLeader
                     ? "2px solid #F59E0B"
-                    : "1px solid #E2E8F0",
+                    : "1.5px solid #E2E8F0",
                   borderRadius: "20px",
                   boxShadow: isTopLeader
-                    ? "0 12px 30px -6px rgba(245, 158, 11, 0.22), 0 4px 12px -2px rgba(8, 43, 80, 0.06)"
-                    : "0 8px 22px -6px rgba(8, 43, 80, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.03)",
+                    ? "0 14px 34px -8px rgba(245, 158, 11, 0.22), 0 4px 12px -2px rgba(8, 43, 80, 0.06)"
+                    : "0 8px 24px -6px rgba(8, 43, 80, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)",
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
@@ -132,10 +132,12 @@ export default function LeadershipSection() {
                   transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   "&:hover": {
                     borderColor: "#F59E0B",
-                    boxShadow: "0 20px 38px -8px rgba(8, 43, 80, 0.2), 0 8px 18px -4px rgba(245, 158, 11, 0.25)",
+                    boxShadow: "0 22px 42px -10px rgba(8, 43, 80, 0.22), 0 8px 18px -4px rgba(245, 158, 11, 0.25)",
                     transform: "translateY(-6px)",
-                    "& .portrait-container": {
-                      transform: "scale(1.02)",
+                    "& .official-portrait": {
+                      borderColor: "#F59E0B",
+                      boxShadow: "0 0 0 4px rgba(245, 158, 11, 0.25)",
+                      transform: "scale(1.03)",
                     },
                     "& .view-profile-btn": {
                       background: "linear-gradient(135deg, #FFC107 0%, #FFB300 100%)",
@@ -172,154 +174,150 @@ export default function LeadershipSection() {
                     flexDirection: "column",
                     textAlign: "center",
                     width: "100%",
+                    p: { xs: 2.8, sm: 2.8, lg: 2.5 },
                   }}
                 >
-                  {/* Portrait Box - Studio Gallery Presentation */}
-                  <Box
-                    sx={{
-                      position: "relative",
-                      width: "100%",
-                      height: { xs: 220, sm: 200, lg: 190 },
-                      backgroundColor: "#F8FAFC",
-                      overflow: "hidden",
-                      borderBottom: "1px solid #F1F5F9",
-                    }}
-                  >
+                  {/* Dignitary Portrait Presentation */}
+                  <Box sx={{ position: "relative", mb: 2, mx: "auto" }}>
                     <Box
-                      className="portrait-container"
+                      className="official-portrait"
                       sx={{
-                        width: "100%",
-                        height: "100%",
-                        backgroundImage: `url('${profile.image}')`,
-                        backgroundSize: isTopLeader ? "contain" : "cover",
-                        backgroundPosition: isTopLeader ? "center top" : (profile.imagePosition || "center 20%"),
-                        backgroundRepeat: "no-repeat",
-                        transition: "transform 0.4s ease",
+                        width: { xs: 130, sm: 120, lg: 115 },
+                        height: { xs: 150, sm: 140, lg: 135 },
+                        borderRadius: "18px",
+                        overflow: "hidden",
+                        border: isTopLeader ? "3px solid #F59E0B" : "2.5px solid #CBD5E1",
+                        boxShadow: "0 8px 20px -4px rgba(8, 43, 80, 0.16)",
+                        backgroundColor: "#F8FAFC",
+                        transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                       }}
-                    />
+                    >
+                      <Box
+                        component="img"
+                        src={profile.image}
+                        alt={profile.name}
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: isTopLeader ? "contain" : "cover",
+                          objectPosition: isTopLeader ? "center top" : (profile.imagePosition || "center 20%"),
+                          p: isTopLeader ? 0.5 : 0,
+                        }}
+                      />
+                    </Box>
 
                     {/* Verified Official Badge */}
                     <Box
                       sx={{
                         position: "absolute",
-                        top: 10,
-                        right: 10,
-                        bgcolor: isTopLeader ? "#F59E0B" : "rgba(8, 43, 80, 0.85)",
-                        backdropFilter: "blur(4px)",
+                        bottom: -8,
+                        right: -8,
+                        bgcolor: isTopLeader ? "#F59E0B" : "#082B50",
                         color: "#FFFFFF",
-                        borderRadius: "50px",
-                        px: 1,
-                        py: 0.3,
+                        borderRadius: "50%",
+                        width: 26,
+                        height: 26,
                         display: "flex",
                         alignItems: "center",
-                        gap: 0.4,
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                        justifyContent: "center",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
+                        border: "2px solid #FFFFFF",
                       }}
                     >
-                      <VerifiedRoundedIcon sx={{ fontSize: 13 }} />
-                      <Typography sx={{ fontSize: "0.62rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                        {isTopLeader ? "CM" : "OFFICIAL"}
-                      </Typography>
+                      <VerifiedRoundedIcon sx={{ fontSize: 15 }} />
                     </Box>
                   </Box>
 
-                  {/* Card Content & Text */}
-                  <Box
+                  {/* Role / Designation Pill */}
+                  <Chip
+                    label={profile.designation}
+                    size="small"
                     sx={{
-                      p: { xs: 2.2, sm: 2.2, lg: 2 },
+                      background: isTopLeader ? "rgba(245, 158, 11, 0.14)" : "#F1F5F9",
+                      border: isTopLeader
+                        ? "1.5px solid rgba(245, 158, 11, 0.45)"
+                        : "1px solid #CBD5E1",
+                      color: isTopLeader ? "#B45309" : "#334155",
+                      fontSize: "0.7rem",
+                      fontWeight: 800,
+                      maxWidth: "100%",
+                      mx: "auto",
+                      mb: 1.2,
+                      px: 0.5,
+                      whiteSpace: "normal",
+                      height: "auto",
+                      py: 0.35,
+                      borderRadius: "6px",
+                      "& .MuiChip-label": {
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        lineHeight: 1.25,
+                        px: 0.8,
+                      },
+                    }}
+                  />
+
+                  {/* Leader Name */}
+                  <Typography
+                    component="h3"
+                    sx={{
+                      color: "#082B50",
+                      fontSize: "0.98rem",
+                      fontWeight: 900,
+                      letterSpacing: "-0.02em",
+                      lineHeight: 1.25,
+                      minHeight: { sm: "2.6em" },
                       display: "flex",
-                      flexDirection: "column",
-                      flex: 1,
                       alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    {/* Role / Designation Pill */}
-                    <Chip
-                      label={profile.designation}
-                      size="small"
-                      sx={{
-                        background: isTopLeader ? "rgba(245, 158, 11, 0.14)" : "#F1F5F9",
-                        border: isTopLeader
-                          ? "1px solid rgba(245, 158, 11, 0.4)"
-                          : "1px solid #E2E8F0",
-                        color: isTopLeader ? "#B45309" : "#334155",
-                        fontSize: "0.68rem",
-                        fontWeight: 800,
-                        maxWidth: "100%",
-                        mb: 1,
-                        px: 0.5,
-                        whiteSpace: "normal",
-                        height: "auto",
-                        py: 0.35,
-                        borderRadius: "6px",
-                        "& .MuiChip-label": {
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          lineHeight: 1.25,
-                          px: 0.6,
-                        },
-                      }}
+                    {profile.name}
+                  </Typography>
+
+                  {/* Organization */}
+                  <Typography
+                    sx={{
+                      color: "#64748B",
+                      fontSize: "0.72rem",
+                      fontWeight: 600,
+                      lineHeight: 1.4,
+                      minHeight: { sm: "2.7em" },
+                      mt: 0.6,
+                      mb: 2,
+                    }}
+                  >
+                    {profile.organization}
+                  </Typography>
+
+                  {/* Interactive Button */}
+                  <Box
+                    className="view-profile-btn"
+                    sx={{
+                      alignItems: "center",
+                      background: "#F8FAFC",
+                      border: "1.5px solid #E2E8F0",
+                      borderRadius: "10px",
+                      color: "#082B50",
+                      display: "flex",
+                      fontSize: "0.75rem",
+                      fontWeight: 850,
+                      gap: 0.6,
+                      justifyContent: "center",
+                      mt: "auto",
+                      pt: 0.85,
+                      pb: 0.85,
+                      px: 1.5,
+                      transition: "all 0.25s ease",
+                      width: "100%",
+                    }}
+                  >
+                    <span>View Profile</span>
+                    <ArrowForwardRoundedIcon
+                      sx={{ fontSize: 14, color: "#082B50", transition: "transform 0.25s ease" }}
                     />
-
-                    {/* Leader Name */}
-                    <Typography
-                      component="h3"
-                      sx={{
-                        color: "#082B50",
-                        fontSize: "0.98rem",
-                        fontWeight: 900,
-                        letterSpacing: "-0.02em",
-                        lineHeight: 1.25,
-                        minHeight: { sm: "2.6em" },
-                      }}
-                    >
-                      {profile.name}
-                    </Typography>
-
-                    {/* Organization */}
-                    <Typography
-                      sx={{
-                        color: "#64748B",
-                        fontSize: "0.72rem",
-                        fontWeight: 600,
-                        lineHeight: 1.4,
-                        minHeight: { sm: "2.7em" },
-                        mt: 0.6,
-                        mb: 1.8,
-                      }}
-                    >
-                      {profile.organization}
-                    </Typography>
-
-                    {/* Interactive Button */}
-                    <Box
-                      className="view-profile-btn"
-                      sx={{
-                        alignItems: "center",
-                        background: "#F8FAFC",
-                        border: "1.5px solid #E2E8F0",
-                        borderRadius: "10px",
-                        color: "#082B50",
-                        display: "flex",
-                        fontSize: "0.75rem",
-                        fontWeight: 850,
-                        gap: 0.6,
-                        justifyContent: "center",
-                        mt: "auto",
-                        pt: 0.85,
-                        pb: 0.85,
-                        px: 1.5,
-                        transition: "all 0.25s ease",
-                        width: "100%",
-                      }}
-                    >
-                      <span>View Profile</span>
-                      <ArrowForwardRoundedIcon
-                        sx={{ fontSize: 14, color: "#082B50", transition: "transform 0.25s ease" }}
-                      />
-                    </Box>
                   </Box>
                 </ButtonBase>
               </Card>
