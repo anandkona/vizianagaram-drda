@@ -39,7 +39,7 @@ export default function HeroSection() {
         borderBottom: "1px solid #ECE4D0",
       }}
     >
-      {/* Decorative Golden Sun & Authentic Vizianagaram Temple & Reservoir Background */}
+      {/* Authentic Vizianagaram Heritage Landmark Backdrop (Historic Vizianagaram Fort & Nagaar Khana Gate) */}
       <Box
         aria-hidden="true"
         sx={{
@@ -47,20 +47,20 @@ export default function HeroSection() {
           top: 0,
           right: 0,
           bottom: 0,
-          width: { xs: "100%", md: "58%", lg: "54%" },
-          backgroundImage: 'url("/images/hero-real-photo-highres.jpg")',
+          width: { xs: "100%", md: "56%", lg: "52%" },
+          backgroundImage: 'url("/images/hero-official-vzm-fort.jpg")',
           backgroundSize: "cover",
-          backgroundPosition: "center center",
+          backgroundPosition: "center right",
           backgroundRepeat: "no-repeat",
           maskImage: {
-            xs: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 25%, black 100%)",
-            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 12%, black 32%)",
+            xs: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 20%, black 100%)",
+            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 10%, black 25%)",
           },
           WebkitMaskImage: {
-            xs: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 25%, black 100%)",
-            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 12%, black 32%)",
+            xs: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 20%, black 100%)",
+            md: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 10%, black 25%)",
           },
-          opacity: 0.92,
+          opacity: 0.95,
           zIndex: 0,
           pointerEvents: "none",
         }}
