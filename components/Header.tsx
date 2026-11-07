@@ -43,23 +43,17 @@ import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
 type NavSubItem = {
   label: string;
   href: string;
-};
-
-type NavGroupItem = {
-  label: string;
-  href?: string;
-  items?: NavSubItem[];
+  badge?: string;
 };
 
 type NavItemType = {
   label: string;
   href: string;
   hasDropdown?: boolean;
-  twoLines?: boolean;
-  children?: (NavSubItem | NavGroupItem)[];
+  children?: NavSubItem[];
 };
 
-// Exact navbar menu lists and items aligned with drdamanyam & official Vizianagaram governance
+// Streamlined, clean, top-level navigation structure
 const headerNavItems: NavItemType[] = [
   { label: "Home", href: "/" },
   {
@@ -67,11 +61,25 @@ const headerNavItems: NavItemType[] = [
     href: "/about/district",
     hasDropdown: true,
     children: [
-      { label: "About District Profile", href: "/about/district" },
-      { label: "About DRDA", href: "/about/drda" },
-      { label: "Org Structure", href: "/about/structure" },
-      { label: "Who's Who", href: "/about/whos-who" },
-      { label: "District Map", href: "/map" },
+      { label: "District Profile", href: "/about/district" },
+      { label: "DRDA Overview", href: "/about/drda" },
+      { label: "Administrative Structure", href: "/about/structure" },
+      { label: "Who's Who (Leadership)", href: "/about/whos-who" },
+      { label: "Official Directory", href: "/directory" },
+    ],
+  },
+  {
+    label: "Schemes",
+    href: "/schemes",
+    hasDropdown: true,
+    children: [
+      { label: "All Welfare Schemes", href: "/schemes" },
+      { label: "Women & SHG Empowerment", href: "/schemes/women" },
+      { label: "Farmers & Agriculture", href: "/schemes/farmers" },
+      { label: "Youth & Skill Development", href: "/schemes/youth" },
+      { label: "MSME & Entrepreneurs", href: "/schemes/entrepreneurs" },
+      { label: "Tribal Welfare (ITDA)", href: "/schemes/tribal" },
+      { label: "Social Security & Pensions", href: "/schemes/social" },
     ],
   },
   {
@@ -80,45 +88,12 @@ const headerNavItems: NavItemType[] = [
     hasDropdown: true,
     children: [
       { label: "All Citizen Services", href: "/citizen-services" },
-      {
-        label: "Schemes & Learning",
-        items: [
-          { label: "Explore Schemes", href: "/schemes" },
-          { label: "Knowledge Center", href: "/knowledge-center" },
-          { label: "Events & Training", href: "/events" },
-        ],
-      },
-      {
-        label: "Grievance & Support",
-        items: [
-          { label: "Share Your Concern (PGRS)", href: "/pgrs" },
-          { label: "IVRS Services (1902)", href: "/ivrs" },
-          { label: "Feedback", href: "/feedback" },
-        ],
-      },
-      {
-        label: "Information & Transparency",
-        items: [
-          { label: "Announcements & Latest Updates", href: "/announcements" },
-          { label: "Tenders & Notices", href: "/tenders" },
-          { label: "RTI", href: "/rti" },
-        ],
-      },
-      { label: "Contact Directory", href: "/directory" },
-    ],
-  },
-  {
-    label: "Schemes",
-    href: "/schemes",
-    hasDropdown: true,
-    children: [
-      { label: "All Schemes", href: "/schemes" },
-      { label: "Women & SHG", href: "/schemes/women" },
-      { label: "Farmers & Agriculture", href: "/schemes/farmers" },
-      { label: "Youth & Skills", href: "/schemes/youth" },
-      { label: "Entrepreneurs & MSME", href: "/schemes/entrepreneurs" },
-      { label: "Tribal Welfare (ITDA)", href: "/schemes/tribal" },
-      { label: "Senior Citizens & Social Pensions", href: "/schemes/social" },
+      { label: "Share Your Concern (PGRS)", href: "/pgrs" },
+      { label: "IVRS Toll-Free (1902)", href: "/ivrs" },
+      { label: "Announcements & Notices", href: "/announcements" },
+      { label: "Tenders & Quotations", href: "/tenders" },
+      { label: "Knowledge Center", href: "/knowledge-center" },
+      { label: "Events & Training", href: "/events" },
     ],
   },
   {
@@ -126,29 +101,13 @@ const headerNavItems: NavItemType[] = [
     href: "/livelihoods",
     hasDropdown: true,
     children: [
-      { label: "FPOs Network", href: "/fpos" },
+      { label: "Livelihood Programs", href: "/livelihoods" },
       { label: "Women Entrepreneurship", href: "/women-entrepreneurship" },
+      { label: "FPOs Network", href: "/fpos" },
       { label: "One Family One Entrepreneur", href: "/one-family-one-entrepreneur" },
-      { label: "Livelihood Projects", href: "/livelihoods" },
-      { label: "SERP Corner", href: "/serp-corner" },
+      { label: "SERP Initiatives", href: "/serp-corner" },
+      { label: "Success Stories", href: "/success-stories" },
     ],
-  },
-  {
-    label: "Tourism",
-    href: "/tourism",
-  },
-  {
-    label: "Media",
-    href: "/media",
-    hasDropdown: true,
-    children: [
-      { label: "Press Releases & News", href: "/media" },
-      { label: "Announcements", href: "/announcements" },
-    ],
-  },
-  {
-    label: "Success Stories",
-    href: "/success-stories",
   },
   {
     label: "District Mart",
@@ -442,138 +401,54 @@ export default function Header() {
           onMouseLeave={scheduleClose}
           role="menu"
           sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.98)",
-            backdropFilter: "blur(16px)",
-            border: "1px solid rgba(226, 232, 240, 0.9)",
-            borderRadius: "16px",
-            boxShadow: "0 20px 45px -10px rgba(8, 43, 80, 0.18), 0 2px 8px rgba(8, 43, 80, 0.05)",
-            minWidth: 250,
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #E2E8F0",
+            borderRadius: "14px",
+            boxShadow: "0 12px 30px -6px rgba(8, 43, 80, 0.14)",
+            minWidth: 260,
             py: 1,
             px: 0.8,
-            mt: 1.2,
+            mt: 1,
           }}
         >
           {activeItem?.children?.map((child, idx) => {
-            if ("items" in child && child.items) {
-              return (
-                <Box
-                  key={child.label || idx}
-                  sx={{
-                    position: "relative",
-                    "&:hover > .flyout-submenu": {
-                      display: "block",
-                      opacity: 1,
-                      visibility: "visible",
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      px: 2,
-                      py: 1,
-                      color: "#1E293B",
-                      fontSize: "0.84rem",
-                      fontWeight: 650,
-                      cursor: "pointer",
-                      borderRadius: "10px",
-                      mx: 0.5,
-                      my: 0.2,
-                      transition: "all 0.15s ease",
-                      "&:hover": {
-                        backgroundColor: "#FFFDF5",
-                        color: "#D97706",
-                      },
-                    }}
-                  >
-                    <span>{child.label}</span>
-                    <ChevronRightRoundedIcon sx={{ fontSize: 16, color: "#94A3B8" }} />
-                  </Box>
-
-                  {/* Nested Flyout Menu List */}
-                  <Box
-                    className="flyout-submenu"
-                    sx={{
-                      display: "none",
-                      opacity: 0,
-                      visibility: "hidden",
-                      position: "absolute",
-                      top: -6,
-                      left: "100%",
-                      ml: "4px",
-                      backgroundColor: "rgba(255, 255, 255, 0.98)",
-                      backdropFilter: "blur(16px)",
-                      border: "1px solid rgba(226, 232, 240, 0.9)",
-                      borderLeft: "3px solid #F5B800",
-                      borderRadius: "14px",
-                      boxShadow: "0 20px 45px -10px rgba(8, 43, 80, 0.2)",
-                      minWidth: 240,
-                      py: 1,
-                      px: 0.8,
-                      zIndex: 100,
-                      transition: "all 0.15s ease",
-                    }}
-                  >
-                    {child.items.map((sub) => {
-                      const isSubActive = pathname === sub.href;
-                      return (
-                        <MenuItem
-                          key={`${sub.href}-${sub.label}`}
-                          component={Link}
-                          href={sub.href}
-                          onClick={closeMenu}
-                          sx={{
-                            borderRadius: "8px",
-                            color: isSubActive ? "#082B50" : "#1E293B",
-                            backgroundColor: isSubActive ? "#FFF9E6" : "transparent",
-                            fontSize: "0.82rem",
-                            fontWeight: isSubActive ? 800 : 550,
-                            py: 0.85,
-                            px: 2,
-                            mx: 0.3,
-                            my: 0.2,
-                            "&:hover": {
-                              backgroundColor: "#FFFDF5",
-                              color: "#D97706",
-                            },
-                          }}
-                        >
-                          {sub.label}
-                        </MenuItem>
-                      );
-                    })}
-                  </Box>
-                </Box>
-              );
-            }
-
             const isChildActive = pathname === child.href;
 
             return (
               <MenuItem
-                key={`${child.href}-${child.label}`}
+                key={`${child.href}-${child.label}-${idx}`}
                 component={Link}
-                href={child.href || "#"}
+                href={child.href}
                 onClick={closeMenu}
                 sx={{
-                  borderRadius: "10px",
-                  color: isChildActive ? "#082B50" : "#1E293B",
+                  borderRadius: "8px",
+                  color: isChildActive ? "#082B50" : "#334155",
                   backgroundColor: isChildActive ? "#FFF9E6" : "transparent",
-                  fontSize: "0.84rem",
-                  fontWeight: isChildActive ? 800 : 600,
+                  fontSize: "0.85rem",
+                  fontWeight: isChildActive ? 800 : 550,
                   py: 1,
                   px: 2,
                   mx: 0.3,
-                  my: 0.2,
+                  my: 0.25,
+                  display: "flex",
+                  alignItems: "center",
                   transition: "all 0.15s ease",
                   "&:hover": {
-                    backgroundColor: "#FFFDF5",
-                    color: "#D97706",
+                    backgroundColor: "#F8FAFC",
+                    color: "#082B50",
                   },
                 }}
               >
+                <Box
+                  sx={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    backgroundColor: isChildActive ? "#F5B800" : "#CBD5E1",
+                    mr: 1.5,
+                    flexShrink: 0,
+                  }}
+                />
                 {child.label}
               </MenuItem>
             );
@@ -799,115 +674,47 @@ export default function Header() {
                   {/* Collapsible Submenu Items */}
                   <Collapse in={isExpanded} timeout="auto" unmountOnExit>
                     <Box sx={{ py: 1, px: 1.5, backgroundColor: "#FAFCFF" }}>
-                      {item.children?.flatMap((child, idx) => {
-                        // Nested Sub-Group
-                        if ("items" in child && child.items) {
-                          return (
-                            <Box key={`${item.label}-${child.label}-${idx}`} sx={{ my: 0.8 }}>
-                              <Typography
-                                sx={{
-                                  fontSize: "0.7rem",
-                                  fontWeight: 800,
-                                  textTransform: "uppercase",
-                                  letterSpacing: "0.06em",
-                                  color: "#94A3B8",
-                                  px: 1.5,
-                                  pt: 0.5,
-                                  pb: 0.3,
-                                }}
-                              >
-                                {child.label}
-                              </Typography>
-                              {child.items.map((sub, sIdx) => {
-                                const isSubActive = pathname === sub.href;
-                                return (
-                                  <Button
-                                    key={`${item.label}-${child.label}-${sub.href}-${sIdx}`}
-                                    component={Link}
-                                    href={sub.href}
-                                    onClick={() => setMobileOpen(false)}
-                                    fullWidth
-                                    sx={{
-                                      justifyContent: "flex-start",
-                                      alignItems: "center",
-                                      color: isSubActive ? "#082B50 !important" : "#334155 !important",
-                                      backgroundColor: isSubActive ? "#F5B800 !important" : "transparent",
-                                      fontSize: "0.8rem",
-                                      fontWeight: isSubActive ? 800 : 550,
-                                      py: 0.75,
-                                      px: 1.5,
-                                      my: 0.2,
-                                      borderRadius: "8px",
-                                      textTransform: "none",
-                                      transition: "all 0.15s ease",
-                                      "&:hover": {
-                                        backgroundColor: isSubActive ? "#F5B800" : "#F1F5F9",
-                                        color: "#082B50 !important",
-                                      },
-                                    }}
-                                  >
-                                    <Box
-                                      sx={{
-                                        width: 5,
-                                        height: 5,
-                                        borderRadius: "50%",
-                                        backgroundColor: isSubActive ? "#082B50" : "#94A3B8",
-                                        mr: 1.5,
-                                        flexShrink: 0,
-                                      }}
-                                    />
-                                    {sub.label}
-                                  </Button>
-                                );
-                              })}
-                            </Box>
-                          );
-                        }
-
-                        // Direct Child Link
-                        if ("href" in child && child.href) {
-                          const isSubActive = pathname === child.href;
-                          return (
-                            <Button
-                              key={`${item.label}-${child.href}-${idx}`}
-                              component={Link}
-                              href={child.href}
-                              onClick={() => setMobileOpen(false)}
-                              fullWidth
+                      {item.children?.map((child, idx) => {
+                        const isSubActive = pathname === child.href;
+                        return (
+                          <Button
+                            key={`${item.label}-${child.href}-${idx}`}
+                            component={Link}
+                            href={child.href}
+                            onClick={() => setMobileOpen(false)}
+                            fullWidth
+                            sx={{
+                              justifyContent: "flex-start",
+                              alignItems: "center",
+                              color: isSubActive ? "#082B50 !important" : "#334155 !important",
+                              backgroundColor: isSubActive ? "#F5B800 !important" : "transparent",
+                              fontSize: "0.82rem",
+                              fontWeight: isSubActive ? 800 : 550,
+                              py: 0.8,
+                              px: 1.5,
+                              my: 0.25,
+                              borderRadius: "8px",
+                              textTransform: "none",
+                              transition: "all 0.15s ease",
+                              "&:hover": {
+                                backgroundColor: isSubActive ? "#F5B800" : "#F1F5F9",
+                                color: "#082B50 !important",
+                              },
+                            }}
+                          >
+                            <Box
                               sx={{
-                                justifyContent: "flex-start",
-                                alignItems: "center",
-                                color: isSubActive ? "#082B50 !important" : "#334155 !important",
-                                backgroundColor: isSubActive ? "#F5B800 !important" : "transparent",
-                                fontSize: "0.82rem",
-                                fontWeight: isSubActive ? 800 : 550,
-                                py: 0.8,
-                                px: 1.5,
-                                my: 0.25,
-                                borderRadius: "8px",
-                                textTransform: "none",
-                                transition: "all 0.15s ease",
-                                "&:hover": {
-                                  backgroundColor: isSubActive ? "#F5B800" : "#F1F5F9",
-                                  color: "#082B50 !important",
-                                },
+                                width: 6,
+                                height: 6,
+                                borderRadius: "50%",
+                                backgroundColor: isSubActive ? "#082B50" : "#CBD5E1",
+                                mr: 1.5,
+                                flexShrink: 0,
                               }}
-                            >
-                              <Box
-                                sx={{
-                                  width: 6,
-                                  height: 6,
-                                  borderRadius: "50%",
-                                  backgroundColor: isSubActive ? "#082B50" : "#CBD5E1",
-                                  mr: 1.5,
-                                  flexShrink: 0,
-                                }}
-                              />
-                              {child.label}
-                            </Button>
-                          );
-                        }
-                        return null;
+                            />
+                            {child.label}
+                          </Button>
+                        );
                       })}
                     </Box>
                   </Collapse>
