@@ -22,7 +22,7 @@ export default function SuccessStoriesSection() {
         borderBottom: "1px solid #ECE4D0",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         {/* Section Header */}
         <Stack
           direction="row"

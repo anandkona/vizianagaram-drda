@@ -50,7 +50,7 @@ export default function Footer() {
         borderTop: "3px solid #FFC107",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Grid container spacing={{ xs: 4, md: 5 }}>
           {/* Column 1: District Info & Contacts */}
           <Grid size={{ xs: 12, md: 4 }}>

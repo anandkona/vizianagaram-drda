@@ -40,7 +40,7 @@ export default function LeadershipSection() {
         position: "relative",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         {/* Section Header */}
         <Box sx={{ mb: { xs: 4, md: 5.5 }, textAlign: { xs: "left", sm: "center" } }}>
           <Stack

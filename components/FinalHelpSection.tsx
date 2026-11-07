@@ -23,7 +23,7 @@ export default function FinalHelpSection() {
         textAlign: "center",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Typography
           component="h2"
           sx={{

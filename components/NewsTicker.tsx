@@ -12,7 +12,7 @@ export default function NewsTicker() {
       aria-label="Latest district news"
       sx={{ background: "#FFFCF5", borderBottom: "1px solid #EDE3CE", borderTop: "1px solid #EDE3CE", overflow: "hidden", py: 1.25 }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Stack direction="row" alignItems="center" spacing={{ xs: 1, sm: 1.5 }}>
           <Stack direction="row" alignItems="center" spacing={0.7} sx={{ flexShrink: 0 }}>
             <Box sx={{ alignItems: "center", background: "#FFF3C4", borderRadius: "50%", display: "flex", height: 25, justifyContent: "center", width: 25 }}>
