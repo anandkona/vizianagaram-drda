@@ -18,6 +18,7 @@ import BarChartRoundedIcon from "@mui/icons-material/BarChartRounded";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import Link from "next/link";
 import { usePortalUI } from "@/components/PortalUIContext";
+import { assetPath } from "@/src/lib/assetPath";
 
 export default function HeroSection() {
   const { openConcern } = usePortalUI();
@@ -48,7 +49,7 @@ export default function HeroSection() {
           right: 0,
           bottom: 0,
           width: { xs: "100%", md: "62%", lg: "58%" },
-          backgroundImage: 'url("/images/gemini-hero-scenery.jpg")',
+          backgroundImage: `url("${assetPath("/images/gemini-hero-scenery.jpg")}")`,
           backgroundSize: "cover",
           backgroundPosition: { xs: "right center", md: "center right" },
           backgroundRepeat: "no-repeat",
