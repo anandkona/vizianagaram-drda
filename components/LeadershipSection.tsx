@@ -162,19 +162,22 @@ export default function LeadershipSection() {
                   />
                 )}
 
-                {/* Portrait Frame (Square with Rounded Corners matching user mockup) */}
+                {/* Portrait Frame - Circle Shape */}
                 <Box
                   sx={{
-                    width: { xs: 95, sm: 110, md: 115 },
+                    width: { xs: 110, sm: 125, md: 130 },
                     height: { xs: 110, sm: 125, md: 130 },
-                    borderRadius: "16px",
+                    borderRadius: "50%",
                     overflow: "hidden",
-                    border: isTopLeader ? "2.5px solid #FFC107" : "1.5px solid #E2E8F0",
-                    boxShadow: "0 4px 12px rgba(8, 43, 80, 0.08)",
+                    border: isTopLeader ? "3px solid #FFC107" : "2.5px solid #E2E8F0",
+                    boxShadow: isTopLeader
+                      ? "0 6px 20px rgba(245, 158, 11, 0.28)"
+                      : "0 6px 16px rgba(8, 43, 80, 0.1)",
                     backgroundColor: "#F8FAFC",
-                    mb: 1.6,
+                    mb: 2,
                     position: "relative",
                     flexShrink: 0,
+                    transition: "all 0.3s ease",
                   }}
                 >
                   <Box
@@ -187,7 +190,7 @@ export default function LeadershipSection() {
                       height: "100%",
                       objectFit: isTopLeader ? "contain" : "cover",
                       objectPosition: isTopLeader ? "center top" : (profile.imagePosition || "center 20%"),
-                      p: isTopLeader ? 0.4 : 0,
+                      p: isTopLeader ? 0.6 : 0,
                       transition: "transform 0.3s ease",
                     }}
                   />
