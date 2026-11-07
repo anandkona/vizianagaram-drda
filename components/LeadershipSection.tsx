@@ -40,7 +40,7 @@ export default function LeadershipSection() {
         `,
         borderBottom: "1px solid #ECE4D0",
         borderTop: "1px solid #ECE4D0",
-        py: { xs: 5, sm: 6.5, md: 8.5 },
+        py: { xs: 3, sm: 3.5, md: 4.5 },
         position: "relative",
       }}
     >

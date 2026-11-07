@@ -234,7 +234,7 @@ export default function OrgStructurePage() {
                 sx={{
                   position: "relative",
                   width: "100%",
-                  height: { xs: 260, sm: 320, md: 380 },
+                  height: { xs: 260, sm: 310, md: 360 },
                   borderRadius: { xs: "24px", sm: "32px" },
                   overflow: "hidden",
                   boxShadow: "0 20px 45px -12px rgba(8, 43, 80, 0.18)",

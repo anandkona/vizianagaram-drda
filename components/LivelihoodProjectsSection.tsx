@@ -12,7 +12,7 @@ export default function LivelihoodProjectsSection() {
       id="livelihoods"
       sx={{
         backgroundColor: "#FFFFFF",
-        py: { xs: 4, sm: 5, md: 6 },
+        py: { xs: 2.5, sm: 3, md: 3.5 },
         borderBottom: "1px solid #ECE4D0",
       }}
     >

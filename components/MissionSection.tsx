@@ -15,7 +15,7 @@ export default function MissionSection() {
         backgroundImage: 'linear-gradient(90deg, rgba(8, 43, 80, 0.25) 0%, rgba(8, 43, 80, 0.45) 45%, rgba(8, 43, 80, 0.75) 100%), url("/images/mission-family-ultrawide.jpg")',
         backgroundSize: "cover",
         backgroundPosition: { xs: "left center", md: "left 25%" },
-        py: { xs: 4.5, sm: 5, md: 5.5 },
+        py: { xs: 3, sm: 3.5, md: 4 },
         color: "#FFFFFF",
         overflow: "hidden",
       }}

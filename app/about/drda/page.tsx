@@ -185,7 +185,7 @@ export default function DRDAPage() {
                   position: "relative",
                   width: "100%",
                   height: { xs: 250, sm: 320, md: 380 },
-                  borderRadius: { xs: "24px", sm: "32px", md: "40px" },
+                  borderRadius: { xs: "24px", sm: "32px", md: "38px" },
                   overflow: "hidden",
                   boxShadow: "0 20px 45px -12px rgba(8, 43, 80, 0.18)",
                   border: "4px solid #FFFFFF",

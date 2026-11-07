@@ -34,8 +34,8 @@ export default function HeroSection() {
         `,
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 4, sm: 5, md: 6, lg: 7 },
-        pb: { xs: 5, sm: 6, md: 7, lg: 8 },
+        pt: { xs: 3.5, sm: 4.5, md: 5.5 },
+        pb: { xs: 3.5, sm: 4.5, md: 5.5 },
         borderBottom: "1px solid #ECE4D0",
       }}
     >

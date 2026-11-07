@@ -252,7 +252,7 @@ export default function RTIPage() {
 
           <Grid container spacing={{ xs: 2.5, md: 4 }} alignItems="center">
             {/* Left Column: Heading & Summary */}
-            <Grid size={{ xs: 12, md: 7 }}>
+            <Grid size={{ xs: 12, md: 6.5 }}>
               <Typography
                 sx={{
                   color: "#D97706",
@@ -352,16 +352,16 @@ export default function RTIPage() {
             </Grid>
 
             {/* Right Column: Hero Real Photography with Floating Official Badge */}
-            <Grid size={{ xs: 12, md: 5 }}>
+            <Grid size={{ xs: 12, md: 5.5 }}>
               <Box
                 sx={{
                   position: "relative",
                   width: "100%",
-                  height: { xs: 200, sm: 240, md: 260 },
-                  borderRadius: { xs: "18px", sm: "22px", md: "24px" },
+                  height: { xs: 260, sm: 310, md: 360 },
+                  borderRadius: { xs: "24px", sm: "32px", md: "38px" },
                   overflow: "hidden",
                   boxShadow: "0 14px 32px -8px rgba(8, 43, 80, 0.16)",
-                  border: "3px solid #FFFFFF",
+                  border: "4px solid #FFFFFF",
                   bgcolor: "#FEF9C3",
                   transition: "all 0.3s ease",
                   "&:hover": {

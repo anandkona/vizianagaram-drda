@@ -9,7 +9,7 @@ import { transparencyMetrics } from "@/src/data/home";
 
 export default function TransparencySection() {
   return (
-    <Box component="section" id="dashboard" sx={{ background: "#FFFFFF", py: { xs: 2, md: 2.5 } }}>
+    <Box component="section" id="dashboard" sx={{ background: "#FFFFFF", py: { xs: 2.5, sm: 3, md: 3.5 } }}>
       <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Stack direction={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "flex-end" }} justifyContent="space-between" spacing={2.5} sx={{ mb: { xs: 3.2, md: 4.5 } }}>
           <Box sx={{ maxWidth: 730 }}>

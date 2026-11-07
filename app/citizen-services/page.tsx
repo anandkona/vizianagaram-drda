@@ -181,7 +181,7 @@ export default function CitizenServicesPage() {
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
           <Grid container spacing={{ xs: 3.5, md: 5 }} alignItems="center">
             {/* Left Column: 55% */}
-            <Grid size={{ xs: 12, md: 7 }}>
+            <Grid size={{ xs: 12, md: 6.5 }}>
               <Box>
                 {/* Yellow pill */}
                 <Box
@@ -304,7 +304,7 @@ export default function CitizenServicesPage() {
             </Grid>
 
             {/* Right Column: 45% (Hero Image) */}
-            <Grid size={{ xs: 12, md: 5 }}>
+            <Grid size={{ xs: 12, md: 5.5 }}>
               <Box sx={{ position: "relative" }}>
                 {/* Decorative border frame */}
                 <Box

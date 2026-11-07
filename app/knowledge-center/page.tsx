@@ -307,7 +307,7 @@ export default function KnowledgeCenterPage() {
 
           <Grid container spacing={{ xs: 2.5, md: 4 }} alignItems="center">
             {/* Left Column: Title, Subtitle, Search */}
-            <Grid size={{ xs: 12, md: 7 }}>
+            <Grid size={{ xs: 12, md: 6.5 }}>
               <Typography
                 sx={{
                   color: "#D97706",
@@ -401,7 +401,7 @@ export default function KnowledgeCenterPage() {
             </Grid>
 
             {/* Right Column: Hero High-Resolution Real Photography with Official Badge */}
-            <Grid size={{ xs: 12, md: 5 }}>
+            <Grid size={{ xs: 12, md: 5.5 }}>
               <Box
                 sx={{
                   position: "relative",
@@ -410,7 +410,7 @@ export default function KnowledgeCenterPage() {
                   borderRadius: { xs: "18px", sm: "22px", md: "26px" },
                   overflow: "hidden",
                   boxShadow: "0 14px 34px -8px rgba(8, 43, 80, 0.16)",
-                  border: "3px solid #FFFFFF",
+                  border: "4px solid #FFFFFF",
                   bgcolor: "#FEF9C3",
                   transition: "all 0.3s ease",
                   "&:hover": {

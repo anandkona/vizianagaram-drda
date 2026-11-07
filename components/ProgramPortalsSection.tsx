@@ -9,7 +9,7 @@ import { PortalIcon } from "@/components/Icon";
 
 export default function ProgramPortalsSection() {
   return (
-    <Box component="section" id="program-portals" sx={{ background: "#FFFCF5", py: { xs: 2, md: 2.5 } }}>
+    <Box component="section" id="program-portals" sx={{ background: "#FFFCF5", py: { xs: 2.5, sm: 3, md: 3.5 } }}>
       <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Box sx={{ mb: { xs: 3.2, md: 4.5 } }}>
           <Stack direction="row" alignItems="center" spacing={0.8} sx={{ color: "#9A6700" }}>
