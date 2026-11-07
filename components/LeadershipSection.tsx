@@ -97,16 +97,15 @@ export default function LeadershipSection() {
           </Typography>
         </Box>
 
-        {/* Executive Showcase Grid - Official Dignitary Cards */}
+        {/* Executive Showcase Grid - Master Horizontal Official Cards */}
         <Box
           sx={{
             display: "grid",
             gap: { xs: 2.5, sm: 2.5, lg: 3 },
             gridTemplateColumns: {
               xs: "1fr",
-              sm: "repeat(2, minmax(0, 1fr))",
-              md: "repeat(3, minmax(0, 1fr))",
-              lg: "repeat(5, minmax(0, 1fr))",
+              md: "repeat(2, minmax(0, 1fr))",
+              xl: "repeat(3, minmax(0, 1fr))",
             },
           }}
         >
@@ -117,36 +116,28 @@ export default function LeadershipSection() {
                 key={profile.id}
                 sx={{
                   background: "#FFFFFF",
-                  border: isTopLeader
-                    ? "2px solid #F59E0B"
-                    : "1.5px solid #E2E8F0",
-                  borderRadius: "20px",
+                  border: isTopLeader ? "2px solid #F59E0B" : "1.5px solid #E2E8F0",
+                  borderRadius: "22px",
                   boxShadow: isTopLeader
-                    ? "0 14px 34px -8px rgba(245, 158, 11, 0.22), 0 4px 12px -2px rgba(8, 43, 80, 0.06)"
-                    : "0 8px 24px -6px rgba(8, 43, 80, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)",
+                    ? "0 12px 32px -8px rgba(245, 158, 11, 0.22), 0 4px 12px rgba(8, 43, 80, 0.05)"
+                    : "0 8px 24px -6px rgba(8, 43, 80, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03)",
                   display: "flex",
                   flexDirection: "column",
-                  height: "100%",
                   overflow: "hidden",
                   position: "relative",
                   transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   "&:hover": {
                     borderColor: "#F59E0B",
-                    boxShadow: "0 22px 42px -10px rgba(8, 43, 80, 0.22), 0 8px 18px -4px rgba(245, 158, 11, 0.25)",
-                    transform: "translateY(-6px)",
-                    "& .official-portrait": {
+                    boxShadow: "0 20px 40px -10px rgba(8, 43, 80, 0.18), 0 8px 18px rgba(245, 158, 11, 0.2)",
+                    transform: "translateY(-4px)",
+                    "& .portrait-frame": {
                       borderColor: "#F59E0B",
-                      boxShadow: "0 0 0 4px rgba(245, 158, 11, 0.25)",
-                      transform: "scale(1.03)",
+                      boxShadow: "0 0 0 4px rgba(245, 158, 11, 0.2)",
                     },
-                    "& .view-profile-btn": {
-                      background: "linear-gradient(135deg, #FFC107 0%, #FFB300 100%)",
+                    "& .action-btn": {
+                      backgroundColor: "#FFC107",
                       color: "#082B50 !important",
-                      borderColor: "#F59E0B",
-                      "& svg": {
-                        transform: "translateX(4px)",
-                        color: "#082B50 !important",
-                      },
+                      borderColor: "#FFC107",
                     },
                   },
                 }}
@@ -162,34 +153,29 @@ export default function LeadershipSection() {
                   }}
                 />
 
-                <ButtonBase
-                  aria-haspopup="dialog"
-                  aria-label={`View profile for ${profile.name}`}
-                  component="button"
-                  onClick={() => setSelectedProfile(profile)}
+                <Box
                   sx={{
-                    alignItems: "stretch",
+                    p: { xs: 2.5, sm: 3 },
                     display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    alignItems: { xs: "center", sm: "flex-start" },
+                    gap: 2.5,
                     flex: 1,
-                    flexDirection: "column",
-                    textAlign: "center",
-                    width: "100%",
-                    p: { xs: 2.8, sm: 2.8, lg: 2.5 },
                   }}
                 >
-                  {/* Dignitary Portrait Presentation */}
-                  <Box sx={{ position: "relative", mb: 2, mx: "auto" }}>
+                  {/* Left Column: Authentic Portrait with Verification Badge */}
+                  <Box sx={{ position: "relative", flexShrink: 0, textAlign: "center" }}>
                     <Box
-                      className="official-portrait"
+                      className="portrait-frame"
                       sx={{
-                        width: { xs: 130, sm: 120, lg: 115 },
-                        height: { xs: 150, sm: 140, lg: 135 },
-                        borderRadius: "18px",
+                        width: { xs: 120, sm: 110 },
+                        height: { xs: 135, sm: 130 },
+                        borderRadius: "16px",
                         overflow: "hidden",
-                        border: isTopLeader ? "3px solid #F59E0B" : "2.5px solid #CBD5E1",
-                        boxShadow: "0 8px 20px -4px rgba(8, 43, 80, 0.16)",
+                        border: isTopLeader ? "3px solid #F59E0B" : "2px solid #E2E8F0",
+                        boxShadow: "0 6px 16px rgba(8, 43, 80, 0.12)",
                         backgroundColor: "#F8FAFC",
-                        transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                        transition: "all 0.3s ease",
                       }}
                     >
                       <Box
@@ -206,120 +192,130 @@ export default function LeadershipSection() {
                       />
                     </Box>
 
-                    {/* Verified Official Badge */}
+                    {/* Official Verified Emblem */}
                     <Box
                       sx={{
                         position: "absolute",
-                        bottom: -8,
-                        right: -8,
+                        bottom: -6,
+                        right: -6,
                         bgcolor: isTopLeader ? "#F59E0B" : "#082B50",
                         color: "#FFFFFF",
                         borderRadius: "50%",
-                        width: 26,
-                        height: 26,
+                        width: 24,
+                        height: 24,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
+                        boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
                         border: "2px solid #FFFFFF",
                       }}
                     >
-                      <VerifiedRoundedIcon sx={{ fontSize: 15 }} />
+                      <VerifiedRoundedIcon sx={{ fontSize: 14 }} />
                     </Box>
                   </Box>
 
-                  {/* Role / Designation Pill */}
-                  <Chip
-                    label={profile.designation}
-                    size="small"
+                  {/* Right Column: Details, Priorities, and Action */}
+                  <Box
                     sx={{
-                      background: isTopLeader ? "rgba(245, 158, 11, 0.14)" : "#F1F5F9",
-                      border: isTopLeader
-                        ? "1.5px solid rgba(245, 158, 11, 0.45)"
-                        : "1px solid #CBD5E1",
-                      color: isTopLeader ? "#B45309" : "#334155",
-                      fontSize: "0.7rem",
-                      fontWeight: 800,
-                      maxWidth: "100%",
-                      mx: "auto",
-                      mb: 1.2,
-                      px: 0.5,
-                      whiteSpace: "normal",
-                      height: "auto",
-                      py: 0.35,
-                      borderRadius: "6px",
-                      "& .MuiChip-label": {
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                      minWidth: 0,
+                      textAlign: { xs: "center", sm: "left" },
+                    }}
+                  >
+                    {/* Role Pill */}
+                    <Box sx={{ mb: 0.8 }}>
+                      <Chip
+                        label={profile.designation}
+                        size="small"
+                        sx={{
+                          background: isTopLeader ? "rgba(245, 158, 11, 0.15)" : "#F1F5F9",
+                          border: isTopLeader
+                            ? "1px solid rgba(245, 158, 11, 0.4)"
+                            : "1px solid #E2E8F0",
+                          color: isTopLeader ? "#B45309" : "#334155",
+                          fontSize: "0.68rem",
+                          fontWeight: 800,
+                          height: 24,
+                          borderRadius: "6px",
+                        }}
+                      />
+                    </Box>
+
+                    {/* Name */}
+                    <Typography
+                      component="h3"
+                      sx={{
+                        color: "#082B50",
+                        fontSize: { xs: "1.05rem", sm: "1.12rem" },
+                        fontWeight: 900,
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1.25,
+                        mb: 0.4,
+                      }}
+                    >
+                      {profile.name}
+                    </Typography>
+
+                    {/* Organization */}
+                    <Typography
+                      sx={{
+                        color: "#64748B",
+                        fontSize: "0.78rem",
+                        fontWeight: 650,
+                        lineHeight: 1.4,
+                        mb: 1.4,
+                      }}
+                    >
+                      {profile.organization}
+                    </Typography>
+
+                    {/* Vision Highlight Snippet */}
+                    <Typography
+                      sx={{
+                        color: "#475569",
+                        fontSize: "0.76rem",
+                        lineHeight: 1.5,
                         display: "-webkit-box",
                         WebkitLineClamp: 2,
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
-                        lineHeight: 1.25,
-                        px: 0.8,
-                      },
-                    }}
-                  />
+                        mb: 2,
+                      }}
+                    >
+                      {profile.vision}
+                    </Typography>
 
-                  {/* Leader Name */}
-                  <Typography
-                    component="h3"
-                    sx={{
-                      color: "#082B50",
-                      fontSize: "0.98rem",
-                      fontWeight: 900,
-                      letterSpacing: "-0.02em",
-                      lineHeight: 1.25,
-                      minHeight: { sm: "2.6em" },
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {profile.name}
-                  </Typography>
-
-                  {/* Organization */}
-                  <Typography
-                    sx={{
-                      color: "#64748B",
-                      fontSize: "0.72rem",
-                      fontWeight: 600,
-                      lineHeight: 1.4,
-                      minHeight: { sm: "2.7em" },
-                      mt: 0.6,
-                      mb: 2,
-                    }}
-                  >
-                    {profile.organization}
-                  </Typography>
-
-                  {/* Interactive Button */}
-                  <Box
-                    className="view-profile-btn"
-                    sx={{
-                      alignItems: "center",
-                      background: "#F8FAFC",
-                      border: "1.5px solid #E2E8F0",
-                      borderRadius: "10px",
-                      color: "#082B50",
-                      display: "flex",
-                      fontSize: "0.75rem",
-                      fontWeight: 850,
-                      gap: 0.6,
-                      justifyContent: "center",
-                      mt: "auto",
-                      pt: 0.85,
-                      pb: 0.85,
-                      px: 1.5,
-                      transition: "all 0.25s ease",
-                      width: "100%",
-                    }}
-                  >
-                    <span>View Profile</span>
-                    <ArrowForwardRoundedIcon
-                      sx={{ fontSize: 14, color: "#082B50", transition: "transform 0.25s ease" }}
-                    />
+                    {/* Action Button */}
+                    <Box sx={{ mt: "auto" }}>
+                      <Button
+                        size="small"
+                        className="action-btn"
+                        onClick={() => setSelectedProfile(profile)}
+                        endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "14px !important" }} />}
+                        sx={{
+                          backgroundColor: "#F8FAFC",
+                          border: "1.5px solid #CBD5E1",
+                          color: "#082B50 !important",
+                          fontSize: "0.75rem",
+                          fontWeight: 800,
+                          px: 2,
+                          py: 0.6,
+                          borderRadius: "50px",
+                          textTransform: "none",
+                          transition: "all 0.2s ease",
+                          "&:hover": {
+                            backgroundColor: "#FFC107",
+                            borderColor: "#FFC107",
+                          },
+                        }}
+                      >
+                        Official Profile
+                      </Button>
+                    </Box>
                   </Box>
-                </ButtonBase>
+                </Box>
               </Card>
             );
           })}
