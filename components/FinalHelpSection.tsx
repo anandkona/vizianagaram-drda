@@ -34,7 +34,7 @@ export default function FinalHelpSection() {
             mb: 0.8,
           }}
         >
-          Jump straight to what matters
+          Quick Citizen Navigation
         </Typography>
         <Typography
           sx={{
@@ -43,7 +43,7 @@ export default function FinalHelpSection() {
             mb: 3.5,
           }}
         >
-          Quick links to key services, schemes and resources to help you move forward.
+          Direct gateways to key services, schemes, downloads, and grievance portals.
         </Typography>
 
         <Stack

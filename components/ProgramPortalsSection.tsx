@@ -18,8 +18,8 @@ export default function ProgramPortalsSection() {
               Key programs & portals
             </Typography>
           </Stack>
-          <Typography component="h2" sx={{ color: "#20252D", fontSize: { xs: "1.9rem", sm: "2.25rem", md: "2.7rem" }, fontWeight: 850, letterSpacing: "-0.045em", lineHeight: 1.1, mt: 0.9 }}>
-            Jump straight to what matters
+          <Typography component="h2" sx={{ color: "#082B50", fontSize: { xs: "1.9rem", sm: "2.25rem", md: "2.7rem" }, fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 1.15, mt: 0.9 }}>
+            Key Programs & Portals
           </Typography>
           <Typography sx={{ color: "#6B6254", fontSize: { xs: "0.92rem", md: "1rem" }, lineHeight: 1.7, maxWidth: 720, mt: 1.2 }}>
             Shortcuts to the programmes, data and citizen services that can help you move from a question to a useful next step.

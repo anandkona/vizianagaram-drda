@@ -33,57 +33,63 @@ export default function LeadershipSection() {
       component="section"
       id="leadership"
       sx={{
-        background: "radial-gradient(ellipse 80% 60% at 50% 0%, #FFFDF5 0%, #F8F6F0 100%)",
+        backgroundColor: "#FFFFFF",
+        backgroundImage: `
+          radial-gradient(circle at 50% 10%, rgba(254, 243, 199, 0.5) 0%, rgba(255, 255, 255, 0) 55%),
+          linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%)
+        `,
         borderBottom: "1px solid #ECE4D0",
         borderTop: "1px solid #ECE4D0",
-        py: { xs: 5, sm: 6, md: 8 },
+        py: { xs: 5, sm: 6.5, md: 8.5 },
         position: "relative",
       }}
     >
       <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         {/* Section Header */}
-        <Box sx={{ mb: { xs: 4, md: 5.5 }, textAlign: { xs: "left", sm: "center" } }}>
+        <Box sx={{ mb: { xs: 4, md: 5.5 }, textAlign: "center", maxWidth: 820, mx: "auto" }}>
           <Stack
             direction="row"
             alignItems="center"
-            justifyContent={{ xs: "flex-start", sm: "center" }}
+            justifyContent="center"
             spacing={1}
             sx={{ mb: 1.2 }}
           >
             <Chip
-              icon={<VerifiedRoundedIcon sx={{ fontSize: "14px !important", color: "#D97706" }} />}
+              icon={<VerifiedRoundedIcon sx={{ fontSize: "15px !important", color: "#D97706" }} />}
               label="LEADERSHIP & GOVERNANCE"
               size="small"
               sx={{
-                background: "rgba(245, 158, 11, 0.1)",
-                border: "1px solid rgba(245, 158, 11, 0.25)",
+                background: "rgba(245, 158, 11, 0.12)",
+                border: "1.5px solid rgba(245, 158, 11, 0.35)",
                 color: "#92400E",
-                fontSize: "0.68rem",
-                fontWeight: 800,
-                letterSpacing: "0.1em",
-                px: 0.5,
+                fontSize: "0.72rem",
+                fontWeight: 850,
+                letterSpacing: "0.12em",
+                px: 1,
+                py: 0.4,
+                borderRadius: "50px",
               }}
             />
           </Stack>
           <Typography
             component="h2"
             sx={{
-              color: "#18181B",
-              fontSize: { xs: "2rem", sm: "2.6rem", md: "3.1rem" },
-              fontWeight: 850,
+              color: "#082B50",
+              fontSize: { xs: "2rem", sm: "2.6rem", md: "3.2rem" },
+              fontWeight: 900,
               letterSpacing: "-0.04em",
               lineHeight: 1.15,
             }}
           >
-            Guided by a public vision
+            Guided by a Public Vision
           </Typography>
           <Typography
             sx={{
-              color: "#52525B",
+              color: "#64748B",
               fontSize: { xs: "0.95rem", md: "1.05rem" },
               lineHeight: 1.7,
-              maxWidth: 680,
-              mx: { xs: 0, sm: "auto" },
+              maxWidth: 720,
+              mx: "auto",
               mt: 1.4,
             }}
           >
@@ -110,14 +116,16 @@ export default function LeadershipSection() {
               <Card
                 key={profile.id}
                 sx={{
-                  background: "#FFFFFF",
+                  background: isTopLeader
+                    ? "linear-gradient(180deg, #FFFFFF 0%, #FFFDF5 100%)"
+                    : "#FFFFFF",
                   border: isTopLeader
-                    ? "1.5px solid rgba(245, 158, 11, 0.6)"
-                    : "1px solid rgba(228, 228, 231, 0.85)",
+                    ? "2px solid #F59E0B"
+                    : "1.5px solid #E2E8F0",
                   borderRadius: "20px",
                   boxShadow: isTopLeader
-                    ? "0 10px 28px -6px rgba(245, 158, 11, 0.18), 0 2px 8px -2px rgba(0, 0, 0, 0.04)"
-                    : "0 6px 20px -4px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02)",
+                    ? "0 14px 34px -8px rgba(245, 158, 11, 0.24), 0 4px 12px -2px rgba(8, 43, 80, 0.06)"
+                    : "0 8px 24px -6px rgba(8, 43, 80, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)",
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
@@ -126,18 +134,21 @@ export default function LeadershipSection() {
                   transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   "&:hover": {
                     borderColor: "#F59E0B",
-                    boxShadow: "0 22px 35px -8px rgba(180, 83, 9, 0.2), 0 8px 16px -4px rgba(0, 0, 0, 0.05)",
+                    boxShadow: "0 22px 40px -10px rgba(8, 43, 80, 0.22), 0 10px 20px -5px rgba(245, 158, 11, 0.25)",
                     transform: "translateY(-8px)",
                     "& .avatar-ring": {
                       borderColor: "#F59E0B",
-                      boxShadow: "0 0 0 4px rgba(245, 158, 11, 0.22)",
+                      boxShadow: "0 0 0 5px rgba(245, 158, 11, 0.25)",
                       transform: "scale(1.05)",
                     },
                     "& .view-profile-btn": {
-                      background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
-                      color: "#FFFFFF !important",
+                      background: "linear-gradient(135deg, #FFC107 0%, #FFB300 100%)",
+                      color: "#082B50 !important",
+                      borderColor: "#F59E0B",
+                      fontWeight: 850,
                       "& svg": {
                         transform: "translateX(4px)",
+                        color: "#082B50 !important",
                       },
                     },
                   },
@@ -147,9 +158,9 @@ export default function LeadershipSection() {
                 <Box
                   sx={{
                     background: isTopLeader
-                      ? "linear-gradient(90deg, #F59E0B, #FBBF24, #F59E0B)"
-                      : "linear-gradient(90deg, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.1))",
-                    height: 4,
+                      ? "linear-gradient(90deg, #FFC107, #F59E0B, #D97706)"
+                      : "linear-gradient(90deg, rgba(245, 158, 11, 0.6), rgba(245, 158, 11, 0.15))",
+                    height: 4.5,
                     width: "100%",
                   }}
                 />
@@ -164,7 +175,7 @@ export default function LeadershipSection() {
                     display: "flex",
                     flex: 1,
                     flexDirection: "column",
-                    p: { xs: 2.5, sm: 2.8, lg: 2.4 },
+                    p: { xs: 2.5, sm: 2.8, lg: 2.5 },
                     textAlign: "center",
                     width: "100%",
                   }}
@@ -176,12 +187,12 @@ export default function LeadershipSection() {
                       className="avatar-ring"
                       src={profile.image}
                       sx={{
-                        border: isTopLeader ? "3px solid #F59E0B" : "3px solid #E4E4E7",
-                        boxShadow: "0 8px 22px -4px rgba(0, 0, 0, 0.15)",
-                        height: { xs: 112, sm: 104, lg: 96 },
+                        border: isTopLeader ? "3.5px solid #F59E0B" : "3px solid #E2E8F0",
+                        boxShadow: "0 8px 24px -4px rgba(8, 43, 80, 0.16)",
+                        height: { xs: 112, sm: 104, lg: 100 },
                         transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                        width: { xs: 112, sm: 104, lg: 96 },
-                        bgcolor: "#F8FAFC",
+                        width: { xs: 112, sm: 104, lg: 100 },
+                        bgcolor: "#FFFFFF",
                         "& img": {
                           objectFit: isTopLeader ? "contain" : "cover",
                           objectPosition: isTopLeader ? "center center" : (profile.imagePosition || "center 25%"),
@@ -196,14 +207,15 @@ export default function LeadershipSection() {
                           background: "#F59E0B",
                           borderRadius: "50%",
                           bottom: 0,
-                          boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                          boxShadow: "0 2px 8px rgba(8, 43, 80, 0.3)",
                           color: "#FFFFFF",
                           display: "flex",
-                          height: 24,
+                          height: 26,
                           justifyContent: "center",
                           position: "absolute",
                           right: 0,
-                          width: 24,
+                          width: 26,
+                          border: "2px solid #FFFFFF",
                         }}
                       >
                         <VerifiedRoundedIcon sx={{ fontSize: 16 }} />
@@ -215,9 +227,9 @@ export default function LeadershipSection() {
                   <Typography
                     component="h3"
                     sx={{
-                      color: "#18181B",
-                      fontSize: "1rem",
-                      fontWeight: 850,
+                      color: "#082B50",
+                      fontSize: "1.02rem",
+                      fontWeight: 900,
                       letterSpacing: "-0.02em",
                       lineHeight: 1.25,
                       minHeight: { sm: "2.6em" },
@@ -231,19 +243,20 @@ export default function LeadershipSection() {
                     label={profile.designation}
                     size="small"
                     sx={{
-                      background: isTopLeader ? "rgba(245, 158, 11, 0.12)" : "#F4F4F5",
+                      background: isTopLeader ? "rgba(245, 158, 11, 0.14)" : "#F1F5F9",
                       border: isTopLeader
-                        ? "1px solid rgba(245, 158, 11, 0.3)"
-                        : "1px solid rgba(228, 228, 231, 0.9)",
-                      color: isTopLeader ? "#B45309" : "#3F3F46",
-                      fontSize: "0.68rem",
-                      fontWeight: 750,
+                        ? "1px solid rgba(245, 158, 11, 0.4)"
+                        : "1px solid #CBD5E1",
+                      color: isTopLeader ? "#B45309" : "#334155",
+                      fontSize: "0.7rem",
+                      fontWeight: 800,
                       maxWidth: "100%",
                       mt: 1,
                       px: 0.5,
                       whiteSpace: "normal",
                       height: "auto",
                       py: 0.4,
+                      borderRadius: "6px",
                       "& .MuiChip-label": {
                         display: "-webkit-box",
                         WebkitLineClamp: 2,
@@ -258,9 +271,9 @@ export default function LeadershipSection() {
                   {/* Organization */}
                   <Typography
                     sx={{
-                      color: "#71717A",
-                      fontSize: "0.72rem",
-                      fontWeight: 500,
+                      color: "#64748B",
+                      fontSize: "0.74rem",
+                      fontWeight: 600,
                       lineHeight: 1.4,
                       minHeight: { sm: "2.7em" },
                       mt: 1.2,
@@ -274,18 +287,18 @@ export default function LeadershipSection() {
                     className="view-profile-btn"
                     sx={{
                       alignItems: "center",
-                      background: "rgba(244, 244, 245, 0.8)",
-                      border: "1px solid rgba(228, 228, 231, 0.9)",
+                      background: "#F8FAFC",
+                      border: "1.5px solid #E2E8F0",
                       borderRadius: "10px",
-                      color: "#3F3F46",
+                      color: "#082B50",
                       display: "flex",
-                      fontSize: "0.72rem",
-                      fontWeight: 750,
+                      fontSize: "0.75rem",
+                      fontWeight: 800,
                       gap: 0.5,
                       justifyContent: "center",
                       mt: "auto",
-                      pt: 0.8,
-                      pb: 0.8,
+                      pt: 0.85,
+                      pb: 0.85,
                       px: 1.5,
                       transition: "all 0.25s ease",
                       width: "100%",
@@ -293,7 +306,7 @@ export default function LeadershipSection() {
                   >
                     <span>View Profile</span>
                     <ArrowForwardRoundedIcon
-                      sx={{ fontSize: 14, transition: "transform 0.25s ease" }}
+                      sx={{ fontSize: 14, color: "#082B50", transition: "transform 0.25s ease" }}
                     />
                   </Box>
                 </ButtonBase>
@@ -301,7 +314,6 @@ export default function LeadershipSection() {
             );
           })}
         </Box>
-
         {/* Bottom Verification Note */}
         <Stack
           direction={{ xs: "column", sm: "row" }}
