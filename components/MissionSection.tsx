@@ -4,6 +4,7 @@ import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import { missionMetrics } from "@/src/data/home";
+import { assetPath } from "@/src/lib/assetPath";
 
 export default function MissionSection() {
   return (
@@ -12,7 +13,7 @@ export default function MissionSection() {
       id="mission"
       sx={{
         position: "relative",
-        backgroundImage: 'linear-gradient(90deg, rgba(8, 43, 80, 0.25) 0%, rgba(8, 43, 80, 0.45) 45%, rgba(8, 43, 80, 0.75) 100%), url("/images/mission-family-ultrawide.jpg")',
+        backgroundImage: 'linear-gradient(90deg, rgba(8, 43, 80, 0.25) 0%, rgba(8, 43, 80, 0.45) 45%, rgba(8, 43, 80, 0.75) 100%), url("${assetPath("/images/mission-family-ultrawide.jpg")}")',
         backgroundSize: "cover",
         backgroundPosition: { xs: "left center", md: "left 25%" },
         py: { xs: 3, sm: 3.5, md: 4 },
