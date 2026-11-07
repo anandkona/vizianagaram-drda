@@ -24,6 +24,7 @@ import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
 import { leadershipProfiles, type LeadershipProfile } from "@/src/data/home";
+import { assetPath } from "@/src/lib/assetPath";
 
 export default function LeadershipSection() {
   const [selectedProfile, setSelectedProfile] = useState<LeadershipProfile | null>(null);
@@ -184,7 +185,7 @@ export default function LeadershipSection() {
                   <Box
                     component="img"
                     className="portrait-photo"
-                    src={profile.image}
+                    src={assetPath(profile.image)}
                     alt={profile.name}
                     sx={{
                       width: "100%",
@@ -303,7 +304,7 @@ export default function LeadershipSection() {
             >
               <Avatar
                 alt={selectedProfile.name}
-                src={selectedProfile.image}
+                src={assetPath(selectedProfile.image)}
                 sx={{
                   border: "4px solid #F59E0B",
                   boxShadow: "0 8px 24px -4px rgba(245, 158, 11, 0.35)",
