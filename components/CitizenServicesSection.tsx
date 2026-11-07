@@ -4,6 +4,7 @@ import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import { citizenServices } from "@/src/data/home";
+import { assetPath } from "@/src/lib/assetPath";
 import { PortalIcon } from "@/components/Icon";
 
 export default function CitizenServicesSection() {
@@ -117,7 +118,7 @@ export default function CitizenServicesSection() {
             >
               <Box
                 sx={{
-                  backgroundImage: `url("${service.image}")`,
+                  backgroundImage: `url("${assetPath(service.image)}")`,
                   backgroundPosition: service.imagePosition ?? "center",
                   backgroundSize: "cover",
                   height: 140,
