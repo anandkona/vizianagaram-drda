@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   Box,
@@ -308,9 +308,8 @@ const categoryStatsMap: Record<string, any[]> = {
 };
 
 
-export default function SchemeCategoryPage({ params }: { params: Promise<{ category: string }> }) {
-  const resolvedParams = use(params);
-  const categoryId = resolvedParams.category.toLowerCase();
+export default function SchemeCategoryClient({ category }: { category: string }) {
+  const categoryId = category.toLowerCase();
 
   const currentCategory = SCHEME_CATEGORIES.find((c) => c.id === categoryId) || SCHEME_CATEGORIES[1];
   const schemesList = SCHEMES_DATABASE[categoryId] || SCHEMES_DATABASE.women;
