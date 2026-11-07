@@ -355,11 +355,11 @@ export const programPortals: ProgramPortal[] = [
     image: unsplash("photo-1497366811353-6870744d04b2", 900),
   },
   {
-    title: "Transparency Dashboard",
-    description: "Read programme progress with context, targets and clear labels.",
-    meta: "Illustrative district metrics",
-    href: "/dashboard",
-    icon: "dashboard",
+    title: "District Mart",
+    description: "Authentic SHG handlooms, Bobbili veenas, and tribal forest products.",
+    meta: "Direct Producer-to-Citizen",
+    href: "/mart",
+    icon: "schemes",
     image: unsplash("photo-1551288049-bebda4e38f71", 900),
   },
   {

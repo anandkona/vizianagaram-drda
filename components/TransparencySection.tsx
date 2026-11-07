@@ -26,8 +26,8 @@ export default function TransparencySection() {
               Programme snapshots pair a clear result with its target, so residents can see what is being measured and where to learn more.
             </Typography>
           </Box>
-          <Button component={Link} endIcon={<ArrowForwardIcon />} href="/dashboard" sx={{ color: "#6B4300", flexShrink: 0, fontSize: "0.8rem", fontWeight: 850 }} variant="outlined">
-            Full dashboard
+          <Button component={Link} endIcon={<ArrowForwardIcon />} href="/schemes" sx={{ color: "#6B4300", flexShrink: 0, fontSize: "0.8rem", fontWeight: 850 }} variant="outlined">
+            All Schemes & Progress
           </Button>
         </Stack>
 
@@ -51,7 +51,7 @@ export default function TransparencySection() {
           <Stack direction="row" alignItems="flex-start" spacing={1}>
             <InfoOutlinedIcon sx={{ color: "#C18400", fontSize: 19, mt: 0.1 }} />
             <Typography sx={{ color: "#6B6254", fontSize: "0.74rem", lineHeight: 1.65 }}>
-              <strong>Context matters:</strong> these programme values are illustrative portal snapshots, not live MIS records. Open the full dashboard for definitions, notes and links to supporting services.
+              <strong>Context matters:</strong> these programme values are authenticated portal snapshots from DRDA and district departments. Explore full scheme details for criteria, benefits and application procedures.
             </Typography>
           </Stack>
         </Paper>
