@@ -87,6 +87,10 @@ const navMenuData: MenuItemType[] = [
     ],
   },
   {
+    label: "Tourism",
+    href: "/tourism",
+  },
+  {
     label: "District Mart",
     href: "/mart",
   },
