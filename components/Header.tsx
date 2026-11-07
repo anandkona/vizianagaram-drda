@@ -7,88 +7,141 @@ import {
   AppBar,
   Box,
   Button,
-  Collapse,
   Container,
+  Divider,
   Drawer,
   IconButton,
   MenuItem,
-  Paper,
   Popper,
   Stack,
+  Toolbar,
   Typography,
 } from "@mui/material";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import MapRoundedIcon from "@mui/icons-material/MapRounded";
 
-type SubItem = {
+type NavSubItem = {
   label: string;
   href: string;
 };
 
-type MenuItemType = {
+type NavGroupItem = {
   label: string;
-  href: string;
-  items?: SubItem[];
+  href?: string;
+  items?: NavSubItem[];
 };
 
-// Pure clean text navigation items (NO icons)
-const navMenuData: MenuItemType[] = [
-  {
-    label: "Home",
-    href: "/",
-  },
+type NavItemType = {
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+  twoLines?: boolean;
+  children?: (NavSubItem | NavGroupItem)[];
+};
+
+// Exact navbar menu lists and items aligned with drdamanyam & official Vizianagaram governance
+const headerNavItems: NavItemType[] = [
+  { label: "Home", href: "/" },
   {
     label: "About",
     href: "/about/district",
-    items: [
-      { label: "District Profile", href: "/about/district" },
+    hasDropdown: true,
+    children: [
+      { label: "About District Profile", href: "/about/district" },
       { label: "About DRDA", href: "/about/drda" },
-      { label: "Organizational Structure", href: "/about/structure" },
-      { label: "Who's Who (Leadership)", href: "/about/whos-who" },
-      { label: "Contact Directory", href: "/directory" },
+      { label: "Org Structure", href: "/about/structure" },
+      { label: "Who's Who", href: "/about/whos-who" },
+      { label: "District Map", href: "/map" },
     ],
   },
   {
     label: "Citizen Services",
     href: "/citizen-services",
-    items: [
+    hasDropdown: true,
+    children: [
       { label: "All Citizen Services", href: "/citizen-services" },
-      { label: "Share Concern (PGRS)", href: "/pgrs" },
-      { label: "Announcements & Updates", href: "/announcements" },
-      { label: "Tenders & Quotations", href: "/tenders" },
-      { label: "Knowledge Center", href: "/knowledge-center" },
-      { label: "Events & Training", href: "/events" },
+      {
+        label: "Schemes & Learning",
+        items: [
+          { label: "Explore Schemes", href: "/schemes" },
+          { label: "Knowledge Center", href: "/knowledge-center" },
+          { label: "Events & Training", href: "/events" },
+        ],
+      },
+      {
+        label: "Grievance & Support",
+        items: [
+          { label: "Share Your Concern (PGRS)", href: "/pgrs" },
+          { label: "IVRS Services (1902)", href: "/ivrs" },
+          { label: "Feedback", href: "/feedback" },
+        ],
+      },
+      {
+        label: "Information & Transparency",
+        items: [
+          { label: "Announcements & Latest Updates", href: "/announcements" },
+          { label: "Tenders & Notices", href: "/tenders" },
+          { label: "RTI", href: "/rti" },
+        ],
+      },
+      { label: "Contact Directory", href: "/directory" },
     ],
   },
   {
     label: "Schemes",
     href: "/schemes",
-    items: [
-      { label: "All Welfare Schemes", href: "/schemes" },
-      { label: "Women & SHG Schemes", href: "/schemes/women" },
+    hasDropdown: true,
+    children: [
+      { label: "All Schemes", href: "/schemes" },
+      { label: "Women & SHG", href: "/schemes/women" },
       { label: "Farmers & Agriculture", href: "/schemes/farmers" },
-      { label: "Youth & Skill Development", href: "/schemes/youth" },
-      { label: "MSME & Entrepreneurs", href: "/schemes/entrepreneurs" },
+      { label: "Youth & Skills", href: "/schemes/youth" },
+      { label: "Entrepreneurs & MSME", href: "/schemes/entrepreneurs" },
       { label: "Tribal Welfare (ITDA)", href: "/schemes/tribal" },
-      { label: "Social Security Pensions", href: "/schemes/social" },
+      { label: "Senior Citizens & Social Pensions", href: "/schemes/social" },
     ],
   },
   {
     label: "Livelihoods",
     href: "/livelihoods",
-    items: [
-      { label: "Livelihood Programs", href: "/livelihoods" },
-      { label: "Women Entrepreneurship", href: "/women-entrepreneurship" },
+    hasDropdown: true,
+    children: [
       { label: "FPOs Network", href: "/fpos" },
+      { label: "Women Entrepreneurship", href: "/women-entrepreneurship" },
       { label: "One Family One Entrepreneur", href: "/one-family-one-entrepreneur" },
-      { label: "Success Stories", href: "/success-stories" },
+      { label: "Livelihood Projects", href: "/livelihoods" },
+      { label: "Community Tourism", href: "/community-tourism" },
+      { label: "SERP Corner", href: "/serp-corner" },
     ],
   },
   {
     label: "Tourism",
     href: "/tourism",
+    hasDropdown: true,
+    children: [
+      { label: "Heritage & Forts", href: "/tourism" },
+      { label: "Community & Eco Tourism", href: "/community-tourism" },
+      { label: "Temples & Pilgrimages", href: "/tourism#temples" },
+    ],
+  },
+  {
+    label: "Media",
+    href: "/media",
+    hasDropdown: true,
+    children: [
+      { label: "Press Releases & News", href: "/media" },
+      { label: "Photo & Video Gallery", href: "/media" },
+      { label: "Announcements", href: "/announcements" },
+    ],
+  },
+  {
+    label: "Success Stories",
+    href: "/success-stories",
   },
   {
     label: "District Mart",
@@ -96,8 +149,10 @@ const navMenuData: MenuItemType[] = [
   },
 ];
 
-function isLinkActive(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
+function pathIsActive(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === "/";
+  }
   const cleanHref = href.split(/[?#]/)[0];
   return pathname === cleanHref || pathname.startsWith(`${cleanHref}/`);
 }
@@ -105,52 +160,41 @@ function isLinkActive(pathname: string, href: string) {
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({
-    About: true,
-  });
 
-  // Desktop dropdown state
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [openMenu, setOpenMenu] = useState<MenuItemType | null>(null);
+  // Popper dropdown state
+  const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
+  const [activeItem, setActiveItem] = useState<NavItemType | null>(null);
   const closeTimer = useRef<number | null>(null);
 
-  const handleOpenDropdown = (event: React.MouseEvent<HTMLElement>, item: MenuItemType) => {
-    if (!item.items || item.items.length === 0) return;
-    if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    setAnchorEl(event.currentTarget);
-    setOpenMenu(item);
-  };
-
-  const handleScheduleClose = () => {
-    if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => {
-      setAnchorEl(null);
-      setOpenMenu(null);
-    }, 150);
-  };
-
-  const handleCancelClose = () => {
-    if (closeTimer.current) {
+  const cancelClose = () => {
+    if (closeTimer.current !== null) {
       window.clearTimeout(closeTimer.current);
       closeTimer.current = null;
     }
   };
 
-  const handleImmediateClose = () => {
-    if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    setAnchorEl(null);
-    setOpenMenu(null);
+  const closeMenu = () => {
+    cancelClose();
+    setMenuAnchor(null);
+    setActiveItem(null);
   };
 
-  const toggleMobileGroup = (label: string) => {
-    setMobileExpanded((prev) => ({
-      ...prev,
-      [label]: !prev[label],
-    }));
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = window.setTimeout(() => {
+      closeMenu();
+    }, 150);
+  };
+
+  const handleOpenMenu = (event: React.MouseEvent<HTMLElement>, item: NavItemType) => {
+    if (!item.children || item.children.length === 0) return;
+    cancelClose();
+    setActiveItem(item);
+    setMenuAnchor(event.currentTarget);
   };
 
   useEffect(() => {
-    handleImmediateClose();
+    closeMenu();
     setMobileOpen(false);
   }, [pathname]);
 
@@ -164,39 +208,13 @@ export default function Header() {
         backgroundColor: "#FFFFFF",
         color: "#082B50",
         zIndex: (theme) => theme.zIndex.appBar,
-        borderBottom: "1px solid #E2E8F0",
-        boxShadow: "0 2px 8px rgba(8, 43, 80, 0.04)",
+        borderBottom: "1px solid #ECE4D0",
       }}
     >
-      {/* 1. Official Tri-Color Accent Line */}
-      <Box
-        sx={{
-          height: 3,
-          width: "100%",
-          background: "linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%)",
-        }}
-      />
-
-      {/* 2. Header Container: Emblem + Clean Text Menu Bar */}
-      <Box
-        sx={{
-          py: 0.8,
-          px: { xs: 2, sm: 3, md: 4 },
-          maxWidth: 1480,
-          mx: "auto",
-          width: "100%",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 2,
-            minHeight: { xs: 52, md: 60 },
-          }}
-        >
-          {/* Left: District Emblem & Text */}
+      {/* MAIN HEADER & NAV BAR */}
+      <Box sx={{ backgroundColor: "#FFFFFF", py: { xs: 0.5, md: 0.8 }, px: { xs: 2, sm: 3, md: 4 } }}>
+        <Box sx={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: { xs: 52, md: 56 } }}>
+          {/* Left: District Circular Logo & Single-Line Title */}
           <Link
             href="/"
             style={{
@@ -204,27 +222,27 @@ export default function Header() {
               color: "inherit",
               display: "flex",
               alignItems: "center",
-              gap: "12px",
+              gap: "10px",
               flexShrink: 0,
             }}
           >
             <Box
               sx={{
-                width: { xs: 42, sm: 46 },
-                height: { xs: 42, sm: 46 },
+                width: { xs: 36, sm: 40 },
+                height: { xs: 36, sm: 40 },
                 borderRadius: "50%",
                 overflow: "hidden",
-                border: "2px solid #F5B800",
+                border: "2px solid #FFC107",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: "#FFFFFF",
-                boxShadow: "0 2px 8px rgba(8, 43, 80, 0.1)",
+                boxShadow: "0 2px 8px rgba(8, 43, 80, 0.08)",
                 flexShrink: 0,
               }}
             >
               <Box
-                alt="Emblem of Andhra Pradesh"
+                alt="Government of Andhra Pradesh emblem"
                 component="img"
                 src="/emblem-of-andhra-pradesh.jpg"
                 sx={{ height: "100%", width: "100%", objectFit: "contain" }}
@@ -246,376 +264,379 @@ export default function Header() {
               <Typography
                 sx={{
                   color: "#64748B",
-                  fontSize: { xs: "0.65rem", sm: "0.72rem" },
-                  fontWeight: 650,
-                  letterSpacing: "0.02em",
+                  fontSize: { xs: "0.62rem", sm: "0.68rem" },
+                  fontWeight: 550,
                   lineHeight: 1.2,
+                  mt: 0.1,
+                  whiteSpace: "nowrap",
                 }}
               >
-                DRDA • Government of Andhra Pradesh
+                Government of Andhra Pradesh
               </Typography>
             </Box>
           </Link>
 
-          {/* Center: Clean Text Navigation Bar (No icons) */}
-          <Box
-            component="nav"
-            aria-label="Main Navigation"
-            sx={{
-              display: { xs: "none", lg: "flex" },
-              alignItems: "center",
-              gap: 0.5,
-            }}
-          >
-            {navMenuData.map((item) => {
-              const active = isLinkActive(pathname, item.href);
-              const isMenuOpen = openMenu?.label === item.label;
-              const hasSubItems = Boolean(item.items && item.items.length > 0);
+            {/* Middle: Desktop Navigation Items */}
+            <Box
+              component="nav"
+              aria-label="Main Navigation"
+              sx={{
+                display: { xs: "none", lg: "flex" },
+                alignItems: "center",
+                gap: { lg: 1, xl: 1.5 },
+              }}
+            >
+              {headerNavItems.map((item) => {
+                const active = pathIsActive(pathname, item.href);
 
-              return (
-                <Box
-                  key={item.label}
-                  onMouseEnter={(e) => handleOpenDropdown(e, item)}
-                  onMouseLeave={handleScheduleClose}
-                  sx={{ position: "relative" }}
-                >
-                  <Button
-                    component={Link}
-                    href={item.href}
-                    endIcon={
-                      hasSubItems ? (
-                        <KeyboardArrowDownRoundedIcon
-                          sx={{
-                            fontSize: "15px !important",
-                            color: active || isMenuOpen ? "#082B50 !important" : "#94A3B8 !important",
-                            transform: isMenuOpen ? "rotate(180deg)" : "rotate(0deg)",
-                            transition: "transform 0.2s ease",
-                            ml: -0.3,
-                          }}
-                        />
-                      ) : undefined
-                    }
-                    sx={{
-                      color: active ? "#082B50 !important" : isMenuOpen ? "#082B50 !important" : "#334155 !important",
-                      backgroundColor: active
-                        ? "#F5B800 !important"
-                        : isMenuOpen
-                        ? "#F1F5F9 !important"
-                        : "transparent",
-                      fontWeight: active ? 850 : 650,
-                      fontSize: "0.86rem",
-                      py: 0.9,
-                      px: 1.8,
-                      borderRadius: "6px",
-                      textTransform: "none",
-                      whiteSpace: "nowrap",
-                      transition: "all 0.15s ease",
-                      "&:hover": {
-                        backgroundColor: active ? "#F5B800" : "#F8FAFC",
-                        color: "#082B50 !important",
-                      },
-                    }}
+                return (
+                  <Box
+                    key={item.label}
+                    onMouseEnter={(e) => handleOpenMenu(e, item)}
+                    onMouseLeave={scheduleClose}
+                    sx={{ position: "relative" }}
                   >
-                    {item.label}
-                  </Button>
-                </Box>
-              );
-            })}
-          </Box>
+                    <Button
+                      component={Link}
+                      href={item.href}
+                      endIcon={
+                        item.hasDropdown ? (
+                          <KeyboardArrowDownRoundedIcon
+                            sx={{
+                              fontSize: "15px !important",
+                              color: active ? "#082B50 !important" : "#64748B !important",
+                              ml: -0.4,
+                            }}
+                          />
+                        ) : undefined
+                      }
+                      sx={{
+                        color: active ? "#082B50 !important" : "#082B50 !important",
+                        backgroundColor: active ? "#F5B800 !important" : "transparent",
+                        fontWeight: active ? 850 : 700,
+                        fontSize: "0.82rem",
+                        lineHeight: 1,
+                        whiteSpace: "nowrap",
+                        textAlign: "center",
+                        textTransform: "none",
+                        px: active ? 2 : 1,
+                        py: active ? 0.6 : 0.4,
+                        borderRadius: active ? "100px" : "6px",
+                        boxShadow: active ? "0 4px 14px rgba(245, 184, 0, 0.35)" : "none",
+                        transition: "all 0.18s ease",
+                        "&:hover": {
+                          backgroundColor: active ? "#F5B800" : "rgba(8, 43, 80, 0.04)",
+                          color: "#082B50 !important",
+                        },
+                      }}
+                    >
+                      {item.label}
+                    </Button>
+                  </Box>
+                );
+              })}
+            </Box>
 
-          {/* Right Action: District Map Button & Mobile Menu Toggle */}
-          <Stack direction="row" alignItems="center" spacing={1.2}>
-            <Button
-              component={Link}
-              href="/map"
-              sx={{
-                backgroundColor: "#082B50",
-                color: "#FFFFFF !important",
-                fontWeight: 800,
-                fontSize: "0.82rem",
-                px: 2,
-                py: 0.85,
-                borderRadius: "6px",
-                textTransform: "none",
-                display: { xs: "none", sm: "inline-flex" },
-                boxShadow: "0 2px 8px rgba(8, 43, 80, 0.2)",
-                transition: "all 0.15s ease",
-                "&:hover": {
-                  backgroundColor: "#0c3b6d",
-                },
-              }}
-            >
-              District Map
-            </Button>
+            {/* Right: Golden Pill "Vizianagaram Map →" Button */}
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Button
+                component={Link}
+                href="/map"
+                startIcon={<MapRoundedIcon sx={{ fontSize: "16px !important", color: "#082B50 !important" }} />}
+                sx={{
+                  backgroundColor: "#F5B800",
+                  color: "#082B50 !important",
+                  fontWeight: 850,
+                  fontSize: "0.78rem",
+                  lineHeight: 1,
+                  whiteSpace: "nowrap",
+                  px: 2,
+                  py: 0.8,
+                  borderRadius: "100px",
+                  textTransform: "none",
+                  boxShadow: "0 4px 14px rgba(245, 184, 0, 0.35)",
+                  display: { xs: "none", sm: "inline-flex" },
+                  textAlign: "center",
+                  "&:hover": {
+                    backgroundColor: "#D49D00",
+                    transform: "translateY(-1px)",
+                  },
+                }}
+              >
+                Vizianagaram Map →
+              </Button>
 
-            <IconButton
-              aria-label="Open navigation menu"
-              onClick={() => setMobileOpen(true)}
-              sx={{
-                display: { xs: "inline-flex", lg: "none" },
-                color: "#082B50",
-                backgroundColor: "#F1F5F9",
-                borderRadius: "8px",
-                p: 0.8,
-                "&:hover": {
-                  backgroundColor: "#E2E8F0",
-                },
-              }}
-            >
-              <MenuRoundedIcon />
-            </IconButton>
-          </Stack>
+              {/* Mobile Hamburger Menu Toggle */}
+              <IconButton
+                aria-label="Open mobile menu"
+                onClick={() => setMobileOpen(true)}
+                sx={{
+                  display: { lg: "none" },
+                  color: "#082B50",
+                  backgroundColor: "#F1F5F9",
+                  borderRadius: "10px",
+                  p: 0.8,
+                }}
+              >
+                <MenuRoundedIcon />
+              </IconButton>
+            </Stack>
         </Box>
       </Box>
 
-      {/* 3. Clean Text-Only Dropdown Menu List (NO icons) */}
+      {/* Dropdown Popper for Submenus */}
       <Popper
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl && openMenu?.items)}
+        anchorEl={menuAnchor}
+        open={Boolean(menuAnchor)}
         placement="bottom-start"
-        sx={{ zIndex: (theme) => theme.zIndex.modal + 30 }}
+        sx={{ zIndex: (theme) => theme.zIndex.modal }}
       >
-        <Paper
-          elevation={5}
-          onMouseEnter={handleCancelClose}
-          onMouseLeave={handleScheduleClose}
+        <Box
+          onMouseEnter={cancelClose}
+          onMouseLeave={scheduleClose}
+          role="menu"
           sx={{
-            mt: 0.5,
-            minWidth: 240,
-            borderRadius: "8px",
             backgroundColor: "#FFFFFF",
             border: "1px solid #E2E8F0",
             borderTop: "3px solid #F5B800",
-            boxShadow: "0 12px 28px rgba(8, 43, 80, 0.12)",
-            py: 0.6,
+            borderRadius: "0 0 12px 12px",
+            boxShadow: "0 20px 45px -4px rgba(8, 43, 80, 0.18)",
+            minWidth: 240,
+            py: 1,
             px: 0.5,
+            mt: 0.5,
           }}
         >
-          <Stack spacing={0.2}>
-            {openMenu?.items?.map((sub) => {
-              const isSubActive = pathname === sub.href;
-
+          {activeItem?.children?.map((child, idx) => {
+            if ("items" in child && child.items) {
               return (
-                <MenuItem
-                  key={sub.label}
-                  component={Link}
-                  href={sub.href}
-                  onClick={handleImmediateClose}
+                <Box
+                  key={child.label || idx}
                   sx={{
-                    borderRadius: "6px",
-                    py: 1,
-                    px: 1.8,
-                    fontSize: "0.85rem",
-                    fontWeight: isSubActive ? 800 : 550,
-                    color: isSubActive ? "#082B50" : "#334155",
-                    backgroundColor: isSubActive ? "#FFF9E6" : "transparent",
-                    transition: "all 0.15s ease",
-                    "&:hover": {
-                      backgroundColor: "#F8FAFC",
-                      color: "#082B50",
-                      fontWeight: 650,
+                    position: "relative",
+                    "&:hover > .flyout-submenu": {
+                      display: "block",
+                      opacity: 1,
+                      visibility: "visible",
                     },
                   }}
                 >
-                  {sub.label}
-                </MenuItem>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      px: 2,
+                      py: 1,
+                      color: "#1E293B",
+                      fontSize: "0.84rem",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      borderRadius: "8px",
+                      mx: 0.5,
+                      transition: "all 0.15s ease",
+                      "&:hover": {
+                        backgroundColor: "#FFFDF5",
+                        color: "#D97706",
+                      },
+                    }}
+                  >
+                    <span>{child.label}</span>
+                    <ChevronRightRoundedIcon sx={{ fontSize: 16, color: "#94A3B8" }} />
+                  </Box>
+
+                  {/* Nested Flyout Menu List (Exact drdamanyam implementation) */}
+                  <Box
+                    className="flyout-submenu"
+                    sx={{
+                      display: "none",
+                      opacity: 0,
+                      visibility: "hidden",
+                      position: "absolute",
+                      top: 0,
+                      left: "100%",
+                      ml: "-2px",
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid #E2E8F0",
+                      borderLeft: "3px solid #F5B800",
+                      borderRadius: "12px",
+                      boxShadow: "0 20px 45px -4px rgba(8, 43, 80, 0.2)",
+                      minWidth: 230,
+                      py: 1,
+                      px: 0.5,
+                      zIndex: 100,
+                      transition: "all 0.15s ease",
+                    }}
+                  >
+                    {child.items.map((sub) => (
+                      <MenuItem
+                        key={`${sub.href}-${sub.label}`}
+                        component={Link}
+                        href={sub.href}
+                        onClick={closeMenu}
+                        sx={{
+                          borderRadius: "8px",
+                          color: "#1E293B",
+                          fontSize: "0.82rem",
+                          fontWeight: 550,
+                          py: 0.85,
+                          px: 2,
+                          mx: 0.5,
+                          "&:hover": {
+                            backgroundColor: "#FFFDF5",
+                            color: "#D97706",
+                          },
+                        }}
+                      >
+                        {sub.label}
+                      </MenuItem>
+                    ))}
+                  </Box>
+                </Box>
               );
-            })}
-          </Stack>
-        </Paper>
+            }
+
+            return (
+              <MenuItem
+                key={`${child.href}-${child.label}`}
+                component={Link}
+                href={child.href || "#"}
+                onClick={closeMenu}
+                sx={{
+                  borderRadius: "8px",
+                  color: "#1E293B",
+                  fontSize: "0.84rem",
+                  fontWeight: 600,
+                  py: 1,
+                  px: 2,
+                  mx: 0.5,
+                  "&:hover": {
+                    backgroundColor: "#FFFDF5",
+                    color: "#D97706",
+                  },
+                }}
+              >
+                {child.label}
+              </MenuItem>
+            );
+          })}
+        </Box>
       </Popper>
 
-      {/* 4. Left-Sliding Mobile Drawer (Clean Text-Only, NO icons) */}
+      {/* Mobile Drawer Navigation */}
       <Drawer
         anchor="left"
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
         PaperProps={{
-          sx: {
-            width: "85%",
-            maxWidth: 320,
-            backgroundColor: "#FFFFFF",
-            p: 0,
-            display: "flex",
-            flexDirection: "column",
-          },
+          sx: { width: "85%", maxWidth: 360, backgroundColor: "#FFFFFF", p: 2.5 },
         }}
       >
-        {/* Mobile Header */}
-        <Box
-          sx={{
-            p: 2,
-            backgroundColor: "#082B50",
-            color: "#FFFFFF",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            borderBottom: "3px solid #F5B800",
-          }}
-        >
-          <Box>
-            <Typography sx={{ color: "#FFFFFF", fontSize: "0.95rem", fontWeight: 900 }}>
-              Vizianagaram Portal
-            </Typography>
-            <Typography sx={{ color: "#F5B800", fontSize: "0.7rem", fontWeight: 700 }}>
-              DRDA • Government of Andhra Pradesh
-            </Typography>
-          </Box>
-          <IconButton
-            onClick={() => setMobileOpen(false)}
-            size="small"
-            sx={{
-              color: "#FFFFFF",
-              backgroundColor: "rgba(255,255,255,0.12)",
-              "&:hover": { backgroundColor: "rgba(255,255,255,0.25)" },
-            }}
-          >
-            <CloseRoundedIcon fontSize="small" />
+        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 2.5 }}>
+          <Typography sx={{ color: "#082B50", fontSize: "1rem", fontWeight: 900 }}>
+            Vizianagaram Portal
+          </Typography>
+          <IconButton onClick={() => setMobileOpen(false)} size="small">
+            <CloseRoundedIcon />
           </IconButton>
-        </Box>
+        </Stack>
+        <Divider sx={{ mb: 2 }} />
 
-        {/* Mobile Menu List (Pure Text, NO icons) */}
-        <Box sx={{ flex: 1, overflowY: "auto", p: 1.5 }}>
-          <Stack spacing={0.6}>
-            {navMenuData.map((item) => {
-              const active = isLinkActive(pathname, item.href);
-              const hasSubItems = Boolean(item.items && item.items.length > 0);
-              const isExpanded = Boolean(mobileExpanded[item.label]);
-
-              if (!hasSubItems) {
-                return (
-                  <Button
-                    key={item.label}
-                    component={Link}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    fullWidth
-                    sx={{
-                      justifyContent: "flex-start",
-                      color: active ? "#082B50 !important" : "#1E293B !important",
-                      backgroundColor: active ? "#F5B800" : "#F8FAFC",
-                      fontWeight: active ? 850 : 650,
-                      fontSize: "0.88rem",
-                      py: 1.1,
-                      px: 2,
-                      borderRadius: "6px",
-                      textTransform: "none",
-                      border: "1px solid",
-                      borderColor: active ? "#F5B800" : "#E2E8F0",
-                      "&:hover": {
-                        backgroundColor: active ? "#F5B800" : "#EDF2F7",
-                      },
-                    }}
-                  >
-                    {item.label}
-                  </Button>
-                );
-              }
-
-              // Collapsible Group
-              return (
-                <Paper
-                  key={item.label}
-                  elevation={0}
+        <Stack spacing={0.5}>
+          {headerNavItems.map((item) => {
+            const active = pathIsActive(pathname, item.href);
+            return (
+              <Box key={item.label}>
+                <Button
+                  component={Link}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  fullWidth
                   sx={{
-                    borderRadius: "6px",
-                    border: "1px solid #E2E8F0",
-                    overflow: "hidden",
-                    backgroundColor: "#FFFFFF",
+                    justifyContent: "flex-start",
+                    color: active ? "#082B50 !important" : "#334155 !important",
+                    backgroundColor: active ? "#F5B800 !important" : "transparent",
+                    fontWeight: active ? 850 : 700,
+                    fontSize: "0.85rem",
+                    py: 1,
+                    px: 1.5,
+                    borderRadius: "10px",
+                    textTransform: "none",
                   }}
                 >
-                  <Box
-                    onClick={() => toggleMobileGroup(item.label)}
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      py: 1.1,
-                      px: 2,
-                      cursor: "pointer",
-                      backgroundColor: isExpanded ? "#F8FAFC" : "#FFFFFF",
-                      borderBottom: isExpanded ? "1px solid #E2E8F0" : "none",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "0.88rem",
-                        fontWeight: active ? 850 : 650,
-                        color: active ? "#082B50" : "#1E293B",
-                      }}
-                    >
-                      {item.label}
-                    </Typography>
-                    <IconButton size="small" sx={{ p: 0.2 }}>
-                      {isExpanded ? (
-                        <KeyboardArrowUpRoundedIcon fontSize="small" />
-                      ) : (
-                        <KeyboardArrowDownRoundedIcon fontSize="small" />
-                      )}
-                    </IconButton>
-                  </Box>
+                  {item.label}
+                </Button>
+                {item.children?.flatMap((child, cIdx) => {
+                  if ("items" in child && child.items) {
+                    return child.items.map((sub, sIdx) => (
+                      <Button
+                        key={`${item.label}-${child.label}-${sub.href}-${sIdx}`}
+                        component={Link}
+                        href={sub.href}
+                        onClick={() => setMobileOpen(false)}
+                        fullWidth
+                        sx={{
+                          justifyContent: "flex-start",
+                          color: "#64748B !important",
+                          fontSize: "0.78rem",
+                          fontWeight: 600,
+                          py: 0.6,
+                          pl: 3.5,
+                          textTransform: "none",
+                          "&:hover": { color: "#082B50 !important" },
+                        }}
+                      >
+                        {sub.label}
+                      </Button>
+                    ));
+                  }
+                  if ("href" in child && child.href) {
+                    return (
+                      <Button
+                        key={`${item.label}-${child.href}-${cIdx}`}
+                        component={Link}
+                        href={child.href}
+                        onClick={() => setMobileOpen(false)}
+                        fullWidth
+                        sx={{
+                          justifyContent: "flex-start",
+                          color: "#64748B !important",
+                          fontSize: "0.78rem",
+                          fontWeight: 600,
+                          py: 0.6,
+                          pl: 3.5,
+                          textTransform: "none",
+                          "&:hover": { color: "#082B50 !important" },
+                        }}
+                      >
+                        {child.label}
+                      </Button>
+                    );
+                  }
+                  return null;
+                })}
+              </Box>
+            );
+          })}
+        </Stack>
 
-                  {/* Sub-items (Pure text list, NO icons) */}
-                  <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-                    <Box sx={{ py: 0.5, px: 1, backgroundColor: "#FAFCFF" }}>
-                      {item.items?.map((sub) => {
-                        const isSubActive = pathname === sub.href;
-
-                        return (
-                          <Button
-                            key={sub.label}
-                            component={Link}
-                            href={sub.href}
-                            onClick={() => setMobileOpen(false)}
-                            fullWidth
-                            sx={{
-                              justifyContent: "flex-start",
-                              alignItems: "center",
-                              color: isSubActive ? "#082B50 !important" : "#334155 !important",
-                              backgroundColor: isSubActive ? "#F5B800 !important" : "transparent",
-                              fontSize: "0.82rem",
-                              fontWeight: isSubActive ? 800 : 550,
-                              py: 0.8,
-                              px: 1.5,
-                              my: 0.2,
-                              borderRadius: "4px",
-                              textTransform: "none",
-                              "&:hover": {
-                                backgroundColor: isSubActive ? "#F5B800" : "#F1F5F9",
-                                color: "#082B50 !important",
-                              },
-                            }}
-                          >
-                            {sub.label}
-                          </Button>
-                        );
-                      })}
-                    </Box>
-                  </Collapse>
-                </Paper>
-              );
-            })}
-          </Stack>
-        </Box>
-
-        {/* Drawer Footer CTA */}
-        <Box sx={{ p: 2, borderTop: "1px solid #E2E8F0", backgroundColor: "#F8FAFC" }}>
+        <Box sx={{ mt: 3, pt: 2, borderTop: "1px solid #E2E8F0" }}>
           <Button
             component={Link}
             href="/map"
             fullWidth
             onClick={() => setMobileOpen(false)}
+            startIcon={<MapRoundedIcon sx={{ color: "#082B50 !important" }} />}
             sx={{
-              backgroundColor: "#082B50",
-              color: "#FFFFFF !important",
-              fontWeight: 800,
-              fontSize: "0.88rem",
-              borderRadius: "6px",
+              backgroundColor: "#F5B800",
+              color: "#082B50 !important",
+              fontWeight: 850,
+              borderRadius: "50px",
               py: 1,
               textTransform: "none",
             }}
           >
-            District Map →
+            Vizianagaram Map →
           </Button>
         </Box>
       </Drawer>
