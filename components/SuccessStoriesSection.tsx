@@ -105,7 +105,7 @@ export default function SuccessStoriesSection() {
                 <Box
                   sx={{
                     height: 180,
-                    backgroundImage: `url("${img}")`,
+                    backgroundImage: `url("${assetPath(img)}")`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundColor: "#E2E8F0",
