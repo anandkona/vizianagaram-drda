@@ -46,15 +46,6 @@ export default function TransparencySection() {
             </Paper>
           ))}
         </Box>
-
-        <Paper sx={{ background: "linear-gradient(110deg, #FFF8E1, #FFFFFF)", border: "1px solid #F0E4C6", borderRadius: 1, mt: 2.2, p: { xs: 1.8, md: 2.2 } }}>
-          <Stack direction="row" alignItems="flex-start" spacing={1}>
-            <InfoOutlinedIcon sx={{ color: "#C18400", fontSize: 19, mt: 0.1 }} />
-            <Typography sx={{ color: "#6B6254", fontSize: "0.74rem", lineHeight: 1.65 }}>
-              <strong>Context matters:</strong> these programme values are authenticated portal snapshots from DRDA and district departments. Explore full scheme details for criteria, benefits and application procedures.
-            </Typography>
-          </Stack>
-        </Paper>
       </Container>
     </Box>
   );

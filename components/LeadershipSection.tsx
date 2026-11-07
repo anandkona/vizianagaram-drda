@@ -269,29 +269,6 @@ export default function LeadershipSection() {
             );
           })}
         </Box>
-        {/* Bottom Verification Note */}
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          alignItems={{ xs: "flex-start", sm: "center" }}
-          justifyContent="center"
-          spacing={1.2}
-          sx={{
-            background: "rgba(255, 255, 255, 0.7)",
-            backdropFilter: "blur(8px)",
-            border: "1px solid #E4E4E7",
-            borderRadius: "14px",
-            color: "#52525B",
-            maxWidth: 820,
-            mx: "auto",
-            mt: 4.5,
-            p: { xs: 1.6, sm: 2 },
-          }}
-        >
-          <GroupsRoundedIcon sx={{ color: "#D97706", flexShrink: 0, fontSize: 20 }} />
-          <Typography sx={{ fontSize: "0.76rem", lineHeight: 1.5, textAlign: { sm: "center" } }}>
-            Official leadership and administrative orientation profiles. For formal notifications, department gazettes, or queries, visit the relevant Andhra Pradesh Government departments.
-          </Typography>
-        </Stack>
       </Container>
 
       {/* Profile Detail Dialog */}

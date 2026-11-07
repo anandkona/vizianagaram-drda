@@ -12,33 +12,61 @@ export default function MissionSection() {
       id="mission"
       sx={{
         position: "relative",
-        backgroundImage: 'linear-gradient(rgba(8, 43, 80, 0.45), rgba(8, 43, 80, 0.65)), url("/images/mission-family-ultrawide.jpg")',
+        backgroundImage: 'linear-gradient(90deg, rgba(8, 43, 80, 0.72) 0%, rgba(8, 43, 80, 0.45) 50%, rgba(8, 43, 80, 0.65) 100%), url("/images/mission-family-ultrawide.jpg")',
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        py: { xs: 6, sm: 8, md: 10 },
+        backgroundPosition: { xs: "center center", md: "25% center" },
+        py: { xs: 7, sm: 9, md: 11 },
         color: "#FFFFFF",
+        overflow: "hidden",
       }}
     >
       <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1.2fr 0.8fr" },
-            gap: 4,
+            gridTemplateColumns: { xs: "1fr", md: "1.15fr 0.85fr" },
+            gap: { xs: 4, md: 6 },
             alignItems: "center",
           }}
         >
-          {/* Left Text Banner */}
-          <Box>
+          {/* Left Text Banner - shifted slightly right with pl offset so it never overlaps the background family faces */}
+          <Box
+            sx={{
+              pl: { xs: 0, md: 4, lg: 6 },
+              maxWidth: 620,
+            }}
+          >
+            {/* Golden Eyebrow Pill */}
+            <Typography
+              component="span"
+              sx={{
+                display: "inline-block",
+                color: "#FDE047",
+                fontSize: { xs: "0.75rem", sm: "0.82rem" },
+                fontWeight: 900,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                mb: 1.5,
+                background: "rgba(0, 0, 0, 0.25)",
+                px: 1.5,
+                py: 0.5,
+                borderRadius: "50px",
+                border: "1px solid rgba(253, 224, 71, 0.4)",
+              }}
+            >
+              DRDA STATE &amp; DISTRICT VISION
+            </Typography>
+
             <Typography
               component="h2"
               sx={{
                 color: "#FFFFFF",
-                fontSize: { xs: "2rem", sm: "2.6rem", md: "3.2rem" },
+                fontSize: { xs: "2.1rem", sm: "2.7rem", md: "3.4rem" },
                 fontWeight: 900,
                 letterSpacing: "-0.04em",
                 lineHeight: 1.1,
-                mb: 1.5,
+                mb: 2,
+                textShadow: "0 2px 12px rgba(0,0,0,0.5)",
               }}
             >
               One family.
@@ -47,36 +75,38 @@ export default function MissionSection() {
             </Typography>
             <Typography
               sx={{
-                color: "rgba(255, 255, 255, 0.9)",
-                fontSize: { xs: "0.95rem", md: "1.05rem" },
-                lineHeight: 1.6,
-                maxWidth: 520,
+                color: "rgba(255, 255, 255, 0.95)",
+                fontSize: { xs: "0.95rem", md: "1.1rem" },
+                lineHeight: 1.7,
+                maxWidth: 540,
+                textShadow: "0 1px 8px rgba(0,0,0,0.5)",
               }}
             >
               A mission-driven district for better opportunities, stronger communities and a brighter future.
             </Typography>
           </Box>
 
-          {/* Right Floating White Glass Card */}
-          <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-end" } }}>
+          {/* Right Floating White Glass Card - shifted right with generous spacing */}
+          <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-end" }, pr: { xs: 0, lg: 2 } }}>
             <Box
               sx={{
                 backgroundColor: "#FFFFFF",
-                borderRadius: "20px",
-                p: 3,
+                borderRadius: "24px",
+                p: { xs: 3, sm: 3.5 },
                 width: "100%",
-                maxWidth: 380,
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)",
+                maxWidth: 390,
+                boxShadow: "0 24px 50px rgba(0, 0, 0, 0.28)",
                 color: "#082B50",
+                border: "1px solid rgba(255, 255, 255, 0.8)",
               }}
             >
               <Typography
                 sx={{
-                  color: "#64748B",
+                  color: "#D97706",
                   fontSize: "0.75rem",
-                  fontWeight: 800,
+                  fontWeight: 900,
                   textTransform: "uppercase",
-                  letterSpacing: "0.06em",
+                  letterSpacing: "0.08em",
                   mb: 2,
                 }}
               >
@@ -127,11 +157,12 @@ export default function MissionSection() {
                   backgroundColor: "#FFC107",
                   color: "#082B50 !important",
                   fontWeight: 850,
-                  fontSize: "0.82rem",
-                  py: 1,
+                  fontSize: "0.85rem",
+                  py: 1.1,
                   borderRadius: "50px",
                   textTransform: "none",
-                  "&:hover": { backgroundColor: "#FFD54F" },
+                  boxShadow: "0 6px 18px rgba(245, 158, 11, 0.35)",
+                  "&:hover": { backgroundColor: "#FFD54F", transform: "translateY(-1px)" },
                 }}
               >
                 Learn More
