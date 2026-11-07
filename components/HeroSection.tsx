@@ -85,13 +85,13 @@ export default function HeroSection() {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", lg: "1.15fr 0.85fr" },
-            gap: { xs: 4, sm: 5, lg: 6 },
+            gridTemplateColumns: { xs: "1fr", md: "1.1fr 0.9fr", lg: "1.15fr 0.85fr" },
+            gap: { xs: 3.5, sm: 4.5, md: 5, lg: 6 },
             alignItems: "center",
           }}
         >
           {/* Left Column: Heading, Subtitle, Description & Action Buttons */}
-          <Box sx={{ maxWidth: { lg: 560 } }}>
+          <Box sx={{ maxWidth: { md: 540, lg: 580 } }}>
             {/* Golden Eyebrow */}
             <Typography
               component="span"

@@ -101,11 +101,12 @@ export default function LeadershipSection() {
         <Box
           sx={{
             display: "grid",
-            gap: { xs: 2.2, sm: 2.2, lg: 2.5 },
+            gap: { xs: 1.8, sm: 2, md: 2.2, lg: 2.5 },
             gridTemplateColumns: {
-              xs: "repeat(2, 1fr)",
-              sm: "repeat(3, 1fr)",
-              md: "repeat(5, 1fr)",
+              xs: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(5, 1fr)",
             },
           }}
         >
