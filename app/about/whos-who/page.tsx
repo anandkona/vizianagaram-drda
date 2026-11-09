@@ -983,45 +983,114 @@ export default function WhosWhoPage() {
       </Box>
 
       {/* 4. CONTACT DIRECTORY CTA CALLOUT */}
-      <Box sx={{ py: { xs: 2.5, sm: 3, md: 3.5 } }}>
+      <Box sx={{ py: { xs: 3, sm: 3.5, md: 4 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
           <Box
             sx={{
+              position: "relative",
+              borderRadius: { xs: "18px", sm: "24px" },
+              overflow: "hidden",
               bgcolor: "#FFFFFF",
-              borderRadius: { xs: "20px", sm: "24px" },
-              p: { xs: 3, sm: 4 },
-              textAlign: "center",
               border: "1px solid #E2E8F0",
-              boxShadow: "0 4px 18px rgba(0,0,0,0.03)",
-              maxWidth: 820,
+              boxShadow: "0 6px 24px -4px rgba(8, 43, 80, 0.06)",
+              maxWidth: 960,
               mx: "auto",
+              p: { xs: 2.5, sm: 3, md: 3.5 },
+              transition: "all 0.25s ease",
+              "&:hover": {
+                borderColor: "#F5B800",
+                boxShadow: "0 12px 32px -6px rgba(8, 43, 80, 0.1)",
+              },
             }}
           >
-            <Typography sx={{ fontWeight: 900, color: "#082B50", fontSize: { xs: "1.15rem", sm: "1.35rem" }, mb: 1 }}>
-              Need complete contact information for all mandals and departments?
-            </Typography>
-            <Typography sx={{ color: "#64748B", fontSize: { xs: "0.82rem", sm: "0.88rem" }, lineHeight: 1.6, mb: 2.5, maxWidth: 620, mx: "auto" }}>
-              For the complete contact directory of all nodal officers, MPDOs, and department heads across all 27 mandals, visit our Contact Directory.
-            </Typography>
-            <Button
-              component={Link}
-              href="/directory"
-              endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: 16, color: "#FFFFFF !important" }} />}
-              sx={{
-                bgcolor: "#082B50",
-                color: "#FFFFFF !important",
-                borderRadius: "100px",
-                px: 3.5,
-                py: 1,
-                fontSize: "0.85rem",
-                fontWeight: 800,
-                textTransform: "none",
-                boxShadow: "0 6px 18px rgba(8, 43, 80, 0.25)",
-                "&:hover": { bgcolor: "#051A30", color: "#FFFFFF !important" },
-              }}
-            >
-              View Full Directory
-            </Button>
+            <Grid container spacing={{ xs: 2, md: 3 }} alignItems="center">
+              {/* Left Column: Icon + Text Content */}
+              <Grid size={{ xs: 12, md: 8 }}>
+                <Stack direction="row" spacing={2} alignItems="center">
+                  <Box
+                    sx={{
+                      width: 52,
+                      height: 52,
+                      borderRadius: "14px",
+                      bgcolor: "#FFFBEB",
+                      border: "1.5px solid #FDE68A",
+                      color: "#D97706",
+                      display: { xs: "none", sm: "flex" },
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <AccountBalanceRoundedIcon sx={{ fontSize: 26 }} />
+                  </Box>
+                  <Box>
+                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 0.6 }}>
+                      <Chip
+                        label="27 Revenue Mandals"
+                        size="small"
+                        sx={{
+                          bgcolor: "#FEF3C7",
+                          color: "#92400E",
+                          fontWeight: 800,
+                          fontSize: "0.66rem",
+                          height: 20,
+                          borderRadius: "4px",
+                        }}
+                      />
+                      <Typography sx={{ color: "#64748B", fontSize: "0.72rem", fontWeight: 700 }}>
+                        Official Administrative Directory
+                      </Typography>
+                    </Stack>
+                    <Typography
+                      component="h3"
+                      sx={{
+                        fontWeight: 900,
+                        color: "#082B50",
+                        fontSize: { xs: "1.08rem", sm: "1.25rem" },
+                        lineHeight: 1.25,
+                        mb: 0.5,
+                      }}
+                    >
+                      Need complete contact information for all mandals and departments?
+                    </Typography>
+                    <Typography sx={{ color: "#64748B", fontSize: { xs: "0.78rem", sm: "0.84rem" }, lineHeight: 1.5 }}>
+                      Access direct coordinates for all nodal officers, MPDOs, and department heads across Vizianagaram District.
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Grid>
+
+              {/* Right Column: High-Impact Action Button */}
+              <Grid size={{ xs: 12, md: 4 }}>
+                <Stack direction={{ xs: "column", sm: "row", md: "column" }} spacing={1} justifyContent="center" alignItems={{ xs: "stretch", md: "flex-end" }}>
+                  <Button
+                    component={Link}
+                    href="/directory"
+                    endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: 16, color: "#082B50 !important" }} />}
+                    sx={{
+                      bgcolor: "#F5B800",
+                      color: "#082B50 !important",
+                      borderRadius: "10px",
+                      px: 3,
+                      py: 1.2,
+                      fontSize: "0.85rem",
+                      fontWeight: 850,
+                      textTransform: "none",
+                      boxShadow: "0 4px 14px rgba(245, 184, 0, 0.35)",
+                      whiteSpace: "nowrap",
+                      transition: "all 0.2s ease",
+                      "&:hover": {
+                        bgcolor: "#E0A800",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 6px 18px rgba(245, 184, 0, 0.45)",
+                      },
+                    }}
+                  >
+                    Open Contact Directory
+                  </Button>
+                </Stack>
+              </Grid>
+            </Grid>
           </Box>
         </Container>
       </Box>
