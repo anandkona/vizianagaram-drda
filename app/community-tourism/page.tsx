@@ -31,7 +31,7 @@ const COMMUNITY_CIRCUITS = [
     title: "Thatipudi Eco-Village Circuit",
     mandal: "Gantyada Mandal",
     tag: "Eco & Lake Tourism",
-    image: "/images/pure-scenery-check.jpg",
+    image: "/images/thatipudi-reservoir-real.jpg",
     description: "Nestled along the Thatipudi Reservoir and Gosthani river basin. Village self-help federations host day trails, traditional boating, and bamboo craft workshops.",
     highlights: ["Reservoir Boating managed by DWCRA", "Gosthani River Nature Trail", "Freshwater Fishery SHG Stalls"],
     involvement: "3 SHG Federations • 42 Artisan Families",
@@ -40,7 +40,7 @@ const COMMUNITY_CIRCUITS = [
     title: "Bobbili Handloom & Heritage Village",
     mandal: "Bobbili Mandal",
     tag: "Artisan Weaving Experience",
-    image: "/images/cultural-heritage.jpg",
+    image: "/images/bobbili-veena-real.jpg",
     description: "Live experience of authentic Bobbili veena crafting and fine cotton loom weaving. Visitors interact directly with master craft families and buy genuine handlooms.",
     highlights: ["Saraswati Veena Carving Live Demo", "Traditional Pit Loom Weaving", "Artisan Producer Market"],
     involvement: "5 Weaver Societies • 120+ Artisans",
@@ -231,7 +231,7 @@ export default function CommunityTourismPage() {
                 }}
               >
                 <Image
-                  src="/images/pure-scenery-check.jpg"
+                  src="/images/thatipudi-reservoir-real.jpg"
                   alt="Thatipudi Eco-Village and Reservoir Circuit"
                   fill
                   priority
@@ -344,34 +344,35 @@ export default function CommunityTourismPage() {
             </Typography>
           </Box>
 
-          <Grid container spacing={3}>
+          <Grid container spacing={{ xs: 2, sm: 2.5 }}>
             {COMMUNITY_CIRCUITS.map((circuit) => (
-              <Grid key={circuit.title} size={{ xs: 12, md: 6 }}>
+              <Grid key={circuit.title} size={{ xs: 12, sm: 6, lg: 3 }}>
                 <Paper
                   elevation={0}
                   sx={{
-                    borderRadius: "20px",
+                    borderRadius: "16px",
                     overflow: "hidden",
                     bgcolor: "#FFFFFF",
                     border: "1px solid #E2E8F0",
-                    boxShadow: "0 4px 16px rgba(8, 43, 80, 0.04)",
+                    boxShadow: "0 2px 10px rgba(8, 43, 80, 0.04)",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     transition: "all 0.25s ease",
                     "&:hover": {
-                      transform: "translateY(-4px)",
-                      boxShadow: "0 14px 30px rgba(8, 43, 80, 0.1)",
+                      transform: "translateY(-3px)",
+                      boxShadow: "0 10px 24px rgba(8, 43, 80, 0.08)",
                       borderColor: "#CBD5E1",
                     },
                   }}
                 >
-                  {/* Photo Frame */}
-                  <Box sx={{ position: "relative", width: "100%", height: 220 }}>
+                  {/* Compact Photo Frame */}
+                  <Box sx={{ position: "relative", width: "100%", height: 160 }}>
                     <Image
                       src={circuit.image}
                       alt={circuit.title}
                       fill
+                      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                     <Chip
@@ -379,51 +380,64 @@ export default function CommunityTourismPage() {
                       size="small"
                       sx={{
                         position: "absolute",
-                        top: 12,
-                        left: 12,
+                        top: 10,
+                        left: 10,
                         bgcolor: "rgba(8, 43, 80, 0.88)",
                         color: "#FFFFFF",
                         fontWeight: 750,
-                        fontSize: "0.7rem",
+                        fontSize: "0.68rem",
+                        height: 22,
                         backdropFilter: "blur(6px)",
-                        borderRadius: "6px",
+                        borderRadius: "5px",
                       }}
                     />
                     <Chip
-                      icon={<LocationOnRoundedIcon sx={{ fontSize: "14px !important", color: "#082B50 !important" }} />}
+                      icon={<LocationOnRoundedIcon sx={{ fontSize: "13px !important", color: "#082B50 !important" }} />}
                       label={circuit.mandal}
                       size="small"
                       sx={{
                         position: "absolute",
-                        bottom: 12,
-                        left: 12,
+                        bottom: 10,
+                        left: 10,
                         bgcolor: "#F5B800",
                         color: "#082B50",
                         fontWeight: 800,
-                        fontSize: "0.7rem",
-                        borderRadius: "6px",
+                        fontSize: "0.68rem",
+                        height: 22,
+                        borderRadius: "5px",
                       }}
                     />
                   </Box>
 
                   {/* Body Content */}
-                  <Box sx={{ p: 3, display: "flex", flexDirection: "column", flex: 1 }}>
-                    <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "1.2rem", mb: 1 }}>
+                  <Box sx={{ p: 2, display: "flex", flexDirection: "column", flex: 1 }}>
+                    <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "1.02rem", mb: 0.8, lineHeight: 1.25 }}>
                       {circuit.title}
                     </Typography>
-                    <Typography sx={{ color: "#64748B", fontSize: "0.84rem", lineHeight: 1.55, mb: 2 }}>
+                    <Typography
+                      sx={{
+                        color: "#64748B",
+                        fontSize: "0.78rem",
+                        lineHeight: 1.5,
+                        mb: 1.5,
+                        display: "-webkit-box",
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
+                    >
                       {circuit.description}
                     </Typography>
 
                     {/* Highlights */}
-                    <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.78rem", textTransform: "uppercase", letterSpacing: "0.04em", mb: 1 }}>
-                      Key Activities & Highlights:
+                    <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.04em", mb: 0.8 }}>
+                      Key Highlights:
                     </Typography>
-                    <Stack spacing={0.8} sx={{ mb: 2.5 }}>
+                    <Stack spacing={0.6} sx={{ mb: 2 }}>
                       {circuit.highlights.map((h) => (
-                        <Box key={h} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <CheckCircleRoundedIcon sx={{ fontSize: 16, color: "#16A34A" }} />
-                          <Typography sx={{ fontSize: "0.82rem", color: "#334155", fontWeight: 650 }}>
+                        <Box key={h} sx={{ display: "flex", alignItems: "flex-start", gap: 0.8 }}>
+                          <CheckCircleRoundedIcon sx={{ fontSize: 14, color: "#16A34A", mt: 0.2, flexShrink: 0 }} />
+                          <Typography sx={{ fontSize: "0.76rem", color: "#334155", fontWeight: 600, lineHeight: 1.35 }}>
                             {h}
                           </Typography>
                         </Box>
@@ -434,20 +448,30 @@ export default function CommunityTourismPage() {
                     <Box
                       sx={{
                         mt: "auto",
-                        p: 1.5,
-                        borderRadius: "10px",
+                        p: 1.2,
+                        borderRadius: "8px",
                         bgcolor: "#F8FAFC",
                         border: "1px solid #E2E8F0",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
+                        gap: 1,
                       }}
                     >
-                      <Box>
-                        <Typography sx={{ fontSize: "0.7rem", color: "#64748B", fontWeight: 700, textTransform: "uppercase" }}>
-                          Community Beneficiaries
+                      <Box sx={{ minWidth: 0 }}>
+                        <Typography sx={{ fontSize: "0.64rem", color: "#64748B", fontWeight: 700, textTransform: "uppercase" }}>
+                          Beneficiaries
                         </Typography>
-                        <Typography sx={{ fontSize: "0.82rem", color: "#082B50", fontWeight: 800 }}>
+                        <Typography
+                          sx={{
+                            fontSize: "0.74rem",
+                            color: "#082B50",
+                            fontWeight: 800,
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
                           {circuit.involvement}
                         </Typography>
                       </Box>
@@ -459,10 +483,12 @@ export default function CommunityTourismPage() {
                           bgcolor: "#F5B800",
                           color: "#082B50 !important",
                           fontWeight: 800,
-                          fontSize: "0.75rem",
+                          fontSize: "0.72rem",
                           borderRadius: "6px",
                           textTransform: "none",
-                          px: 1.5,
+                          px: 1.2,
+                          py: 0.4,
+                          flexShrink: 0,
                           "&:hover": { bgcolor: "#E0A800" },
                         }}
                       >
