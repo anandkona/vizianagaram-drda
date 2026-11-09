@@ -585,14 +585,14 @@ export default function WhosWhoPage() {
                 },
               }}
             >
-              <Tab label="District Administration (4)" />
-              <Tab label="Revenue Divisional Officers (3)" />
               <Tab label="Public Representatives (7)" />
+              <Tab label="Revenue Divisional Officers (3)" />
+              <Tab label="District Administration (4)" />
             </Tabs>
           </Stack>
 
-          {/* TAB 0: DISTRICT ADMINISTRATION (MATCHING OFFICIAL PORTAL + REAL PHOTOS) */}
-          {activeTab === 0 && (
+          {/* TAB 2: DISTRICT ADMINISTRATION (MATCHING OFFICIAL PORTAL + REAL PHOTOS) */}
+          {activeTab === 2 && (
             <Grid container spacing={2}>
               {districtAdministration.map((officer, idx) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
@@ -873,8 +873,8 @@ export default function WhosWhoPage() {
             </Grid>
           )}
 
-          {/* TAB 2: PUBLIC REPRESENTATIVES (MPS & MLAS FROM OFFICIAL PORTAL) */}
-          {activeTab === 2 && (
+          {/* TAB 0: PUBLIC REPRESENTATIVES (MPS & MLAS FROM OFFICIAL PORTAL) */}
+          {activeTab === 0 && (
             <Grid container spacing={2}>
               {politicalRepresentatives.map((rep, idx) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
