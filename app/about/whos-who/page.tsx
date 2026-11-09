@@ -982,79 +982,47 @@ export default function WhosWhoPage() {
         </Container>
       </Box>
 
-      {/* 4. CONTACT DIRECTORY CTA CALLOUT */}
-      <Box sx={{ py: { xs: 4, sm: 5, md: 6 } }}>
-        <Container maxWidth="md" sx={{ px: { xs: 2, sm: 3 } }}>
-          <Box
+      {/* 4. CONTACT DIRECTORY SECTION (IDENTICAL TO DRDAMANYAM STYLE) */}
+      <Box component="section" sx={{ py: 6, bgcolor: "#F0FDF4", textAlign: "center", borderTop: "1px solid #DCFCE7", borderBottom: "1px solid #DCFCE7" }}>
+        <Container maxWidth="sm" sx={{ px: 3 }}>
+          <Typography
             sx={{
-              borderRadius: "20px",
-              bgcolor: "#F8FAFC",
-              border: "1px solid #E2E8F0",
-              boxShadow: "0 2px 12px -2px rgba(8, 43, 80, 0.04)",
-              px: { xs: 3, sm: 5 },
-              py: { xs: 3.5, sm: 4 },
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
+              color: "#475569",
+              fontSize: "0.875rem",
+              lineHeight: 1.6,
+              mb: 2.5,
+              fontWeight: 500,
+            }}
+          >
+            For the complete contact directory of all officers and departments, visit our Contact Directory page.
+          </Typography>
+          <Button
+            component={Link}
+            href="/directory"
+            endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "16px !important", color: "#FFFFFF !important" }} />}
+            sx={{
+              display: "inline-flex",
               alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.25s ease",
+              gap: 1,
+              bgcolor: "#00695C",
+              color: "#FFFFFF !important",
+              fontWeight: 600,
+              fontSize: "0.875rem",
+              px: 3.5,
+              py: 1.2,
+              borderRadius: "100px",
+              textTransform: "none",
+              boxShadow: "0 2px 8px rgba(0, 105, 92, 0.2)",
+              transition: "all 0.2s ease",
               "&:hover": {
-                borderColor: "#CBD5E1",
-                boxShadow: "0 8px 24px -4px rgba(8, 43, 80, 0.08)",
+                bgcolor: "#004D40",
+                color: "#FFFFFF !important",
+                boxShadow: "0 4px 12px rgba(0, 105, 92, 0.3)",
               },
             }}
           >
-            <Typography
-              component="h3"
-              sx={{
-                fontWeight: 800,
-                color: "#082B50",
-                fontSize: { xs: "1.05rem", sm: "1.2rem" },
-                lineHeight: 1.35,
-                mb: 1,
-              }}
-            >
-              Need complete contact information for all mandals and departments?
-            </Typography>
-
-            <Typography
-              sx={{
-                color: "#64748B",
-                fontSize: { xs: "0.82rem", sm: "0.88rem" },
-                lineHeight: 1.6,
-                maxWidth: 620,
-                mb: 3,
-              }}
-            >
-              For the complete contact directory of all nodal officers, MPDOs, and department heads across all 27 mandals, visit our Contact Directory.
-            </Typography>
-
-            <Button
-              component={Link}
-              href="/directory"
-              endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "16px !important", color: "#F5B800" }} />}
-              sx={{
-                bgcolor: "#082B50",
-                color: "#FFFFFF !important",
-                borderRadius: "100px",
-                px: 3.5,
-                py: 1.1,
-                fontSize: "0.85rem",
-                fontWeight: 700,
-                textTransform: "none",
-                boxShadow: "0 4px 14px rgba(8, 43, 80, 0.18)",
-                transition: "all 0.2s ease",
-                "&:hover": {
-                  bgcolor: "#051A30",
-                  transform: "translateY(-1px)",
-                  boxShadow: "0 6px 20px rgba(8, 43, 80, 0.25)",
-                },
-              }}
-            >
-              Visit Contact Directory
-            </Button>
-          </Box>
+            View Full Directory
+          </Button>
         </Container>
       </Box>
 
