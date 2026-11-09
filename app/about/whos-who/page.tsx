@@ -982,47 +982,110 @@ export default function WhosWhoPage() {
         </Container>
       </Box>
 
-      {/* 4. CONTACT DIRECTORY SECTION (IDENTICAL TO DRDAMANYAM STYLE) */}
-      <Box component="section" sx={{ py: 6, bgcolor: "#F0FDF4", textAlign: "center", borderTop: "1px solid #DCFCE7", borderBottom: "1px solid #DCFCE7" }}>
-        <Container maxWidth="sm" sx={{ px: 3 }}>
-          <Typography
+      {/* 4. CONTACT DIRECTORY CALLOUT (PREMIUM COMPACT NAVY BANNER) */}
+      <Box sx={{ py: { xs: 4, sm: 5, md: 6 } }}>
+        <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+          <Box
             sx={{
-              color: "#475569",
-              fontSize: "0.875rem",
-              lineHeight: 1.6,
-              mb: 2.5,
-              fontWeight: 500,
+              position: "relative",
+              overflow: "hidden",
+              borderRadius: { xs: "20px", sm: "24px" },
+              background: "linear-gradient(135deg, #061F3B 0%, #082B50 50%, #0D3E72 100%)",
+              border: "1px solid rgba(255, 255, 255, 0.12)",
+              boxShadow: "0 12px 32px -4px rgba(8, 43, 80, 0.22)",
+              p: { xs: 3, sm: 4, md: 4.5 },
             }}
           >
-            For the complete contact directory of all officers and departments, visit our Contact Directory page.
-          </Typography>
-          <Button
-            component={Link}
-            href="/directory"
-            endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "16px !important", color: "#FFFFFF !important" }} />}
-            sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 1,
-              bgcolor: "#00695C",
-              color: "#FFFFFF !important",
-              fontWeight: 600,
-              fontSize: "0.875rem",
-              px: 3.5,
-              py: 1.2,
-              borderRadius: "100px",
-              textTransform: "none",
-              boxShadow: "0 2px 8px rgba(0, 105, 92, 0.2)",
-              transition: "all 0.2s ease",
-              "&:hover": {
-                bgcolor: "#004D40",
-                color: "#FFFFFF !important",
-                boxShadow: "0 4px 12px rgba(0, 105, 92, 0.3)",
-              },
-            }}
-          >
-            View Full Directory
-          </Button>
+            {/* Subtle decorative background glow */}
+            <Box
+              sx={{
+                position: "absolute",
+                top: -60,
+                right: -60,
+                width: 220,
+                height: 220,
+                borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(245, 184, 0, 0.18) 0%, rgba(245, 184, 0, 0) 70%)",
+                pointerEvents: "none",
+              }}
+            />
+
+            <Grid container spacing={{ xs: 2.5, md: 4 }} alignItems="center">
+              <Grid size={{ xs: 12, md: 8 }}>
+                <Stack spacing={1}>
+                  <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}>
+                    <Box
+                      sx={{
+                        px: 1.5,
+                        py: 0.35,
+                        borderRadius: "100px",
+                        bgcolor: "rgba(245, 184, 0, 0.15)",
+                        border: "1px solid rgba(245, 184, 0, 0.35)",
+                        color: "#F5B800",
+                        fontSize: "0.72rem",
+                        fontWeight: 800,
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      All 27 Mandals • Official Directory
+                    </Box>
+                  </Box>
+
+                  <Typography
+                    component="h3"
+                    sx={{
+                      fontWeight: 850,
+                      color: "#FFFFFF",
+                      fontSize: { xs: "1.18rem", sm: "1.4rem", md: "1.55rem" },
+                      lineHeight: 1.25,
+                    }}
+                  >
+                    Need complete contact details for all mandals and departments?
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      color: "rgba(255, 255, 255, 0.78)",
+                      fontSize: { xs: "0.85rem", sm: "0.92rem" },
+                      lineHeight: 1.55,
+                      maxWidth: 640,
+                    }}
+                  >
+                    Access direct official phone numbers, email addresses, and office locations for MPDOs, nodal officers, and DRDA staff across Vizianagaram.
+                  </Typography>
+                </Stack>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", justifyContent: { xs: "flex-start", md: "flex-end" } }}>
+                <Button
+                  component={Link}
+                  href="/directory"
+                  endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: "17px !important", color: "#082B50 !important" }} />}
+                  sx={{
+                    bgcolor: "#F5B800",
+                    color: "#082B50 !important",
+                    fontWeight: 850,
+                    fontSize: "0.9rem",
+                    px: { xs: 3, sm: 3.8 },
+                    py: 1.4,
+                    borderRadius: "12px",
+                    textTransform: "none",
+                    whiteSpace: "nowrap",
+                    boxShadow: "0 6px 20px rgba(245, 184, 0, 0.35)",
+                    transition: "all 0.25s ease",
+                    "&:hover": {
+                      bgcolor: "#FFAE00",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 10px 26px rgba(245, 184, 0, 0.45)",
+                    },
+                  }}
+                >
+                  Explore Directory
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
         </Container>
       </Box>
 
