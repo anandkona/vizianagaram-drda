@@ -135,7 +135,7 @@ export default function Footer() {
                 alignItems: "center",
                 gap: 1,
                 backgroundColor: "#FFC107",
-                color: "#082B50",
+                color: "#082B50 !important",
                 fontWeight: 850,
                 fontSize: "0.78rem",
                 px: 2,
@@ -145,17 +145,31 @@ export default function Footer() {
                 boxShadow: "0 4px 12px rgba(255, 193, 7, 0.25)",
                 transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
                 "&:hover": {
-                  backgroundColor: "#FFE082",
+                  backgroundColor: "#FFFFFF",
+                  color: "#082B50 !important",
                   transform: "translateY(-2px) scale(1.02)",
-                  boxShadow: "0 8px 18px rgba(255, 193, 7, 0.4)",
+                  boxShadow: "0 8px 20px rgba(255, 193, 7, 0.45)",
+                  "& .MuiSvgIcon-root": {
+                    color: "#D97706",
+                  },
                 },
                 "&:active": {
                   transform: "translateY(0) scale(0.99)",
                 },
               }}
             >
-              <CallRoundedIcon sx={{ fontSize: 16 }} />
-              TOLL-FREE : {siteConfig.ivrs}
+              <CallRoundedIcon sx={{ fontSize: 16, color: "inherit", transition: "color 0.2s ease" }} />
+              <Typography
+                component="span"
+                sx={{
+                  color: "inherit",
+                  fontWeight: 850,
+                  fontSize: "0.78rem",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                TOLL-FREE : {siteConfig.ivrs}
+              </Typography>
             </Box>
           </Grid>
 
