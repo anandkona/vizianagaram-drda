@@ -686,165 +686,227 @@ export default function CitizenServicesPage() {
         </Container>
       </Box>
 
-      {/* 5. REDESIGNED HELPLINE CTA BANNER */}
-      <Box sx={{ py: { xs: 4, md: 5 }, position: "relative", overflow: "hidden" }}>
-        <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
-          <Box
+      {/* 5. REDESIGNED HELPLINE CTA BANNER - EDITORIAL SPLIT SHOWCASE */}
+      <Box sx={{ py: { xs: 4, sm: 5, md: 6 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+          <Paper
+            elevation={0}
             sx={{
               position: "relative",
-              borderRadius: { xs: "20px", md: "28px" },
+              borderRadius: { xs: "22px", md: "30px" },
               overflow: "hidden",
-              bgcolor: "#082B50",
-              border: "1px solid rgba(245, 184, 0, 0.25)",
-              boxShadow: "0 20px 48px -10px rgba(8, 43, 80, 0.28)",
-              p: { xs: 3.5, sm: 4.5, md: 5 },
+              bgcolor: "#FFFFFF",
+              border: "1.5px solid #E2E8F0",
+              boxShadow: "0 10px 30px rgba(8, 43, 80, 0.06)",
             }}
           >
-            {/* Background Ambience & Motifs */}
-            <Box
-              sx={{
-                position: "absolute",
-                top: -80,
-                right: -80,
-                width: 320,
-                height: 320,
-                borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(245, 184, 0, 0.18) 0%, rgba(245, 184, 0, 0) 70%)",
-                pointerEvents: "none",
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                right: 20,
-                bottom: 0,
-                width: { xs: 160, sm: 220, md: 280 },
-                height: { xs: 130, sm: 180, md: 230 },
-                backgroundImage: "url('/images/temple-scripture-clean.png')",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "bottom right",
-                opacity: 0.12,
-                pointerEvents: "none",
-              }}
-            />
-
-            <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center" sx={{ position: "relative", zIndex: 1 }}>
-              <Grid size={{ xs: 12, md: 7.5 }}>
-                <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1.2 }}>
+            <Grid container alignItems="stretch">
+              {/* Left Column: Authentic Photography & Visual Identity */}
+              <Grid size={{ xs: 12, md: 4.5 }}>
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: "100%",
+                    height: { xs: 220, md: "100%" },
+                    minHeight: { md: 280 },
+                    bgcolor: "#082B50",
+                  }}
+                >
+                  <Image
+                    src="/images/vzm-collectorate-gathering-official.jpg"
+                    alt="Citizen Assistance and Support Center Vizianagaram"
+                    fill
+                    sizes="(max-width: 900px) 100vw, 40vw"
+                    style={{ objectFit: "cover" }}
+                  />
                   <Box
                     sx={{
-                      width: 8,
-                      height: 8,
-                      borderRadius: "50%",
-                      bgcolor: "#F5B800",
-                      boxShadow: "0 0 10px #F5B800",
+                      position: "absolute",
+                      inset: 0,
+                      background: "linear-gradient(135deg, rgba(8, 43, 80, 0.85) 0%, rgba(8, 43, 80, 0.4) 100%)",
                     }}
                   />
+
+                  {/* Left Overlaid Badge */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 20,
+                      left: 20,
+                      bgcolor: "rgba(245, 184, 0, 0.95)",
+                      color: "#082B50",
+                      px: 1.5,
+                      py: 0.6,
+                      borderRadius: "8px",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 0.8,
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                    }}
+                  >
+                    <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#082B50" }} />
+                    <Typography sx={{ fontWeight: 850, fontSize: "0.72rem", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                      Toll-Free Helpline
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ position: "absolute", bottom: 20, left: 20, right: 20, color: "#FFFFFF" }}>
+                    <Typography sx={{ fontWeight: 850, fontSize: "1.05rem", lineHeight: 1.25 }}>
+                      District Citizen Support Center
+                    </Typography>
+                    <Typography sx={{ color: "rgba(255, 255, 255, 0.8)", fontSize: "0.75rem", mt: 0.4 }}>
+                      Operating in Telugu & English Across All 27 Mandals
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+
+              {/* Right Column: Clean Editorial Content & Direct Interactive Channels */}
+              <Grid size={{ xs: 12, md: 7.5 }}>
+                <Box sx={{ p: { xs: 3, sm: 4, md: 4.5 }, display: "flex", flexDirection: "column", height: "100%", justifyContent: "center" }}>
+                  <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                    <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#16A34A" }} />
+                    <Typography sx={{ color: "#16A34A", fontWeight: 800, fontSize: "0.74rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                      24/7 CITIZEN ASSISTANCE HELPLINE
+                    </Typography>
+                  </Stack>
+
+                  <Typography
+                    component="h2"
+                    sx={{
+                      color: "#082B50",
+                      fontWeight: 900,
+                      fontSize: { xs: "1.45rem", sm: "1.85rem", md: "2.1rem" },
+                      lineHeight: 1.2,
+                      letterSpacing: "-0.025em",
+                      mb: 1.2,
+                    }}
+                  >
+                    Prefer to Speak to Our Support Team?
+                  </Typography>
+
                   <Typography
                     sx={{
-                      color: "#F5B800",
-                      fontWeight: 800,
-                      fontSize: { xs: "0.74rem", sm: "0.8rem" },
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
+                      color: "#64748B",
+                      fontSize: { xs: "0.86rem", sm: "0.92rem" },
+                      lineHeight: 1.6,
+                      mb: 3,
+                      maxWidth: 620,
                     }}
                   >
-                    24/7 CITIZEN ASSISTANCE HELPLINE
+                    Reach our citizen helplines any time in Telugu or English. Support officers will assist with welfare schemes, applications, grievances, and department guidance across Vizianagaram.
                   </Typography>
-                </Stack>
 
-                <Typography
-                  component="h2"
-                  sx={{
-                    color: "#FFFFFF",
-                    fontWeight: 900,
-                    fontSize: { xs: "1.6rem", sm: "2rem", md: "2.3rem" },
-                    lineHeight: 1.2,
-                    letterSpacing: "-0.025em",
-                    mb: 1.5,
-                  }}
-                >
-                  Prefer to Speak to Our Support Team?
-                </Typography>
+                  {/* Two Interactive Helpline Channels */}
+                  <Grid container spacing={2}>
+                    {/* Channel 1: IVRS 1902 */}
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Box
+                        component="a"
+                        href="tel:1902"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          p: 2,
+                          borderRadius: "14px",
+                          bgcolor: "#FFFBEB",
+                          border: "1.5px solid #FDE68A",
+                          textDecoration: "none",
+                          transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                          "&:hover": {
+                            bgcolor: "#FEF3C7",
+                            borderColor: "#F5B800",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 8px 18px rgba(245, 184, 0, 0.2)",
+                          },
+                        }}
+                      >
+                        <Stack direction="row" spacing={1.5} alignItems="center">
+                          <Box
+                            sx={{
+                              width: 40,
+                              height: 40,
+                              borderRadius: "10px",
+                              bgcolor: "#F5B800",
+                              color: "#082B50",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              flexShrink: 0,
+                            }}
+                          >
+                            <PhoneRoundedIcon sx={{ fontSize: 20 }} />
+                          </Box>
+                          <Box>
+                            <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "0.95rem", lineHeight: 1.2 }}>
+                              IVRS: 1902
+                            </Typography>
+                            <Typography sx={{ color: "#92400E", fontSize: "0.72rem", fontWeight: 700 }}>
+                              Toll-Free Voice Helpline
+                            </Typography>
+                          </Box>
+                        </Stack>
+                        <ArrowForwardRoundedIcon sx={{ color: "#B45309", fontSize: 18 }} />
+                      </Box>
+                    </Grid>
 
-                <Typography
-                  sx={{
-                    color: "#E2E8F0",
-                    fontSize: { xs: "0.86rem", sm: "0.92rem" },
-                    lineHeight: 1.6,
-                    maxWidth: 580,
-                    fontWeight: 450,
-                  }}
-                >
-                  Reach our citizen helplines any time in Telugu or English. Support officers will assist with welfare schemes, applications, grievances, and department guidance across Vizianagaram.
-                </Typography>
-              </Grid>
-
-              <Grid size={{ xs: 12, md: 4.5 }}>
-                <Stack spacing={1.5} sx={{ width: "100%" }}>
-                  <Button
-                    component="a"
-                    href="tel:1902"
-                    variant="contained"
-                    startIcon={<PhoneRoundedIcon sx={{ color: "#082B50", fontSize: 18 }} />}
-                    endIcon={<ArrowForwardRoundedIcon sx={{ color: "#082B50", fontSize: 18 }} />}
-                    sx={{
-                      bgcolor: "#F5B800",
-                      color: "#082B50 !important",
-                      fontWeight: 850,
-                      fontSize: "0.9rem",
-                      py: 1.4,
-                      px: 2.5,
-                      borderRadius: "12px",
-                      textTransform: "none",
-                      boxShadow: "0 6px 18px rgba(245, 184, 0, 0.35)",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      transition: "all 0.25s ease",
-                      "&:hover": {
-                        bgcolor: "#FFFFFF",
-                        transform: "translateY(-2px)",
-                        boxShadow: "0 10px 24px rgba(245, 184, 0, 0.45)",
-                      },
-                    }}
-                  >
-                    IVRS: 1902 (Toll-Free)
-                  </Button>
-
-                  <Button
-                    component="a"
-                    href="tel:08922276606"
-                    variant="outlined"
-                    startIcon={<PhoneRoundedIcon sx={{ color: "rgba(255,255,255,0.85)", fontSize: 18 }} />}
-                    endIcon={<ArrowForwardRoundedIcon sx={{ color: "rgba(255,255,255,0.7)", fontSize: 18 }} />}
-                    sx={{
-                      bgcolor: "rgba(255, 255, 255, 0.06)",
-                      borderColor: "rgba(255, 255, 255, 0.22)",
-                      color: "#FFFFFF !important",
-                      fontWeight: 750,
-                      fontSize: "0.85rem",
-                      py: 1.3,
-                      px: 2.2,
-                      borderRadius: "12px",
-                      textTransform: "none",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      backdropFilter: "blur(6px)",
-                      transition: "all 0.25s ease",
-                      "&:hover": {
-                        bgcolor: "rgba(255, 255, 255, 0.12)",
-                        borderColor: "#FFFFFF",
-                        transform: "translateY(-2px)",
-                      },
-                    }}
-                  >
-                    DRDA Office: 08922-276606
-                  </Button>
-                </Stack>
+                    {/* Channel 2: DRDA Office Direct Line */}
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Box
+                        component="a"
+                        href="tel:08922276606"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          p: 2,
+                          borderRadius: "14px",
+                          bgcolor: "#F8FAFC",
+                          border: "1.5px solid #E2E8F0",
+                          textDecoration: "none",
+                          transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                          "&:hover": {
+                            bgcolor: "#FFFFFF",
+                            borderColor: "#082B50",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 8px 18px rgba(8, 43, 80, 0.1)",
+                          },
+                        }}
+                      >
+                        <Stack direction="row" spacing={1.5} alignItems="center">
+                          <Box
+                            sx={{
+                              width: 40,
+                              height: 40,
+                              borderRadius: "10px",
+                              bgcolor: "#082B50",
+                              color: "#FFFFFF",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              flexShrink: 0,
+                            }}
+                          >
+                            <PhoneRoundedIcon sx={{ fontSize: 20 }} />
+                          </Box>
+                          <Box>
+                            <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "0.95rem", lineHeight: 1.2 }}>
+                              08922-276606
+                            </Typography>
+                            <Typography sx={{ color: "#64748B", fontSize: "0.72rem", fontWeight: 700 }}>
+                              DRDA Project Director Office
+                            </Typography>
+                          </Box>
+                        </Stack>
+                        <ArrowForwardRoundedIcon sx={{ color: "#082B50", fontSize: 18 }} />
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </Box>
               </Grid>
             </Grid>
-          </Box>
+          </Paper>
         </Container>
       </Box>
     </Box>
