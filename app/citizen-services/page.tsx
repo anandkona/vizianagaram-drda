@@ -514,7 +514,7 @@ export default function CitizenServicesPage() {
         </Container>
       </Box>
 
-      {/* 4. BALANCED CITIZEN SERVICES GRID - COMPACT SIZE */}
+      {/* 4. BALANCED CITIZEN SERVICES GRID - STREAMLINED & COMPACT */}
       <Box sx={{ pb: { xs: 3.5, sm: 4.5, md: 5 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={{ xs: 1.5, sm: 2, lg: 2.2 }}>
@@ -543,8 +543,8 @@ export default function CitizenServicesPage() {
                       },
                     }}
                   >
-                    {/* Compact Photo Header */}
-                    <Box sx={{ position: "relative", width: "100%", height: 125, overflow: "hidden" }}>
+                    {/* Compact Header: Integrated Banner */}
+                    <Box sx={{ position: "relative", width: "100%", height: 100, overflow: "hidden" }}>
                       <Image
                         src={service.img}
                         alt={service.title}
@@ -557,7 +557,7 @@ export default function CitizenServicesPage() {
                         sx={{
                           position: "absolute",
                           inset: 0,
-                          background: "linear-gradient(to top, rgba(8, 43, 80, 0.45) 0%, rgba(0,0,0,0) 65%)",
+                          background: "linear-gradient(to top, rgba(8, 43, 80, 0.5) 0%, rgba(0,0,0,0) 70%)",
                         }}
                       />
                       {/* Floating Badge */}
@@ -581,12 +581,12 @@ export default function CitizenServicesPage() {
                     </Box>
 
                     {/* Card Body */}
-                    <Box sx={{ p: 1.75, display: "flex", flexDirection: "column", flex: 1 }}>
+                    <Box sx={{ p: 1.5, display: "flex", flexDirection: "column", flex: 1 }}>
                       <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 0.5 }}>
                         <Box
                           sx={{
-                            width: 26,
-                            height: 26,
+                            width: 24,
+                            height: 24,
                             borderRadius: "6px",
                             bgcolor: "#F8FAFC",
                             border: "1px solid #E2E8F0",
@@ -597,13 +597,13 @@ export default function CitizenServicesPage() {
                             flexShrink: 0,
                           }}
                         >
-                          <IconComp sx={{ fontSize: 15 }} />
+                          <IconComp sx={{ fontSize: 14 }} />
                         </Box>
                         <Box sx={{ minWidth: 0 }}>
-                          <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "0.94rem", lineHeight: 1.2 }}>
+                          <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "0.92rem", lineHeight: 1.2 }}>
                             {service.title}
                           </Typography>
-                          <Typography sx={{ color: "#B45309", fontSize: "0.65rem", fontWeight: 700, fontFamily: "var(--font-telugu), 'Gautami', 'Inter', sans-serif" }}>
+                          <Typography sx={{ color: "#B45309", fontSize: "0.64rem", fontWeight: 700, fontFamily: "var(--font-telugu), 'Gautami', 'Inter', sans-serif" }}>
                             {service.telugu}
                           </Typography>
                         </Box>
@@ -612,10 +612,10 @@ export default function CitizenServicesPage() {
                       <Typography
                         sx={{
                           color: "#64748B",
-                          fontSize: "0.74rem",
-                          lineHeight: 1.45,
-                          mt: 0.5,
-                          mb: 1.2,
+                          fontSize: "0.72rem",
+                          lineHeight: 1.4,
+                          mt: 0.3,
+                          mb: 1,
                           display: "-webkit-box",
                           WebkitLineClamp: 2,
                           WebkitBoxOrient: "vertical",
@@ -625,22 +625,7 @@ export default function CitizenServicesPage() {
                         {service.desc}
                       </Typography>
 
-                      {/* Highlights */}
-                      <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.66rem", textTransform: "uppercase", letterSpacing: "0.04em", mb: 0.5 }}>
-                        Key Highlights:
-                      </Typography>
-                      <Stack spacing={0.4} sx={{ mb: 1.5 }}>
-                        {service.highlights.map((h, i) => (
-                          <Box key={i} sx={{ display: "flex", alignItems: "flex-start", gap: 0.6 }}>
-                            <CheckCircleRoundedIcon sx={{ fontSize: 12, color: "#16A34A", mt: 0.2, flexShrink: 0 }} />
-                            <Typography sx={{ fontSize: "0.71rem", color: "#334155", fontWeight: 600, lineHeight: 1.3 }}>
-                              {h}
-                            </Typography>
-                          </Box>
-                        ))}
-                      </Stack>
-
-                      {/* Bottom Action Footer */}
+                      {/* Compact Bottom Footer */}
                       <Box
                         sx={{
                           mt: "auto",
@@ -661,7 +646,7 @@ export default function CitizenServicesPage() {
                             bgcolor: "#F5B800",
                             color: "#082B50 !important",
                             fontWeight: 800,
-                            fontSize: "0.7rem",
+                            fontSize: "0.68rem",
                             borderRadius: "5px",
                             textTransform: "none",
                             px: 1.4,
