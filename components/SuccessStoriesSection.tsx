@@ -7,6 +7,11 @@ import { featuredSuccessStories } from "@/src/data/home";
 import { assetPath } from "@/src/lib/assetPath";
 
 const storyImages: Record<string, string> = {
+  "santhi-millet": "/images/enterprise-millets.jpg",
+  "sai-farmer-group": "/images/farmer-support-real.jpg",
+  "naveen-skills": "/images/service-learning.jpg",
+  "ravi-tailoring": "/images/women-entrepreneurship-real.jpg",
+  "village-kitchen": "/images/drda-women-shg-outdoor.jpg",
   "lakshmi-shg": "/images/drda-women-shg-outdoor.jpg",
   "ramana-fpo": "/images/farmer-support-real.jpg",
   "suresh-skill": "/images/service-learning.jpg",

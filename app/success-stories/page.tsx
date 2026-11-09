@@ -26,6 +26,15 @@ import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
 import StorefrontRoundedIcon from "@mui/icons-material/StorefrontRounded";
 import { successStories, SuccessStory } from "@/src/data/district";
 
+const STORY_PHOTO_MAP: Record<string, string> = {
+  "santhi-millet": "/images/enterprise-millets.jpg",
+  "sai-farmer-group": "/images/farmer-support-real.jpg",
+  "naveen-skills": "/images/service-learning.jpg",
+  "ravi-tailoring": "/images/women-entrepreneurship-real.jpg",
+  "village-kitchen": "/images/drda-women-shg-outdoor.jpg",
+  "kavitha-cashew": "/images/enterprise-cashew.jpg",
+};
+
 const STORY_METRICS = [
   { val: "32,840", label: "Empowered SHGs", sub: "District Collectives", color: "#082B50" },
   { val: "4,030+", label: "Micro-Enterprises", sub: "Established & Thriving", color: "#D97706" },
@@ -350,45 +359,62 @@ export default function SuccessStoriesPage() {
                     },
                   }}
                 >
-                  {/* Top Colored Accent Stripe */}
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: "3.5px",
-                      bgcolor: "#D97706",
-                    }}
-                  />
+                  {/* Top Photo Frame */}
+                  <Box sx={{ position: "relative", width: "100%", height: 140, bgcolor: "#E2E8F0" }}>
+                    <Image
+                      src={STORY_PHOTO_MAP[story.id] || "/images/drda-women-shg.jpg"}
+                      alt={story.person}
+                      fill
+                      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{ objectFit: "cover" }}
+                    />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "linear-gradient(to top, rgba(8, 43, 80, 0.4) 0%, rgba(0,0,0,0) 60%)",
+                      }}
+                    />
+                    <Chip
+                      label={story.category}
+                      size="small"
+                      sx={{
+                        position: "absolute",
+                        top: 10,
+                        left: 10,
+                        bgcolor: "rgba(255, 255, 255, 0.95)",
+                        color: "#92400E",
+                        fontWeight: 800,
+                        fontSize: "0.64rem",
+                        height: 22,
+                        backdropFilter: "blur(4px)",
+                      }}
+                    />
+                    <Typography
+                      sx={{
+                        position: "absolute",
+                        bottom: 8,
+                        right: 10,
+                        color: "#FFFFFF",
+                        fontSize: "0.68rem",
+                        fontWeight: 750,
+                        textShadow: "0 1px 4px rgba(0,0,0,0.8)",
+                      }}
+                    >
+                      {story.location}
+                    </Typography>
+                  </Box>
 
-                  <Box sx={{ pt: 0.5 }}>
-                    <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1.2 }}>
-                      <Chip
-                        label={story.category}
-                        size="small"
-                        sx={{
-                          bgcolor: "#FEF3C7",
-                          color: "#92400E",
-                          fontWeight: 800,
-                          fontSize: "0.62rem",
-                          height: 20,
-                        }}
-                      />
-                      <Typography sx={{ color: "#64748B", fontSize: "0.7rem", fontWeight: 700 }}>
-                        {story.location}
-                      </Typography>
-                    </Stack>
-
-                    <Stack direction="row" spacing={1.25} alignItems="center" sx={{ mb: 1 }}>
+                  <Box sx={{ p: 2, pt: 1.5, display: "flex", flexDirection: "column", flex: 1 }}>
+                    <Stack direction="row" spacing={1.2} alignItems="center" sx={{ mb: 1 }}>
                       <Avatar
                         sx={{
-                          width: 38,
-                          height: 38,
+                          width: 34,
+                          height: 34,
                           bgcolor: "#082B50",
                           color: "#F5B800",
                           fontWeight: 850,
-                          fontSize: "0.9rem",
+                          fontSize: "0.85rem",
                           borderRadius: "8px",
                         }}
                       >
