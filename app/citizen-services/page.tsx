@@ -514,10 +514,10 @@ export default function CitizenServicesPage() {
         </Container>
       </Box>
 
-      {/* 4. BALANCED CITIZEN SERVICES GRID */}
-      <Box sx={{ pb: { xs: 4, sm: 5, md: 6 } }}>
+      {/* 4. BALANCED CITIZEN SERVICES GRID - COMPACT SIZE */}
+      <Box sx={{ pb: { xs: 3.5, sm: 4.5, md: 5 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
-          <Grid container spacing={{ xs: 2, sm: 2.5 }}>
+          <Grid container spacing={{ xs: 1.5, sm: 2, lg: 2.2 }}>
             {filteredServices.map((service) => {
               const IconComp = service.icon;
               return (
@@ -525,39 +525,39 @@ export default function CitizenServicesPage() {
                   <Paper
                     elevation={0}
                     sx={{
-                      borderRadius: "16px",
+                      borderRadius: "14px",
                       overflow: "hidden",
                       bgcolor: "#FFFFFF",
                       border: "1px solid #E2E8F0",
-                      boxShadow: "0 2px 10px rgba(8, 43, 80, 0.04)",
+                      boxShadow: "0 2px 8px rgba(8, 43, 80, 0.03)",
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                      transition: "all 0.22s cubic-bezier(0.4, 0, 0.2, 1)",
                       "&:hover": {
-                        transform: "translateY(-4px)",
-                        boxShadow: "0 12px 28px rgba(8, 43, 80, 0.1)",
+                        transform: "translateY(-3px)",
+                        boxShadow: "0 8px 20px rgba(8, 43, 80, 0.08)",
                         borderColor: "#F5B800",
-                        "& .service-img": { transform: "scale(1.05)" },
+                        "& .service-img": { transform: "scale(1.04)" },
                         "& .service-btn": { bgcolor: "#E0A800" },
                       },
                     }}
                   >
-                    {/* Photo Header */}
-                    <Box sx={{ position: "relative", width: "100%", height: 160, overflow: "hidden" }}>
+                    {/* Compact Photo Header */}
+                    <Box sx={{ position: "relative", width: "100%", height: 125, overflow: "hidden" }}>
                       <Image
                         src={service.img}
                         alt={service.title}
                         fill
                         className="service-img"
                         sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
+                        style={{ objectFit: "cover", transition: "transform 0.35s ease" }}
                       />
                       <Box
                         sx={{
                           position: "absolute",
                           inset: 0,
-                          background: "linear-gradient(to top, rgba(8, 43, 80, 0.5) 0%, rgba(0,0,0,0) 60%)",
+                          background: "linear-gradient(to top, rgba(8, 43, 80, 0.45) 0%, rgba(0,0,0,0) 65%)",
                         }}
                       />
                       {/* Floating Badge */}
@@ -566,27 +566,27 @@ export default function CitizenServicesPage() {
                         size="small"
                         sx={{
                           position: "absolute",
-                          top: 10,
-                          right: 10,
+                          top: 8,
+                          right: 8,
                           bgcolor: service.badgeBg,
                           color: service.badgeColor,
                           fontWeight: 800,
-                          fontSize: "0.68rem",
-                          border: "1px solid rgba(226, 232, 240, 0.8)",
+                          fontSize: "0.64rem",
+                          border: "1px solid rgba(226, 232, 240, 0.85)",
                           backdropFilter: "blur(4px)",
-                          height: 22,
-                          borderRadius: "5px",
+                          height: 20,
+                          borderRadius: "4px",
                         }}
                       />
                     </Box>
 
                     {/* Card Body */}
-                    <Box sx={{ p: 2, display: "flex", flexDirection: "column", flex: 1 }}>
-                      <Stack direction="row" spacing={1.2} alignItems="center" sx={{ mb: 0.5 }}>
+                    <Box sx={{ p: 1.75, display: "flex", flexDirection: "column", flex: 1 }}>
+                      <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 0.5 }}>
                         <Box
                           sx={{
-                            width: 28,
-                            height: 28,
+                            width: 26,
+                            height: 26,
                             borderRadius: "6px",
                             bgcolor: "#F8FAFC",
                             border: "1px solid #E2E8F0",
@@ -597,13 +597,13 @@ export default function CitizenServicesPage() {
                             flexShrink: 0,
                           }}
                         >
-                          <IconComp sx={{ fontSize: 16 }} />
+                          <IconComp sx={{ fontSize: 15 }} />
                         </Box>
                         <Box sx={{ minWidth: 0 }}>
-                          <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "1.02rem", lineHeight: 1.25 }}>
+                          <Typography sx={{ color: "#082B50", fontWeight: 850, fontSize: "0.94rem", lineHeight: 1.2 }}>
                             {service.title}
                           </Typography>
-                          <Typography sx={{ color: "#B45309", fontSize: "0.68rem", fontWeight: 700, fontFamily: "var(--font-telugu), 'Gautami', 'Inter', sans-serif" }}>
+                          <Typography sx={{ color: "#B45309", fontSize: "0.65rem", fontWeight: 700, fontFamily: "var(--font-telugu), 'Gautami', 'Inter', sans-serif" }}>
                             {service.telugu}
                           </Typography>
                         </Box>
@@ -612,10 +612,10 @@ export default function CitizenServicesPage() {
                       <Typography
                         sx={{
                           color: "#64748B",
-                          fontSize: "0.78rem",
-                          lineHeight: 1.5,
-                          mt: 1,
-                          mb: 1.5,
+                          fontSize: "0.74rem",
+                          lineHeight: 1.45,
+                          mt: 0.5,
+                          mb: 1.2,
                           display: "-webkit-box",
                           WebkitLineClamp: 2,
                           WebkitBoxOrient: "vertical",
@@ -626,14 +626,14 @@ export default function CitizenServicesPage() {
                       </Typography>
 
                       {/* Highlights */}
-                      <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.04em", mb: 0.6 }}>
-                        Service Highlights:
+                      <Typography sx={{ color: "#082B50", fontWeight: 800, fontSize: "0.66rem", textTransform: "uppercase", letterSpacing: "0.04em", mb: 0.5 }}>
+                        Key Highlights:
                       </Typography>
-                      <Stack spacing={0.5} sx={{ mb: 2 }}>
+                      <Stack spacing={0.4} sx={{ mb: 1.5 }}>
                         {service.highlights.map((h, i) => (
-                          <Box key={i} sx={{ display: "flex", alignItems: "flex-start", gap: 0.8 }}>
-                            <CheckCircleRoundedIcon sx={{ fontSize: 13, color: "#16A34A", mt: 0.25, flexShrink: 0 }} />
-                            <Typography sx={{ fontSize: "0.74rem", color: "#334155", fontWeight: 600, lineHeight: 1.35 }}>
+                          <Box key={i} sx={{ display: "flex", alignItems: "flex-start", gap: 0.6 }}>
+                            <CheckCircleRoundedIcon sx={{ fontSize: 12, color: "#16A34A", mt: 0.2, flexShrink: 0 }} />
+                            <Typography sx={{ fontSize: "0.71rem", color: "#334155", fontWeight: 600, lineHeight: 1.3 }}>
                               {h}
                             </Typography>
                           </Box>
@@ -644,7 +644,7 @@ export default function CitizenServicesPage() {
                       <Box
                         sx={{
                           mt: "auto",
-                          pt: 1.2,
+                          pt: 1,
                           borderTop: "1px solid #F1F5F9",
                           display: "flex",
                           alignItems: "center",
@@ -656,16 +656,16 @@ export default function CitizenServicesPage() {
                           href={service.href}
                           className="service-btn"
                           size="small"
-                          endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: 14 }} />}
+                          endIcon={<ArrowForwardRoundedIcon sx={{ fontSize: 13 }} />}
                           sx={{
                             bgcolor: "#F5B800",
                             color: "#082B50 !important",
                             fontWeight: 800,
-                            fontSize: "0.74rem",
-                            borderRadius: "6px",
+                            fontSize: "0.7rem",
+                            borderRadius: "5px",
                             textTransform: "none",
-                            px: 1.6,
-                            py: 0.45,
+                            px: 1.4,
+                            py: 0.35,
                             transition: "all 0.2s ease",
                             "&:hover": { bgcolor: "#E0A800" },
                           }}
@@ -673,7 +673,7 @@ export default function CitizenServicesPage() {
                           {service.actionText}
                         </Button>
 
-                        <Typography sx={{ fontSize: "0.68rem", color: "#94A3B8", fontWeight: 650 }}>
+                        <Typography sx={{ fontSize: "0.64rem", color: "#94A3B8", fontWeight: 650 }}>
                           Official Channel
                         </Typography>
                       </Box>
@@ -686,42 +686,42 @@ export default function CitizenServicesPage() {
         </Container>
       </Box>
 
-      {/* 5. PREFER TO TALK TO US? - SLEEK STREAMLINED HELPLINE STRIP */}
-      <Box sx={{ py: { xs: 4, sm: 5, md: 5.5 } }}>
+      {/* 5. PREFER TO TALK TO US? - COMPACT STREAMLINED HELPLINE STRIP */}
+      <Box sx={{ py: { xs: 2.5, sm: 3, md: 3.5 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Paper
             elevation={0}
             sx={{
-              borderRadius: "20px",
+              borderRadius: "16px",
               bgcolor: "#FFFFFF",
               border: "1px solid #E2E8F0",
-              boxShadow: "0 4px 20px rgba(8, 43, 80, 0.05)",
-              p: { xs: 3, sm: 3.5, md: 4 },
-              transition: "all 0.3s ease",
+              boxShadow: "0 3px 14px rgba(8, 43, 80, 0.04)",
+              p: { xs: 2.5, sm: 2.75, md: 3 },
+              transition: "all 0.25s ease",
               "&:hover": {
-                boxShadow: "0 10px 30px rgba(8, 43, 80, 0.08)",
+                boxShadow: "0 6px 20px rgba(8, 43, 80, 0.08)",
                 borderColor: "#CBD5E1",
               },
             }}
           >
-            <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center">
+            <Grid container spacing={{ xs: 2, md: 3 }} alignItems="center">
               {/* Left Column: Clear Text & Status */}
               <Grid size={{ xs: 12, md: 6.5 }}>
-                <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                <Stack direction="row" spacing={0.8} alignItems="center" sx={{ mb: 0.6 }}>
                   <Box
                     sx={{
-                      width: 8,
-                      height: 8,
+                      width: 7,
+                      height: 7,
                       borderRadius: "50%",
                       bgcolor: "#16A34A",
-                      boxShadow: "0 0 8px #16A34A",
+                      boxShadow: "0 0 6px #16A34A",
                     }}
                   />
                   <Typography
                     sx={{
                       color: "#16A34A",
                       fontWeight: 800,
-                      fontSize: "0.72rem",
+                      fontSize: "0.68rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.08em",
                     }}
@@ -735,10 +735,10 @@ export default function CitizenServicesPage() {
                   sx={{
                     color: "#082B50",
                     fontWeight: 900,
-                    fontSize: { xs: "1.5rem", sm: "1.85rem", md: "2.1rem" },
+                    fontSize: { xs: "1.35rem", sm: "1.55rem", md: "1.75rem" },
                     letterSpacing: "-0.025em",
                     lineHeight: 1.2,
-                    mb: 1.2,
+                    mb: 0.8,
                   }}
                 >
                   Prefer to Speak to Our Support Team?
@@ -747,8 +747,8 @@ export default function CitizenServicesPage() {
                 <Typography
                   sx={{
                     color: "#64748B",
-                    fontSize: { xs: "0.86rem", sm: "0.92rem" },
-                    lineHeight: 1.6,
+                    fontSize: { xs: "0.8rem", sm: "0.85rem" },
+                    lineHeight: 1.5,
                     maxWidth: 580,
                   }}
                 >
@@ -758,7 +758,7 @@ export default function CitizenServicesPage() {
 
               {/* Right Column: Two Elegant Minimalist Calling Cards */}
               <Grid size={{ xs: 12, md: 5.5 }}>
-                <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
                   {/* Card 1: IVRS 1902 */}
                   <Box
                     component="a"
@@ -766,62 +766,62 @@ export default function CitizenServicesPage() {
                     sx={{
                       flex: 1,
                       display: "flex",
-                      flexDirection: "column",
+                      alignItems: "center",
                       justifyContent: "space-between",
-                      p: 2.2,
-                      borderRadius: "14px",
+                      p: 1.6,
+                      borderRadius: "12px",
                       bgcolor: "#F8FAFC",
-                      border: "1.5px solid #E2E8F0",
+                      border: "1px solid #E2E8F0",
                       textDecoration: "none",
-                      transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                      transition: "all 0.22s cubic-bezier(0.4, 0, 0.2, 1)",
                       "&:hover": {
-                        transform: "translateY(-3px)",
+                        transform: "translateY(-2px)",
                         bgcolor: "#FFFFFF",
                         borderColor: "#D97706",
-                        boxShadow: "0 8px 22px rgba(217, 119, 6, 0.15)",
+                        boxShadow: "0 6px 18px rgba(217, 119, 6, 0.12)",
                         "& .phone-avatar-1": { bgcolor: "#D97706", color: "#FFFFFF" },
                       },
                     }}
                   >
-                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
+                    <Stack direction="row" spacing={1.2} alignItems="center">
                       <Box
                         className="phone-avatar-1"
                         sx={{
-                          width: 36,
-                          height: 36,
-                          borderRadius: "10px",
+                          width: 32,
+                          height: 32,
+                          borderRadius: "8px",
                           bgcolor: "#FEF3C7",
                           color: "#B45309",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
+                          flexShrink: 0,
                           transition: "all 0.2s ease",
                         }}
                       >
-                        <PhoneRoundedIcon sx={{ fontSize: 18 }} />
+                        <PhoneRoundedIcon sx={{ fontSize: 16 }} />
                       </Box>
-                      <Chip
-                        label="Toll-Free"
-                        size="small"
-                        sx={{
-                          bgcolor: "#EFF6FF",
-                          color: "#1D4ED8",
-                          fontWeight: 800,
-                          fontSize: "0.66rem",
-                          height: 20,
-                          borderRadius: "4px",
-                        }}
-                      />
-                    </Box>
-
-                    <Box>
-                      <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "1.25rem", lineHeight: 1.15 }}>
-                        1902
-                      </Typography>
-                      <Typography sx={{ color: "#64748B", fontSize: "0.74rem", fontWeight: 600, mt: 0.4 }}>
-                        Toll-Free 24/7 Voice IVRS
-                      </Typography>
-                    </Box>
+                      <Box>
+                        <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "1.05rem", lineHeight: 1.15 }}>
+                          1902
+                        </Typography>
+                        <Typography sx={{ color: "#64748B", fontSize: "0.68rem", fontWeight: 650 }}>
+                          Toll-Free 24/7 Voice IVRS
+                        </Typography>
+                      </Box>
+                    </Stack>
+                    <Chip
+                      label="Toll-Free"
+                      size="small"
+                      sx={{
+                        bgcolor: "#EFF6FF",
+                        color: "#1D4ED8",
+                        fontWeight: 800,
+                        fontSize: "0.64rem",
+                        height: 18,
+                        borderRadius: "3px",
+                      }}
+                    />
                   </Box>
 
                   {/* Card 2: DRDA Office Line */}
@@ -831,62 +831,62 @@ export default function CitizenServicesPage() {
                     sx={{
                       flex: 1,
                       display: "flex",
-                      flexDirection: "column",
+                      alignItems: "center",
                       justifyContent: "space-between",
-                      p: 2.2,
-                      borderRadius: "14px",
+                      p: 1.6,
+                      borderRadius: "12px",
                       bgcolor: "#F8FAFC",
-                      border: "1.5px solid #E2E8F0",
+                      border: "1px solid #E2E8F0",
                       textDecoration: "none",
-                      transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                      transition: "all 0.22s cubic-bezier(0.4, 0, 0.2, 1)",
                       "&:hover": {
-                        transform: "translateY(-3px)",
+                        transform: "translateY(-2px)",
                         bgcolor: "#FFFFFF",
                         borderColor: "#082B50",
-                        boxShadow: "0 8px 22px rgba(8, 43, 80, 0.12)",
+                        boxShadow: "0 6px 18px rgba(8, 43, 80, 0.1)",
                         "& .phone-avatar-2": { bgcolor: "#082B50", color: "#FFFFFF" },
                       },
                     }}
                   >
-                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
+                    <Stack direction="row" spacing={1.2} alignItems="center">
                       <Box
                         className="phone-avatar-2"
                         sx={{
-                          width: 36,
-                          height: 36,
-                          borderRadius: "10px",
+                          width: 32,
+                          height: 32,
+                          borderRadius: "8px",
                           bgcolor: "#F1F5F9",
                           color: "#082B50",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
+                          flexShrink: 0,
                           transition: "all 0.2s ease",
                         }}
                       >
-                        <PhoneRoundedIcon sx={{ fontSize: 18 }} />
+                        <PhoneRoundedIcon sx={{ fontSize: 16 }} />
                       </Box>
-                      <Chip
-                        label="Landline"
-                        size="small"
-                        sx={{
-                          bgcolor: "#F1F5F9",
-                          color: "#475569",
-                          fontWeight: 750,
-                          fontSize: "0.66rem",
-                          height: 20,
-                          borderRadius: "4px",
-                        }}
-                      />
-                    </Box>
-
-                    <Box>
-                      <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "1.1rem", lineHeight: 1.15 }}>
-                        08922-276606
-                      </Typography>
-                      <Typography sx={{ color: "#64748B", fontSize: "0.74rem", fontWeight: 600, mt: 0.4 }}>
-                        DRDA Office, Vizianagaram
-                      </Typography>
-                    </Box>
+                      <Box>
+                        <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "0.95rem", lineHeight: 1.15 }}>
+                          08922-276606
+                        </Typography>
+                        <Typography sx={{ color: "#64748B", fontSize: "0.68rem", fontWeight: 650 }}>
+                          DRDA Office, Vizianagaram
+                        </Typography>
+                      </Box>
+                    </Stack>
+                    <Chip
+                      label="Office"
+                      size="small"
+                      sx={{
+                        bgcolor: "#F1F5F9",
+                        color: "#475569",
+                        fontWeight: 750,
+                        fontSize: "0.64rem",
+                        height: 18,
+                        borderRadius: "3px",
+                      }}
+                    />
                   </Box>
                 </Stack>
               </Grid>
