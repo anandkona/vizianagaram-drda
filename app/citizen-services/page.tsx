@@ -686,143 +686,255 @@ export default function CitizenServicesPage() {
         </Container>
       </Box>
 
-      {/* 5. PREFER TO TALK TO US? - MATCHING DRDA EXACT SECTION */}
-      <Box
-        component="section"
-        sx={{
-          py: { xs: 5, sm: 6, md: 7 },
-          bgcolor: "#082B50",
-          background: "linear-gradient(135deg, #051A30 0%, #082B50 60%, #0C3C6E 100%)",
-          color: "#FFFFFF",
-          position: "relative",
-          overflow: "hidden",
-          borderTop: "3px solid #F5B800",
-        }}
-      >
-        <Container maxWidth="md" sx={{ px: { xs: 2.5, sm: 3 }, textAlign: "center", position: "relative", zIndex: 1 }}>
-          {/* Subtle Golden Pill Badge */}
+      {/* 5. PREFER TO TALK TO US? - PREMIUM CONCIERGE HELPLINE SUITE */}
+      <Box sx={{ py: { xs: 4, sm: 5, md: 6 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
           <Box
             sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 0.8,
-              bgcolor: "rgba(245, 184, 0, 0.15)",
-              color: "#FDE68A",
-              border: "1px solid rgba(245, 184, 0, 0.4)",
-              px: 2,
-              py: 0.5,
-              borderRadius: "100px",
-              fontSize: "0.74rem",
-              fontWeight: 800,
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              mb: 2,
+              position: "relative",
+              borderRadius: { xs: "24px", md: "32px" },
+              bgcolor: "#FFFFFF",
+              border: "1px solid #E2E8F0",
+              boxShadow: "0 12px 36px -8px rgba(8, 43, 80, 0.08)",
+              overflow: "hidden",
+              p: { xs: 3, sm: 4, md: 5 },
             }}
           >
-            <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#F5B800", boxShadow: "0 0 8px #F5B800" }} />
-            24/7 Citizen Assistance Helpline
+            {/* Soft Ambient Radial Accents */}
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                width: 320,
+                height: 320,
+                background: "radial-gradient(circle, rgba(245, 184, 0, 0.1) 0%, rgba(245, 184, 0, 0) 70%)",
+                pointerEvents: "none",
+              }}
+            />
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: 260,
+                height: 260,
+                background: "radial-gradient(circle, rgba(8, 43, 80, 0.04) 0%, rgba(8, 43, 80, 0) 70%)",
+                pointerEvents: "none",
+              }}
+            />
+
+            <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center">
+              {/* Left Column: Heading, Subtitle & Operational Hours */}
+              <Grid size={{ xs: 12, md: 6.5 }}>
+                <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1.5 }}>
+                  <Box
+                    sx={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      bgcolor: "#16A34A",
+                      boxShadow: "0 0 10px #16A34A",
+                    }}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#16A34A",
+                      fontWeight: 800,
+                      fontSize: "0.75rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                    }}
+                  >
+                    24/7 CITIZEN ASSISTANCE HELPLINE
+                  </Typography>
+                </Stack>
+
+                <Typography
+                  component="h2"
+                  sx={{
+                    color: "#082B50",
+                    fontWeight: 900,
+                    fontSize: { xs: "1.75rem", sm: "2.15rem", md: "2.5rem" },
+                    lineHeight: 1.15,
+                    letterSpacing: "-0.03em",
+                    mb: 1.5,
+                  }}
+                >
+                  Prefer to Speak to Our Support Team?
+                </Typography>
+
+                <Typography
+                  sx={{
+                    color: "#64748B",
+                    fontSize: { xs: "0.88rem", sm: "0.95rem" },
+                    lineHeight: 1.65,
+                    maxWidth: 580,
+                    fontWeight: 480,
+                    mb: 2.5,
+                  }}
+                >
+                  Reach our citizen helplines any time in Telugu or English. Support officers will assist with welfare schemes, applications, grievances, and department guidance across Vizianagaram.
+                </Typography>
+
+                {/* Micro Badges */}
+                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                  <Chip
+                    icon={<CheckCircleRoundedIcon sx={{ fontSize: "14px !important", color: "#16A34A !important" }} />}
+                    label="Telugu & English Voice Support"
+                    size="small"
+                    sx={{
+                      bgcolor: "#F8FAFC",
+                      color: "#334155",
+                      fontWeight: 700,
+                      fontSize: "0.74rem",
+                      border: "1px solid #E2E8F0",
+                      py: 1.8,
+                    }}
+                  />
+                  <Chip
+                    icon={<CheckCircleRoundedIcon sx={{ fontSize: "14px !important", color: "#16A34A !important" }} />}
+                    label="Zero-Charge Toll-Free Route"
+                    size="small"
+                    sx={{
+                      bgcolor: "#F8FAFC",
+                      color: "#334155",
+                      fontWeight: 700,
+                      fontSize: "0.74rem",
+                      border: "1px solid #E2E8F0",
+                      py: 1.8,
+                    }}
+                  />
+                </Stack>
+              </Grid>
+
+              {/* Right Column: Two Distinct Interactive Calling Pods */}
+              <Grid size={{ xs: 12, md: 5.5 }}>
+                <Stack spacing={2}>
+                  {/* Pod 1: Toll Free IVRS 1902 */}
+                  <Box
+                    component="a"
+                    href="tel:1902"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      p: 2.5,
+                      borderRadius: "18px",
+                      bgcolor: "#082B50",
+                      color: "#FFFFFF",
+                      textDecoration: "none",
+                      border: "1px solid #0E3B68",
+                      boxShadow: "0 8px 24px rgba(8, 43, 80, 0.18)",
+                      transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                      "&:hover": {
+                        transform: "translateY(-3px)",
+                        bgcolor: "#051A30",
+                        boxShadow: "0 14px 32px rgba(8, 43, 80, 0.25)",
+                        "& .pod-action-arrow": { transform: "translateX(4px)" },
+                      },
+                    }}
+                  >
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: "12px",
+                          bgcolor: "#F5B800",
+                          color: "#082B50",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          boxShadow: "0 4px 12px rgba(245, 184, 0, 0.3)",
+                        }}
+                      >
+                        <PhoneRoundedIcon sx={{ fontSize: 24 }} />
+                      </Box>
+                      <Box>
+                        <Stack direction="row" spacing={1} alignItems="center">
+                          <Typography sx={{ color: "#FFFFFF", fontWeight: 900, fontSize: "1.2rem", lineHeight: 1.1 }}>
+                            1902
+                          </Typography>
+                          <Chip
+                            label="Toll-Free"
+                            size="small"
+                            sx={{
+                              bgcolor: "rgba(245, 184, 0, 0.2)",
+                              color: "#FDE68A",
+                              fontWeight: 800,
+                              fontSize: "0.68rem",
+                              height: 20,
+                              borderRadius: "4px",
+                            }}
+                          />
+                        </Stack>
+                        <Typography sx={{ color: "rgba(255, 255, 255, 0.75)", fontSize: "0.78rem", mt: 0.3, fontWeight: 550 }}>
+                          Government Automated & Agent IVRS (24/7)
+                        </Typography>
+                      </Box>
+                    </Stack>
+                    <ArrowForwardRoundedIcon className="pod-action-arrow" sx={{ color: "#F5B800", fontSize: 22, transition: "transform 0.2s ease" }} />
+                  </Box>
+
+                  {/* Pod 2: DRDA Project Director Direct Landline */}
+                  <Box
+                    component="a"
+                    href="tel:08922276606"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      p: 2.5,
+                      borderRadius: "18px",
+                      bgcolor: "#FFFDF5",
+                      color: "#082B50",
+                      textDecoration: "none",
+                      border: "1.5px solid #FDE68A",
+                      boxShadow: "0 4px 16px rgba(245, 184, 0, 0.12)",
+                      transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                      "&:hover": {
+                        transform: "translateY(-3px)",
+                        bgcolor: "#FFFFFF",
+                        borderColor: "#F5B800",
+                        boxShadow: "0 10px 24px rgba(245, 184, 0, 0.25)",
+                        "& .pod-action-arrow-2": { transform: "translateX(4px)" },
+                      },
+                    }}
+                  >
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: "12px",
+                          bgcolor: "#FFFBEB",
+                          color: "#D97706",
+                          border: "1px solid #FDE68A",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <PhoneRoundedIcon sx={{ fontSize: 22 }} />
+                      </Box>
+                      <Box>
+                        <Typography sx={{ color: "#082B50", fontWeight: 900, fontSize: "1.1rem", lineHeight: 1.1 }}>
+                          08922-276606
+                        </Typography>
+                        <Typography sx={{ color: "#B45309", fontSize: "0.78rem", mt: 0.3, fontWeight: 650 }}>
+                          DRDA Administrative Head Office, Vizianagaram
+                        </Typography>
+                      </Box>
+                    </Stack>
+                    <ArrowForwardRoundedIcon className="pod-action-arrow-2" sx={{ color: "#B45309", fontSize: 22, transition: "transform 0.2s ease" }} />
+                  </Box>
+                </Stack>
+              </Grid>
+            </Grid>
           </Box>
-
-          {/* Heading */}
-          <Typography
-            component="h2"
-            sx={{
-              fontWeight: 900,
-              fontSize: { xs: "1.75rem", sm: "2.2rem", md: "2.5rem" },
-              letterSpacing: "-0.03em",
-              lineHeight: 1.2,
-              mb: 1.5,
-              color: "#FFFFFF",
-            }}
-          >
-            Prefer to Talk to Us?
-          </Typography>
-
-          {/* Subtitle */}
-          <Typography
-            sx={{
-              color: "rgba(255, 255, 255, 0.85)",
-              fontSize: { xs: "0.92rem", sm: "1rem" },
-              lineHeight: 1.65,
-              maxWidth: 620,
-              mx: "auto",
-              mb: 4,
-              fontWeight: 450,
-            }}
-          >
-            Reach our citizen helplines any time — in Telugu or English. Support officers will assist with welfare schemes, applications, grievances, and department guidance across Vizianagaram.
-          </Typography>
-
-          {/* Clean Rounded Action Pills */}
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={2}
-            justifyContent="center"
-            alignItems="center"
-          >
-            {/* IVRS Button */}
-            <Button
-              component="a"
-              href="tel:1902"
-              startIcon={<PhoneRoundedIcon sx={{ fontSize: 18 }} />}
-              sx={{
-                bgcolor: "#F5B800",
-                color: "#082B50 !important",
-                fontWeight: 850,
-                fontSize: "0.92rem",
-                px: 3.5,
-                py: 1.4,
-                borderRadius: "50px",
-                textTransform: "none",
-                boxShadow: "0 8px 24px rgba(245, 184, 0, 0.35)",
-                minWidth: { xs: "100%", sm: 220 },
-                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-                "&:hover": {
-                  bgcolor: "#FFFFFF",
-                  color: "#082B50 !important",
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 12px 28px rgba(255, 255, 255, 0.4)",
-                },
-                "&:active": {
-                  transform: "translateY(0)",
-                },
-              }}
-            >
-              IVRS: 1902 (Free)
-            </Button>
-
-            {/* DRDA Direct Line Button */}
-            <Button
-              component="a"
-              href="tel:08922276606"
-              startIcon={<PhoneRoundedIcon sx={{ fontSize: 18 }} />}
-              sx={{
-                bgcolor: "rgba(255, 255, 255, 0.12)",
-                color: "#FFFFFF !important",
-                fontWeight: 800,
-                fontSize: "0.92rem",
-                px: 3.5,
-                py: 1.4,
-                borderRadius: "50px",
-                textTransform: "none",
-                border: "1.5px solid rgba(255, 255, 255, 0.35)",
-                minWidth: { xs: "100%", sm: 220 },
-                backdropFilter: "blur(8px)",
-                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-                "&:hover": {
-                  bgcolor: "rgba(255, 255, 255, 0.25)",
-                  borderColor: "#FFFFFF",
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 8px 20px rgba(0, 0, 0, 0.25)",
-                },
-                "&:active": {
-                  transform: "translateY(0)",
-                },
-              }}
-            >
-              DRDA: 08922-276606
-            </Button>
-          </Stack>
         </Container>
       </Box>
     </Box>
