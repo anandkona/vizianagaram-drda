@@ -116,7 +116,6 @@ const headerNavItems: NavItemType[] = [
       { label: "Women Entrepreneurship", href: "/women-entrepreneurship" },
       { label: "One Family One Entrepreneur", href: "/one-family-one-entrepreneur" },
       { label: "Livelihood Projects", href: "/livelihoods" },
-      { label: "Community Tourism", href: "/community-tourism" },
       { label: "SERP Corner", href: "/serp-corner" },
     ],
   },

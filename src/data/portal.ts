@@ -227,7 +227,7 @@ export const eventsPage: PortalFeature = {
       links: [
         { label: "Press Releases", description: "Browse static release summaries and media references.", href: "/press-releases", icon: "campaign" },
         { label: "Media Centre", description: "Explore news, photos, videos and awareness entries.", href: "/media", icon: "photo" },
-        { label: "Community Tourism", description: "Plan a respectful, locally useful visit.", href: "/community-tourism", icon: "tourism" },
+        { label: "District Tourism", description: "Discover heritage, culture and destinations.", href: "/tourism", icon: "tourism" },
       ],
     },
   ],
@@ -652,7 +652,6 @@ export const sitemapLinks: SitemapLink[] = [
   { label: "One Family One Entrepreneur", href: "/one-family-one-entrepreneur", description: "A household enterprise planning guide.", group: "Livelihoods" },
   { label: "Women Entrepreneurship", href: "/women-entrepreneurship", description: "A women-led enterprise pathway.", group: "Livelihoods" },
   { label: "Tourism", href: "/tourism", description: "Discover heritage, culture and destinations.", group: "Discover" },
-  { label: "Community Tourism", href: "/community-tourism", description: "Plan a respectful, locally useful visit.", group: "Discover" },
   { label: "Media Centre", href: "/media", description: "News, photos, videos and awareness entries.", group: "Discover" },
   { label: "Events", href: "/events", description: "Illustrative district calendar and event guidance.", group: "Discover" },
   { label: "Press Releases", href: "/press-releases", description: "Static release summaries and verification guidance.", group: "Discover" },

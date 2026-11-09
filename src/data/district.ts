@@ -197,10 +197,6 @@ export const navigation: NavItem[] = [
   {
     label: "Tourism",
     href: "/tourism",
-    children: [
-      { label: "District Tourism & Heritage", href: "/tourism" },
-      { label: "Community & Rural Tourism", href: "/community-tourism" },
-    ],
   },
   {
     label: "Downloads",

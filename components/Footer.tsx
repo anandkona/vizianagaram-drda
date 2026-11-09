@@ -95,7 +95,11 @@ export default function Footer() {
                     color: "#CBD5E1",
                     fontSize: "0.8rem",
                     textDecoration: "none",
-                    "&:hover": { color: "#FFC107" },
+                    transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                    "&:hover": {
+                      color: "#FFC107",
+                      transform: "translateX(3px)",
+                    },
                   }}
                 >
                   {siteConfig.phone}
@@ -110,7 +114,11 @@ export default function Footer() {
                     color: "#CBD5E1",
                     fontSize: "0.8rem",
                     textDecoration: "none",
-                    "&:hover": { color: "#FFC107" },
+                    transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                    "&:hover": {
+                      color: "#FFC107",
+                      transform: "translateX(3px)",
+                    },
                   }}
                 >
                   {siteConfig.email}
@@ -134,10 +142,15 @@ export default function Footer() {
                 py: 0.8,
                 borderRadius: "50px",
                 textDecoration: "none",
-                transition: "all 0.2s ease",
+                boxShadow: "0 4px 12px rgba(255, 193, 7, 0.25)",
+                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
                 "&:hover": {
                   backgroundColor: "#FFE082",
-                  transform: "translateY(-1px)",
+                  transform: "translateY(-2px) scale(1.02)",
+                  boxShadow: "0 8px 18px rgba(255, 193, 7, 0.4)",
+                },
+                "&:active": {
+                  transform: "translateY(0) scale(0.99)",
                 },
               }}
             >
@@ -165,12 +178,17 @@ export default function Footer() {
                   key={item.label}
                   component={Link}
                   href={item.href}
-                  underline="hover"
+                  underline="none"
                   sx={{
                     color: "#94A3B8",
                     fontSize: "0.8rem",
                     lineHeight: 1.6,
-                    "&:hover": { color: "#FFC107" },
+                    display: "inline-block",
+                    transition: "all 0.22s cubic-bezier(0.4, 0, 0.2, 1)",
+                    "&:hover": {
+                      color: "#FFC107",
+                      transform: "translateX(5px)",
+                    },
                   }}
                 >
                   {item.label}
@@ -198,12 +216,17 @@ export default function Footer() {
                   key={item.label}
                   component={Link}
                   href={item.href}
-                  underline="hover"
+                  underline="none"
                   sx={{
                     color: "#94A3B8",
                     fontSize: "0.8rem",
                     lineHeight: 1.6,
-                    "&:hover": { color: "#FFC107" },
+                    display: "inline-block",
+                    transition: "all 0.22s cubic-bezier(0.4, 0, 0.2, 1)",
+                    "&:hover": {
+                      color: "#FFC107",
+                      transform: "translateX(5px)",
+                    },
                   }}
                 >
                   {item.label}
@@ -224,7 +247,7 @@ export default function Footer() {
             >
               Follow Us
             </Typography>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={1.2}>
               {[
                 { icon: <FacebookRoundedIcon fontSize="small" />, href: "https://facebook.com" },
                 { icon: <YouTubeIcon fontSize="small" />, href: "https://youtube.com" },
@@ -241,11 +264,17 @@ export default function Footer() {
                     border: "1px solid rgba(255, 255, 255, 0.2)",
                     color: "#CBD5E1",
                     borderRadius: "50%",
-                    p: 0.9,
+                    p: 1,
+                    transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
                     "&:hover": {
                       borderColor: "#FFC107",
-                      color: "#FFC107",
-                      backgroundColor: "rgba(255, 193, 7, 0.1)",
+                      color: "#082B50",
+                      backgroundColor: "#FFC107",
+                      transform: "translateY(-3px) scale(1.08)",
+                      boxShadow: "0 6px 16px rgba(255, 193, 7, 0.35)",
+                    },
+                    "&:active": {
+                      transform: "translateY(0) scale(0.95)",
                     },
                   }}
                 >
