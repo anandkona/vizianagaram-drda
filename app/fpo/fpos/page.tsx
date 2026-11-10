@@ -44,12 +44,6 @@ export default function FPOsPage() {
           background: "rgba(255, 255, 255, 0.4)", display: "none", pointerEvents: "none"
         }} />
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43, 33, 0, 0.72)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:text-inherit">Home</Link>
-            <Link href="/livelihoods" style={{ color: "inherit", textDecoration: "none" }}>Livelihoods</Link>
-            <Typography sx={{ color: "#2B2100", fontSize: "0.85rem", fontWeight: 700 }}>FPOs</Typography>
-          </Breadcrumbs>
-
           <Typography variant="h1" sx={{ fontWeight: 900, mb: 1, fontSize: { xs: "1.6rem", sm: "1.9rem", md: "2.25rem" }, letterSpacing: "-0.02em", color: "#1F1700" }}>
             Farmer Producer Organisations
           </Typography>

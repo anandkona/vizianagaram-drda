@@ -197,23 +197,6 @@ export default function DistrictMapPage() {
           <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center">
             {/* Left Column: Title & Descriptions */}
             <Grid size={{ xs: 12, md: 6.5 }}>
-              <Breadcrumbs
-                separator="/"
-                sx={{
-                  color: "#64748B",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  mb: { xs: 1, sm: 1.5 },
-                  "& a": { color: "#082B50", textDecoration: "none" },
-                }}
-              >
-                <Link href="/">Home</Link>
-                <Link href="/about/district">About District</Link>
-                <Typography sx={{ color: "#D97706", fontWeight: 700, fontSize: "0.82rem" }}>
-                  District Administrative Map
-                </Typography>
-              </Breadcrumbs>
-
               {/* Tag Pill */}
               <Typography
                 sx={{

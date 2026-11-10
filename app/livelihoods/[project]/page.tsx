@@ -38,11 +38,6 @@ export default function LivelihoodProjectPage({ params }: { params: Promise<{ pr
     <Box sx={{ minHeight: "100vh", fontFamily: "'Inter', sans-serif", bgcolor: "#F8FAFC" }}>
       <Box sx={{ position: "relative", overflow: "hidden", background: "#FFC107", color: "#2B2100", py: { xs: 2, md: 2.5 } }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, position: "relative", zIndex: 1 }}>
-          <Breadcrumbs separator="/" sx={{ color: "rgba(43,33,0,0.6)", mb: 1, fontSize: "0.8rem", fontWeight: 600 }}>
-            <Link href="/">Home</Link>
-            <Link href="/livelihoods">Livelihoods</Link>
-            <Typography sx={{ color: "#2B2100", fontSize: "0.8rem", fontWeight: 700 }}>{currentCategory.title}</Typography>
-          </Breadcrumbs>
           <Typography variant="h1" sx={{ fontWeight: 900, mb: 1, fontSize: { xs: "1.6rem", sm: "1.9rem", md: "2.25rem" }, color: "#1F1700" }}>{currentCategory.title}</Typography>
           <Typography sx={{ color: "rgba(31,23,0,0.85)", fontSize: { xs: "0.85rem", sm: "0.95rem" }, maxWidth: 650, lineHeight: 1.4, fontWeight: 500 }}>
             Discover the impacts and success of the {currentCategory.title} initiative in Vizianagaram district.

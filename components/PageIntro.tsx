@@ -96,53 +96,6 @@ export default function PageIntro({
       />
 
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1, px: { xs: 2, sm: 3, md: 4 } }}>
-        {/* Breadcrumb Bar */}
-        <Breadcrumbs
-          aria-label="Breadcrumb navigation"
-          separator="/"
-          sx={{
-            color: "#64748B",
-            mb: 1.5,
-            fontSize: "0.78rem",
-            fontWeight: 650,
-            "& .MuiBreadcrumbs-ol": { flexWrap: "wrap" },
-            "& .MuiBreadcrumbs-separator": { color: "#CBD5E1", mx: 0.8 },
-          }}
-        >
-          {crumbs.map((c, idx) => {
-            const isLast = idx === crumbs.length - 1;
-            if (isLast || !c.href) {
-              return (
-                <Typography
-                  key={c.label}
-                  sx={{
-                    color: "#082B50",
-                    fontWeight: 750,
-                    fontSize: "0.78rem",
-                  }}
-                >
-                  {c.label}
-                </Typography>
-              );
-            }
-            return (
-              <Typography
-                key={c.label}
-                component={Link}
-                href={c.href}
-                sx={{
-                  color: "#64748B",
-                  textDecoration: "none",
-                  fontSize: "0.78rem",
-                  "&:hover": { color: "#082B50", textDecoration: "underline" },
-                }}
-              >
-                {c.label}
-              </Typography>
-            );
-          })}
-        </Breadcrumbs>
-
         <Box
           sx={{
             display: "grid",

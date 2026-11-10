@@ -161,14 +161,6 @@ export default function DownloadsPage() {
         <Container maxWidth="xl" sx={{ px: { xs: 2.5, sm: 3.5, md: 5 }, position: "relative", zIndex: 1 }}>
           <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center">
             <Grid size={{ xs: 12, md: 6.5 }}>
-              <Breadcrumbs separator="›" sx={{ color: "#64748B", mb: { xs: 1, sm: 1.25 }, fontSize: { xs: "0.78rem", sm: "0.85rem" }, fontWeight: 600 }}>
-                <Link href="/" style={{ color: "inherit", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4 }}>
-                  <HomeIcon sx={{ fontSize: 16, mb: "1px" }} /> Home
-                </Link>
-                <Typography component="span" sx={{ color: "#082B50", fontWeight: 700, fontSize: { xs: "0.78rem", sm: "0.85rem" } }}>
-                  Downloads & Documents
-                </Typography>
-              </Breadcrumbs>
               <Typography sx={{ color: "#D97706", fontSize: { xs: "0.72rem", sm: "0.78rem" }, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", mb: 0.5 }}>
                 OFFICIAL REPOSITORY & APPLICATION FORMS
               </Typography>
@@ -327,21 +319,26 @@ export default function DownloadsPage() {
                         href={doc.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        startIcon={<DownloadRoundedIcon sx={{ fontSize: 16 }} />}
+                        startIcon={<DownloadRoundedIcon sx={{ fontSize: 16, color: "#FFFFFF !important" }} />}
                         size="small"
                         sx={{
-                          bgcolor: "#082B50",
-                          color: "#FFFFFF",
+                          bgcolor: "#082B50 !important",
+                          color: "#FFFFFF !important",
                           borderRadius: "100px",
-                          px: 2,
-                          py: 0.5,
-                          fontSize: "0.78rem",
-                          fontWeight: 700,
+                          px: 2.2,
+                          py: 0.65,
+                          fontSize: "0.8rem",
+                          fontWeight: 750,
                           textTransform: "none",
-                          "&:hover": { bgcolor: "#0F3A66" },
+                          boxShadow: "0 2px 6px rgba(8, 43, 80, 0.2)",
+                          whiteSpace: "nowrap",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          "&:hover": { bgcolor: "#0F3A66 !important", color: "#FFFFFF !important" },
+                          "& .MuiButton-startIcon": { mr: 0.8 },
                         }}
                       >
-                        Download
+                        Download PDF
                       </Button>
                     </TableCell>
                   </TableRow>
