@@ -133,6 +133,10 @@ const headerNavItems: NavItemType[] = [
     href: "/success-stories",
   },
   {
+    label: "Downloads",
+    href: "/downloads",
+  },
+  {
     label: "District Mart",
     href: "/mart",
     hasDropdown: true,
