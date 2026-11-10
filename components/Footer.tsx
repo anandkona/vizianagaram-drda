@@ -23,19 +23,19 @@ const quickLinksCol = [
   { label: "Home", href: "/" },
   { label: "About District", href: "/about/district" },
   { label: "Citizen Services", href: "/citizen-services" },
-  { label: "Schemes", href: "/schemes/social" },
+  { label: "Schemes", href: "/schemes" },
   { label: "Downloads", href: "/downloads" },
   { label: "Media", href: "/media" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 const citizenServicesCol = [
-  { label: "Grievance Redressal", href: "/services/grievance" },
-  { label: "Public Services", href: "/citizen-services" },
-  { label: "RTI Services", href: "/about/rti" },
-  { label: "Tenders", href: "/downloads" },
-  { label: "Notices", href: "/media" },
-  { label: "District Portal", href: "/" },
+  { label: "Grievance Redressal (PGRS)", href: "/pgrs" },
+  { label: "Citizen Services", href: "/citizen-services" },
+  { label: "RTI Services", href: "/rti" },
+  { label: "Tenders & Notices", href: "/tenders" },
+  { label: "Announcements", href: "/announcements" },
+  { label: "Contact Directory", href: "/directory" },
 ];
 
 export default function Footer() {

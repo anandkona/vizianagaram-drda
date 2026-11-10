@@ -87,6 +87,7 @@ const headerNavItems: NavItemType[] = [
         items: [
           { label: "Announcements & Latest Updates", href: "/announcements" },
           { label: "Tenders & Notices", href: "/tenders" },
+          { label: "Official Downloads", href: "/downloads" },
           { label: "RTI", href: "/rti" },
         ],
       },
